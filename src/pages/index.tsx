@@ -19,6 +19,9 @@ const index = (props: Props) => {
       <AtomButton as="primary" asType="outline">
         <span>Text Primary</span>
       </AtomButton>
+      <AtomButton disabled>
+        <span>Text Primary</span>
+      </AtomButton>
       <AtomButton
         css={css`
           ${backgroundColorFlat("#db4a4a")}

@@ -39,8 +39,9 @@ const IsDisabled: SSP<AtomButtonTypes> = (props) => {
   return css`
     ${disabled &&
     css`
-      background-color: #e6e6e6;
-      color: #7e7e7e;
+      background-color: #e6e6e6 !important;
+      color: #7e7e7e !important;
+      cursor: not-allowed !important;
     `}
   `;
 };
