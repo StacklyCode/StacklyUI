@@ -29,7 +29,7 @@ const index = (props: Props) => {
       <AtomButton
         asType="outline"
         css={css`
-          ${backgroundColorOutline("#db4a4a")}
+          ${backgroundColorOutline("#a56b3b")}
         `}
       >
         <span>Text Primary</span>
