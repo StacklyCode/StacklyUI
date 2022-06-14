@@ -16,6 +16,10 @@
       "hooks": ["core/hooks/index.ts"],
       "types/*": ["core/types/*"],
       "types": ["core/types/index.ts"],
+      "utils/*": ["core/utils/*"],
+      "utils": ["core/utils/isColor.ts"],
+      "styles/*": ["core/styles/*"],
+      "styles": ["core/styles/index.ts"],
       "src/*": ["src/*"],
       "core/*": ["core/*"],
       "core": ["core/index.ts"]

@@ -5,7 +5,9 @@ type Props = {};
 const index = (props: Props) => {
   return (
     <div>
-      <AtomButton>adsa</AtomButton>
+      <AtomButton as="primary" asType="outline">
+        <span>Text Primary</span>
+      </AtomButton>
     </div>
   );
 };
