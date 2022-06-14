@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import { FC } from "react";
+import { FCWC } from "types";
 import { LoaderContainer } from "./style";
 import { LoaderProps } from "./types";
 
@@ -19,8 +20,8 @@ const AtomLoader: FC<LoaderProps> = (props) => {
 
 export default AtomLoader;
 
-export const AtomLoaderSmall: FC<LoaderProps> = (props) => {
-  const { isLoading, customcss } = props;
+export const AtomLoaderSmall: FCWC<LoaderProps> = (props) => {
+  const { isLoading, customcss, children } = props;
   return isLoading ? (
     <LoaderContainer
       {...props}
@@ -48,5 +49,7 @@ export const AtomLoaderSmall: FC<LoaderProps> = (props) => {
         <div />
       </div>
     </LoaderContainer>
-  ) : null;
+  ) : (
+    <>{children}</>
+  );
 };

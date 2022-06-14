@@ -13,12 +13,14 @@ const AtomButton = forwardRef<HTMLButtonElement, AtomButtonTypes>(
   (props, ref) => {
     const { loading, children, disabled } = props;
     return (
-      <ButtonStyled {...isDisabledAnimation(disabled)} {...props} ref={ref}>
-        {loading ? (
-          <AtomLoaderSmall isLoading />
-        ) : (
-          <>{children || `Text Default`}</>
-        )}
+      <ButtonStyled
+        {...isDisabledAnimation(disabled ?? loading)}
+        {...props}
+        ref={ref}
+      >
+        <AtomLoaderSmall isLoading={loading}>
+          {children || `Text Default`}
+        </AtomLoaderSmall>
       </ButtonStyled>
     );
   }

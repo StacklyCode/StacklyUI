@@ -1,9 +1,10 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
-import { SSP } from "types";
+import { SSP, SSPS } from "types";
 import { backgroundColorFlat, backgroundColorOutline } from "utils/cssUtils";
 import { AtomButtonTypes } from "./types";
+import isBackDark from "utils/isBackDark";
 
 export const ButtonStyled = styled(motion.button)<AtomButtonTypes>`
   width: max-content;
@@ -12,6 +13,7 @@ export const ButtonStyled = styled(motion.button)<AtomButtonTypes>`
   font-size: 12px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
+  min-height: 40px;
   border: 1px solid transparent;
   border-radius: 4px;
   cursor: pointer;
@@ -46,4 +48,14 @@ const IsDisabled: SSP<AtomButtonTypes> = (props) => {
       cursor: not-allowed !important;
     `}
   `;
+};
+
+const BorderColorSwitch: SSPS<AtomButtonTypes> = (props) => {
+  const { astype, theme, astheme } = props;
+  switch (astype) {
+    case "outline":
+      return theme?.button?.color?.[astheme] ?? "#fe6a6a";
+    default:
+      return isBackDark(theme?.button?.color?.[astheme] ?? "#fe6a6a");
+  }
 };

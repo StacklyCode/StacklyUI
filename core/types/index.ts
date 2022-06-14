@@ -7,3 +7,4 @@ type ChildrenProps = {
 export type FCWC<P = {}> = FC<P & ChildrenProps>;
 
 export type SSP<P = {}> = (props: WithTheme<P, Theme>) => SerializedStyles;
+export type SSPS<P = {}> = (props: WithTheme<P, Theme>) => string;
