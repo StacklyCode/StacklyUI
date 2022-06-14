@@ -25,12 +25,14 @@ export const ButtonStyled = styled(motion.button)<AtomButtonTypes>`
 `;
 
 const CSSAsType: SSP<AtomButtonTypes> = (props) => {
-  const { asType = "flat", as = "primary", theme } = props;
-  switch (asType) {
+  const { astype = "flat", astheme = "primary", theme } = props;
+  switch (astype) {
     case "outline":
-      return backgroundColorOutline(theme?.button?.color?.[as] ?? "#fe6a6a");
+      return backgroundColorOutline(
+        theme?.button?.color?.[astheme] ?? "#fe6a6a"
+      );
     default:
-      return backgroundColorFlat(theme?.button?.color?.[as] ?? "#fe6a6a");
+      return backgroundColorFlat(theme?.button?.color?.[astheme] ?? "#fe6a6a");
   }
 };
 

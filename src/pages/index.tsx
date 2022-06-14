@@ -7,16 +7,16 @@ type Props = {};
 const index = (props: Props) => {
   return (
     <div>
-      <AtomButton as="primary">
+      <AtomButton astheme="primary">
         <span>Text Primary</span>
       </AtomButton>
-      <AtomButton as="secondary">
+      <AtomButton astheme="secondary">
         <span>Text Primary</span>
       </AtomButton>
-      <AtomButton as="accent">
+      <AtomButton astheme="accent">
         <span>Text Primary</span>
       </AtomButton>
-      <AtomButton as="primary" asType="outline">
+      <AtomButton astheme="primary" astype="outline">
         <span>Text Primary</span>
       </AtomButton>
       <AtomButton disabled>
@@ -30,7 +30,7 @@ const index = (props: Props) => {
         <span>Text Primary</span>
       </AtomButton>
       <AtomButton
-        asType="outline"
+        astype="outline"
         css={css`
           ${backgroundColorOutline("#a56b3b")}
         `}
