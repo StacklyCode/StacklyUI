@@ -15,6 +15,7 @@
       "hooks/*": ["core/hooks/*"],
       "hooks": ["core/hooks/index.ts"],
       "types": ["core/types/index.ts"],
+      "CSSUtils": ["core/utils/CSSUtils.ts"],
       "utils/*": ["core/utils/*"],
       "utils": ["core/utils/index.ts"],
       "styles/*": ["core/styles/*"],

@@ -1,6 +1,5 @@
 import AtomButton from "@atoms/AtomButton";
-import { css } from "@emotion/react";
-import { backgroundColorFlat, backgroundColorOutline } from "utils/cssUtils";
+import { backgroundColorFlat, backgroundColorOutline } from "CSSUtils";
 
 type Props = {};
 
@@ -53,19 +52,10 @@ const index = (props: Props) => {
       </div>
       <div>
         Custom Buttons
-        <AtomButton
-          css={css`
-            ${backgroundColorFlat("#db4a4a")}
-          `}
-        >
+        <AtomButton css={backgroundColorFlat("#db4a4a")}>
           <span>Text Primary</span>
         </AtomButton>
-        <AtomButton
-          loading
-          css={css`
-            ${backgroundColorFlat("#db4a4a")}
-          `}
-        >
+        <AtomButton loading css={backgroundColorFlat("#db4a4a")}>
           <span>Text Primary</span>
         </AtomButton>
         <AtomButton astype="outline" css={backgroundColorOutline("#a56b3b")}>

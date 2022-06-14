@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 import { SSP, SSPS } from "types";
-import { backgroundColorFlat, backgroundColorOutline } from "utils/cssUtils";
+import { backgroundColorFlat, backgroundColorOutline } from "CSSUtils";
 import { AtomButtonTypes } from "./types";
 import isBackDark from "utils/isBackDark";
 
