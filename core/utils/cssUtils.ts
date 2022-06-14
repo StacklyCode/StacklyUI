@@ -4,6 +4,7 @@ import isBackDark from "./isBackDark";
 
 export const backgroundColorFlat = (color: string) => css`
   background-color: ${color};
+  color: ${isBackDark(color)};
   :hover {
     background-color: ${changeBrightness(color, -20)};
   }

@@ -1,8 +1,8 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
-import changeBrightness from "utils/changeBrightness";
-import isBackDark from "utils/isBackDark";
+import { SSP } from "types";
+import { backgroundColorFlat, backgroundColorOutline } from "utils/cssUtils";
 import { AtomButtonTypes } from "./types";
 
 export const ButtonStyled = styled(motion.button)<AtomButtonTypes>`
@@ -16,42 +16,31 @@ export const ButtonStyled = styled(motion.button)<AtomButtonTypes>`
   border-radius: 4px;
   cursor: pointer;
   line-height: 150%;
+  transition: background-color 0.3s ease-in-out;
 
-  ${({ theme, as = "primary", asType = "flat" }) => css`
-    ${asType === "flat" &&
-    css`
-      background-color: ${theme?.button?.color?.[as] ?? "#fe6a6a"};
-      color: ${isBackDark(theme?.button?.color?.[as] ?? "#fe6a6a")};
-    `}
-    ${asType === "outline" &&
-    css`
-      background-color: transparent;
-      border: 1px solid ${theme?.button?.color?.[as] ?? "#fe6a6a"};
-      color: ${theme?.button?.color?.[as] ?? "#fe6a6a"};
-      :hover {
-        color: ${isBackDark(theme?.button?.color?.[as] ?? "#fe6a6a")};
-      }
-    `}
-    :hover {
-      background-color: ${changeBrightness(
-        theme?.button?.color?.[as] ?? "#fe6a6a",
-        -20
-      )};
-    }
-    :active {
-      background-color: ${changeBrightness(
-        theme?.button?.color?.[as] ?? "#fe6a6a",
-        20
-      )};
-    }
-    transition: background-color 0.3s ease-in-out;
+  ${(props) => css`
+    ${CSSAsType(props)}
+    ${IsDisabled(props)}
   `}
+`;
 
-  ${({ disabled }) => css`
+const CSSAsType: SSP<AtomButtonTypes> = (props) => {
+  const { asType = "flat", as = "primary", theme } = props;
+  switch (asType) {
+    case "outline":
+      return backgroundColorOutline(theme?.button?.color?.[as] ?? "#fe6a6a");
+    default:
+      return backgroundColorFlat(theme?.button?.color?.[as] ?? "#fe6a6a");
+  }
+};
+
+const IsDisabled: SSP<AtomButtonTypes> = (props) => {
+  const { disabled } = props;
+  return css`
     ${disabled &&
     css`
       background-color: #e6e6e6;
       color: #7e7e7e;
     `}
-  `};
-`;
+  `;
+};
