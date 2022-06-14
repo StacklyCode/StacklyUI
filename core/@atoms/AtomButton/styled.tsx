@@ -8,11 +8,11 @@ import { AtomButtonTypes } from "./types";
 export const ButtonStyled = styled(motion.button)<AtomButtonTypes>`
   width: max-content;
   height: max-content;
-  padding: 10px 30px;
-  font-size: 14px;
+  padding: 8px 30px;
+  font-size: 12px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 4px;
   cursor: pointer;
   line-height: 150%;
