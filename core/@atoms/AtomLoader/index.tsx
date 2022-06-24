@@ -5,8 +5,8 @@ import { LoaderContainer } from "./style";
 import { LoaderProps } from "./types";
 
 const AtomLoader: FC<LoaderProps> = (props) => {
-  const { isLoading } = props;
-  return isLoading ? (
+  const { loading } = props;
+  return loading ? (
     <LoaderContainer {...props}>
       <div className="lds-ring">
         <div />
@@ -21,8 +21,8 @@ const AtomLoader: FC<LoaderProps> = (props) => {
 export default AtomLoader;
 
 export const AtomLoaderSmall: FCWC<LoaderProps> = (props) => {
-  const { isLoading, customcss, children } = props;
-  return isLoading ? (
+  const { loading, customcss, children } = props;
+  return loading ? (
     <LoaderContainer
       {...props}
       type="small"

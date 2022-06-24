@@ -4,7 +4,14 @@ import isBackDark from "./isBackDark";
 
 export const backgroundColorFlat = (color: string) => css`
   background-color: ${color};
+`;
+
+export const backgroundColorHoverFlat = (color: string) => css`
+  background-color: ${color};
   color: ${isBackDark(color)};
+  * {
+    color: ${isBackDark(color)};
+  }
   .lds-ring div {
     border-color: ${isBackDark(color)} transparent transparent transparent;
   }
@@ -20,6 +27,9 @@ export const backgroundColorOutline = (color: string) => css`
   background-color: transparent;
   border: 1px solid ${color};
   color: ${color};
+  * {
+    color: ${color};
+  }
   div .lds-ring div {
     border-color: ${color} transparent transparent transparent;
   }
@@ -27,8 +37,11 @@ export const backgroundColorOutline = (color: string) => css`
     div .lds-ring div {
       border-color: ${isBackDark(color)} transparent transparent transparent;
     }
-    color: ${isBackDark(color)};
     background-color: ${color};
+    color: ${isBackDark(color)};
+    * {
+      color: ${isBackDark(color)};
+    }
   }
   :active {
     border: 1px solid ${changeBrightness(color, 20)};

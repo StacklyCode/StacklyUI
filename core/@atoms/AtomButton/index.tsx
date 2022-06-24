@@ -7,7 +7,8 @@ const Animation = {
   whileHover: { scale: 1.05, transition: { duration: 0.3 } },
   whileTap: { scale: 0.98 },
 };
-const isDisabledAnimation = (disabled: boolean) => (disabled ? {} : Animation);
+const isDisabledAnimation = (disabled: boolean | "true" | "false") =>
+  disabled ? {} : Animation;
 
 const AtomButton = forwardRef<HTMLButtonElement, AtomButtonTypes>(
   (props, ref) => {
@@ -18,7 +19,7 @@ const AtomButton = forwardRef<HTMLButtonElement, AtomButtonTypes>(
         {...props}
         ref={ref}
       >
-        <AtomLoaderSmall isLoading={loading}>
+        <AtomLoaderSmall loading={loading}>
           {children || `Text Default`}
         </AtomLoaderSmall>
       </ButtonStyled>

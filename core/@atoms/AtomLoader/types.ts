@@ -1,9 +1,9 @@
-import { SerializedStyles } from '@emotion/utils';
+import { SerializedStyles } from "@emotion/utils";
 
 export type LoaderProps = {
-  isLoading?: boolean;
+  loading?: boolean | "true" | "false";
   widthLoader?: string;
-  type?: 'fullscreen' | 'small';
+  type?: "fullscreen" | "small";
   width?: string;
   height?: string;
   backgroundColor?: string;
