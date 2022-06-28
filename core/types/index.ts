@@ -2,7 +2,7 @@ import { SerializedStyles, Theme, WithTheme } from "@emotion/react";
 import { FC } from "react";
 
 type ChildrenProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 export type FCWC<P = {}> = FC<P & ChildrenProps>;
 

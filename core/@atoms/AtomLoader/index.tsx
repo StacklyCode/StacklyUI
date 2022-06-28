@@ -1,11 +1,10 @@
 import { css } from "@emotion/react";
-import { FC } from "react";
 import { FCWC } from "types";
 import { LoaderContainer } from "./style";
 import { LoaderProps } from "./types";
 
-const AtomLoader: FC<LoaderProps> = (props) => {
-  const { loading } = props;
+const AtomLoader: FCWC<LoaderProps> = (props) => {
+  const { loading, children } = props;
   return loading ? (
     <LoaderContainer {...props}>
       <div className="lds-ring">
@@ -15,7 +14,9 @@ const AtomLoader: FC<LoaderProps> = (props) => {
         <div />
       </div>
     </LoaderContainer>
-  ) : null;
+  ) : (
+    <>{children}</>
+  );
 };
 
 export default AtomLoader;

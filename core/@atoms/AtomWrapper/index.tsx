@@ -5,6 +5,10 @@ import {
   AtomWrapperFormStyled,
   AtomWrapperSectionStyled,
   AtomWrapperLiStyled,
+  AtomWrapperUlStyled,
+  AtomWrapperMainStyled,
+  AtomWrapperFooterStyled,
+  AtomWrapperNavStyled,
 } from "./styled";
 
 const Animation = {
@@ -38,7 +42,30 @@ const AtomWrapper: FC<AtomWrapperTypes> = forwardRef<any, AtomWrapperTypes>(
             {children}
           </AtomWrapperLiStyled>
         );
-
+      case "ul":
+        return (
+          <AtomWrapperUlStyled ref={ref} {...Animation} {...props}>
+            {children}
+          </AtomWrapperUlStyled>
+        );
+      case "main":
+        return (
+          <AtomWrapperMainStyled ref={ref} {...Animation} {...props}>
+            {children}
+          </AtomWrapperMainStyled>
+        );
+      case "footer":
+        return (
+          <AtomWrapperFooterStyled ref={ref} {...Animation} {...props}>
+            {children}
+          </AtomWrapperFooterStyled>
+        );
+      case "nav":
+        return (
+          <AtomWrapperNavStyled ref={ref} {...Animation} {...props}>
+            {children}
+          </AtomWrapperNavStyled>
+        );
       default:
         return (
           <AtomWrapperDefaultStyled ref={ref} {...Animation} {...props}>

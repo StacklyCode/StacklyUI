@@ -1,10 +1,10 @@
 import AtomButton from "@atoms/AtomButton";
+import AtomIcon from "@atoms/AtomIcon";
 import AtomText from "@atoms/AtomText";
 import AtomWrapper from "@atoms/AtomWrapper";
 import { css } from "@emotion/react";
 import { backgroundColorHoverFlat, backgroundColorOutline } from "CSSUtils";
 
-type Props = {};
 
 const WrapperCSS = css`
   padding: 10px 10px;
@@ -71,6 +71,30 @@ const index = () => {
           <AtomText>Text Primary</AtomText>
         </AtomButton>
       </AtomWrapper>
+      <AtomWrapper css={WrapperCSS} astheme="primary">
+        <AtomText>WRAPPER</AtomText>
+      </AtomWrapper>
+      <AtomWrapper css={WrapperCSS} astheme="secondary">
+        <AtomText
+          css={{
+            color: "#fff",
+          }}
+        >
+          WRAPPER SECONDARY
+        </AtomText>
+      </AtomWrapper>
+      <AtomWrapper css={WrapperCSS} astheme="accent">
+        <AtomText
+          css={{
+            color: "#fff",
+          }}
+        >
+          WRAPPER ACCENT
+        </AtomText>
+      </AtomWrapper>
+      <AtomIcon />
+      <AtomIcon icon="https://storage.googleapis.com/cdn-bucket-ixulabs-platform/assets/svgs/PFS-0001/outline/house-beat.svg" />
+      <AtomIcon />
     </AtomWrapper>
   );
 };

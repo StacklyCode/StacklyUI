@@ -1,13 +1,10 @@
-import { css, Theme } from "@emotion/react";
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { backgroundColorFlat } from "CSSUtils";
 import { motion } from "framer-motion";
+import { SSP } from "types";
 import { AtomWrapperTypes } from "./types";
 
-type AtomWrapperTypesTheme = AtomWrapperTypes & {
-  theme: Theme;
-};
-const AtomWrapperStyled = (props: AtomWrapperTypesTheme) => {
+const AtomWrapperStyled: SSP<AtomWrapperTypes> = (props) => {
   const { theme, astheme = "primary" } = props;
   return css`
     display: flex;
@@ -53,5 +50,21 @@ export const AtomWrapperSectionStyled = styled(
 `;
 
 export const AtomWrapperLiStyled = styled(motion.li)<AtomWrapperTypes>`
+  ${(props) => AtomWrapperStyled(props)};
+`;
+
+export const AtomWrapperUlStyled = styled(motion.ul)<AtomWrapperTypes>`
+  ${(props) => AtomWrapperStyled(props)};
+`;
+
+export const AtomWrapperMainStyled = styled(motion.main)<AtomWrapperTypes>`
+  ${(props) => AtomWrapperStyled(props)};
+`;
+
+export const AtomWrapperFooterStyled = styled(motion.footer)<AtomWrapperTypes>`
+  ${(props) => AtomWrapperStyled(props)};
+`;
+
+export const AtomWrapperNavStyled = styled(motion.nav)<AtomWrapperTypes>`
   ${(props) => AtomWrapperStyled(props)};
 `;
