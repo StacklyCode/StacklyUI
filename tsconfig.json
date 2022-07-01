@@ -22,7 +22,7 @@
       "utils/*": ["core/utils/*"],
       "utils": ["core/utils/index.ts"],
       "styles/*": ["core/styles/*"],
-      "styles": ["core/styles/index.tsx"],
+      "styles": ["core/styles/index.ts"],
       "src/*": ["src/*"],
       "core/*": ["core/*"],
       "core": ["core/index.ts"]
