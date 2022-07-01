@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import { IPalette } from 'types';
 
 const ThemeLight: IPalette = {
@@ -7,14 +8,21 @@ const ThemeLight: IPalette = {
       secondary: '#5a6a8a',
       accent: '#1461EB'
     },
-    type: 'flat'
+    type: 'flat',
   },
   wrapper: {
     color: {
       primary: '#fafafa',
       secondary: '#5a6a8a',
       accent: '#1461EB'
-    }
+    },
+    css: () => css`
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1rem;
+        background-color: red;
+      }
+    `
   },
   icon: {
     color: {

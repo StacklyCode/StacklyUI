@@ -1,11 +1,11 @@
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
-import { motion } from "framer-motion";
-import { SSP } from "types";
-import { AtomWrapperTypes } from "./types";
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
+import { SSP } from 'types';
+import { AtomWrapperTypes } from './types';
 
 const AtomWrapperStyled: SSP<AtomWrapperTypes> = (props) => {
-  const { theme, astheme = "primary" } = props;
+  const { theme, astheme = 'primary' } = props;
   return css`
     display: flex;
     width: 100%;
@@ -31,8 +31,9 @@ const AtomWrapperStyled: SSP<AtomWrapperTypes> = (props) => {
     position: static;
     cursor: default;
     mix-blend-mode: normal;
-    background-color: ${theme?.wrapper?.color?.[astheme] ?? "#fafafa"};
+    background-color: ${theme?.wrapper?.color?.[astheme] ?? '#fafafa'};
     transition: all 0.3s ease-in-out;
+    ${theme?.wrapper?.css?.(theme)}
   `;
 };
 

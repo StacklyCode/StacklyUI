@@ -4,18 +4,24 @@ import { backgroundColorInput, backgroundColorInputToggle } from 'css';
 import { motion } from 'framer-motion';
 import { AtomInputTypes } from './types';
 
-export const InputTextLabelStyled = styled(motion.label) <AtomInputTypes>`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: max-content;
-  height: max-content;
-  font-size: 16px;
-  text-align: left;
-  font-weight: 500;
-`;
+export const InputTextLabelStyled = styled(motion.label)<AtomInputTypes>(
+  (props) => {
+    const { theme } = props;
+    return css`
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: max-content;
+      height: max-content;
+      font-size: 16px;
+      text-align: left;
+      font-weight: 500;
+      ${theme?.input?.css?.(theme)}
+    `;
+  }
+);
 
-export const InputTextSpanStyled = styled(motion.span) <AtomInputTypes['label']>`
+export const InputTextSpanStyled = styled(motion.span)<AtomInputTypes['label']>`
   padding: 0px 0px 4px 0px;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -41,7 +47,7 @@ export const InputTextStyled = styled(motion.input)<AtomInputTypes['input']>(
   }
 );
 
-export const InputErrorStyled = styled(motion.span) <AtomInputTypes['error']>`
+export const InputErrorStyled = styled(motion.span)<AtomInputTypes['error']>`
   font-family: Montserrat, sans-serif;
   font-size: 10px;
   font-weight: 700;
@@ -51,20 +57,26 @@ export const InputErrorStyled = styled(motion.span) <AtomInputTypes['error']>`
   padding: 5px 0px 0px 0px;
 `;
 
-export const InputToggleLabelStyled = styled(motion.label) <AtomInputTypes>`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: max-content;
-  height: max-content;
-  font-size: 16px;
-  text-align: left;
-  font-weight: 500;
-`;
+export const InputToggleLabelStyled = styled(motion.label)<AtomInputTypes>(
+  (props) => {
+    const { theme } = props;
+    return css`
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: max-content;
+      height: max-content;
+      font-size: 16px;
+      text-align: left;
+      font-weight: 500;
+      ${theme?.input?.css?.(theme)}
+    `;
+  }
+);
 
 export const InputToggleStyled = styled(motion.input)<AtomInputTypes['input']>(
   (props) => {
-    const { theme, astheme = "primary" } = props;
+    const { theme, astheme = 'primary' } = props;
     return css`
       margin: 0px;
       position: relative;
@@ -89,7 +101,7 @@ export const InputToggleStyled = styled(motion.input)<AtomInputTypes['input']>(
         transform: translate(-50%, -50%);
         transition: all 0.5s;
       }
-     ${backgroundColorInputToggle(theme?.input?.color[astheme] ?? '#db4a4a')}
+      ${backgroundColorInputToggle(theme?.input?.color[astheme] ?? '#db4a4a')}
 
       ${backgroundColorInput(theme?.input?.color[astheme] ?? '#ffffff')}
     `;
