@@ -14,7 +14,7 @@ import {
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useAtomValue } from 'jotai';
-import { themeContextAtom } from 'jotais';
+import { ThemeContextAtom } from 'jotais';
 
 const WrapperCSS = css`
   padding: 10px 10px;
@@ -33,7 +33,7 @@ const FormCSS = css`
 `;
 
 const Index = () => {
-  const { key, toggle } = useAtomValue(themeContextAtom);
+  const { key, toggle } = useAtomValue(ThemeContextAtom);
   const formik = useFormik({
     initialValues: {
       name: '',

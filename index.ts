@@ -3,7 +3,7 @@ export * from '@molecules';
 export * from '@organisms';
 export * from 'css';
 export * from 'hooks';
-export * from 'jotai';
+export * from 'jotais';
 export * from 'layouts';
 export * from 'styles';
 export * from 'themes';

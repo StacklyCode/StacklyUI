@@ -1,4 +1,4 @@
-import train from "./train";
+import train from "../train";
 import { NeuralNetwork } from "brain.js";
 
 type IOutput = {

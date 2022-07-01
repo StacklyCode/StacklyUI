@@ -1,3 +1,4 @@
+/* eslint-disable no-bitwise */
 const hash = (url: string) =>
   `${url
     ?.split("")

@@ -1,7 +1,7 @@
 import ThemeContext from 'hooks/contextTheme';
 import type { AppProps } from 'next/app';
 
-import CreateThemes from 'utils/createThemes';
+import { CreateThemes } from 'utils';
 import { DefaultLayout } from 'layouts';
 import GlobalStyles from 'styles';
 import { ThemeDark, ThemeLight } from 'themes';

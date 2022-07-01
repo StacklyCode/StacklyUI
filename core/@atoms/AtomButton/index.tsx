@@ -1,13 +1,13 @@
-import { forwardRef } from "react";
-import { ButtonStyled } from "./styled";
-import { AtomButtonTypes } from "./types";
-import { AtomLoaderSmall } from "../AtomLoader";
+import { forwardRef } from 'react';
+import { ButtonStyled } from './styled';
+import { AtomButtonTypes } from './types';
+import AtomLoader from '../AtomLoader';
 
 const Animation = {
   whileHover: { scale: 1.05, transition: { duration: 0.3 } },
-  whileTap: { scale: 0.98 },
+  whileTap: { scale: 0.98 }
 };
-const isDisabledAnimation = (disabled: boolean | "true" | "false") =>
+const isDisabledAnimation = (disabled: boolean | 'true' | 'false') =>
   disabled ? {} : Animation;
 
 const AtomButton = forwardRef<HTMLButtonElement, AtomButtonTypes>(
@@ -19,9 +19,9 @@ const AtomButton = forwardRef<HTMLButtonElement, AtomButtonTypes>(
         {...props}
         ref={ref}
       >
-        <AtomLoaderSmall loading={loading}>
+        <AtomLoader astype="button" loading={loading}>
           {children || `Text Default`}
-        </AtomLoaderSmall>
+        </AtomLoader>
       </ButtonStyled>
     );
   }
