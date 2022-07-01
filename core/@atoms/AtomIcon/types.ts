@@ -1,6 +1,5 @@
-import { CSSType } from 'types';
+import { CSSType, ThemeAtomIcon } from 'types';
 import { HTMLMotionProps } from 'framer-motion';
-import { ThemeAtomIcon } from 'styles/theme';
 
 export type AtomIconTypes = HTMLMotionProps<'div'> & {
   icon?: string;

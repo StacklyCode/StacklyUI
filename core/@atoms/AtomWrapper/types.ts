@@ -1,5 +1,4 @@
-import { CSSType } from 'types';
-import { ThemeAtomWrapper } from 'core/styles/theme';
+import { CSSType, ThemeAtomWrapper } from 'types';
 import { HTMLMotionProps } from 'framer-motion';
 
 export type AtomWrapperTypes = HTMLMotionProps<'div'> &

@@ -1,6 +1,6 @@
-import { IPalette } from 'styles/theme';
+import { IPalette } from 'types';
 
-export const ThemeLight: IPalette = {
+const ThemeLight: IPalette = {
   button: {
     color: {
       primary: '#3459A8',
@@ -43,3 +43,5 @@ export const ThemeLight: IPalette = {
     track: '#e6e6e6'
   }
 };
+
+export default ThemeLight;

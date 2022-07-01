@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { backgroundColorInput, backgroundColorInputToggle } from 'CSSUtils';
+import { backgroundColorInput, backgroundColorInputToggle } from 'css';
 import { motion } from 'framer-motion';
 import { AtomInputTypes } from './types';
 

@@ -1,6 +1,6 @@
-import { IPalette } from 'styles/theme';
+import { IPalette } from 'types';
 
-export const ThemeDark: IPalette = {
+const ThemeDark: IPalette = {
   button: {
     color: {
       primary: '#e52d27',
@@ -43,3 +43,5 @@ export const ThemeDark: IPalette = {
     track: '#e6e6e6'
   }
 };
+
+export default ThemeDark;

@@ -31,7 +31,7 @@ export type ThemeScrollbar = {
   track?: string;
 };
 
-export type IPalette = {
+export type Palette = {
   button?: ThemeAtomButton;
   text?: ThemeAtomText;
   wrapper?: ThemeAtomWrapper;

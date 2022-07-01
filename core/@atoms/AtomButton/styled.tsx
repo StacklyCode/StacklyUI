@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 import { SSP } from "types";
-import { backgroundColorHoverFlat, backgroundColorOutline } from "CSSUtils";
+import { backgroundColorHoverFlat, backgroundColorOutline } from "css";
 import { AtomButtonTypes } from "./types";
 
 export const ButtonStyled = styled(motion.button) <AtomButtonTypes>`

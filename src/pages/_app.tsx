@@ -1,27 +1,27 @@
+import ThemeContext from 'hooks/contextTheme';
+import type { AppProps } from 'next/app';
 
-import ThemeContext, { CreateThemes } from "hooks/ThemeContext";
-import type { AppProps } from "next/app";
-import { ThemeDark } from "src/styles/themes/dark";
-import { ThemeLight } from "src/styles/themes/light";
-import GlobalStyles from "styles/global";
+import CreateThemes from 'utils/createThemes';
+import { DefaultLayout } from 'layouts';
+import GlobalStyles from 'styles';
+import { ThemeDark, ThemeLight } from 'themes';
 
 const themes = {
   light: ThemeLight,
-  dark: ThemeDark,
+  dark: ThemeDark
 };
 
 export const ThemesWithMachine = CreateThemes(themes);
 
-
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeContext themes={ThemesWithMachine}>
-      <GlobalStyles />
-      <Component {...pageProps} />
+      <DefaultLayout>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </DefaultLayout>
     </ThemeContext>
-
   );
 };
 
 export default MyApp;
-

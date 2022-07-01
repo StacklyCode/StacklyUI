@@ -1,9 +1,9 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
-import { LoaderProps } from "./types";
+import { AtomLoaderTypes } from "./types";
 
-const TypeLoader = (type: LoaderProps["astype"]) => {
+const TypeLoader = (type: AtomLoaderTypes["astype"]) => {
   switch (type) {
     case "small":
       return css`
@@ -23,7 +23,7 @@ const TypeLoader = (type: LoaderProps["astype"]) => {
   `}
 }
 
-export const LoaderContainer = styled(motion.div)<LoaderProps>(props => {
+export const LoaderContainer = styled(motion.div)<AtomLoaderTypes>(props => {
   const { astype } = props;
   return css`
   background-size: cover;
@@ -45,7 +45,6 @@ export const LoaderContainer = styled(motion.div)<LoaderProps>(props => {
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: 8px solid #db4a4a;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: #db4a4a transparent

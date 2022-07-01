@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import changeBrightness from './changeBrightness';
-import isBackDark from './isBackDark';
+import changeBrightness from '../utils/changeBrightness';
+import isBackDark from '../utils/isBackDark';
 
 export const backgroundColorFlat = (color: string) => css`
   background-color: ${color};
@@ -13,7 +13,8 @@ export const backgroundColorHoverFlat = (color: string) => css`
     color: ${isBackDark(color)} !important;
   }
   .lds-ring div {
-    border-color: ${isBackDark(color)} transparent transparent transparent;
+    border: 2px solid ${isBackDark(color)};
+    border-color: ${isBackDark(color)} transparent transparent transparent !important;
   }
   :hover {
     background-color: ${changeBrightness(color, -20)};
@@ -31,7 +32,8 @@ export const backgroundColorOutline = (color: string) => css`
     color: ${color} !important;
   }
   div .lds-ring div {
-    border-color: ${color} transparent transparent transparent;
+    border: 2px solid ${color};
+    border-color: ${color} transparent transparent transparent !important;
   }
   :hover {
     div .lds-ring div {

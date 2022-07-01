@@ -1,9 +1,10 @@
 import { atom, useAtom } from "jotai";
 import { DependencyList, useEffect } from "react";
+import { RDC } from "types";
 
 type IResponseType = "json" | "text";
 
-type PropsSettings<IData = {}, IError = {}> = {
+type PropsSettings<IData = RDC, IError = RDC> = {
   url: RequestInfo;
   onCompleted?: (e: IData) => void;
   onError?: (e: IError) => void;
@@ -11,7 +12,7 @@ type PropsSettings<IData = {}, IError = {}> = {
   type?: IResponseType;
 };
 
-type IFetch<IData = {}, IError = {}> = {
+type IFetch<IData = RDC, IError = RDC> = {
   data?: IData;
   loading?: boolean;
   error?: IError;
@@ -45,7 +46,7 @@ const convertResponse = (response: Response, type?: IResponseType) => {
   }
 };
 
-const useFetch = <IData = {}, IError = {}>(
+const useFetch = <IData = RDC, IError = RDC>(
   setings: PropsSettings<IData, IError>,
   deps?: DependencyList
 ): IFetch<IData, IError> => {

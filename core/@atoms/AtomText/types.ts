@@ -1,6 +1,5 @@
 import { HTMLMotionProps } from 'framer-motion';
-import { ThemeAtomText } from 'styles/theme';
-import { CSSType } from 'types';
+import { CSSType, ThemeAtomText } from 'types';
 
 export type AtomTextTypes = HTMLMotionProps<'p'> &
   HTMLMotionProps<'span'> &

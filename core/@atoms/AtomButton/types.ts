@@ -1,6 +1,5 @@
-import { CSSType } from 'types';
+import { CSSType, ThemeAtomButton } from 'types';
 import { HTMLMotionProps } from 'framer-motion';
-import { ThemeAtomButton } from 'styles/theme';
 
 export type AtomButtonTypes = HTMLMotionProps<'button'> & {
   loading?: boolean | 'true' | 'false';

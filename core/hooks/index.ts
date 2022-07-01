@@ -1,2 +1,2 @@
-export { default as ThemeContext } from './ThemeContext';
+export { default as ThemeContext } from './contextTheme';
 export { default as useFetch } from './useFetch';

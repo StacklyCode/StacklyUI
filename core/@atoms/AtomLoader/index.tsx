@@ -1,9 +1,9 @@
 import { css } from "@emotion/react";
 import { FCWC } from "types";
 import { LoaderContainer } from "./styled";
-import { LoaderProps } from "./types";
+import { AtomLoaderTypes } from "./types";
 
-const AtomLoader: FCWC<LoaderProps> = (props) => {
+const AtomLoader: FCWC<AtomLoaderTypes> = (props) => {
   const { loading, children } = props;
   return loading ? (
     <LoaderContainer {...props}>
@@ -21,7 +21,7 @@ const AtomLoader: FCWC<LoaderProps> = (props) => {
 
 export default AtomLoader;
 
-export const AtomLoaderSmall: FCWC<LoaderProps> = (props) => {
+export const AtomLoaderSmall: FCWC<AtomLoaderTypes> = (props) => {
   const { loading, children } = props;
   return loading ? (
     <LoaderContainer

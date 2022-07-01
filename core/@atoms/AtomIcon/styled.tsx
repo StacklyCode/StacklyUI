@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { colorIcon } from "CSSUtils";
+import { colorIcon } from "css";
 import { motion } from "framer-motion";
 import { SSP } from "types";
 import { AtomIconTypes } from "./types";
