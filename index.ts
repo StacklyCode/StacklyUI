@@ -8,3 +8,4 @@ export * from './core/layouts';
 export * from './core/styles';
 export * from './core/themes';
 export * from './core/types';
+export * from './core/utils';
