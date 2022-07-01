@@ -57,8 +57,7 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
     "react-redux": ">=7.0.0",
-    "tslib": ">=2.0.0",
-    "xstate": ">=4.32.1"
+    "tslib": ">=2.0.0"
   },
   "devDependencies": {
     "@emotion/eslint-plugin": "^11.7.0",
