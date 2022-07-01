@@ -3,10 +3,25 @@
   "description": "UI",
   "version": "0.0.1",
   "main": "build/index.js",
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "build"
+  ],
+  "types": "./build\\index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StacklyCode/StacklyUI.git"
+  },
+  "author": "William Jesus (Willishakespeare)",
+  "license": "ISC",
+  "homepage": "https://stacklycode.com",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "test": "rollup -c",
+    "build": "rollup -c",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|d.ts)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|d.ts)\" --write"
   },
@@ -21,10 +36,34 @@
     "js-cookie": "^3.0.1",
     "next": "^12.1.6",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "xstate": "^4.32.1",
+    "yup": "^0.32.11"
+  },
+  "peerDependencies": {
+    "@emotion/react": ">=11.5.0",
+    "@emotion/styled": ">=11.3.0",
+    "brain.js": ">=2.0.0-beta.15",
+    "formik": ">=2.2.9",
+    "framer-motion": ">=5.0.0",
+    "gpu.js": ">=2.15.2",
+    "graphql": ">=15.0.0",
+    "graphql-request": ">=4.0.0",
+    "jotai": "^1.6.4",
+    "js-cookie": ">=3.0.0",
+    "lodash": ">=4.0.0",
+    "next": ">=12.0.2",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "react-redux": ">=7.0.0",
+    "redux": ">=4.0.0"
   },
   "devDependencies": {
     "@emotion/eslint-plugin": "^11.7.0",
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-inject": "^4.0.4",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@types/js-cookie": "^3.0.2",
     "@types/node": "^17.0.42",
     "@types/react": "^18.0.12",
@@ -33,13 +72,11 @@
     "eslint-config-next": "^12.1.6",
     "eslint-config-prettier": "^8.5.0",
     "prettier": "^2.7.1",
+    "rollup": "^2.75.7",
+    "rollup-plugin-alias": "^2.2.0",
+    "rollup-plugin-multi-entry": "^2.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.32.1",
     "typescript": "^4.7.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/StacklyCode/StacklyUI.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "homepage": "https://stacklycode.com-"
+  }
 }

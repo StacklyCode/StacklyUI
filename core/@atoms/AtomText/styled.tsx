@@ -22,33 +22,34 @@ const TextStyle = (props: AtomTextTypesTheme) => {
     text-decoration: none;
     cursor: default;
     color: ${theme?.text?.color[astheme] ?? "#202124"};
+    transition: all 0.3s ease-in-out;
   `;
 };
 
-export const TextStyledDefault = styled(motion.span)<AtomTextTypes>`
+export const TextStyledDefault = styled(motion.span) <AtomTextTypes>`
   ${(props) => TextStyle(props)}
 `;
-export const TextStyledA = styled(motion.a)<AtomTextTypes>`
+export const TextStyledA = styled(motion.a) <AtomTextTypes>`
   ${(props) => TextStyle(props)}
 `;
-export const TextStyledP = styled(motion.p)<AtomTextTypes>`
+export const TextStyledP = styled(motion.p) <AtomTextTypes>`
   ${(props) => TextStyle(props)}
 `;
-export const TextStyledH1 = styled(motion.h1)<AtomTextTypes>`
+export const TextStyledH1 = styled(motion.h1) <AtomTextTypes>`
   ${(props) => TextStyle(props)}
 `;
-export const TextStyledH2 = styled(motion.h2)<AtomTextTypes>`
+export const TextStyledH2 = styled(motion.h2) <AtomTextTypes>`
   ${(props) => TextStyle(props)}
 `;
-export const TextStyledH3 = styled(motion.h3)<AtomTextTypes>`
+export const TextStyledH3 = styled(motion.h3) <AtomTextTypes>`
   ${(props) => TextStyle(props)}
 `;
-export const TextStyledH4 = styled(motion.h4)<AtomTextTypes>`
+export const TextStyledH4 = styled(motion.h4) <AtomTextTypes>`
   ${(props) => TextStyle(props)}
 `;
-export const TextStyledH5 = styled(motion.h5)<AtomTextTypes>`
+export const TextStyledH5 = styled(motion.h5) <AtomTextTypes>`
   ${(props) => TextStyle(props)}
 `;
-export const TextStyledH6 = styled(motion.h6)<AtomTextTypes>`
+export const TextStyledH6 = styled(motion.h6) <AtomTextTypes>`
   ${(props) => TextStyle(props)}
 `;

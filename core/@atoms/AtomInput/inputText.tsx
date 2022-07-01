@@ -1,62 +1,48 @@
-import { FC } from 'react';
-import lodash from 'lodash';
+import { get } from 'lodash';
 import InputTextError from './error';
 import {
   InputTextLabelStyled,
   InputTextSpanStyled,
   InputTextStyled,
-} from './style';
+} from './styled';
 import { AtomInputTypes } from './types';
+import { FCWC } from 'types';
 
 const Animation = {
   whileTap: { scale: 0.98, opacity: 0.8 },
 };
 
-const InputText: FC<AtomInputTypes> = (props) => {
-  const { value, onChange, onBlur, formik, id, children } = props;
-  const {
-    labelWidth,
-    labelColor,
-    labelFontFamily,
-    labelFontSize,
-    labelFontWeight,
-    labelMargin,
-    labelPadding,
-    spanMargin,
-    customCSS,
-    label,
-    step,
-  } = props;
+const InputText: FCWC<AtomInputTypes> = (props) => {
+  const { formik, id, type, children, astheme } = props;
+  const { error, label, input, span, spantext } = props;
   return (
     <InputTextLabelStyled
-      labelWidth={labelWidth}
-      labelColor={labelColor}
-      labelFontFamily={labelFontFamily}
-      labelFontSize={labelFontSize}
-      labelFontWeight={labelFontWeight}
-      labelMargin={labelMargin}
-      labelPadding={labelPadding}
-      customCSS={customCSS}
       htmlFor={id}
+      {...label}
     >
-      {label && (
-        <InputTextSpanStyled spanMargin={spanMargin}>
-          {label}
+      {spantext && (
+        <InputTextSpanStyled astheme={astheme} {...span}>
+          {spantext}
         </InputTextSpanStyled>
       )}
       <InputTextStyled
+        id={id}
+        astheme={astheme}
+        type={type}
+        {...input}
         {...Animation}
-        {...props}
-        value={lodash.get(formik?.values, id) ?? value}
-        onChange={formik?.handleChange ?? onChange}
+        value={input?.value ?? get(formik?.values, id)}
+        onChange={(e) => {
+          formik?.handleChange(e)
+          input?.onChange?.(e)
+        }}
         onBlur={(e) => {
           formik?.handleBlur(e);
-          onBlur?.(e);
+          input?.onBlur?.(e);
         }}
-        step={step}
       />
       {children}
-      <InputTextError {...props} />
+      <InputTextError id={id} astheme={astheme} formik={formik} {...error} />
     </InputTextLabelStyled>
   );
 };

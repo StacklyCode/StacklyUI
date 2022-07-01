@@ -32,6 +32,7 @@ const AtomWrapperStyled: SSP<AtomWrapperTypes> = (props) => {
     cursor: default;
     mix-blend-mode: normal;
     background-color: ${theme?.wrapper?.color?.[astheme] ?? "#fafafa"};
+    transition: all 0.3s ease-in-out;
   `;
 };
 

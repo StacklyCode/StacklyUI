@@ -1,12 +1,11 @@
-import AtomWrapper from '@atoms/AtomWrapper';
-import { atom, Provider, useAtom } from 'jotai';
+import { atom, useAtom } from 'jotai';
 import { atomFamily } from 'jotai/utils';
 import Cookies from 'js-cookie';
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import hash from 'utils/hash';
-import { IconStyles } from './styled';
-
+import { IconWrapperStyled } from './styled';
 import { AtomIconTypes } from './types';
+
 
 const defaultIcon = `https://storage.googleapis.com/cdn-bucket-ixulabs-platform/STCO-0001/warning-svgrepo-com.svg`;
 
@@ -33,18 +32,16 @@ const iconAtomFetch = atomFamily((getKey: string) =>
 
 const AtomIcon: FC<AtomIconTypes> = (props) => {
   const { icon } = props;
-  const [iconState] = useAtom(iconAtomFetch(icon));
+  const iconAtomFetchMemo = useMemo(() => iconAtomFetch(icon), [icon]);
+  const [iconState] = useAtom(iconAtomFetchMemo);
 
   return (
-    <Provider>
-      <AtomWrapper
-        css={IconStyles}
-        {...props}
-        dangerouslySetInnerHTML={{
-          __html: iconState === '' ? '<></>' : iconState
-        }}
-      />
-    </Provider>
+    <IconWrapperStyled
+      {...props}
+      dangerouslySetInnerHTML={{
+        __html: iconState ?? "<!-- Icon not found -->",
+      }}
+    />
   );
 };
 

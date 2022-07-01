@@ -5,7 +5,7 @@ import { SSP } from "types";
 import { backgroundColorHoverFlat, backgroundColorOutline } from "CSSUtils";
 import { AtomButtonTypes } from "./types";
 
-export const ButtonStyled = styled(motion.button)<AtomButtonTypes>`
+export const ButtonStyled = styled(motion.button) <AtomButtonTypes>`
   width: max-content;
   height: max-content;
   padding: 8px 30px;
@@ -29,15 +29,17 @@ export const ButtonStyled = styled(motion.button)<AtomButtonTypes>`
 `;
 
 const CSSAsType: SSP<AtomButtonTypes> = (props) => {
-  const { astype = "flat", astheme = "primary", theme } = props;
-  switch (astype) {
+  const { astype, astheme, theme } = props;
+  const MAINTYPE = astype ?? theme?.button?.type ?? "flat";
+  const MAINTHEME = astheme ?? theme?.button?.theme ?? "primary";
+  switch (MAINTYPE) {
     case "outline":
       return backgroundColorOutline(
-        theme?.button?.color?.[astheme] ?? "#fe6a6a"
+        theme?.button?.color?.[MAINTHEME] ?? "#fe6a6a"
       );
     default:
       return backgroundColorHoverFlat(
-        theme?.button?.color?.[astheme] ?? "#fe6a6a"
+        theme?.button?.color?.[MAINTHEME] ?? "#fe6a6a"
       );
   }
 };

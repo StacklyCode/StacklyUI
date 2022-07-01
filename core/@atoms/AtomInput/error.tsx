@@ -1,23 +1,22 @@
 import { FC } from 'react';
-import lodash from 'lodash';
-import { InputErrorStyled } from './style';
+import { get } from 'lodash';
+import { InputErrorStyled } from './styled';
 import { AtomInputTypes } from './types';
+import { FormikValues } from 'formik';
+
+const validateErrors = (formik: FormikValues, id: string) => (get(formik?.values, id) !== `` ||
+  get(formik?.touched, id)) &&
+  get(formik?.errors, id) ? get(formik?.errors, id) : ``;
 
 const InputTextError: FC<AtomInputTypes> = (props) => {
   const { formik, id } = props;
-  return formik ? (
-    (lodash.get(formik?.values, id) !== `` ||
-      lodash.get(formik?.touched, id)) &&
-    lodash.get(formik?.errors, id) ? (
-      <InputErrorStyled {...props}>
-        {lodash.get(formik?.errors, id)}
-      </InputErrorStyled>
-    ) : (
-      <InputErrorStyled {...{ ...props, children: null }} />
-    )
-  ) : (
-    <></>
-  );
+  if (!formik) return null;
+
+  return (
+    <InputErrorStyled {...props} >
+      {validateErrors(formik, id)}
+    </InputErrorStyled>
+  )
 };
 
 export default InputTextError;

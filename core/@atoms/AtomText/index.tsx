@@ -9,7 +9,7 @@ import {
   TextStyledH5,
   TextStyledH6,
   TextStyledP,
-} from "./style";
+} from "./styled";
 import { AtomTextTypes } from "./types";
 
 const AtomText: FC<AtomTextTypes> = (props) => {

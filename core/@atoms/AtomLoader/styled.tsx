@@ -1,31 +1,37 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 import { LoaderProps } from "./types";
 
-export const LoaderContainer = styled.div<LoaderProps>`
-  ${({ type, width, height, backgroundColor }) =>
-    type === "small"
-      ? css`
-          width: ${width || "max-content"};
-          height: ${height || "max-content"};
-          background-color: ${backgroundColor || "transparent"};
-        `
-      : css`
-          width: 100%;
-          height: 100vh;
-          position: fixed;
-          z-index: 9999;
-          backdrop-filter: blur(12px);
-          top: 0;
-          left: 0;
-          background-color: ${backgroundColor || "white"};
-        `};
-  background-image: ${({ backgroundImage }) => backgroundImage || `none`};
+const TypeLoader = (type: LoaderProps["astype"]) => {
+  switch (type) {
+    case "small":
+      return css`
+      width: max-content;
+      height: max-content;
+      background-color: transparent;
+    `
+    default:
+      return css`
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999;
+    backdrop-filter: blur(12px);
+    top: 0;
+    left: 0;
+  `}
+}
+
+export const LoaderContainer = styled(motion.div)<LoaderProps>(props => {
+  const { astype } = props;
+  return css`
   background-size: cover;
   background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
+  ${TypeLoader(astype)}
   .lds-ring {
     display: inline-block;
     position: relative;
@@ -39,11 +45,10 @@ export const LoaderContainer = styled.div<LoaderProps>`
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: ${({ widthLoader }) => widthLoader || "8px"} solid
-      ${({ colorLoading }) => colorLoading || `#fe6a6a`};
+    border: 8px solid #db4a4a;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: ${({ colorLoading }) => colorLoading || `#fe6a6a`} transparent
+    border-color: #db4a4a transparent
       transparent transparent;
   }
   .lds-ring div:nth-of-type(1) {
@@ -63,5 +68,6 @@ export const LoaderContainer = styled.div<LoaderProps>`
       transform: rotate(360deg);
     }
   }
-  ${({ customcss }) => customcss};
-`;
+
+  `
+});

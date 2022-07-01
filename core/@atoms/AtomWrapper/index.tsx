@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC, forwardRef } from "react";
 import { AtomWrapperTypes } from "./types";
 import {

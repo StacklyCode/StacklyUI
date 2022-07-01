@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import { FCWC } from "types";
-import { LoaderContainer } from "./style";
+import { LoaderContainer } from "./styled";
 import { LoaderProps } from "./types";
 
 const AtomLoader: FCWC<LoaderProps> = (props) => {
@@ -22,14 +22,12 @@ const AtomLoader: FCWC<LoaderProps> = (props) => {
 export default AtomLoader;
 
 export const AtomLoaderSmall: FCWC<LoaderProps> = (props) => {
-  const { loading, customcss, children } = props;
+  const { loading, children } = props;
   return loading ? (
     <LoaderContainer
       {...props}
-      type="small"
-      colorLoading="white"
-      widthLoader="2px"
-      customcss={css`
+      astype="small"
+      css={css`
         width: 100%;
         .lds-ring {
           width: 15px;
@@ -40,7 +38,6 @@ export const AtomLoaderSmall: FCWC<LoaderProps> = (props) => {
             height: 14px;
           }
         }
-        ${customcss}
       `}
     >
       <div className="lds-ring">

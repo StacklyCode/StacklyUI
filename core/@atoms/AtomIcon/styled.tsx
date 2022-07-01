@@ -1,30 +1,29 @@
 import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import { colorIcon } from "CSSUtils";
+import { motion } from "framer-motion";
+import { SSP } from "types";
+import { AtomIconTypes } from "./types";
 
-export const IconStyles = css`
+const IconWrapperStyles: SSP<AtomIconTypes> = (props) => {
+  const { astheme = "primary", theme } = props;
+  return css`
   display: flex;
   width: 34px;
   height: 34px;
-  .lds-ring {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 34px !important;
-    height: 34px !important;
-  }
-  .lds-ring div {
-    margin: auto !important;
-    width: 28px !important;
-    height: 28px !important;
-    border-width: 4px !important;
-  }
+  transition: all 0.3s ease-in-out;
+  ${colorIcon(theme?.icon?.color?.[astheme] ?? "#000000")};
   svg {
     width: 100%;
     height: 100%;
-    path {
-      fill: #000000;
-    }
   }
   div {
     overflow: hidden;
   }
 `;
+}
+
+export const IconWrapperStyled = styled(motion.div) <AtomIconTypes>`
+${(props) => IconWrapperStyles(props)}
+`;
+

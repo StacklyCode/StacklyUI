@@ -1,23 +1,65 @@
-import AtomButton from "@atoms/AtomButton";
-import AtomIcon from "@atoms/AtomIcon";
-import AtomText from "@atoms/AtomText";
-import AtomWrapper from "@atoms/AtomWrapper";
-import { css } from "@emotion/react";
-import { backgroundColorHoverFlat, backgroundColorOutline } from "CSSUtils";
-
+import AtomButton from '@atoms/AtomButton';
+import AtomIcon from '@atoms/AtomIcon';
+import AtomImage from '@atoms/AtomImage';
+import AtomInput from '@atoms/AtomInput';
+import AtomText from '@atoms/AtomText';
+import AtomWrapper from '@atoms/AtomWrapper';
+import { css } from '@emotion/react';
+import {
+  backgroundColorHoverFlat,
+  colorIcon,
+  backgroundColorOutline,
+  backgroundColorInput
+} from 'CSSUtils';
+import { useFormik } from 'formik';
+import { themeContextAtom } from 'hooks/ThemeContext';
+import * as Yup from 'yup';
+import { useAtomValue } from 'jotai';
 
 const WrapperCSS = css`
   padding: 10px 10px;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
+  `;
+
+const FormCSS = css`
+  padding: 10px 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
 `;
 
-const index = () => {
+const Index = () => {
+  const { key, toggle } = useAtomValue(themeContextAtom);
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().required('Name is required'),
+    }),
+    onSubmit: (values) => {
+      console.warn(values);
+    }
+  })
   return (
     <AtomWrapper css={WrapperCSS}>
+      <AtomText>
+        Active theme: {key}
+      </AtomText>
+      <AtomButton
+        onClick={() => toggle()}
+      >
+        Change Theme
+      </AtomButton>
       <AtomWrapper css={WrapperCSS}>
         <AtomText>Normal Buttons</AtomText>
+        <AtomButton>
+          <AtomText>Text Primary</AtomText>
+        </AtomButton>
         <AtomButton astheme="primary">
           <AtomText>Text Primary</AtomText>
         </AtomButton>
@@ -54,19 +96,19 @@ const index = () => {
       </AtomWrapper>
       <AtomWrapper css={WrapperCSS}>
         <AtomText>Custom Buttons</AtomText>
-        <AtomButton css={backgroundColorHoverFlat("#db4a4a")}>
+        <AtomButton css={backgroundColorHoverFlat('#db4a4a')}>
           <AtomText>Text Primary</AtomText>
         </AtomButton>
-        <AtomButton loading="true" css={backgroundColorHoverFlat("#db4a4a")}>
+        <AtomButton loading="true" css={backgroundColorHoverFlat('#db4a4a')}>
           <AtomText>Text Primary</AtomText>
         </AtomButton>
-        <AtomButton astype="outline" css={backgroundColorOutline("#975a27")}>
+        <AtomButton astype="outline" css={backgroundColorOutline('#975a27')}>
           <AtomText>Text Primary</AtomText>
         </AtomButton>
         <AtomButton
           loading="true"
           astype="outline"
-          css={backgroundColorOutline("#975a27")}
+          css={backgroundColorOutline('#975a27')}
         >
           <AtomText>Text Primary</AtomText>
         </AtomButton>
@@ -77,7 +119,7 @@ const index = () => {
       <AtomWrapper css={WrapperCSS} astheme="secondary">
         <AtomText
           css={{
-            color: "#fff",
+            color: '#fff'
           }}
         >
           WRAPPER SECONDARY
@@ -86,17 +128,75 @@ const index = () => {
       <AtomWrapper css={WrapperCSS} astheme="accent">
         <AtomText
           css={{
-            color: "#fff",
+            color: '#fff'
           }}
         >
           WRAPPER ACCENT
         </AtomText>
       </AtomWrapper>
-      <AtomIcon />
+      <AtomIcon astheme='primary' />
+      <AtomIcon astheme='secondary' />
+      <AtomIcon astheme='accent' />
       <AtomIcon icon="https://storage.googleapis.com/cdn-bucket-ixulabs-platform/assets/svgs/PFS-0001/outline/house-beat.svg" />
-      <AtomIcon />
+      <AtomIcon css={colorIcon('#db4a4a')} />
+      <AtomWrapper
+        css={css`
+          ${WrapperCSS}
+          background-color: #db4a4a;
+        `}
+      >
+        <AtomImage
+          wrapper={{
+            css: css`
+              width: 300px;
+              height: 300px;
+            `
+          }}
+          src="https://storage.googleapis.com/cdn-bucket-ixulabs-platform/STCO-0001/800px-A_black_image.jpg"
+        />
+      </AtomWrapper>
+      <AtomWrapper css={FormCSS} astheme="secondary" as='form'>
+        <AtomText astheme='secondary'>
+          FORM
+        </AtomText>
+        <AtomWrapper css={WrapperCSS} astheme="secondary">
+          <AtomInput id='name' astheme="primary" formik={formik} input={{
+            placeholder: 'Name',
+          }}
+            spantext="Name"
+          />
+          <AtomInput id='name' astheme="secondary" formik={formik} input={{
+            placeholder: 'Name',
+          }}
+            spantext="Name"
+          />
+          <AtomInput id='name' astheme="accent" formik={formik} input={{
+            placeholder: 'Name',
+          }}
+            spantext="Name"
+          />
+          <AtomInput id='name' formik={formik} input={{
+            placeholder: 'Name',
+            css: backgroundColorInput('#22705f')
+          }}
+            spantext="Name"
+          />
+        </AtomWrapper>
+        <AtomInput id='name' type='toggle'
+          input={{
+            checked: key === "dark",
+            onChange: () => {
+              toggle()
+            }
+          }}
+
+        />
+
+      </AtomWrapper>
     </AtomWrapper>
   );
 };
 
-export default index;
+export default Index;
+
+
