@@ -54,7 +54,7 @@ export const colorIcon = (color: string) => css`
   svg {
     * {
       path {
-        fill: ${color};
+        fill: ${color} !important;
       }
     }
   }
