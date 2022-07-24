@@ -1,14 +1,12 @@
-import { AtomWrapperTypes } from '@atoms/AtomWrapper/types';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { AtomImageTypes } from './types';
 
-export const AtomImageStyled = styled(motion.div) <AtomWrapperTypes>`
-  width: 100px;
-  height: 100px;
+export const AtomImageStyled = styled(motion.img)<AtomImageTypes>`
   position: relative;
-  transition: all 0.3s ease-in-out;
-  img {
-    object-fit: cover;
-    object-position: center center;
-  }
+  width: 300px;
+  height: 300px;
+  background-color: #f6f7f8;
+  object-fit: cover;
+  ${(props) => props.customCSS}
 `;

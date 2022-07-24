@@ -1,6 +1,7 @@
-import { AtomWrapperTypes } from '@atoms/AtomWrapper/types';
-import { ImageProps } from 'next/image';
+import { CSSType } from '@emotion/reac';
+import { HTMLMotionProps } from 'framer-motion';
 
-export type AtomImageTypes = ImageProps & {
-  wrapper?: AtomWrapperTypes;
+export type AtomImageTypes = HTMLMotionProps<'img'> & {
+  css?: CSSType;
+  customCSS?: CSSType;
 };
