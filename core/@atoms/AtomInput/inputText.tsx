@@ -3,23 +3,20 @@ import InputTextError from './error';
 import {
   InputTextLabelStyled,
   InputTextSpanStyled,
-  InputTextStyled,
+  InputTextStyled
 } from './styled';
 import { AtomInputTypes } from './types';
 import { FCWC } from 'types';
 
 const Animation = {
-  whileTap: { scale: 0.98, opacity: 0.8 },
+  whileTap: { scale: 0.98, opacity: 0.8 }
 };
 
 const InputText: FCWC<AtomInputTypes> = (props) => {
-  const { formik, id, type, children, astheme } = props;
+  const { formik, id, type, children, astheme = 'primary' } = props;
   const { error, label, input, span, spantext } = props;
   return (
-    <InputTextLabelStyled
-      htmlFor={id}
-      {...label}
-    >
+    <InputTextLabelStyled htmlFor={id} {...label}>
       {spantext && (
         <InputTextSpanStyled astheme={astheme} {...span}>
           {spantext}
@@ -33,8 +30,8 @@ const InputText: FCWC<AtomInputTypes> = (props) => {
         {...Animation}
         value={input?.value ?? get(formik?.values, id)}
         onChange={(e) => {
-          formik?.handleChange(e)
-          input?.onChange?.(e)
+          formik?.handleChange(e);
+          input?.onChange?.(e);
         }}
         onBlur={(e) => {
           formik?.handleBlur(e);

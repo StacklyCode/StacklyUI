@@ -79,6 +79,7 @@
     "rollup-plugin-multi-entry": "^2.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-typescript2": "^0.32.1",
+    "swiper": "7.2.0",
     "typescript": "^4.7.3"
   }
 }

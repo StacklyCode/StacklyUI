@@ -22,7 +22,7 @@ const WrapperCSS = css`
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-`;
+  `;
 
 const FormCSS = css`
   padding: 10px 10px;
@@ -32,28 +32,29 @@ const FormCSS = css`
   flex-wrap: wrap;
 `;
 
-const IconCSS = css`
-  width: 80px;
-  height: 80px;
-`;
-
 const Index = () => {
   const { key, toggle } = useAtomValue(ThemeContextAtom);
   const formik = useFormik({
     initialValues: {
-      name: ''
+      name: '',
     },
     validationSchema: Yup.object({
-      name: Yup.string().required('Name is required')
+      name: Yup.string().required('Name is required'),
     }),
     onSubmit: (values) => {
       console.warn(values);
     }
-  });
+  })
   return (
     <AtomWrapper css={WrapperCSS}>
-      <AtomText>Active theme: {key}</AtomText>
-      <AtomButton onClick={() => toggle()}>Change Theme</AtomButton>
+      <AtomText>
+        Active theme: {key}
+      </AtomText>
+      <AtomButton
+        onClick={() => toggle()}
+      >
+        Change Theme
+      </AtomButton>
       <AtomWrapper css={WrapperCSS}>
         <AtomText>Normal Buttons</AtomText>
         <AtomButton>
@@ -133,13 +134,10 @@ const Index = () => {
           WRAPPER ACCENT
         </AtomText>
       </AtomWrapper>
-      <AtomIcon astheme="primary" />
-      <AtomIcon astheme="secondary" />
-      <AtomIcon astheme="accent" icon="/ToonsLand.svg" />
-      <AtomIcon
-        css={IconCSS}
-        icon="https://storage.googleapis.com/cdn-bucket-ixulabs-platform/assets/svgs/PFS-0001/outline/house-beat.svg"
-      />
+      <AtomIcon astheme='primary' />
+      <AtomIcon astheme='secondary' />
+      <AtomIcon astheme='accent' />
+      <AtomIcon icon="https://storage.googleapis.com/cdn-bucket-ixulabs-platform/assets/svgs/PFS-0001/outline/house-beat.svg" />
       <AtomIcon css={colorIcon('#db4a4a')} />
       <AtomWrapper
         css={css`
@@ -157,59 +155,48 @@ const Index = () => {
           src="https://storage.googleapis.com/cdn-bucket-ixulabs-platform/STCO-0001/800px-A_black_image.jpg"
         />
       </AtomWrapper>
-      <AtomWrapper css={FormCSS} astheme="secondary" as="form">
-        <AtomText astheme="secondary">FORM</AtomText>
+      <AtomWrapper css={FormCSS} astheme="secondary" as='form'>
+        <AtomText astheme='secondary'>
+          FORM
+        </AtomText>
         <AtomWrapper css={WrapperCSS} astheme="secondary">
-          <AtomInput
-            id="name"
-            astheme="primary"
-            formik={formik}
-            input={{
-              placeholder: 'Name'
-            }}
+          <AtomInput id='name' astheme="primary" formik={formik} input={{
+            placeholder: 'Name',
+          }}
             spantext="Name"
           />
-          <AtomInput
-            id="name"
-            astheme="secondary"
-            formik={formik}
-            input={{
-              placeholder: 'Name'
-            }}
+          <AtomInput id='name' astheme="secondary" formik={formik} input={{
+            placeholder: 'Name',
+          }}
             spantext="Name"
           />
-          <AtomInput
-            id="name"
-            astheme="accent"
-            formik={formik}
-            input={{
-              placeholder: 'Name'
-            }}
+          <AtomInput id='name' astheme="accent" formik={formik} input={{
+            placeholder: 'Name',
+          }}
             spantext="Name"
           />
-          <AtomInput
-            id="name"
-            formik={formik}
-            input={{
-              placeholder: 'Name',
-              css: backgroundColorInput('#22705f')
-            }}
+          <AtomInput id='name' formik={formik} input={{
+            placeholder: 'Name',
+            css: backgroundColorInput('#22705f')
+          }}
             spantext="Name"
           />
         </AtomWrapper>
-        <AtomInput
-          id="name"
-          type="toggle"
+        <AtomInput id='name' type='toggle'
           input={{
-            checked: key === 'dark',
+            checked: key === "dark",
             onChange: () => {
-              toggle();
+              toggle()
             }
           }}
+
         />
+
       </AtomWrapper>
     </AtomWrapper>
   );
 };
 
 export default Index;
+
+

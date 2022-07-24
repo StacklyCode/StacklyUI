@@ -1,38 +1,26 @@
-import { atom, useAtom } from 'jotai';
-import { atomFamily } from 'jotai/utils';
-import Cookies from 'js-cookie';
-import { FC, useMemo } from 'react';
-import { Hash } from 'utils';
+import { FC, useEffect, useState } from 'react';
 import { IconWrapperStyled } from './styled';
 import { AtomIconTypes } from './types';
 
 const defaultIcon = `https://storage.googleapis.com/cdn-bucket-ixulabs-platform/STCO-0001/warning-svgrepo-com.svg`;
 
-const fetchIcon = async (url: string) => {
+const fetchIcon = async (url: string, state: (e: string) => void) => {
   try {
-    const response = await fetch(url);
+    const response = await fetch(url ?? defaultIcon);
     const data = await response.text();
-    return data;
+    return state(data);
   } catch (error) {
     return ``;
   }
 };
 
-const iconAtomFetch = atomFamily((getKey: string) =>
-  atom(async () => {
-    const key = getKey ?? defaultIcon;
-    const dataCookie = Cookies.get(Hash(key));
-    if (dataCookie) return dataCookie;
-    const data = await fetchIcon(key);
-    Cookies.set(Hash(key), data, { expires: 365 });
-    return data;
-  })
-);
-
 const AtomIcon: FC<AtomIconTypes> = (props) => {
   const { icon } = props;
-  const iconAtomFetchMemo = useMemo(() => iconAtomFetch(icon), [icon]);
-  const [iconState] = useAtom(iconAtomFetchMemo);
+  const [iconState, stateIcon] = useState(``);
+
+  useEffect(() => {
+    fetchIcon(icon, (data) => stateIcon(data));
+  }, [icon]);
 
   return (
     <IconWrapperStyled
