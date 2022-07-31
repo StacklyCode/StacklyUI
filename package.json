@@ -22,6 +22,7 @@
     "dev": "next dev",
     "test": "rollup -c",
     "build": "rollup -c",
+    "vercel-build": "yarn global add node-gyp",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|d.ts)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|d.ts)\" --write"
   },
