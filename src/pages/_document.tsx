@@ -1,21 +1,20 @@
 import { Head, Html, Main, NextScript } from 'next/document';
+import { themes } from 'themes/index';
 
 const Document = () => (
   <Html>
     <Head>
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.css"
-      ></link>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <script
         dangerouslySetInnerHTML={{
           __html: `
       (function() {
-        const themes ={
-            light: '#fff',
-            dark: '#000',
-        }
+        const themes = {${Object.entries(themes)
+          ?.map(
+            ([key, value]) =>
+              `${key}: '${value?.general?.propierties?.backgroundflash}'`
+          )
+          ?.join(',')}};
+          console.log(themes);
         function getInitialColorMode() {
           const persistedColorPreference = window.localStorage.getItem('theme');
           const hasPersistedPreference = typeof persistedColorPreference === 'string';

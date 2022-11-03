@@ -15,6 +15,7 @@ export type ThemePropierties = {
   blur?: string;
   background?: string;
   font?: string;
+  backgroundflash?: string;
 };
 
 type CSS = (theme: Theme) => SerializedStyles;

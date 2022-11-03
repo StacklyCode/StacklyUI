@@ -11,7 +11,8 @@ const ThemeLight: IPalette = {
       tooltip: '#cacaca'
     },
     propierties: {
-      blur: 'rgba(255, 255, 255, 0.05)'
+      blur: 'rgba(255, 255, 255, 0.05)',
+      backgroundflash: '#ffffff'
     }
   },
   button: {
