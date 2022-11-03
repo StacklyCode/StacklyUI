@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie';
 import { useSetAtom, useAtom } from 'jotai';
 import { FC, useEffect } from 'react';
 import { ThemeAtom, ThemeCallbackAtom, ThemeKeyAtom } from 'jotais/index';
@@ -13,16 +12,16 @@ const ThemeContext: FC<ThemeContextProps> = (props) => {
 
   useEffect(() => {
     const loadTheme = async () => {
-      const keyTheme = Cookies.get('THEME_KEY') as ThemeKeyType;
+      const keyTheme = localStorage.getItem('theme') as ThemeKeyType;
       const key = keyTheme;
       setTheme(themes?.select?.[key] ?? defaultTheme);
       setThemeKey(key ?? 'light');
       setThemeCallback(() => async (keyArgs: ThemeKeyType) => {
-        const keyTheme = Cookies.get('THEME_KEY') as ThemeKeyType;
+        const keyTheme = localStorage.getItem('theme') as ThemeKeyType;
         const key = keyArgs ?? keyTheme;
         setTheme(themes?.select?.[key] ?? defaultTheme);
         setThemeKey(key);
-        Cookies.set('THEME_KEY', key);
+        localStorage.setItem('theme', key);
       });
     };
     loadTheme();

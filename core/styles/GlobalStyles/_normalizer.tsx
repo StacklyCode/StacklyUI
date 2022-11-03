@@ -23,7 +23,6 @@ const _NormalizerStyled: FC = () => {
         html {
           width: 100%;
           overflow-x: hidden;
-          background-color: #000000;
         }
         body {
           width: 100%;
