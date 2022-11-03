@@ -39,7 +39,7 @@ const AtomCarrousell: FC<AtomCarrousellType> = (props) => {
   } = props;
   return (
     <AtomWrapper
-      css={css`
+      css={() => css`
         ${SwiperStyles}
         .swiper {
           width: ${width || `100%`};

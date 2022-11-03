@@ -22,7 +22,7 @@ const WrapperCSS = css`
 
 const Index = () => {
   const [fullscreen, setFullscreen] = useState(false);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [key, toggle] = useAtomValue(ThemeToggleAtom);
   return (
     <AtomWrapper css={() => WrapperCSS}>
