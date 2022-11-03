@@ -2,28 +2,33 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@atoms/*": ["core/@atoms/*"],
-      "@atoms": ["core/@atoms/index.ts"],
-      "@molecules/*": ["core/@molecules/*"],
-      "@molecules": ["core/@molecules/index.ts"],
-      "@organisms/*": ["core/@organisms/*"],
-      "@organisms": ["core/@organisms/index.ts"],
-      "layouts/*": ["core/layouts/*"],
-      "layouts": ["core/layouts/index.ts"],
-      "jotais/*": ["core/jotai/*"],
-      "jotais": ["core/jotai/index.ts"],
+      "@stacklycore/ui": ["index.ts"],
+      "src/*": ["src/*"],
+      "animations/*": ["core/animations/*"],
+      "animations": ["core/animations/index.ts"],
+      "components/*": ["core/components/*"],
+      "components": ["core/components/index.ts"],
+      "atoms/*": ["core/components/atoms/*"],
+      "atoms": ["core/components/atoms/index.ts"],
+      "molecules/*": ["core/components/molecules/*"],
+      "molecules": ["core/components/molecules/index.ts"],
+      "organisms/*": ["core/components/organisms/*"],
+      "organisms": ["core/components/organisms/index.ts"],
+      "css": ["core/css/index.ts"],
+      "css/*": ["core/css/*"],
       "hooks/*": ["core/hooks/*"],
       "hooks": ["core/hooks/index.ts"],
+      "jotais/*": ["core/jotai/*"],
+      "jotais": ["core/jotai/index.ts"],
+      "layouts/*": ["core/layouts/*"],
+      "layouts": ["core/layouts/index.ts"],
+      "styles/*": ["core/styles/*"],
+      "styles": ["core/styles/index.ts"],
       "themes/*": ["core/themes/*"],
       "themes": ["core/themes/index.ts"],
       "types": ["core/types/index.ts"],
-      "css": ["core/css/index.ts"],
-      "css/*": ["core/css/*"],
       "utils/*": ["core/utils/*"],
       "utils": ["core/utils/index.ts"],
-      "styles/*": ["core/styles/*"],
-      "styles": ["core/styles/index.ts"],
-      "src/*": ["src/*"],
       "core/*": ["core/*"],
       "core": ["core/index.ts"]
     },
@@ -46,8 +51,19 @@
     "noEmit": true,
     "incremental": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["**/*", "**/*x", "**/*.d.ts", "theme.d.ts"],
+  "include": [
+    "**/*",
+    "**/*x",
+    "**/*.d.ts",
+    "theme.d.ts",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules", "build", "**/*.stories.tsx", "**/*.test.tsx"]
 }

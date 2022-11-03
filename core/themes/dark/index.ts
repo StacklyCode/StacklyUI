@@ -1,19 +1,32 @@
 import { IPalette } from 'types';
 
 const ThemeDark: IPalette = {
+  general: {
+    color: {
+      primary: '#0072f5',
+      secondary: '#49dc80',
+      accent: '#d333f6',
+      color2: '#f6d333',
+      color3: '#33f6d3',
+      tooltip: '#2c2c2c'
+    },
+    propierties: {
+      blur: 'rgba(0, 0, 0, 0.6)'
+    }
+  },
   button: {
     color: {
-      primary: '#e52d27',
-      secondary: '#db4a4a',
-      accent: '#6b39bd'
+      primary: '#0072f5',
+      secondary: '#49dc80',
+      accent: '#d333f6'
     },
     type: 'flat'
   },
   wrapper: {
     color: {
-      primary: '#18181b',
-      secondary: '#3c4043',
-      accent: '#202124'
+      primary: '#000000',
+      secondary: '#1e2122',
+      accent: '#0c1f54'
     }
   },
   icon: {
@@ -21,6 +34,16 @@ const ThemeDark: IPalette = {
       primary: '#fafafa',
       secondary: '#5a6a8a',
       accent: '#1461EB'
+    }
+  },
+  loader: {
+    color: {
+      primary: '#ff1bf7',
+      secondary: '#5a6a8a',
+      accent: '#1461EB'
+    },
+    propierties: {
+      background: 'rgba(0, 0, 0, 0.6)'
     }
   },
   text: {
@@ -32,9 +55,9 @@ const ThemeDark: IPalette = {
   },
   input: {
     color: {
-      primary: '#db4a4a',
-      secondary: '#6b39bd',
-      accent: '#5a6a8a'
+      primary: '#e52d27',
+      secondary: '#db4a4a',
+      accent: '#6b39bd'
     }
   },
   scrollbar: {

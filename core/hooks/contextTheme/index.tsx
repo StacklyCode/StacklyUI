@@ -1,28 +1,37 @@
-import { useSetAtom, useAtom } from 'jotai';
 import Cookies from 'js-cookie';
+import { useSetAtom, useAtom } from 'jotai';
+import { FC, useEffect } from 'react';
+import { ThemeAtom, ThemeCallbackAtom, ThemeKeyAtom } from 'jotais/index';
+import { ThemeContextProps, ThemeKeyType } from 'types';
 import { ThemeProvider } from '@emotion/react';
-import { useEffect } from 'react';
-import { FCWC, ThemeContextProps } from 'types';
-import { ThemeAtom, ThemeContextAtom } from 'jotais';
 
-const ThemeContext: FCWC<ThemeContextProps> = (props) => {
-  const { children, themes } = props;
-  const setThemeContext = useSetAtom(ThemeContextAtom);
-  const [theme, toggle] = useAtom(ThemeAtom(themes));
-  useEffect(
-    () =>
-      setThemeContext({
-        key: theme.key,
-        toggle
-      }),
-    [theme.key, toggle]
-  );
+const ThemeContext: FC<ThemeContextProps> = (props) => {
+  const { children, themes, defaultTheme } = props;
+  const [theme, setTheme] = useAtom(ThemeAtom);
+  const [themeCallback, setThemeCallback] = useAtom(ThemeCallbackAtom);
+  const setThemeKey = useSetAtom(ThemeKeyAtom);
+
   useEffect(() => {
-    const key = Cookies.get('THEME');
-    toggle(key);
-  }, []);
+    const loadTheme = async () => {
+      const keyTheme = Cookies.get('THEME_KEY') as ThemeKeyType;
+      const key = keyTheme;
+      setTheme(themes?.select?.[key] ?? defaultTheme);
+      setThemeKey(key ?? 'light');
+      setThemeCallback(() => async (keyArgs: ThemeKeyType) => {
+        const keyTheme = Cookies.get('THEME_KEY') as ThemeKeyType;
+        const key = keyArgs ?? keyTheme;
+        setTheme(themes?.select?.[key] ?? defaultTheme);
+        setThemeKey(key);
+        Cookies.set('THEME_KEY', key);
+      });
+    };
+    loadTheme();
+    return () => null;
+  }, [!themeCallback]);
 
-  return <ThemeProvider theme={theme.theme}>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={theme ?? defaultTheme}>{children}</ThemeProvider>
+  );
 };
 
 export default ThemeContext;

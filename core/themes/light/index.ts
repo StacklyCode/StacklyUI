@@ -1,34 +1,49 @@
-import { css } from '@emotion/react';
 import { IPalette } from 'types';
 
 const ThemeLight: IPalette = {
+  general: {
+    color: {
+      primary: '#0072f5',
+      secondary: '#5a6a8a',
+      accent: '#1461EB',
+      color2: '#5a6a8a',
+      color3: '#7a8baa',
+      tooltip: '#cacaca'
+    },
+    propierties: {
+      blur: 'rgba(255, 255, 255, 0.05)'
+    }
+  },
   button: {
     color: {
-      primary: '#3459A8',
+      primary: '#0072f5',
       secondary: '#5a6a8a',
       accent: '#1461EB'
     },
-    type: 'flat',
+    type: 'flat'
   },
   wrapper: {
     color: {
       primary: '#fafafa',
       secondary: '#5a6a8a',
       accent: '#1461EB'
-    },
-    css: () => css`
-      @media (max-width: 768px) {
-        flex-direction: column;
-        gap: 1rem;
-        background-color: red;
-      }
-    `
+    }
   },
   icon: {
     color: {
       primary: '#202124',
       secondary: '#5a6a8a',
       accent: '#3459a8'
+    }
+  },
+  loader: {
+    color: {
+      primary: '#0072f5',
+      secondary: '#5a6a8a',
+      accent: '#1461EB'
+    },
+    propierties: {
+      background: 'rgba(255, 255, 255, 0.05)'
     }
   },
   text: {

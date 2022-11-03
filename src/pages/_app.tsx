@@ -1,21 +1,15 @@
-import ThemeContext from 'hooks/contextTheme';
 import type { AppProps } from 'next/app';
-
-import { CreateThemes } from 'utils';
+import GlobalStyles from 'styles/GlobalStyles';
+import CreateThemes from 'utils/createThemes';
 import { DefaultLayout } from 'layouts';
-import { GlobalStyles } from 'styles';
-import { ThemeDark, ThemeLight } from 'themes';
-
-const themes = {
-  light: ThemeLight,
-  dark: ThemeDark
-};
+import ThemeContext from 'hooks/contextTheme';
+import { themes } from 'themes/index';
 
 export const ThemesWithMachine = CreateThemes(themes);
 
 const MyApp = ({ Component, pageProps, router }: AppProps) => {
   return (
-    <ThemeContext themes={ThemesWithMachine}>
+    <ThemeContext themes={ThemesWithMachine} defaultTheme={themes?.light}>
       <DefaultLayout>
         <GlobalStyles />
         <Component {...pageProps} key={router.pathname} />

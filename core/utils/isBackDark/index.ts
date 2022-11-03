@@ -24,7 +24,7 @@ const isBackDark = (hex) => {
   );
   const output = net.run(color) as IOutput;
   if (output.black > output.white) {
-    return '#535353';
+    return '#000000';
   }
   return '#fff';
 };

@@ -1,5 +1,5 @@
-import { css, Global, useTheme } from "@emotion/react";
-import { FC } from "react";
+import { css, Global, useTheme } from '@emotion/react';
+import { FC } from 'react';
 
 const _NormalizerStyled: FC = () => {
   const theme = useTheme();
@@ -23,6 +23,7 @@ const _NormalizerStyled: FC = () => {
         html {
           width: 100%;
           overflow-x: hidden;
+          background-color: #000000;
         }
         body {
           width: 100%;
@@ -88,9 +89,9 @@ const _NormalizerStyled: FC = () => {
           margin: 0;
         }
 
-        [type="button"],
-        [type="reset"],
-        [type="submit"],
+        [type='button'],
+        [type='reset'],
+        [type='submit'],
         button {
           -webkit-appearance: button;
           -webkit-tap-highlight-color: transparent;
@@ -99,10 +100,10 @@ const _NormalizerStyled: FC = () => {
           width: ${theme?.scrollbar?.width ?? 8}px;
         }
         ::-webkit-scrollbar-thumb {
-          background: ${theme?.scrollbar?.thumb ?? "#5993ff"};
+          background: ${theme?.scrollbar?.thumb ?? '#5993ff'};
         }
         ::-webkit-scrollbar-track {
-          background: ${theme?.scrollbar?.track ?? "#e6e6e6"};
+          background: ${theme?.scrollbar?.track ?? '#e6e6e6'};
         }
       `}
     />

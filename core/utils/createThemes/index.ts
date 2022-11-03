@@ -21,6 +21,7 @@ const CreateThemes: ICustomTheme = (themes) => {
   const themeMachine = createMachine<string>({
     id: 'THEME_MACHINE',
     initial: arrayThemes[0][0],
+    predictableActionArguments: true,
     states: stateObject
   });
   return {

@@ -1,6 +1,4 @@
-export * from './core/@atoms';
-export * from './core/@molecules';
-export * from './core/@organisms';
+export * from './core/components';
 export * from './core/css';
 export * from './core/hooks';
 export * from './core/jotai';
