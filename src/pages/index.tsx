@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import {
   AtomButton,
+  AtomInput,
   AtomLoader,
   AtomText,
   AtomWrapper
@@ -64,43 +65,43 @@ const Index = () => {
           <AtomButton astype="outline" astheme="color3" />
         </WrapperComponent>
         <WrapperComponent title="Loading">
-          <AtomButton loading astheme="primary" />
-          <AtomButton loading astheme="secondary" />
-          <AtomButton loading astheme="accent" />
-          <AtomButton loading astheme="color2" />
-          <AtomButton loading astheme="color3" />
-          <AtomButton astype="outline" loading astheme="primary" />
-          <AtomButton astype="outline" loading astheme="secondary" />
-          <AtomButton astype="outline" loading astheme="accent" />
-          <AtomButton astype="outline" loading astheme="color2" />
-          <AtomButton astype="outline" loading astheme="color3" />
+          <AtomButton loading="true" astheme="primary" />
+          <AtomButton loading="true" astheme="secondary" />
+          <AtomButton loading="true" astheme="accent" />
+          <AtomButton loading="true" astheme="color2" />
+          <AtomButton loading="true" astheme="color3" />
+          <AtomButton astype="outline" loading="true" astheme="primary" />
+          <AtomButton astype="outline" loading="true" astheme="secondary" />
+          <AtomButton astype="outline" loading="true" astheme="accent" />
+          <AtomButton astype="outline" loading="true" astheme="color2" />
+          <AtomButton astype="outline" loading="true" astheme="color3" />
         </WrapperComponent>
       </WrapperComponent>
       <WrapperComponent title="Component Loader" type="main" dot>
         <WrapperComponent title="Medium: (Auto)">
-          <AtomLoader loading astheme="primary" />
-          <AtomLoader loading astheme="secondary" />
-          <AtomLoader loading astheme="accent" />
-          <AtomLoader loading astheme="color2" />
-          <AtomLoader loading astheme="color3" />
+          <AtomLoader loading="true" astheme="primary" />
+          <AtomLoader loading="true" astheme="secondary" />
+          <AtomLoader loading="true" astheme="accent" />
+          <AtomLoader loading="true" astheme="color2" />
+          <AtomLoader loading="true" astheme="color3" />
         </WrapperComponent>
         <WrapperComponent title="Small">
-          <AtomLoader astype="small" loading astheme="primary" />
-          <AtomLoader astype="small" loading astheme="secondary" />
-          <AtomLoader astype="small" loading astheme="accent" />
-          <AtomLoader astype="small" loading astheme="color2" />
-          <AtomLoader astype="small" loading astheme="color3" />
+          <AtomLoader astype="small" loading="true" astheme="primary" />
+          <AtomLoader astype="small" loading="true" astheme="secondary" />
+          <AtomLoader astype="small" loading="true" astheme="accent" />
+          <AtomLoader astype="small" loading="true" astheme="color2" />
+          <AtomLoader astype="small" loading="true" astheme="color3" />
         </WrapperComponent>
         <WrapperComponent title="Button">
-          <AtomLoader astype="button" loading astheme="primary" />
-          <AtomLoader astype="button" loading astheme="secondary" />
-          <AtomLoader astype="button" loading astheme="accent" />
-          <AtomLoader astype="button" loading astheme="color2" />
-          <AtomLoader astype="button" loading astheme="color3" />
+          <AtomLoader astype="button" loading="true" astheme="primary" />
+          <AtomLoader astype="button" loading="true" astheme="secondary" />
+          <AtomLoader astype="button" loading="true" astheme="accent" />
+          <AtomLoader astype="button" loading="true" astheme="color2" />
+          <AtomLoader astype="button" loading="true" astheme="color3" />
         </WrapperComponent>
         <WrapperComponent title="Fullscreen">
           <AtomButton onClick={() => setFullscreen(!fullscreen)}>
-            Open Fullscreen
+            Open Fullscreen Loader
           </AtomButton>
           <AtomLoader
             onClick={() => setFullscreen(!fullscreen)}
@@ -108,6 +109,9 @@ const Index = () => {
             loading={fullscreen}
           />
         </WrapperComponent>
+      </WrapperComponent>
+      <WrapperComponent title="Component Input" type="main" dot>
+        <AtomInput />
       </WrapperComponent>
     </AtomWrapper>
   );
