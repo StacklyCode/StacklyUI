@@ -9,7 +9,13 @@ const net = new NeuralNetwork();
 net.train(train);
 
 const hexToRgb = (hex) => {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])([a-f\d])?$/i;
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})?$/i.exec(
+    hex.replace(shorthandRegex, (_, r, g, b, a) => {
+      return r + r + g + g + b + b + (a ? a + a : '');
+    })
+  );
+
   return {
     r: parseInt(result[1], 16),
     g: parseInt(result[2], 16),

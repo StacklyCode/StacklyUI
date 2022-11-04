@@ -11,7 +11,7 @@ const Document = () => (
         const themes = {${Object.entries(themes)
           ?.map(
             ([key, value]) =>
-              `${key}: '${value?.general?.propierties?.backgroundflash}'`
+              `${key}: '${value?.general?.properties?.backgroundflash}'`
           )
           ?.join(',')}};
           console.log(themes);

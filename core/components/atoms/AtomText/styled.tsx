@@ -11,7 +11,7 @@ const TextStyle = (props: AtomTextTypesTheme) => {
   const { theme, css: cssProps, astheme = 'primary' } = props;
   return css`
     line-height: 150%;
-    font-family: ${theme.text?.propierties?.font ?? `'Inter', sans-serif`};
+    font-family: ${theme.text?.properties?.font ?? `'Inter', sans-serif`};
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;

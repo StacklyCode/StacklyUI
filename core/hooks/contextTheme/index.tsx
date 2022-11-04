@@ -17,8 +17,13 @@ const ThemeContext: FC<ThemeContextProps> = (props) => {
       setTheme(themes?.select?.[key] ?? defaultTheme);
       setThemeKey(key ?? 'light');
       setThemeCallback(() => async (keyArgs: ThemeKeyType) => {
-        const keyTheme = localStorage.getItem('theme') as ThemeKeyType;
-        const key = keyArgs ?? keyTheme;
+        const keyTheme =
+          localStorage.getItem('theme') ?? ('light' as ThemeKeyType);
+        const key =
+          keyArgs ??
+          (themes?.machine
+            .transition(keyTheme, 'TOGGLE')
+            .value.toString() as ThemeKeyType);
         setTheme(themes?.select?.[key] ?? defaultTheme);
         setThemeKey(key);
         localStorage.setItem('theme', key);

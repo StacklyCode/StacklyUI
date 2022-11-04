@@ -61,15 +61,17 @@ const WrapperComponent = (props: IWrapperComponent) => {
         align-items: center;
         background-color: transparent;
         gap: ${type === 'main' ? '30px' : '10px'};
-        border: 1px dashed ${theme.general.color.tooltip ?? '#0072f5'};
+        border: 1px dashed ${theme?.general?.properties.tooltip ?? '#0072f5'};
         border-radius: 4px;
         padding: 40px 30px;
 
         ::after {
           font-family: 'Inter', sans-serif;
           content: '${title}';
-          color: ${isBackDark(theme.general.color.tooltip ?? '#0072f5')};
-          background-color: ${theme.general.color.tooltip ?? '#0072f5'};
+          color: ${isBackDark(
+            theme?.general?.properties?.tooltip ?? '#0072f5'
+          )};
+          ${wrapperBlur(theme?.general?.properties?.tooltip ?? 'red')}
           padding: 4px 20px;
           border-radius: 200px;
           font-size: 10px;
@@ -81,7 +83,7 @@ const WrapperComponent = (props: IWrapperComponent) => {
         }
         ${dot &&
         css`
-          ${wrapperBlur(theme?.general?.propierties?.blur ?? 'red')}
+          ${wrapperBlur(theme?.general?.properties?.blur ?? 'red')}
           ::before {
             content: '';
             position: absolute;

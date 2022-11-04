@@ -6,15 +6,15 @@ export type ThemeColor = {
   accent?: string;
   color2?: string;
   color3?: string;
-  tooltip?: string;
 };
 
 export type KeyThemeColor = keyof ThemeColor;
 
-export type ThemePropierties = {
+export type ThemeProperties = {
   blur?: string;
-  background?: string;
   font?: string;
+  tooltip?: string;
+  background?: string;
   backgroundflash?: string;
 };
 
@@ -23,7 +23,7 @@ type CSS = (theme: Theme) => SerializedStyles;
 export type ThemeDefault = {
   color?: ThemeColor;
   css?: CSS;
-  propierties?: ThemePropierties;
+  properties?: ThemeProperties;
   theme?: keyof ThemeColor;
 };
 

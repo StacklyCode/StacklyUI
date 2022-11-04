@@ -9,6 +9,7 @@ import {
 import { useAtomValue } from 'jotai';
 import { ThemeToggleAtom } from 'jotais/theme';
 import { useState } from 'react';
+import ToggleTheme from 'src/components/ToggleTheme';
 import WrapperComponent from 'src/components/WrapperComponent';
 
 const WrapperCSS = css`
@@ -27,6 +28,7 @@ const Index = () => {
   const [key, toggle] = useAtomValue(ThemeToggleAtom);
   return (
     <AtomWrapper css={() => WrapperCSS}>
+      <ToggleTheme />
       <AtomText
         css={() => css`
           font-size: 32px;

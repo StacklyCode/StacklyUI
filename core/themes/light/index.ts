@@ -7,11 +7,12 @@ const ThemeLight: IPalette = {
       secondary: '#5a6a8a',
       accent: '#1461EB',
       color2: '#5a6a8a',
-      color3: '#7a8baa',
-      tooltip: '#cacaca'
+      color3: '#7a8baa'
     },
-    propierties: {
-      blur: 'rgba(255, 255, 255, 0.05)',
+    properties: {
+      blur: '#ffffff0d',
+      tooltip: '#cacaca',
+      background: '#fafafa',
       backgroundflash: '#ffffff'
     }
   },
@@ -43,7 +44,7 @@ const ThemeLight: IPalette = {
       secondary: '#5a6a8a',
       accent: '#1461EB'
     },
-    propierties: {
+    properties: {
       background: 'rgba(255, 255, 255, 0.05)'
     }
   },

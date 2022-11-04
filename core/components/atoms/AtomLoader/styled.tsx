@@ -25,7 +25,7 @@ export const TypeLoader: SSP<AtomLoaderTypes> = (props) => {
         width: 100%;
         height: 100%;
         z-index: 9999;
-        ${wrapperBlur(theme?.general?.propierties?.blur ?? 'red')}
+        ${wrapperBlur(theme?.general?.properties?.blur ?? 'red')}
       `;
     default:
       return css`

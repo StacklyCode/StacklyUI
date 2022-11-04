@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from 'react';
-import AtomLoader from '../AtomLoader';
 import { IconWrapperStyled } from './styled';
 import { AtomIconTypes } from './types';
 
@@ -24,15 +23,12 @@ const AtomIcon: FC<AtomIconTypes> = (props) => {
   }, [icon]);
 
   return (
-    <IconWrapperStyled {...props}>
-      <IconWrapperStyled
-        {...props}
-        dangerouslySetInnerHTML={{
-          __html: iconState ?? ''
-        }}
-      />
-      {!iconState && <AtomLoader loading />}
-    </IconWrapperStyled>
+    <IconWrapperStyled
+      {...props}
+      dangerouslySetInnerHTML={{
+        __html: iconState ?? ''
+      }}
+    />
   );
 };
 
