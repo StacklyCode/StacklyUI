@@ -63,9 +63,9 @@ const ThemeDark: IPalette = {
     }
   },
   scrollbar: {
-    width: 7,
-    thumb: '#db4a4a',
-    track: '#e6e6e6'
+    width: 4,
+    thumb: '#0072f5',
+    track: '#8b8b8b50'
   }
 };
 

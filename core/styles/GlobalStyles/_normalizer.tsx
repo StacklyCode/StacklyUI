@@ -13,7 +13,19 @@ const _NormalizerStyled: FC = () => {
           padding: 0;
           box-sizing: border-box;
         }
-
+        * {
+          ::-webkit-scrollbar {
+            width: ${theme?.scrollbar?.width ?? 0}px;
+            height: ${theme?.scrollbar?.height ?? 0}px;
+            transition: all 0.3s ease;
+          }
+          ::-webkit-scrollbar-thumb {
+            background: ${theme?.scrollbar?.thumb ?? '#5993ff'};
+          }
+          ::-webkit-scrollbar-track {
+            background: ${theme?.scrollbar?.track ?? '#e6e6e6'};
+          }
+        }
         *:focus {
           outline: none;
         }
@@ -94,15 +106,6 @@ const _NormalizerStyled: FC = () => {
         button {
           -webkit-appearance: button;
           -webkit-tap-highlight-color: transparent;
-        }
-        ::-webkit-scrollbar {
-          width: ${theme?.scrollbar?.width ?? 8}px;
-        }
-        ::-webkit-scrollbar-thumb {
-          background: ${theme?.scrollbar?.thumb ?? '#5993ff'};
-        }
-        ::-webkit-scrollbar-track {
-          background: ${theme?.scrollbar?.track ?? '#e6e6e6'};
         }
       `}
     />

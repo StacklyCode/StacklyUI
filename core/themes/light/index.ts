@@ -11,7 +11,7 @@ const ThemeLight: IPalette = {
     },
     properties: {
       blur: '#ffffff0d',
-      tooltip: '#cacaca',
+      tooltip: '#c5c5c598',
       background: '#fafafa',
       backgroundflash: '#ffffff'
     }
@@ -63,9 +63,9 @@ const ThemeLight: IPalette = {
     }
   },
   scrollbar: {
-    width: 7,
-    thumb: '#3459A8',
-    track: '#e6e6e6'
+    width: 4,
+    thumb: '#0072f5',
+    track: '#c5c5c598'
   }
 };
 
