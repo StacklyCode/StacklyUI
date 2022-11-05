@@ -11,7 +11,7 @@ const ThemeLight: IPalette = {
     },
     properties: {
       blur: '#ffffff0d',
-      tooltip: '#c5c5c598',
+      tooltip: '#909fbb',
       background: '#fafafa',
       backgroundflash: '#ffffff'
     }

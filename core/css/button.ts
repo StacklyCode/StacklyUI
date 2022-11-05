@@ -28,7 +28,7 @@ export const backgroundColorHoverFlat = (color: string) => css`
 
   ${loadingButton(IsBackDark(color))}
   ${ColorLoader(IsBackDark(color))}
-  border: 1px solid ${ChangeBrightness(color, 90)};
+  border: 1px solid ${ChangeBrightness(color, 80)};
   :hover {
     border: 1px solid ${ChangeBrightness(color, 50)};
     background-color: ${ChangeBrightness(color, -20)};

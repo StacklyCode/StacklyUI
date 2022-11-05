@@ -11,7 +11,7 @@ const ThemeDark: IPalette = {
     },
     properties: {
       blur: '#00000099',
-      tooltip: '#8b8b8b50',
+      tooltip: '#0072f550',
       background: '#000000',
       backgroundflash: '#000000'
     }

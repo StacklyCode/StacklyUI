@@ -2,8 +2,13 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { SSP } from 'types';
-import { backgroundColorHoverFlat, backgroundColorOutline } from 'css';
+import {
+  backgroundColorHoverFlat,
+  backgroundColorOutline,
+  wrapperBlur
+} from 'css';
 import { AtomButtonTypes } from './types';
+import changeTransparency from 'utils/changeTransparency';
 
 export const ButtonStyled = styled(motion.button)<AtomButtonTypes>`
   display: flex;
@@ -17,7 +22,7 @@ export const ButtonStyled = styled(motion.button)<AtomButtonTypes>`
   font-weight: 600;
   min-height: 38px;
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: 4px;
   line-height: 150%;
   transition: background-color 0.3s ease-in-out;
   cursor: pointer;
@@ -37,10 +42,16 @@ const CSSAsType: SSP<AtomButtonTypes> = (props) => {
   const { astype, astheme, theme } = props;
   const MAINTYPE = astype ?? theme?.button?.type ?? 'flat';
   const MAINTHEME = astheme ?? theme?.button?.theme ?? 'primary';
-  const MAINCOLOR = theme?.button?.color?.[MAINTHEME] ?? theme?.general?.color?.[MAINTHEME]  ?? '#0067ea';
+  const MAINCOLOR =
+    theme?.button?.color?.[MAINTHEME] ??
+    theme?.general?.color?.[MAINTHEME] ??
+    '#0067ea';
   switch (MAINTYPE) {
     case 'outline':
-      return backgroundColorOutline(MAINCOLOR);
+      return css`
+        ${backgroundColorOutline(MAINCOLOR)}
+        ${wrapperBlur(changeTransparency(MAINCOLOR, 10))}
+      `;
     default:
       return backgroundColorHoverFlat(MAINCOLOR);
   }
