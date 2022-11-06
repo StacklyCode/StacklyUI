@@ -9,6 +9,7 @@ import {
 } from 'css';
 import { AtomButtonTypes } from './types';
 import changeTransparency from 'utils/changeTransparency';
+import changeBrightness from 'utils/changeBrightness';
 
 export const ButtonStyled = styled(motion.button)<AtomButtonTypes>`
   display: flex;
@@ -62,9 +63,16 @@ const IsDisabled: SSP<AtomButtonTypes> = (props) => {
   return css`
     ${disabled &&
     css`
-      background-color: #e6e6e6 !important;
-      color: #7e7e7e !important;
+      color: ${changeBrightness('#e6e6e6', -200)} !important;
+      ${wrapperBlur('#e6e6e650')}
+      :hover {
+        ${wrapperBlur('#e6e6e650')}
+      }
+      border: 1px solid #757575 !important;
       cursor: not-allowed !important;
+      font-weight: bold;
+      text-align: center;
+      mix-blend-mode: screen;
     `}
   `;
 };

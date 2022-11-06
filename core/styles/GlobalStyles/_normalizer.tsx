@@ -41,7 +41,6 @@ const _NormalizerStyled: FC = () => {
         }
         #__next {
           width: 100%;
-          overflow-x: hidden;
         }
         blockquote,
         dl,

@@ -1,6 +1,12 @@
 import { IPalette } from 'types';
 
 const ThemeDark: IPalette = {
+  header: {
+    properties: {
+      blur: '#00000099',
+      background: '#000000'
+    }
+  },
   general: {
     color: {
       primary: '#0072f5',

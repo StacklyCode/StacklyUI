@@ -14,7 +14,6 @@ const Document = () => (
               `${key}: '${value?.general?.properties?.backgroundflash}'`
           )
           ?.join(',')}};
-          console.log(themes);
         function getInitialColorMode() {
           const persistedColorPreference = window.localStorage.getItem('theme');
           const hasPersistedPreference = typeof persistedColorPreference === 'string';

@@ -1,6 +1,12 @@
 import { IPalette } from 'types';
 
 const ThemeLight: IPalette = {
+  header: {
+    properties: {
+      blur: '#ffffff0d',
+      background: '#ffffff'
+    }
+  },
   general: {
     color: {
       primary: '#0072f5',
@@ -12,7 +18,7 @@ const ThemeLight: IPalette = {
     properties: {
       blur: '#ffffff0d',
       tooltip: '#909fbb',
-      background: '#fafafa',
+      background: '#ffffff',
       backgroundflash: '#ffffff'
     }
   },

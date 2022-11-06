@@ -18,11 +18,10 @@ const ToggleTheme = () => {
     <AtomButton
       onClick={() => toggle()}
       css={(theme) => css`
-        position: fixed;
         top: 30px;
         right: 30px;
         width: max-content;
-        padding: 10px 30px;
+        padding: 0px 20px;
         border-radius: 30px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.048);
         border: 1px solid ${theme?.general?.properties?.tooltip};
@@ -35,13 +34,12 @@ const ToggleTheme = () => {
             : changeBrightness(theme?.general?.properties?.tooltip, -10)};
           border: 1px solid ${theme?.general?.properties?.tooltip};
         }
-        z-index: 9999;
       `}
     >
       <AtomIcon
         css={(theme) => css`
-          width: 20px;
-          height: 20px;
+          width: 18px;
+          height: 18px;
           ${colorIcon(
             isBackDark(
               key === 'light'

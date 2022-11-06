@@ -9,11 +9,10 @@ import {
 import { useAtomValue } from 'jotai';
 import { ThemeToggleAtom } from 'jotais/theme';
 import { useState } from 'react';
-import ToggleTheme from 'src/components/ToggleTheme';
+import Header from 'src/components/Header';
 import WrapperComponent from 'src/components/WrapperComponent';
 
-const WrapperCSS = css`
-  padding: 30px;
+const ContainerCSS = css`
   min-height: 100vh;
   flex-direction: column;
   justify-content: flex-start;
@@ -24,11 +23,11 @@ const WrapperCSS = css`
 
 const Index = () => {
   const [fullscreen, setFullscreen] = useState(false);
-  // const [loading, setLoading] = useState(false);
   const [key, toggle] = useAtomValue(ThemeToggleAtom);
+  
   return (
-    <AtomWrapper css={() => WrapperCSS}>
-      <ToggleTheme />
+    <AtomWrapper as="main" css={() => ContainerCSS}>
+      <Header />
       <AtomText
         css={() => css`
           font-size: 32px;
@@ -65,6 +64,13 @@ const Index = () => {
           <AtomButton astype="outline" astheme="accent" />
           <AtomButton astype="outline" astheme="color2" />
           <AtomButton astype="outline" astheme="color3" />
+        </WrapperComponent>
+        <WrapperComponent title="Disabled">
+          <AtomButton disabled astheme="primary" />
+          <AtomButton disabled astheme="secondary" />
+          <AtomButton disabled astheme="accent" />
+          <AtomButton disabled astheme="color2" />
+          <AtomButton disabled astheme="color3" />
         </WrapperComponent>
         <WrapperComponent title="Loading">
           <AtomButton loading="true" astheme="primary" />
