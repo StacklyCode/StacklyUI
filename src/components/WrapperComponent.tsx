@@ -30,9 +30,9 @@ const WrapperComponent = (props: IWrapperComponent) => {
     const min = Math.ceil(height * 0.5);
     const max = Math.ceil(height * 0.7);
     const randomSize = randomNumberBetween(min, max);
-    const colors = Object.values(theme?.general?.color);
+    const colors = Object.values(theme?.dot?.color);
     const randomColor = `${
-      colors[randomNumberBetween(0, colors.length - 1)] ?? '#0072f5'
+      colors[randomNumberBetween(0, colors.length - 1)] ?? 'transparent'
     }e7`;
     const minWidth = Math.ceil(randomSize);
     const maxWidth = Math.ceil(width - randomSize);

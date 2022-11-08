@@ -13,8 +13,8 @@ export const TypeLoader: SSP<AtomLoaderTypes> = (props) => {
       `;
     case 'button':
       return css`
-        width: 30px;
-        height: 15px;
+        width: 38px;
+        height: max-content;
       `;
     case 'fullscreen':
       return css`

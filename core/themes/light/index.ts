@@ -63,15 +63,23 @@ const ThemeLight: IPalette = {
   },
   input: {
     color: {
-      primary: '#fafafa',
-      secondary: '#3459a8',
-      accent: '#db4a4a'
+      primary: '#0072f5',
+      secondary: '#5a6a8a',
+      accent: '#1461EB',
+      color2: '#5a6a8a',
+      color3: '#7a8baa'
+    },
+    properties: {
+      background: '#edeff1'
     }
   },
   scrollbar: {
     width: 4,
     thumb: '#0072f5',
     track: '#c5c5c598'
+  },
+  dot: {
+    color: {}
   }
 };
 

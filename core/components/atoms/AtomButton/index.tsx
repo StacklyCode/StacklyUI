@@ -2,6 +2,7 @@ import { forwardRef } from 'react';
 import { ButtonStyled } from './styled';
 import { AtomButtonTypes } from './types';
 import AtomLoader from '../AtomLoader';
+import AtomText from '../AtomText';
 
 const Animation = {
   whileHover: {
@@ -27,7 +28,7 @@ const AtomButton = forwardRef<any, AtomButtonTypes>((props, ref) => {
       ref={ref}
     >
       <AtomLoader astype="button" loading={loading}>
-        {children || `Text Default`}
+        {children ?? <AtomText as="span">Text Default</AtomText>}
       </AtomLoader>
     </ButtonStyled>
   );

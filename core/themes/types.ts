@@ -44,6 +44,8 @@ export type ThemeAtomInput = ThemeDefault;
 
 export type ThemeAtomHeader = ThemeDefault;
 
+export type ThemeAtomDot = ThemeDefault;
+
 export type ThemeScrollbar = {
   css?: CSS;
   width?: number;
@@ -62,4 +64,5 @@ export type Palette = {
   scrollbar?: ThemeScrollbar;
   input?: ThemeAtomInput;
   header?: ThemeAtomHeader;
+  dot?: ThemeAtomDot;
 };

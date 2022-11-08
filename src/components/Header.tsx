@@ -16,6 +16,7 @@ const Header = () => {
     };
     window.removeEventListener('scroll', onScroll);
     window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
@@ -84,7 +85,11 @@ const Header = () => {
           `}
           icon="https://storage.googleapis.com/cdn-bucket-ixulabs-platform/STCO-0001/logo.svg"
         />
-        <AtomInput />
+        <AtomInput
+          input={{
+            placeholder: 'Search'
+          }}
+        />
         <ToggleTheme />
       </AtomWrapper>
     </AtomWrapper>

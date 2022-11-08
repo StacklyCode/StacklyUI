@@ -1,12 +1,14 @@
 import { css } from '@emotion/react';
+import changeTransparency from 'utils/changeTransparency';
 import { ChangeBrightness, IsBackDark } from 'utils/index';
 
-export const backgroundColorInput = (color: string) => css`
+export const backgroundColorInput = (color: string, border?: string) => css`
   background-color: ${color};
   color: ${IsBackDark(color)};
-  border: 2px solid ${ChangeBrightness(color, -20)};
+  border: 2px solid
+    ${changeTransparency(border, 20) ?? ChangeBrightness(color, -25)};
   ::placeholder {
-    color: ${ChangeBrightness(IsBackDark(color), 40)};
+    color: ${changeTransparency(IsBackDark(color), 30)};
   }
 `;
 

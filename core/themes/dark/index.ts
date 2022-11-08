@@ -63,15 +63,29 @@ const ThemeDark: IPalette = {
   },
   input: {
     color: {
-      primary: '#e52d27',
-      secondary: '#db4a4a',
-      accent: '#6b39bd'
+      primary: '#0072f5',
+      secondary: '#49dc80',
+      accent: '#d333f6',
+      color2: '#f6d333',
+      color3: '#33f6d3'
+    },
+    properties: {
+      background: '#1e2122'
     }
   },
   scrollbar: {
     width: 4,
     thumb: '#0072f5',
     track: '#8b8b8b50'
+  },
+  dot: {
+    color: {
+      primary: '#0072f5',
+      secondary: '#49dc80',
+      accent: '#d333f6',
+      color2: '#f6d333',
+      color3: '#33f6d3'
+    }
   }
 };
 

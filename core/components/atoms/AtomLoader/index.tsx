@@ -6,12 +6,18 @@ import LoadingDefaultAnimation from 'animations/loading-default.json';
 import { AnimatePresence } from 'framer-motion';
 import { css } from '@emotion/react';
 import AtomWrapper from '../AtomWrapper';
+import { useEffect, useState } from 'react';
 
 const AtomLoader: FCWC<AtomLoaderTypes> = (props) => {
   const { loading, children, lottie } = props;
+  const [complete, setComplete] = useState(true);
+
+  useEffect(() => {
+    setComplete(loading ? false : complete);
+  }, [loading]);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={() => setComplete(true)}>
       {loading ? (
         <AtomWrapper
           key={`LOADER`}
@@ -36,7 +42,7 @@ const AtomLoader: FCWC<AtomLoaderTypes> = (props) => {
           />
         </AtomWrapper>
       ) : (
-        <>{children}</>
+        <>{complete && children}</>
       )}
     </AnimatePresence>
   );

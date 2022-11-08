@@ -22,9 +22,18 @@ const ContainerCSS = css`
 `;
 
 const Index = () => {
+  const [pressToLoad, setPressToLoad] = useState(false);
+  const PressToLoadClick = () => {
+    setPressToLoad(true);
+    const timer = setTimeout(() => {
+      setPressToLoad(false);
+      clearTimeout(timer);
+    }, 2000);
+  };
+
   const [fullscreen, setFullscreen] = useState(false);
   const [key, toggle] = useAtomValue(ThemeToggleAtom);
-  
+
   return (
     <AtomWrapper as="main" css={() => ContainerCSS}>
       <Header />
@@ -83,6 +92,24 @@ const Index = () => {
           <AtomButton astype="outline" loading="true" astheme="accent" />
           <AtomButton astype="outline" loading="true" astheme="color2" />
           <AtomButton astype="outline" loading="true" astheme="color3" />
+        </WrapperComponent>
+        <WrapperComponent title="Press To Load">
+          <AtomButton
+            loading={pressToLoad}
+            astheme="primary"
+            onClick={PressToLoadClick}
+          >
+            Press To Load
+          </AtomButton>
+
+          <AtomButton
+            astype="outline"
+            loading={pressToLoad}
+            astheme="primary"
+            onClick={PressToLoadClick}
+          >
+            Press To Load
+          </AtomButton>
         </WrapperComponent>
       </WrapperComponent>
       <WrapperComponent title="Component Loader" type="main" dot>

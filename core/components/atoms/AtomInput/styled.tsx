@@ -32,7 +32,7 @@ export const InputTextSpanStyled = styled(motion.span)<AtomInputTypes['label']>`
 
 export const InputTextStyled = styled(motion.input)<AtomInputTypes['input']>(
   (props) => {
-    const { theme, astheme } = props;
+    const { theme, astheme = 'primary' } = props;
     return css`
       font-family: 'Inter', sans-serif;
       font-size: 12px;
@@ -42,7 +42,10 @@ export const InputTextStyled = styled(motion.input)<AtomInputTypes['input']>(
       height: 40px;
       width: 250px;
       border-radius: 4px;
-      ${backgroundColorInput(theme?.input?.color[astheme] ?? '#ffffff')}
+      ${backgroundColorInput(
+        theme?.input?.properties?.background ?? '#ffffff',
+        theme?.input?.color?.[astheme]
+      )}
     `;
   }
 );
