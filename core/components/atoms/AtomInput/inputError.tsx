@@ -14,7 +14,7 @@ const InputTextError: FC<AtomInputTypes> = (props) => {
 
   return (
     <InputErrorStyled {...props} >
-      {validateErrors(formik, id)}
+      {validateErrors(formik, id)} Error Message Example
     </InputErrorStyled>
   )
 };

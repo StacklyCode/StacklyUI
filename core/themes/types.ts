@@ -11,6 +11,8 @@ export type ThemeColor = {
 export type KeyThemeColor = keyof ThemeColor;
 
 export type ThemeProperties = {
+  label?: string;
+  error?: string;
   blur?: string;
   font?: string;
   tooltip?: string;

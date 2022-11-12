@@ -70,6 +70,7 @@ const ThemeDark: IPalette = {
       color3: '#33f6d3'
     },
     properties: {
+      label: '#f0f0f0',
       background: '#1e2122'
     }
   },

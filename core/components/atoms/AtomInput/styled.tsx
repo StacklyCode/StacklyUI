@@ -1,6 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { backgroundColorInput, backgroundColorInputToggle } from 'css';
+import {
+  backgroundColorInput,
+  backgroundColorInputToggle,
+  backgroundColorSelect
+} from 'css';
 import { motion } from 'framer-motion';
 import { AtomInputTypes } from './types';
 
@@ -11,11 +15,7 @@ export const InputTextLabelStyled = styled(motion.label)<AtomInputTypes>(
       position: relative;
       display: flex;
       flex-direction: column;
-      width: max-content;
-      height: max-content;
-      font-size: 16px;
-      text-align: left;
-      font-weight: 500;
+      gap: 5px;
       ${theme?.input?.css?.(theme)}
     `;
   }
@@ -24,10 +24,9 @@ export const InputTextLabelStyled = styled(motion.label)<AtomInputTypes>(
 export const InputTextSpanStyled = styled(motion.span)<AtomInputTypes['label']>`
   padding: 0px 0px 4px 0px;
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
-  margin: 0px 0px 0px 0px;
-  color: #222222;
+  color: ${(props) => props.theme.input?.properties?.label ?? '#222222'};
 `;
 
 export const InputTextStyled = styled(motion.input)<AtomInputTypes['input']>(
@@ -54,7 +53,7 @@ export const InputErrorStyled = styled(motion.span)<AtomInputTypes['error']>`
   font-family: Montserrat, sans-serif;
   font-size: 10px;
   font-weight: 700;
-  color: #db4a4a;
+  color: ${(props) => props.theme.input?.properties?.error ?? '#ff0000'};
   height: 30px;
   margin: 0px 0px 0px 0px;
   padding: 5px 0px 0px 0px;
@@ -67,11 +66,6 @@ export const InputToggleLabelStyled = styled(motion.label)<AtomInputTypes>(
       position: relative;
       display: flex;
       flex-direction: column;
-      width: max-content;
-      height: max-content;
-      font-size: 16px;
-      text-align: left;
-      font-weight: 500;
       ${theme?.input?.css?.(theme)}
     `;
   }
@@ -110,6 +104,60 @@ export const InputToggleStyled = styled(motion.input)<AtomInputTypes['input']>(
     `;
   }
 );
+
+export const InputSelectLabelStyled = styled(motion.label)<AtomInputTypes>(
+  (props) => {
+    const { theme } = props;
+    return css`
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      ${theme?.input?.css?.(theme)}
+    `;
+  }
+);
+
+export const InputSelectStyled = styled(motion.select)<
+  AtomInputTypes['select']
+>((props) => {
+  const { theme, astheme = 'primary' } = props;
+  return css`
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 15px;
+    height: 40px;
+    width: 250px;
+    border-radius: 4px;
+    color: ${props.theme.input?.properties?.label ?? '#222222'};
+    ${backgroundColorSelect(
+      theme?.input?.properties?.background ?? '#ffffff',
+      theme?.input?.color?.[astheme]
+    )}
+  `;
+});
+
+export const InputSelectOptionStyled = styled(motion.option)<
+  AtomInputTypes['option']
+>((props) => {
+  const { theme, astheme = 'primary' } = props;
+  return css`
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 15px;
+    height: 40px;
+    width: 250px;
+    border-radius: 4px;
+    ${backgroundColorInput(
+      theme?.input?.properties?.background ?? '#ffffff',
+      theme?.input?.color?.[astheme]
+    )}
+  `;
+});
 
 // export const InputCheckboxLabelStyled = styled(motion.label) <AtomInputTypes>`
 //   display: flex;

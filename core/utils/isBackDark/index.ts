@@ -35,4 +35,16 @@ const isBackDark = (hex) => {
   return '#fff';
 };
 
+export const isBackDarkBoolean = (hex) => {
+  const color = Object.keys(hexToRgb(hex)).reduce(
+    (acc, key) => ({ ...acc, [key]: hexToRgb(hex)[key] / 255 }),
+    {}
+  );
+  const output = net.run(color) as IOutput;
+  if (output.black > output.white) {
+    return true;
+  }
+  return false;
+};
+
 export default isBackDark;

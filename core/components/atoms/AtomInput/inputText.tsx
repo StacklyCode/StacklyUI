@@ -1,5 +1,5 @@
 import { get } from 'lodash';
-import InputTextError from './error';
+import InputTextError from './inputError';
 import {
   InputTextLabelStyled,
   InputTextSpanStyled,
@@ -14,12 +14,12 @@ const Animation = {
 
 const InputText: FCWC<AtomInputTypes> = (props) => {
   const { formik, id, type, children, astheme = 'primary' } = props;
-  const { error, label, input, span, spantext } = props;
+  const { error, label, input, span, labeltext } = props;
   return (
     <InputTextLabelStyled htmlFor={id} {...label}>
-      {spantext && (
+      {labeltext && (
         <InputTextSpanStyled astheme={astheme} {...span}>
-          {spantext}
+          {labeltext}
         </InputTextSpanStyled>
       )}
       <InputTextStyled

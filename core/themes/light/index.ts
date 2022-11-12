@@ -70,6 +70,7 @@ const ThemeLight: IPalette = {
       color3: '#7a8baa'
     },
     properties: {
+      label: '#222222',
       background: '#edeff1'
     }
   },

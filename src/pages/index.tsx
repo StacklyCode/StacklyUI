@@ -6,6 +6,7 @@ import {
   AtomText,
   AtomWrapper
 } from 'components/atoms';
+import { IOption } from 'components/atoms/AtomInput/types';
 import { useAtomValue } from 'jotai';
 import { ThemeToggleAtom } from 'jotais/theme';
 import { useState } from 'react';
@@ -20,6 +21,29 @@ const ContainerCSS = css`
   flex-wrap: wrap;
   gap: 30px;
 `;
+
+const OPTIONS = [
+  {
+    id: '1',
+    label: 'Option 1',
+    value: '1'
+  },
+  {
+    id: '2',
+    label: 'Option 2',
+    value: '2'
+  },
+  {
+    id: '3',
+    label: 'Option 3',
+    value: '3'
+  },
+  {
+    id: '4',
+    label: 'Option 4',
+    value: '4'
+  }
+] as IOption[];
 
 const Index = () => {
   const [pressToLoad, setPressToLoad] = useState(false);
@@ -146,7 +170,40 @@ const Index = () => {
         </WrapperComponent>
       </WrapperComponent>
       <WrapperComponent title="Component Input" type="main" dot>
-        <AtomInput />
+        <WrapperComponent title="Text">
+          <AtomInput
+            labeltext="Label Input Example"
+            input={{
+              placeholder: 'Placeholder Input Example'
+            }}
+          />
+          <AtomInput
+            astheme="secondary"
+            labeltext="Label Input Example"
+            input={{
+              placeholder: 'Placeholder Input Example'
+            }}
+          />
+        </WrapperComponent>
+        <WrapperComponent title="Select">
+          <AtomInput
+            type="select"
+            labeltext="Label Input Example"
+            options={OPTIONS}
+            input={{
+              placeholder: 'Placeholder Input Example'
+            }}
+          />
+          <AtomInput
+            type="select"
+            astheme="secondary"
+            labeltext="Label Input Example"
+            options={OPTIONS}
+            input={{
+              placeholder: 'Placeholder Input Example'
+            }}
+          />
+        </WrapperComponent>
       </WrapperComponent>
     </AtomWrapper>
   );

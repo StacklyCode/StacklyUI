@@ -80,7 +80,10 @@ const Header = () => {
           css={(theme) => css`
             width: 150px;
             ${colorIcon(
-              isBackDark(theme?.header?.properties?.background ?? '#fff')
+              changeBrightness(
+                isBackDark(theme?.header?.properties?.background ?? '#fff'),
+                50
+              )
             )}
           `}
           icon="https://storage.googleapis.com/cdn-bucket-ixulabs-platform/STCO-0001/logo.svg"
