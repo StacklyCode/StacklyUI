@@ -5,9 +5,9 @@ import { AtomImageTypes } from './types';
 
 const AtomImage: FC<AtomImageTypes> = forwardRef<any, AtomImageTypes>(
   (props, ref) => {
-    const { src, alt } = props;
+    const { src, wrapper } = props;
     return (
-      <AtomWrapper {...(props as any)}>
+      <AtomWrapper {...wrapper}>
         <AtomImageStyled
           ref={ref}
           draggable={false}
@@ -15,7 +15,7 @@ const AtomImage: FC<AtomImageTypes> = forwardRef<any, AtomImageTypes>(
             src ??
             'https://storage.googleapis.com/cdn-bucket-ixulabs-platform/IXU-0002/icons/placeholder-image.png'
           }
-          alt={alt}
+          {...props}
         />
         {props.children}
       </AtomWrapper>
