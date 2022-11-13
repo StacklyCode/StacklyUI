@@ -7,7 +7,7 @@ import {
   InputTextSpanStyled
 } from './styled';
 import { AtomInputTypes } from './types';
-import { FCWC } from 'types';
+import { FCWC } from '../../../types';
 import { useEffect, useState } from 'react';
 
 const Animation = {

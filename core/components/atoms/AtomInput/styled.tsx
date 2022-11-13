@@ -4,7 +4,7 @@ import {
   backgroundColorInput,
   backgroundColorInputToggle,
   backgroundColorSelect
-} from 'css';
+} from '../../../css';
 import { motion } from 'framer-motion';
 import { AtomInputTypes } from './types';
 

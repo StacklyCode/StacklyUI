@@ -1,15 +1,15 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { SSP } from 'types';
+import { SSP } from '../../../types';
 import {
   backgroundColorHoverFlat,
   backgroundColorOutline,
   wrapperBlur
-} from 'css';
+} from '../../../css';
 import { AtomButtonTypes } from './types';
-import changeTransparency from 'utils/changeTransparency';
-import changeBrightness from 'utils/changeBrightness';
+import changeTransparency from '../../../utils/changeTransparency';
+import changeBrightness from '../../../utils/changeBrightness';
 
 export const ButtonStyled = styled(motion.button)<AtomButtonTypes>(
   (props) => css`

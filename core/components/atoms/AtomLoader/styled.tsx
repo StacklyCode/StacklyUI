@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { wrapperBlur } from 'css';
-import { SSP } from 'types';
+import { SSP } from '../../../types';
 import { AtomLoaderTypes } from './types';
 
 export const TypeLoader: SSP<AtomLoaderTypes> = (props) => {

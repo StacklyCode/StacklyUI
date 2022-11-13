@@ -1,6 +1,6 @@
 import { Theme } from '@emotion/react';
 import { atom } from 'jotai';
-import { ThemeKeyType, ThemesFamilyType } from 'types';
+import { ThemeKeyType, ThemesFamilyType } from '../../types';
 
 export const ThemeAtom = atom(null as unknown as Theme);
 

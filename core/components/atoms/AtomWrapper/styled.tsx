@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { SSP } from 'types';
+import { SSP } from '../../../types';
 import { AtomWrapperTypes } from './types';
 
 const AtomWrapperStyled: SSP<AtomWrapperTypes> = (props) => {

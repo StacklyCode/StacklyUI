@@ -10,7 +10,7 @@ import {
   AtomWrapperFooterStyled,
   AtomWrapperNavStyled
 } from './styled';
-import { MotionFadeInOut } from 'animations/motion';
+import { MotionFadeInOut } from '../../../animations/motion';
 
 const AtomWrapper: FC<AtomWrapperTypes> = forwardRef<any, AtomWrapperTypes>(
   (props, ref) => {

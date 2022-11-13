@@ -1,4 +1,4 @@
-import { CSSType, ThemeAtomWrapper } from 'types';
+import { CSSType, ThemeAtomWrapper } from '../../../types';
 import { HTMLMotionProps } from 'framer-motion';
 import { ForwardedRef } from 'react';
 

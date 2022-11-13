@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { colorIcon } from 'css';
-import { SSP } from 'types';
+import { colorIcon } from '../../../css';
+import { SSP } from '../../../types';
 import AtomWrapper from '../AtomWrapper';
 import { AtomIconTypes } from './types';
 

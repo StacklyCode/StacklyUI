@@ -1,6 +1,6 @@
 import { FormikValues } from 'formik';
 import { HTMLMotionProps } from 'framer-motion';
-import { CSSType, KeyThemeColor } from 'types';
+import { CSSType, KeyThemeColor } from '../../../types';
 
 type InputType = HTMLMotionProps<'input'>['type'] | 'toggle' | 'select';
 

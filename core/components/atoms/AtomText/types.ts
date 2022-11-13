@@ -1,6 +1,6 @@
 import { HTMLMotionProps } from 'framer-motion';
 import { ForwardedRef } from 'react';
-import { CSSType, ThemeAtomText } from 'types';
+import { CSSType, ThemeAtomText } from '../../../types';
 
 export type AtomTextTypes = HTMLMotionProps<'p'> &
   HTMLMotionProps<'span'> &

@@ -1,4 +1,4 @@
-import { IPalette } from 'types';
+import { IPalette } from '../../types';
 
 const ThemeDark: IPalette = {
   header: {

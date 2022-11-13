@@ -1,8 +1,8 @@
 import { AnimatePresence } from 'framer-motion';
 import { FC } from 'react';
 import { useRouter } from 'next/router';
-import { AtomWrapperTypes } from 'types';
-import { AtomWrapper } from 'components/atoms';
+import { AtomWrapperTypes } from '../../types';
+import { AtomWrapper } from '../../components/atoms';
 
 const spring = {
   x: { type: `spring`, damping: 20, stiffness: 180, when: `afterChildren` },

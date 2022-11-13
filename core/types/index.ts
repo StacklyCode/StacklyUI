@@ -1,7 +1,7 @@
 import { SerializedStyles, Theme, WithTheme } from '@emotion/react';
 import { FC, ReactNode } from 'react';
-import { themes } from 'themes/index';
-import { Palette } from 'themes/types';
+import { themes } from '../themes/index';
+import { Palette } from '../themes/types';
 import { AnyEventObject, StateMachine } from 'xstate';
 
 type ChildrenProps = {
@@ -31,11 +31,11 @@ export type ThemeContextProps = {
   defaultTheme: IPalette;
 };
 
-export * from 'core/themes/types';
-export type { AtomButtonTypes } from 'atoms/AtomButton/types';
-export type { AtomIconTypes } from 'atoms/AtomIcon/types';
-export type { AtomImageTypes } from 'atoms/AtomImage/types';
-export type { AtomInputTypes } from 'atoms/AtomInput/types';
-export type { AtomLoaderTypes } from 'atoms/AtomLoader/types';
-export type { AtomTextTypes } from 'atoms/AtomText/types';
-export type { AtomWrapperTypes } from 'atoms/AtomWrapper/types';
+export * from '../themes/types';
+export type { AtomButtonTypes } from '../components/atoms/AtomButton/types';
+export type { AtomIconTypes } from '../components/atoms/AtomIcon/types';
+export type { AtomImageTypes } from '../components/atoms/AtomImage/types';
+export type { AtomInputTypes } from '../components/atoms/AtomInput/types';
+export type { AtomLoaderTypes } from '../components/atoms/AtomLoader/types';
+export type { AtomTextTypes } from '../components/atoms/AtomText/types';
+export type { AtomWrapperTypes } from '../components/atoms/AtomWrapper/types';

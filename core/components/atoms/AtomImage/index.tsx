@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/no-children-prop */
 import { FC, forwardRef } from 'react';
 import AtomWrapper from '../AtomWrapper';
 import { AtomImageStyled } from './styled';
@@ -13,7 +11,6 @@ const AtomImage: FC<AtomImageTypes> = forwardRef<any, AtomImageTypes>(
         <AtomImageStyled
           ref={ref}
           draggable={false}
-          children={null}
           src={
             src ??
             'https://storage.googleapis.com/cdn-bucket-ixulabs-platform/IXU-0002/icons/placeholder-image.png'

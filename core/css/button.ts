@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
-import { ColorLoader } from 'components/atoms/AtomLoader/styled';
-import { ChangeBrightness, IsBackDark } from 'utils/index';
-import isBackDark from 'utils/isBackDark';
+import { ColorLoader } from '../components/atoms/AtomLoader/styled';
+import { ChangeBrightness, IsBackDark } from '../utils/index';
+import isBackDark from '../utils/isBackDark';
 
 export const backgroundColorFlat = (color: string) => css`
   background-color: ${color};

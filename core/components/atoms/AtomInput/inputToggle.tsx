@@ -6,7 +6,7 @@ import {
   InputToggleStyled,
 } from './styled';
 import { AtomInputTypes } from './types';
-import { FCWC } from 'types';
+import { FCWC } from '../../../types';
 
 const Animation = {
   whileTap: { scale: 0.98, opacity: 0.8 },

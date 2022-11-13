@@ -2,7 +2,7 @@ import { FCWC } from 'types';
 import AtomLottie from '../AtomLottie';
 import { TypeColorLoader, TypeLoader } from './styled';
 import { AtomLoaderTypes } from './types';
-import LoadingDefaultAnimation from 'animations/loading-default.json';
+import LoadingDefaultAnimation from '../../../animations/loading-default.json';
 import { AnimatePresence } from 'framer-motion';
 import { css } from '@emotion/react';
 import AtomWrapper from '../AtomWrapper';

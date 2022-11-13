@@ -1,7 +1,7 @@
 import { useSetAtom, useAtom } from 'jotai';
 import { FC, useEffect } from 'react';
-import { ThemeAtom, ThemeCallbackAtom, ThemeKeyAtom } from 'jotais/index';
-import { ThemeContextProps, ThemeKeyType } from 'types';
+import { ThemeAtom, ThemeCallbackAtom, ThemeKeyAtom } from '../../jotai';
+import { ThemeContextProps, ThemeKeyType } from '../../types';
 import { ThemeProvider } from '@emotion/react';
 
 const ThemeContext: FC<ThemeContextProps> = (props) => {

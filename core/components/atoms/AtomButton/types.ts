@@ -1,4 +1,4 @@
-import { CSSType, KeyThemeColor, ThemeAtomButton } from 'types';
+import { CSSType, KeyThemeColor, ThemeAtomButton } from '../../../types';
 import { HTMLMotionProps } from 'framer-motion';
 import { ForwardedRef } from 'react';
 

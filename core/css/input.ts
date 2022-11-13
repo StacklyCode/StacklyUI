@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
-import changeTransparency from 'utils/changeTransparency';
-import { ChangeBrightness, IsBackDark } from 'utils/index';
-import { isBackDarkBoolean } from 'utils/isBackDark';
+import changeTransparency from '../utils/changeTransparency';
+import { ChangeBrightness, IsBackDark } from '../utils';
+import { isBackDarkBoolean } from '../utils/isBackDark';
 
 export const backgroundColorInput = (color: string, border?: string) => css`
   background-color: ${changeTransparency(color, 50)};
