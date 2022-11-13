@@ -1,12 +1,9 @@
-import train from '../train';
-import { NeuralNetwork } from 'brain.js';
+import trainedNet from './TrainedNet';
 
 type IOutput = {
   black: number;
   white: number;
 };
-const net = new NeuralNetwork();
-net.train(train);
 
 const hexToRgb = (hex) => {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])([a-f\d])?$/i;
@@ -28,7 +25,7 @@ const isBackDark = (hex) => {
     (acc, key) => ({ ...acc, [key]: hexToRgb(hex)[key] / 255 }),
     {}
   );
-  const output = net.run(color) as IOutput;
+  const output = trainedNet(color) as IOutput;
   if (output.black > output.white) {
     return '#000000';
   }
@@ -40,7 +37,7 @@ export const isBackDarkBoolean = (hex) => {
     (acc, key) => ({ ...acc, [key]: hexToRgb(hex)[key] / 255 }),
     {}
   );
-  const output = net.run(color) as IOutput;
+  const output = trainedNet(color) as IOutput;
   if (output.black > output.white) {
     return true;
   }

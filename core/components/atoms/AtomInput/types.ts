@@ -33,6 +33,7 @@ export type IOption = {
   id: string;
   value: string;
   label: string;
+  disabled?: boolean;
 };
 export type AtomInputTypes = {
   id?: string;
