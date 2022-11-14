@@ -7,7 +7,7 @@ import json from '@rollup/plugin-json';
 
 const config = [
   {
-    input: 'core/index.ts',
+    input: 'index.ts',
     output: [
       {
         file: 'build/index.js',
@@ -32,7 +32,7 @@ const config = [
     ]
   },
   {
-    input: ['core/index.ts', 'core/**/*.tsx'],
+    input: ['index.ts', '**/*.tsx'],
     output: [
       {
         dir: 'build',
