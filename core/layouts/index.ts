@@ -1,1 +1,1 @@
-export { default as DefaultLayout } from './defaultLayout';
+export { default as LayoutAnimation } from './LayoutAnimation';

@@ -32,29 +32,20 @@
     "@emotion/styled": ">=11.0.0",
     "formik": ">=2.0.0",
     "framer-motion": ">=5.0.0",
-    "graphql": ">=15.0.0",
-    "graphql-request": ">=4.0.0",
     "jotai": "^1.6.4",
-    "js-cookie": ">=3.0.0",
-    "lodash": ">=4.0.0",
     "lottie-react": ">=2.0.0",
-    "next": ">=12.0.0",
     "react": ">=18.2.0",
     "react-dom": ">=16.8.0",
-    "react-redux": ">=7.0.0",
-    "tslib": ">=2.0.0",
     "xstate": ">=4.0.0"
   },
   "devDependencies": {
     "@emotion/eslint-plugin": "^11.7.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@next/font": "^13.0.0",
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-inject": "^4.0.4",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "@types/js-cookie": "^3.0.2",
     "@types/node": "^17.0.42",
     "@types/react": "^18.0.12",
     "@typescript-eslint/eslint-plugin": "^5.30.0",
@@ -64,7 +55,6 @@
     "formik": "^2.2.9",
     "framer-motion": "^6.3.11",
     "jotai": "^1.7.2",
-    "js-cookie": "^3.0.1",
     "lottie-react": "^2.3.1",
     "next": "^12.2.6",
     "prettier": "^2.7.1",
@@ -76,10 +66,11 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-typescript2": "^0.32.1",
     "swiper": "7.2.0",
-    "tslib": "^2.4.0",
     "typescript": "^4.7.3",
     "xstate": "^4.32.1",
     "yup": "^0.32.11"
   },
-  "dependencies": {}
+  "dependencies": {
+    "tslib": "^2.4.0"
+  }
 }

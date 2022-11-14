@@ -2,7 +2,6 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
-import inject from '@rollup/plugin-inject';
 import alias from 'rollup-plugin-alias';
 import multiEntry from 'rollup-plugin-multi-entry';
 import json from '@rollup/plugin-json';
@@ -30,9 +29,6 @@ const config = [
       resolve({
         preferBuiltins: false,
         mainFields: ['browser', 'jsnext:main', 'module', 'main']
-      }),
-      inject({
-        window: 'global/window'
       }),
       typescript({
         useTsconfigDeclarationDir: true,

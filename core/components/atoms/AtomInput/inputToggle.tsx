@@ -1,25 +1,22 @@
-import { get } from 'lodash';
 import InputTextError from './inputError';
 import {
   InputTextSpanStyled,
   InputToggleLabelStyled,
-  InputToggleStyled,
+  InputToggleStyled
 } from './styled';
 import { AtomInputTypes } from './types';
 import { FCWC } from '../../../types';
+import { get } from '../../../utils/tinyLodash';
 
 const Animation = {
-  whileTap: { scale: 0.98, opacity: 0.8 },
+  whileTap: { scale: 0.98, opacity: 0.8 }
 };
 
 const InputToggle: FCWC<AtomInputTypes> = (props) => {
   const { formik, id, children, astheme } = props;
   const { error, label, input, span, labeltext } = props;
   return (
-    <InputToggleLabelStyled
-      htmlFor={id}
-      {...label}
-    >
+    <InputToggleLabelStyled htmlFor={id} {...label}>
       {labeltext && (
         <InputTextSpanStyled astheme={astheme} {...span}>
           {labeltext}
@@ -31,10 +28,10 @@ const InputToggle: FCWC<AtomInputTypes> = (props) => {
         type="checkbox"
         {...input}
         {...Animation}
-        value={(input?.value ?? get(formik?.values, id)) ? 'on' : 'off'}
+        value={input?.value ?? get(formik?.values, id) ? 'on' : 'off'}
         onChange={(e) => {
-          formik?.handleChange(e)
-          input?.onChange?.(e)
+          formik?.handleChange(e);
+          input?.onChange?.(e);
         }}
         onBlur={(e) => {
           formik?.handleBlur(e);

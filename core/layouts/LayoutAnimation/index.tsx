@@ -1,6 +1,5 @@
 import { AnimatePresence } from 'framer-motion';
 import { FC } from 'react';
-import { useRouter } from 'next/router';
 import { AtomWrapperTypes } from '../../types';
 import { AtomWrapper } from '../../components/atoms';
 
@@ -16,12 +15,15 @@ const animation = {
   exit: { opacity: 0 }
 };
 
-const LayoutAnimation: FC<AtomWrapperTypes> = (props) => {
-  const { children } = props;
-  const router = useRouter();
+type LayoutAnimationProps = AtomWrapperTypes & {
+  pathname?: string;
+};
+
+const LayoutAnimation: FC<LayoutAnimationProps> = (props) => {
+  const { children, pathname } = props;
   return (
     <AnimatePresence exitBeforeEnter>
-      <AtomWrapper as="main" {...props} {...animation} key={router.pathname}>
+      <AtomWrapper as="main" {...props} {...animation} key={pathname}>
         {children}
       </AtomWrapper>
     </AnimatePresence>

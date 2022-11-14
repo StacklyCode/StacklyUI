@@ -5,7 +5,7 @@ import {
   AtomLoader,
   AtomText,
   AtomWrapper
-} from 'components/atoms';
+} from '../../index';
 import { IOption } from 'components/atoms/AtomInput/types';
 import { useAtomValue } from 'jotai';
 import { ThemeToggleAtom } from 'jotais/theme';
