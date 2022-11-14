@@ -1,8 +1,7 @@
 import { css } from '@emotion/react';
 import { AtomButton, AtomIcon } from 'components/atoms';
 import { colorIcon } from 'css';
-import { useAtomValue } from 'jotai';
-import { ThemeToggleAtom } from 'jotais/theme';
+import useToggleTheme from 'hooks/useToggleTheme';
 import changeBrightness from 'utils/changeBrightness';
 import isBackDark from 'utils/isBackDark';
 
@@ -13,7 +12,7 @@ const ICONS = {
 };
 
 const ToggleTheme = () => {
-  const [key, toggle] = useAtomValue(ThemeToggleAtom);
+  const { key, toggle } = useToggleTheme();
   return (
     <AtomButton
       onClick={() => toggle()}

@@ -1,4 +1,4 @@
-import { SerializedStyles, Theme, WithTheme } from '@emotion/react';
+import { SerializedStyles, Theme, ThemeKeys, WithTheme } from '@emotion/react';
 import { FC } from 'react';
 import { themes } from '../themes/index';
 import { Palette } from '../themes/types';
@@ -28,6 +28,14 @@ export type ThemesFamilyType = [ThemeKeyType, (key?: ThemeKeyType) => void];
 export type useThemeProps = {
   themes: ThemesFamily;
   defaultTheme: IPalette;
+};
+
+export type ThemeContextProps = {
+  themes: {
+    [key in ThemeKeyType]: IPalette;
+  };
+  defaultTheme: ThemeKeys;
+  children: React.ReactNode;
 };
 
 export * from '../themes/types';

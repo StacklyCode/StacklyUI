@@ -1,5 +1,5 @@
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-// import resolve from '@rollup/plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
 import alias from 'rollup-plugin-alias';
@@ -26,10 +26,10 @@ const config = [
       }),
       peerDepsExternal(),
       commonjs(),
-      // resolve({
-      //   preferBuiltins: false,
-      //   mainFields: ['browser', 'jsnext:main', 'module', 'main']
-      // }),
+      resolve({
+        preferBuiltins: false,
+        mainFields: ['browser', 'jsnext:main', 'module', 'main']
+      }),
       typescript({
         useTsconfigDeclarationDir: true,
         tsconfig: 'tsconfig-rollup.json'
@@ -49,9 +49,7 @@ const config = [
     plugins: [
       json(),
       peerDepsExternal(),
-      // resolve({
-      //   extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
-      // }),
+      resolve(),
       commonjs(),
       typescript({
         useTsconfigDeclarationDir: true,

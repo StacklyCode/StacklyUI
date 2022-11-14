@@ -16,15 +16,16 @@ const Animation = {
     }
   }
 } as AtomButtonTypes;
-const isDisabledAnimation = (disabled: boolean | 'true' | 'false') =>
-  disabled ? {} : Animation;
+
+const isDisabledAnimation = (disabled: boolean) =>
+  disabled ? null : Animation;
 
 const AtomButton = forwardRef<any, AtomButtonTypes>((props, ref) => {
   const { loading, children, disabled } = props;
   return (
     <ButtonStyled
-      {...isDisabledAnimation(disabled ?? loading)}
       {...props}
+      {...isDisabledAnimation(disabled ?? loading)}
       ref={ref}
     >
       <AtomLoader astype="button" loading={loading}>

@@ -3,7 +3,7 @@ import { HTMLMotionProps } from 'framer-motion';
 import { ForwardedRef, ReactEventHandler } from 'react';
 
 export type AtomButtonTypes = HTMLMotionProps<'button'> & {
-  loading?: boolean | 'true' | 'false';
+  loading?: boolean;
   astheme?: KeyThemeColor;
   astype?: ThemeAtomButton['type'];
   css?: CSSType;
