@@ -5,5 +5,4 @@ export { default as Hash } from './hash';
 export { default as IsBackDark } from './isBackDark';
 export { isBackDarkBoolean } from './isBackDark';
 export { default as randomNumberBetween } from './randomNumberBetween';
-export { default as Train } from './train';
 export { default as UseSetRef } from './useSetRef';
