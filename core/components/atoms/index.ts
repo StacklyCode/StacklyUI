@@ -6,5 +6,4 @@ export { default as AtomLoader } from './AtomLoader';
 export { default as AtomText } from './AtomText';
 export { default as AtomLink } from './AtomLink';
 export { default as AtomWrapper } from './AtomWrapper';
-export { default as AtomSwiper } from './AtomSwiper';
 export { default as AtomImage } from './AtomImage';
