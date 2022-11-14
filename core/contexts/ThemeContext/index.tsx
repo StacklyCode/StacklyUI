@@ -8,6 +8,7 @@ import {
 import { IPalette, ThemeContextProps, ThemeKeyType } from '../../types';
 import CreateThemes from '../../utils/createThemes';
 import { ThemeProvider } from '@emotion/react';
+import { themes as themesDefault } from '../../themes';
 
 type ContextProps = {
   key: string;
@@ -17,7 +18,7 @@ type ContextProps = {
 export const ContextTheme = createContext({} as ContextProps);
 
 const ThemeContext = (props: ThemeContextProps) => {
-  const { children, themes, defaultTheme } = props;
+  const { children, themes = themesDefault, defaultTheme = 'light' } = props;
   const [key, setKey] = useState(defaultTheme ?? 'light');
 
   const theme = useMemo(() => themes[key], [key]);

@@ -31,10 +31,10 @@ export type useThemeProps = {
 };
 
 export type ThemeContextProps = {
-  themes: {
+  themes?: {
     [key in ThemeKeyType]: IPalette;
   };
-  defaultTheme: ThemeKeys;
+  defaultTheme?: ThemeKeys;
   children: React.ReactNode;
 };
 

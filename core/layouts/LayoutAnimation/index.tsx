@@ -15,7 +15,7 @@ const animation = {
   exit: { opacity: 0 }
 };
 
-type LayoutAnimationProps = AtomWrapperTypes & {
+export type LayoutAnimationProps = AtomWrapperTypes & {
   pathname?: string;
 };
 
