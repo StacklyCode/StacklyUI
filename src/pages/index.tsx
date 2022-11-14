@@ -5,7 +5,7 @@ import {
   AtomLoader,
   AtomText,
   AtomWrapper
-} from 'components/atoms';
+} from 'core';
 import { IOption } from 'components/atoms/AtomInput/types';
 import useToggleTheme from 'hooks/useToggleTheme';
 import { useState } from 'react';
