@@ -5,7 +5,7 @@ type IOutput = {
   white: number;
 };
 
-const hexToRgb = (hex) => {
+const hexToRgb = (hex = '#ffffff') => {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])([a-f\d])?$/i;
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})?$/i.exec(
     hex.replace(shorthandRegex, (_, r, g, b, a) => {
@@ -20,7 +20,7 @@ const hexToRgb = (hex) => {
   };
 };
 
-const isBackDark = (hex) => {
+const isBackDark = (hex = '#ffffff') => {
   const color = Object.keys(hexToRgb(hex)).reduce(
     (acc, key) => ({ ...acc, [key]: hexToRgb(hex)[key] / 255 }),
     {}
@@ -32,7 +32,7 @@ const isBackDark = (hex) => {
   return '#fff';
 };
 
-export const isBackDarkBoolean = (hex) => {
+export const isBackDarkBoolean = (hex = '#ffffff') => {
   const color = Object.keys(hexToRgb(hex)).reduce(
     (acc, key) => ({ ...acc, [key]: hexToRgb(hex)[key] / 255 }),
     {}

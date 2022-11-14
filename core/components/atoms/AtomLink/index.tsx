@@ -1,33 +1,21 @@
-import { FC, forwardRef } from 'react';
-import NextLink from 'next/link';
-import { AtomLinkProps } from './types';
-import { TextStyledA } from '../AtomText/styled';
+import { forwardRef } from 'react';
+import { AtomAnchorProps } from './types';
+import { AnchorStyled } from './styled';
 
 const Animation = {
   whileHover: { scale: 1.02, transition: { duration: 0.3 } },
   whileTap: { scale: 0.95, opacity: 0.8 }
 };
 
-const LinkForewardRef = forwardRef<HTMLAnchorElement, AtomLinkProps>(
+const AtomLink = forwardRef<HTMLAnchorElement, AtomAnchorProps>(
   (props, ref) => {
     const { children } = props;
     return (
-      <TextStyledA {...Animation} {...props} ref={ref}>
+      <AnchorStyled {...Animation} {...props} ref={ref}>
         {children}
-      </TextStyledA>
+      </AnchorStyled>
     );
   }
 );
 
-LinkForewardRef.displayName = 'LinkForewardRef';
-
-const Link: FC<AtomLinkProps> = (props) => {
-  const { children, link } = props;
-  return (
-    <NextLink href={link} passHref>
-      <LinkForewardRef {...props}>{children}</LinkForewardRef>
-    </NextLink>
-  );
-};
-
-export default Link;
+export default AtomLink;

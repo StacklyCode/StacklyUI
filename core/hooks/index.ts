@@ -1,1 +1,1 @@
-export { default as ThemeContext } from './contextTheme';
+export { default as useToggleTheme } from './useToggleTheme';

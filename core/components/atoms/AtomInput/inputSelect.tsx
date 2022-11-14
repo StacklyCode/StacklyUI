@@ -1,4 +1,3 @@
-import { get } from 'lodash';
 import InputTextError from './inputError';
 import {
   InputSelectLabelStyled,
@@ -9,6 +8,7 @@ import {
 import { AtomInputTypes } from './types';
 import { FCWC } from '../../../types';
 import { useEffect, useState } from 'react';
+import { get } from '../../../utils/tinyLodash';
 
 const Animation = {
   whileTap: { scale: 0.98, opacity: 0.8 }

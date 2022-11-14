@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@stacklycore/ui": ["index.ts"],
+      "@stacklycore/ui": ["core/index.ts"],
       "src/*": ["src/*"],
       "animations/*": ["core/animations/*"],
       "animations": ["core/animations/index.ts"],
@@ -18,8 +18,8 @@
       "css/*": ["core/css/*"],
       "hooks/*": ["core/hooks/*"],
       "hooks": ["core/hooks/index.ts"],
-      "jotais/*": ["core/jotai/*"],
-      "jotais": ["core/jotai/index.ts"],
+      "contexts/*": ["core/contexts/*"],
+      "contexts": ["core/contexts/index.ts"],
       "layouts/*": ["core/layouts/*"],
       "layouts": ["core/layouts/index.ts"],
       "styles/*": ["core/styles/*"],

@@ -1,15 +1,13 @@
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
-import inject from '@rollup/plugin-inject';
 import alias from 'rollup-plugin-alias';
 import multiEntry from 'rollup-plugin-multi-entry';
 import json from '@rollup/plugin-json';
 
 const config = [
   {
-    input: 'index.ts',
+    input: 'core/index.ts',
     output: [
       {
         file: 'build/index.js',
@@ -27,13 +25,6 @@ const config = [
       }),
       peerDepsExternal(),
       commonjs(),
-      resolve({
-        preferBuiltins: false,
-        mainFields: ['browser', 'jsnext:main', 'module', 'main']
-      }),
-      inject({
-        window: 'global/window'
-      }),
       typescript({
         useTsconfigDeclarationDir: true,
         tsconfig: 'tsconfig-rollup.json'
@@ -41,7 +32,7 @@ const config = [
     ]
   },
   {
-    input: ['index.ts', '**/*.tsx'],
+    input: ['core/index.ts', 'core/**/*.tsx'],
     output: [
       {
         dir: 'build',
@@ -53,7 +44,6 @@ const config = [
     plugins: [
       json(),
       peerDepsExternal(),
-      resolve(),
       commonjs(),
       typescript({
         useTsconfigDeclarationDir: true,
