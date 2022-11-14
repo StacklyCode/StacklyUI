@@ -1,4 +1,4 @@
-export { css } from '@emotion/react';
+export { css, ThemeProvider } from '@emotion/react';
 export * from './core/components';
 export * from './core/css';
 export * from './core/hooks';

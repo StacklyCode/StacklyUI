@@ -1,11 +1,10 @@
 import { useSetAtom, useAtom } from 'jotai';
-import { FC, useEffect } from 'react';
+import { useEffect } from 'react';
 import { ThemeAtom, ThemeCallbackAtom, ThemeKeyAtom } from '../../jotai';
-import { ThemeContextProps, ThemeKeyType } from '../../types';
-import { ThemeProvider } from '@emotion/react';
+import { useThemeProps, ThemeKeyType } from '../../types';
 
-const ThemeContext: FC<ThemeContextProps> = (props) => {
-  const { children, themes, defaultTheme } = props;
+const useTheme = (props: useThemeProps) => {
+  const { themes, defaultTheme } = props;
   const [theme, setTheme] = useAtom(ThemeAtom);
   const [themeCallback, setThemeCallback] = useAtom(ThemeCallbackAtom);
   const setThemeKey = useSetAtom(ThemeKeyAtom);
@@ -13,9 +12,9 @@ const ThemeContext: FC<ThemeContextProps> = (props) => {
   useEffect(() => {
     const loadTheme = async () => {
       const keyTheme = localStorage.getItem('theme') as ThemeKeyType;
-      const key = keyTheme;
+      const key = keyTheme ?? 'light';
       setTheme(themes?.select?.[key] ?? defaultTheme);
-      setThemeKey(key ?? 'light');
+      setThemeKey(key);
       setThemeCallback(() => async (keyArgs: ThemeKeyType) => {
         const keyTheme =
           localStorage.getItem('theme') ?? ('light' as ThemeKeyType);
@@ -33,9 +32,7 @@ const ThemeContext: FC<ThemeContextProps> = (props) => {
     return () => null;
   }, [!themeCallback]);
 
-  return (
-    <ThemeProvider theme={theme ?? defaultTheme}>{children}</ThemeProvider>
-  );
+  return theme ?? defaultTheme;
 };
 
-export default ThemeContext;
+export default useTheme;
