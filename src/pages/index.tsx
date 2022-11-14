@@ -7,7 +7,7 @@ import {
   AtomWrapper
 } from 'index';
 import { IOption } from 'components/atoms/AtomInput/types';
-import useToggleTheme from 'hooks/useToggleTheme';
+import useToggleTheme from 'hooks/useTheme';
 import { useState } from 'react';
 import Header from 'src/components/Header';
 import WrapperComponent from 'src/components/WrapperComponent';

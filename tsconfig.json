@@ -59,12 +59,6 @@
       }
     ]
   },
-  "include": [
-    "**/*",
-    "**/*x",
-    "**/*.d.ts",
-    "theme.d.ts",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": ["node_modules", "build", "**/*.stories.tsx", "**/*.test.tsx"]
+  "include": ["**/*", "**/*.d.ts", "theme.d.ts"],
+  "exclude": ["node_modules", "build"]
 }

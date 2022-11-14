@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { AtomButton, AtomIcon } from 'components/atoms';
 import { colorIcon } from 'css';
-import useToggleTheme from 'hooks/useToggleTheme';
+import useToggleTheme from 'hooks/useTheme';
 import changeBrightness from 'utils/changeBrightness';
 import isBackDark from 'utils/isBackDark';
 

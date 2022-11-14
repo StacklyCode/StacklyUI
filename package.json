@@ -22,8 +22,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "rollup -c",
-    "build-rollup": "rollup -c",
+    "test": "rimraf build & rollup -c",
+    "build-rollup": "rimraf build & rollup -c",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|d.ts)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|d.ts)\" --write"
   },

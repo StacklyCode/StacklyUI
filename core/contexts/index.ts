@@ -1,2 +1,2 @@
-export { default as ThemeContext } from './ThemeContext';
-export { default as NormalizeContext } from './NormalizeContext';
+export { default as ContextTheme } from './ContextTheme';
+export { default as ContextNormalize } from './ContextNormalize';

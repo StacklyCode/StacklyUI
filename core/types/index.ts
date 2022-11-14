@@ -30,7 +30,7 @@ export type useThemeProps = {
   defaultTheme: IPalette;
 };
 
-export type ThemeContextProps = {
+export type ContextThemeProps = {
   themes?: {
     [key in ThemeKeyType]: IPalette;
   };

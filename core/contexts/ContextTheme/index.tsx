@@ -5,7 +5,7 @@ import {
   useMemo,
   useState
 } from 'react';
-import { IPalette, ThemeContextProps, ThemeKeyType } from '../../types';
+import { IPalette, ContextThemeProps, ThemeKeyType } from '../../types';
 import CreateThemes from '../../utils/createThemes';
 import { ThemeProvider } from '@emotion/react';
 import { themes as themesDefault } from '../../themes';
@@ -15,9 +15,9 @@ type ContextProps = {
   theme: IPalette;
   toggle: (key?: string) => void;
 };
-export const ContextTheme = createContext({} as ContextProps);
+export const ContextThemeReact = createContext({} as ContextProps);
 
-const ThemeContext = (props: ThemeContextProps) => {
+const ContextTheme = (props: ContextThemeProps) => {
   const { children, themes = themesDefault, defaultTheme = 'light' } = props;
   const [key, setKey] = useState(defaultTheme ?? 'light');
 
@@ -43,7 +43,7 @@ const ThemeContext = (props: ThemeContextProps) => {
   }, []);
 
   return (
-    <ContextTheme.Provider
+    <ContextThemeReact.Provider
       value={{
         key,
         theme,
@@ -51,8 +51,8 @@ const ThemeContext = (props: ThemeContextProps) => {
       }}
     >
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </ContextTheme.Provider>
+    </ContextThemeReact.Provider>
   );
 };
 
-export default ThemeContext;
+export default ContextTheme;

@@ -1,16 +1,16 @@
 import { LayoutAnimation } from '../../layouts';
 import GlobalStyles from '../../styles/GlobalStyles';
-import ThemeContext from '../../contexts/ThemeContext';
-import { ThemeContextProps } from '../../types';
+import ThemeContext from '../ContextTheme';
+import { ContextThemeProps } from '../../types';
 import { LayoutAnimationProps } from '../../layouts/LayoutAnimation';
 
 type Props = {
   children: React.ReactNode;
-  theme?: ThemeContextProps;
+  theme?: ContextThemeProps;
   layout?: LayoutAnimationProps;
 };
 
-const NormalizeContext = (props: Props) => {
+const ContextNormalize = (props: Props) => {
   const { children, layout, theme } = props;
   return (
     <ThemeContext {...theme}>
@@ -22,4 +22,4 @@ const NormalizeContext = (props: Props) => {
   );
 };
 
-export default NormalizeContext;
+export default ContextNormalize;
