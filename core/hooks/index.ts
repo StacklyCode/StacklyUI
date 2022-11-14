@@ -1,1 +1,1 @@
-export { default as ThemeContext } from './useTheme';
+export { default as useTheme } from './useTheme';
