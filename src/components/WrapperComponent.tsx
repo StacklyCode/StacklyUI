@@ -1,6 +1,7 @@
-import { css, useTheme } from '@emotion/react';
+import { css } from '@emotion/react';
 import { AtomWrapper } from 'components/atoms';
 import { wrapperBlur } from 'css';
+import useTheme from 'hooks/useTheme';
 import { useMemo, useRef } from 'react';
 import isBackDark from 'utils/isBackDark';
 import randomNumberBetween from 'utils/randomNumberBetween';
@@ -21,7 +22,7 @@ const initDot = {
 
 const WrapperComponent = (props: IWrapperComponent) => {
   const { title, children, type = 'Sub', dot } = props;
-  const theme = useTheme();
+  const { key, theme } = useTheme();
   const ref = useRef<HTMLDivElement>();
 
   const backDot = useMemo(() => {
@@ -33,7 +34,7 @@ const WrapperComponent = (props: IWrapperComponent) => {
     const colors = Object.values(theme?.dot?.color);
     const randomColor = `${
       colors[randomNumberBetween(0, colors.length - 1)] ?? 'transparent'
-    }e7`;
+    }a7`;
     const minWidth = Math.ceil(randomSize);
     const maxWidth = Math.ceil(width - randomSize);
     const randomLeft = randomNumberBetween(minWidth, maxWidth);
@@ -61,7 +62,8 @@ const WrapperComponent = (props: IWrapperComponent) => {
         align-items: center;
         background-color: transparent;
         gap: ${type === 'main' ? '30px' : '10px'};
-        border: 1px dashed ${theme?.general?.properties.tooltip ?? '#0072f5'};
+        overflow: hidden;
+        border: 1px solid ${theme?.general?.properties.tooltip ?? '#0072f5'};
         border-radius: 4px;
         padding: 40px 30px;
 
@@ -72,13 +74,13 @@ const WrapperComponent = (props: IWrapperComponent) => {
             theme?.general?.properties?.tooltip ?? '#0072f5'
           )};
           ${wrapperBlur(theme?.general?.properties?.tooltip ?? 'red')}
-          padding: 4px 20px;
-          border-radius: 200px;
+          padding: 6px 20px;
+          border-radius: 0px 0px 4px 0px;
           font-size: 10px;
           font-weight: 500;
           position: absolute;
-          top: -10px;
-          left: 30px;
+          top: 0px;
+          left: 0px;
           z-index: ${type === 'main' ? 9999 : 0};
         }
         ${dot &&
@@ -98,6 +100,12 @@ const WrapperComponent = (props: IWrapperComponent) => {
             transition: all 0.8s ease;
           }
         `}
+        :hover {
+          background-color: ${key === 'dark'
+            ? 'rgba(57, 57, 85, 0.149)'
+            : 'rgba(178, 178, 178, 0.149)'};
+        }
+        transition: all 0.4s ease;
       `}
     >
       {children}

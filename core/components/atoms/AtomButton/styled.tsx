@@ -27,9 +27,9 @@ export const ButtonStyled = styled(motion.button)<AtomButtonTypes>(
       font-family: 'Inter', sans-serif;
       font-weight: 600;
     }
-    min-height: 38px;
+    min-height: 32px;
     border: 1px solid transparent;
-    border-radius: 12px;
+    border-radius: 4px;
     line-height: 150%;
     transition: background-color 0.3s ease-in-out;
     cursor: pointer;
