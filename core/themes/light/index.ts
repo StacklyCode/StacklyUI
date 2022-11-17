@@ -17,7 +17,7 @@ const ThemeLight: IPalette = {
     },
     properties: {
       blur: '#ffffff0d',
-      tooltip: '#909fbb',
+      tooltip: '#387ac5',
       background: '#ffffff',
       backgroundflash: '#ffffff'
     }
@@ -32,7 +32,7 @@ const ThemeLight: IPalette = {
   },
   wrapper: {
     color: {
-      primary: '#fafafa',
+      primary: '#ffffff',
       secondary: '#5a6a8a',
       accent: '#1461EB'
     }
