@@ -16,7 +16,7 @@ const ThemeDark: IPalette = {
       color3: '#33f6d3'
     },
     properties: {
-      blur: '#00000099',
+      blur: '#00000065',
       tooltip: '#0072f550',
       background: '#000000',
       backgroundflash: '#000000'
@@ -71,7 +71,7 @@ const ThemeDark: IPalette = {
     },
     properties: {
       label: '#f0f0f0',
-      background: '#1e2122'
+      background: '#262b33'
     }
   },
   scrollbar: {

@@ -7,3 +7,4 @@ export { default as AtomText } from './AtomText';
 export { default as AtomLink } from './AtomLink';
 export { default as AtomWrapper } from './AtomWrapper';
 export { default as AtomImage } from './AtomImage';
+export { default as AtomTextEditor } from './AtomTextEditor';

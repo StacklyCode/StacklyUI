@@ -4,13 +4,13 @@ import { ChangeBrightness, IsBackDark } from '../utils';
 import { isBackDarkBoolean } from '../utils/isBackDark';
 
 export const backgroundColorInput = (color: string, border?: string) => css`
-  background-color: ${changeTransparency(color, 50)};
+  background-color: ${changeTransparency(color, 40)};
   backdrop-filter: blur(10px);
   color: ${ChangeBrightness(IsBackDark(color), 50)};
   border: 1px solid
     ${changeTransparency(border, 20) ?? ChangeBrightness(color, -25)};
   ::placeholder {
-    color: ${changeTransparency(IsBackDark(color), 30)};
+    color: ${changeTransparency(IsBackDark(color), 50)};
   }
   :focus {
     border: 1px solid ${border ?? ChangeBrightness(color, -25)};

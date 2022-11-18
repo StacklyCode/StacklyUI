@@ -4,7 +4,8 @@ import {
   AtomInput,
   AtomLoader,
   AtomText,
-  AtomWrapper
+  AtomWrapper,
+  AtomTextEditor
 } from 'index';
 import { IOption } from 'components/atoms/AtomInput/types';
 import useToggleTheme from 'hooks/useTheme';
@@ -85,6 +86,18 @@ const Index = () => {
           >
             Light
           </AtomButton>
+        </WrapperComponent>
+
+        <WrapperComponent title="Component Button" type="main" dot>
+          <AtomTextEditor
+            editor={{
+              onSelectionUpdate: ({ editor }) => {
+                console.warn(editor?.getHTML());
+                console.warn(editor?.getJSON());
+                console.warn(editor?.getText());
+              }
+            }}
+          />
         </WrapperComponent>
 
         <WrapperComponent title="Component Button" type="main" dot>

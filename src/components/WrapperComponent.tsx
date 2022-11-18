@@ -103,7 +103,7 @@ const WrapperComponent = (props: IWrapperComponent) => {
         :hover {
           background-color: ${key === 'dark'
             ? 'rgba(57, 57, 85, 0.149)'
-            : 'rgba(178, 178, 178, 0.149)'};
+            : 'rgba(206, 203, 220, 0.112)'};
         }
         transition: all 0.4s ease;
       `}
