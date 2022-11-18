@@ -1,23 +1,9 @@
-import { useEditor, EditorContent } from '@tiptap/react';
+import { EditorContent } from '@tiptap/react';
 import { Editor } from '@tiptap/core';
 import { css } from '@emotion/react';
 import { FC } from 'react';
 
-import StarterKit from '@tiptap/starter-kit';
-import TextAlign from '@tiptap/extension-text-align';
 import HardBreak from '@tiptap/extension-hard-break';
-import UnderLine from '@tiptap/extension-underline';
-import Table from '@tiptap/extension-table';
-import TableRow from '@tiptap/extension-table-row';
-import TableCell from '@tiptap/extension-table-cell';
-import TableHeader from '@tiptap/extension-table-header';
-import TextStyle from '@tiptap/extension-text-style';
-import FontFamily from '@tiptap/extension-font-family';
-import Link from '@tiptap/extension-link';
-import { Color } from '@tiptap/extension-color';
-import Image from '@tiptap/extension-image';
-import Iframe from './iframe';
-import VideoCustom from './video';
 import AtomButton from '../AtomButton';
 import AtomIcon from '../AtomIcon';
 import AtomInput from '../AtomInput';
@@ -28,8 +14,9 @@ import {
   InputColorStyled,
   SeparateVerticalStyled
 } from './styled';
-import { backgroundColorInput, colorIcon } from 'css';
-import isBackDark from 'utils/isBackDark';
+import { backgroundColorInput, colorIcon } from '../../../css';
+import isBackDark from '../../../utils/isBackDark';
+import useEditor from '../../../hooks/useEditor';
 
 HardBreak.configure({
   keepMarks: false
@@ -978,38 +965,10 @@ const MenuBar: FC<MenuBarType> = (props) => {
 };
 
 const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
-  const { id, value, editor: editorProps, deps } = props;
+  const { id, editor: editorProps } = props;
   // const { key } = useTheme();
   // const [code, setCode] = useState(true);
-  const editor = useEditor(
-    {
-      extensions: [
-        TextAlign.configure({
-          types: ['heading', 'paragraph']
-        }),
-        StarterKit,
-        TextStyle,
-        FontFamily,
-        Color,
-        UnderLine,
-        Image,
-        Iframe,
-        VideoCustom,
-        Table.configure({
-          resizable: true
-        }),
-        TableRow,
-        TableHeader,
-        TableCell,
-        Link.configure({
-          openOnClick: false
-        })
-      ],
-      content: value ?? '',
-      ...editorProps
-    },
-    [deps, editorProps, value]
-  );
+  const editor = useEditor();
 
   return (
     <AtomWrapper
@@ -1032,7 +991,7 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
       `}
     >
       <GlobalStyles />
-      <MenuBar editor={editor} />
+      <MenuBar editor={editorProps ?? editor} />
       <AtomWrapper
         css={(theme) => css`
           background-color: transparent;
@@ -1102,7 +1061,7 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
           }
         `}
       >
-        <EditorContent editor={editor} id={id} />
+        <EditorContent editor={editorProps ?? editor} id={id} />
       </AtomWrapper>
     </AtomWrapper>
   );

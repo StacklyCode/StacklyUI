@@ -12,6 +12,7 @@ import useToggleTheme from 'hooks/useTheme';
 import { useState } from 'react';
 import Header from 'src/components/Header';
 import WrapperComponent from 'src/components/WrapperComponent';
+import useEditor from 'hooks/useEditor';
 
 const ContainerCSS = css`
   min-height: 100vh;
@@ -45,6 +46,7 @@ const OPTIONS = [
 ] as IOption[];
 
 const Index = () => {
+  const [value, setValue] = useState('');
   const [pressToLoad, setPressToLoad] = useState(false);
   const PressToLoadClick = () => {
     setPressToLoad(true);
@@ -56,6 +58,11 @@ const Index = () => {
 
   const [fullscreen, setFullscreen] = useState(false);
   const { key, toggle } = useToggleTheme();
+
+  const editor = useEditor({
+    content: value,
+    onUpdate: (content) => setValue(content?.editor?.getHTML())
+  });
 
   return (
     <AtomWrapper as="main" css={() => ContainerCSS}>
@@ -89,15 +96,7 @@ const Index = () => {
         </WrapperComponent>
 
         <WrapperComponent title="Component Button" type="main" dot>
-          <AtomTextEditor
-            editor={{
-              onSelectionUpdate: ({ editor }) => {
-                console.warn(editor?.getHTML());
-                console.warn(editor?.getJSON());
-                console.warn(editor?.getText());
-              }
-            }}
-          />
+          <AtomTextEditor editor={editor} />
         </WrapperComponent>
 
         <WrapperComponent title="Component Button" type="main" dot>
