@@ -19,6 +19,8 @@ import { useEditor as useEditorTipTap } from '@tiptap/react';
 const useEditor = (props?: Partial<EditorOptions>, deps?: DependencyList) => {
   const editor = useEditorTipTap(
     {
+      content: '',
+      ...props,
       extensions: [
         TextAlign.configure({
           types: ['heading', 'paragraph']
@@ -39,10 +41,9 @@ const useEditor = (props?: Partial<EditorOptions>, deps?: DependencyList) => {
         TableCell,
         Link.configure({
           openOnClick: false
-        })
-      ],
-      content: '',
-      ...props
+        }),
+        ...(props?.extensions ?? [])
+      ]
     },
     deps
   );
