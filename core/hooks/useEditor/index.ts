@@ -44,7 +44,7 @@ const useEditor = (props?: Partial<EditorOptions>, deps?: DependencyList) => {
       content: '',
       ...props
     },
-    [deps]
+    deps
   );
   return editor;
 };
