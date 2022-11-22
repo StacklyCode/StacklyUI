@@ -1,4 +1,4 @@
-import { SerializedStyles, Theme, ThemeKeys, WithTheme } from '@emotion/react';
+import { ColorKeys, SerializedStyles, Theme, ThemeKeys, WithTheme } from '@emotion/react';
 import { FC } from 'react';
 import { themes } from '../themes/index';
 import { Palette } from '../themes/types';
@@ -14,7 +14,7 @@ export type SSP<P = RDC> = (props: WithTheme<P, Theme>) => SerializedStyles;
 export type SSPS<P = RDC> = (props: WithTheme<P, Theme>) => string;
 export type CSSType = (theme: Theme) => SerializedStyles;
 export type IPalette = Palette;
-export type KeyThemeColor = keyof Palette['general']['color'];
+export type KeyThemeColor = ColorKeys;
 
 export type ThemesFamily = {
   select: {
