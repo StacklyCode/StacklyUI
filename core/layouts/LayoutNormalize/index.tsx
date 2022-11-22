@@ -3,7 +3,7 @@ import ThemeContext from '../../contexts/ContextTheme';
 import { ContextThemeProps } from '../../types';
 
 type Props = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   theme?: ContextThemeProps;
 };
 

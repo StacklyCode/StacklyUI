@@ -35,7 +35,7 @@ export type ContextThemeProps = {
     [key in ThemeKeyType]: IPalette;
   };
   defaultTheme?: ThemeKeys;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export * from '../themes/types';

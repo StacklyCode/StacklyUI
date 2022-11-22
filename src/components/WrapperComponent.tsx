@@ -8,7 +8,7 @@ import randomNumberBetween from 'utils/randomNumberBetween';
 
 type IWrapperComponent = {
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   type?: 'main' | 'sub';
   dot?: boolean;
 };
