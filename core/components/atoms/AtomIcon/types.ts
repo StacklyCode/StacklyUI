@@ -1,7 +1,7 @@
-import { AtomWrapperTypes, CSSType, ThemeAtomIcon } from '../../../types';
+import { AtomWrapperTypes, CSSType, KeyThemeColor } from '../../../types';
 
 export type AtomIconTypes = AtomWrapperTypes & {
   icon?: string;
-  astheme?: keyof ThemeAtomIcon['color'];
+  astheme?: KeyThemeColor;
   css?: CSSType;
 };

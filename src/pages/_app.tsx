@@ -1,15 +1,14 @@
 import type { AppProps } from 'next/app';
-import CreateThemes from 'utils/createThemes';
-import { themes } from 'themes/index';
-import NormalizeContext from 'layouts/LayoutNormalize';
-
-export const ThemesWithMachine = CreateThemes(themes);
+import LayoutNormalize from 'layouts/LayoutNormalize';
+import LayoutAnimation from 'layouts/LayoutAnimation';
 
 const MyApp = ({ Component, pageProps, router }: AppProps) => {
   return (
-    <NormalizeContext layout={{ pathname: router.pathname }}>
-      <Component {...pageProps} key={router.pathname} />
-    </NormalizeContext>
+    <LayoutNormalize>
+      <LayoutAnimation pathname={router.pathname}>
+        <Component {...pageProps} key={router.pathname} />
+      </LayoutAnimation>
+    </LayoutNormalize>
   );
 };
 

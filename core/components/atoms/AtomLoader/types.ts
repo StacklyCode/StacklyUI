@@ -1,4 +1,4 @@
-import { KeyThemeColor } from 'types';
+import { KeyThemeColor } from '../../../types';
 import { AtomLottieTypes } from '../AtomLottie/types';
 import { AtomWrapperTypes } from '../AtomWrapper/types';
 

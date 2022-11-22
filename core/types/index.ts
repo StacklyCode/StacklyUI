@@ -14,6 +14,8 @@ export type SSP<P = RDC> = (props: WithTheme<P, Theme>) => SerializedStyles;
 export type SSPS<P = RDC> = (props: WithTheme<P, Theme>) => string;
 export type CSSType = (theme: Theme) => SerializedStyles;
 export type IPalette = Palette;
+export type KeyThemeColor = keyof Palette['general']['color'];
+
 export type ThemesFamily = {
   select: {
     [key: string]: IPalette;

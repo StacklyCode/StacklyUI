@@ -1,4 +1,4 @@
-import { SerializedStyles, Theme } from '@emotion/react';
+import { CSSType } from '../types';
 
 export type ThemeColor = {
   primary?: string;
@@ -7,8 +7,6 @@ export type ThemeColor = {
   color2?: string;
   color3?: string;
 };
-
-export type KeyThemeColor = keyof ThemeColor;
 
 export type ThemeProperties = {
   label?: string;
@@ -20,13 +18,11 @@ export type ThemeProperties = {
   backgroundflash?: string;
 };
 
-type CSS = (theme: Theme) => SerializedStyles;
-
 export type ThemeDefault = {
-  color?: ThemeColor;
-  css?: CSS;
-  properties?: ThemeProperties;
+  css?: CSSType;
   theme?: keyof ThemeColor;
+  color?: ThemeColor;
+  properties?: ThemeProperties;
 };
 
 export type ThemeAtomButton = ThemeDefault & {
@@ -48,8 +44,7 @@ export type ThemeAtomHeader = ThemeDefault;
 
 export type ThemeAtomDot = ThemeDefault;
 
-export type ThemeScrollbar = {
-  css?: CSS;
+export type ThemeScrollbar = ThemeDefault & {
   width?: number;
   height?: number;
   thumb?: string;

@@ -1,4 +1,4 @@
-import { CSSType, ThemeAtomWrapper } from '../../../types';
+import { CSSType, KeyThemeColor } from '../../../types';
 import { HTMLMotionProps } from 'framer-motion';
 import { ForwardedRef } from 'react';
 
@@ -10,7 +10,7 @@ export type AtomWrapperTypes = HTMLMotionProps<'div'> &
   HTMLMotionProps<'main'> &
   HTMLMotionProps<'footer'> &
   HTMLMotionProps<'nav'> & {
-    astheme?: keyof ThemeAtomWrapper['color'];
+    astheme?: KeyThemeColor;
     as?:
       | 'div'
       | 'form'
