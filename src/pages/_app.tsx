@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import CreateThemes from 'utils/createThemes';
 import { themes } from 'themes/index';
-import NormalizeContext from 'contexts/ContextNormalize';
+import NormalizeContext from 'layouts/LayoutNormalize';
 
 export const ThemesWithMachine = CreateThemes(themes);
 

@@ -1,7 +1,7 @@
 import { EditorContent } from '@tiptap/react';
 import { Editor } from '@tiptap/core';
 import { css } from '@emotion/react';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import HardBreak from '@tiptap/extension-hard-break';
 import AtomButton from '../AtomButton';
@@ -228,8 +228,13 @@ const MenuBar: FC<MenuBarType> = (props) => {
             key={item.id}
             onClick={item.onClick}
             astype={item?.isActive ? 'flat' : 'outline'}
-            css={() => css`
+            css={(theme) => css`
               padding: 0px 10px;
+              :hover {
+                * {
+                  ${colorIcon(isBackDark(theme?.input?.color?.primary))}
+                }
+              }
             `}
           >
             <AtomIcon
@@ -970,101 +975,107 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
   // const [code, setCode] = useState(true);
   const editor = useEditor();
 
-  return (
-    <AtomWrapper
-      css={(theme) => css`
-        width: 100%;
-        height: max-content;
-        flex-direction: column;
-        position: relative;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 30px;
-        overflow: hidden;
-        border-radius: 4px;
-        padding: 20px 40px;
-        ${backgroundColorInput(
-          theme?.input?.properties?.background,
-          theme?.input?.color?.primary
-        )}
-        transition: all 0.4s ease;
-      `}
-    >
-      <GlobalStyles />
-      <MenuBar editor={editorProps ?? editor} />
+  const [Component, setComponent] = useState(<></>);
+
+  useEffect(() => {
+    setComponent(
       <AtomWrapper
         css={(theme) => css`
-          background-color: transparent;
-          border: none;
-          border-radius: 0px 0px 8px 8px;
-          z-index: -1;
-          min-height: 500px;
-          align-items: center;
+          width: 100%;
+          height: max-content;
+          flex-direction: column;
+          position: relative;
           justify-content: flex-start;
-          > div {
-            min-height: 500px;
-            padding: 0px;
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-          }
-
-          .ProseMirror {
-            border-radius: 4px;
-            ${backgroundColorInput(
-              theme?.input?.properties?.background,
-              theme?.input?.color?.primary
-            )}
-
-            * {
-              font-family: 'Roboto', sans-serif;
-              color: ${isBackDark(theme?.general?.properties?.blur ?? 'red')};
-              ::selection {
-                background: #e9e9e9;
-              }
-              ::selection {
-                color: ${isBackDark(
-                  theme?.general?.properties.tooltip ?? '#0072f5'
-                )};
-              }
-            }
-            min-height: 500px;
-            padding: 20px 20px;
-            outline: none;
-            .video-wrapper {
-              margin: 0px 0px 20px 0px;
-              video {
-                width: 100%;
-              }
-            }
-            .iframe-wrapper {
-              margin: 0px 0px 20px 0px;
-              position: relative;
-              padding-bottom: math.div(100, 16) * 9%;
-              height: 0;
-              overflow: hidden;
-              width: 100%;
-              height: 300px;
-
-              &.ProseMirror-selectednode {
-                outline: 3px solid #68cef8;
-              }
-
-              iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-              }
-            }
-          }
+          align-items: center;
+          gap: 20px;
+          overflow: hidden;
+          border-radius: 4px;
+          padding: 20px;
+          ${backgroundColorInput(
+            theme?.input?.properties?.background,
+            theme?.input?.color?.primary
+          )}
+          transition: all 0.4s ease;
         `}
       >
-        <EditorContent editor={editorProps ?? editor} id={id} />
+        <GlobalStyles />
+        <MenuBar editor={editorProps ?? editor} />
+        <AtomWrapper
+          css={(theme) => css`
+            background-color: transparent;
+            border: none;
+            border-radius: 0px 0px 8px 8px;
+            z-index: -1;
+            min-height: 500px;
+            align-items: center;
+            justify-content: flex-start;
+            > div {
+              min-height: 500px;
+              padding: 0px;
+              width: 100%;
+              height: 100%;
+              overflow-y: auto;
+            }
+
+            .ProseMirror {
+              border-radius: 4px;
+              ${backgroundColorInput(
+                theme?.input?.properties?.background,
+                theme?.input?.color?.primary
+              )}
+
+              * {
+                font-family: 'Roboto', sans-serif;
+                color: ${isBackDark(theme?.general?.properties?.blur ?? 'red')};
+                ::selection {
+                  background: #e9e9e9;
+                }
+                ::selection {
+                  color: ${isBackDark(
+                    theme?.general?.properties.tooltip ?? '#0072f5'
+                  )};
+                }
+              }
+              min-height: 500px;
+              padding: 20px 20px;
+              outline: none;
+              .video-wrapper {
+                margin: 0px 0px 20px 0px;
+                video {
+                  width: 100%;
+                }
+              }
+              .iframe-wrapper {
+                margin: 0px 0px 20px 0px;
+                position: relative;
+                padding-bottom: math.div(100, 16) * 9%;
+                height: 0;
+                overflow: hidden;
+                width: 100%;
+                height: 300px;
+
+                &.ProseMirror-selectednode {
+                  outline: 3px solid #68cef8;
+                }
+
+                iframe {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+            }
+          `}
+        >
+          <EditorContent editor={editorProps ?? editor} id={id} />
+        </AtomWrapper>
       </AtomWrapper>
-    </AtomWrapper>
-  );
+    );
+  }, [editor]);
+
+  return Component;
 };
 
 export default AtomTextEditor;
