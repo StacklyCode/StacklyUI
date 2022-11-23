@@ -4,6 +4,7 @@ import { ForwardedRef, ReactEventHandler } from 'react';
 
 export type AtomButtonTypes = HTMLMotionProps<'button'> & {
   loading?: boolean;
+  disabledAnimation?: boolean;
   astheme?: KeyThemeColor;
   astype?: ThemeAtomButton['type'];
   css?: CSSType;
