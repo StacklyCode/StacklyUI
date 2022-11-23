@@ -8,5 +8,5 @@ export const AtomImageStyled = styled(motion.img)<AtomImageTypes>`
   height: 300px;
   background-color: #f6f7f8;
   object-fit: cover;
-  ${(props) => props.css(props.theme)}
+  ${(props) => props?.css?.(props?.theme)}
 `;
