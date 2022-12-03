@@ -1,6 +1,6 @@
 import { FCWC } from 'types';
 import AtomLottie from '../AtomLottie';
-import { TypeColorLoader, TypeLoader } from './styled';
+import { TypeLoaderCSS, TypeLoader } from './styled';
 import { AtomLoaderTypes } from './types';
 import LoadingDefaultAnimation from '../../../animations/loading-default.json';
 import { AnimatePresence } from 'framer-motion';
@@ -38,7 +38,7 @@ const AtomLoader: FCWC<AtomLoaderTypes> = (props) => {
           <AtomLottie
             animationData={LoadingDefaultAnimation}
             {...lottie}
-            css={(theme) => TypeColorLoader({ ...props, theme })}
+            css={(theme) => TypeLoaderCSS({ ...props, theme })}
           />
         </AtomWrapper>
       ) : (

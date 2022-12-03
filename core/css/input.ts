@@ -3,7 +3,7 @@ import changeTransparency from '../utils/changeTransparency';
 import { ChangeBrightness, IsBackDark } from '../utils';
 import { isBackDarkBoolean } from '../utils/isBackDark';
 
-export const backgroundColorInput = (color: string, border?: string) => css`
+export const InputCSS = (color: string, border?: string) => css`
   background-color: ${changeTransparency(color, 40)};
   backdrop-filter: blur(10px);
   color: ${ChangeBrightness(IsBackDark(color), 50)};
@@ -18,7 +18,7 @@ export const backgroundColorInput = (color: string, border?: string) => css`
   transition: border 0.3s ease-in-out;
 `;
 
-export const backgroundColorSelect = (color: string, border?: string) => css`
+export const InputSelectCSS = (color: string, border?: string) => css`
   background-color: ${changeTransparency(color, 50)};
   backdrop-filter: blur(10px);
   border: 1px solid
@@ -43,7 +43,7 @@ export const backgroundColorSelect = (color: string, border?: string) => css`
   transition: border 0.3s ease-in-out;
 `;
 
-export const backgroundColorInputToggle = (color: string) => css`
+export const InputToggleCSS = (color: string) => css`
   :before {
     background-color: ${IsBackDark(color)};
     border: 2px solid ${color};

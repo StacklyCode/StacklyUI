@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { wrapperBlur } from 'css';
+import { WrapperBlurCSS } from 'css';
 import { SSP } from '../../../types';
 import { AtomLoaderTypes } from './types';
 
@@ -25,7 +25,7 @@ export const TypeLoader: SSP<AtomLoaderTypes> = (props) => {
         width: 100%;
         height: 100%;
         z-index: 9999;
-        ${wrapperBlur(theme?.general?.properties?.blur ?? 'red')}
+        ${WrapperBlurCSS(theme?.general?.properties?.blur ?? 'red')}
       `;
     default:
       return css`
@@ -35,7 +35,7 @@ export const TypeLoader: SSP<AtomLoaderTypes> = (props) => {
   }
 };
 
-export const ColorLoader = (color: string) => {
+export const LoaderCSS = (color: string) => {
   return css`
     svg {
       * {
@@ -45,12 +45,12 @@ export const ColorLoader = (color: string) => {
   `;
 };
 
-export const TypeColorLoader: SSP<AtomLoaderTypes> = (props) => {
+export const TypeLoaderCSS: SSP<AtomLoaderTypes> = (props) => {
   const { theme, astheme } = props;
   const MAINTHEME = astheme ?? theme?.loader?.theme ?? 'primary';
   const MAINCOLOR =
     theme?.loader?.color?.[MAINTHEME] ??
     theme?.general?.color?.[MAINTHEME] ??
     '#0067ea';
-  return ColorLoader(MAINCOLOR);
+  return LoaderCSS(MAINCOLOR);
 };

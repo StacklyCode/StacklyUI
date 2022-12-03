@@ -3,13 +3,13 @@ import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { SSP } from '../../../types';
 import {
-  backgroundColorHoverFlat,
-  backgroundColorOutline,
-  wrapperBlur
+  ButtonFlatCSS,
+  ButtonDisableCSS,
+  ButtonOutlineCSS,
+  WrapperBlurCSS
 } from '../../../css';
 import { AtomButtonTypes } from './types';
 import changeTransparency from '../../../utils/changeTransparency';
-import changeBrightness from '../../../utils/changeBrightness';
 
 export const ButtonStyled = styled(motion.button)<AtomButtonTypes>(
   (props) => css`
@@ -22,11 +22,6 @@ export const ButtonStyled = styled(motion.button)<AtomButtonTypes>(
     font-size: 12px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    span {
-      font-size: 12px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-    }
     min-height: 32px;
     border: 1px solid transparent;
     border-radius: 4px;
@@ -55,35 +50,15 @@ const CSSAsType: SSP<AtomButtonTypes> = (props) => {
   switch (MAINTYPE) {
     case 'outline':
       return css`
-        ${backgroundColorOutline(MAINCOLOR)}
-        ${wrapperBlur(changeTransparency(MAINCOLOR, 10))}
+        ${ButtonOutlineCSS(MAINCOLOR)}
+        ${WrapperBlurCSS(changeTransparency(MAINCOLOR, 10))}
       `;
     default:
-      return backgroundColorHoverFlat(MAINCOLOR);
+      return ButtonFlatCSS(MAINCOLOR);
   }
 };
 
 const IsDisabled: SSP<AtomButtonTypes> = (props) => {
   const { disabled } = props;
-  return (
-    disabled &&
-    css`
-      ${wrapperBlur('#e6e6e650')}
-      :hover {
-        ${wrapperBlur('#e6e6e650')}
-      }
-      border: 1px solid #757575 !important;
-      color: ${changeBrightness('#e6e6e6', -200)} !important;
-      cursor: not-allowed !important;
-      font-weight: bold;
-      text-align: center;
-      span {
-        color: ${changeBrightness('#e6e6e6', -200)} !important;
-        cursor: not-allowed !important;
-        font-weight: bold;
-        text-align: center;
-      }
-      mix-blend-mode: screen;
-    `
-  );
+  return disabled && ButtonDisableCSS('#e6e6e6');
 };

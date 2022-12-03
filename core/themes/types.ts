@@ -25,8 +25,10 @@ export type ThemeDefault = {
   properties?: ThemeProperties;
 };
 
+export type ThemeAtomButtonType = 'flat' | 'outline';
+
 export type ThemeAtomButton = ThemeDefault & {
-  type?: 'flat' | 'outline';
+  type?: ThemeAtomButtonType;
 };
 export type ThemeGeneral = ThemeDefault;
 

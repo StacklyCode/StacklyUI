@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { colorIcon } from '../../../css';
+import { IconCSS } from '../../../css';
 import { SSP } from '../../../types';
 import AtomWrapper from '../AtomWrapper';
 import { AtomIconTypes } from './types';
@@ -13,7 +13,7 @@ const IconWrapperStyles: SSP<AtomIconTypes> = (props) => {
     height: 34px;
     background-color: transparent;
     transition: all 0.3s ease-in-out;
-    ${colorIcon(theme?.icon?.color?.[astheme] ?? '#000000')};
+    ${IconCSS(theme?.icon?.color?.[astheme] ?? '#000000')};
     svg {
       width: 100%;
       height: 100%;

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { AtomButton, AtomIcon } from 'components/atoms';
-import { colorIcon } from 'css';
+import { IconCSS } from 'css';
 import useToggleTheme from 'hooks/useTheme';
 import changeBrightness from 'utils/changeBrightness';
 import isBackDark from 'utils/isBackDark';
@@ -39,7 +39,7 @@ const ToggleTheme = () => {
         css={(theme) => css`
           width: 18px;
           height: 18px;
-          ${colorIcon(
+          ${IconCSS(
             isBackDark(
               key === 'light'
                 ? theme?.general?.color?.primary

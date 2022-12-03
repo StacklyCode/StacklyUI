@@ -6,7 +6,7 @@ export const AtomImageStyled = styled(motion.img)<AtomImageTypes>`
   position: relative;
   width: 300px;
   height: 300px;
-  background-color: #f6f7f8;
+  background-color: transparent;
   object-fit: cover;
   ${(props) => props?.css?.(props?.theme)}
 `;

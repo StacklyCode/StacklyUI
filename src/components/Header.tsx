@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { AtomIcon, AtomInput, AtomText, AtomWrapper } from 'components/atoms';
-import { colorIcon, wrapperBlur } from 'css';
+import { IconCSS, WrapperBlurCSS } from 'css';
 import { useEffect, useState } from 'react';
 import changeBrightness from 'utils/changeBrightness';
 import changeTransparency from 'utils/changeTransparency';
@@ -65,7 +65,7 @@ const Header = () => {
 
           ${isOffset &&
           css`
-            ${wrapperBlur(
+            ${WrapperBlurCSS(
               changeTransparency(theme?.header?.properties?.blur, 10) ??
                 changeTransparency('#fff', 10)
             )}
@@ -79,7 +79,7 @@ const Header = () => {
         <AtomIcon
           css={(theme) => css`
             width: 150px;
-            ${colorIcon(
+            ${IconCSS(
               changeBrightness(
                 isBackDark(theme?.header?.properties?.background ?? '#fff'),
                 50

@@ -5,7 +5,8 @@ import {
   AtomLoader,
   AtomText,
   AtomWrapper,
-  AtomTextEditor
+  AtomTextEditor,
+  AtomImage
 } from 'index';
 import { IOption } from 'components/atoms/AtomInput/types';
 import useToggleTheme from 'hooks/useTheme';
@@ -80,6 +81,7 @@ const Index = () => {
         >
           StacklyUI
         </AtomText>
+
         <WrapperComponent title={`Component Theme: Active(${key})`} dot>
           <AtomButton
             astype={key === 'dark' ? 'flat' : 'outline'}
@@ -93,10 +95,6 @@ const Index = () => {
           >
             Light
           </AtomButton>
-        </WrapperComponent>
-
-        <WrapperComponent title="Component Button" type="main" dot>
-          <AtomTextEditor editor={editor} />
         </WrapperComponent>
 
         <WrapperComponent title="Component Button" type="main" dot>
@@ -220,6 +218,28 @@ const Index = () => {
               }}
             />
           </WrapperComponent>
+        </WrapperComponent>
+
+        <WrapperComponent title={`Component Images`} dot>
+          <AtomImage src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png" />
+          <AtomImage
+            css={() => css`
+              width: 200px;
+              height: 200px;
+            `}
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
+          />
+          <AtomImage
+            css={() => css`
+              width: 100px;
+              height: 100px;
+            `}
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
+          />
+        </WrapperComponent>
+
+        <WrapperComponent title="Component Text Editor" type="main" dot>
+          <AtomTextEditor editor={editor} />
         </WrapperComponent>
       </AtomWrapper>
     </AtomWrapper>

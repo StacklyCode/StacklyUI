@@ -14,7 +14,7 @@ import {
   InputColorStyled,
   SeparateVerticalStyled
 } from './styled';
-import { backgroundColorInput, colorIcon } from '../../../css';
+import { InputCSS, IconCSS } from '../../../css';
 import isBackDark from '../../../utils/isBackDark';
 import useEditor from '../../../hooks/useEditor';
 
@@ -100,7 +100,7 @@ const MenuBar: FC<MenuBarType> = (props) => {
           padding: 15px 20px;
           border-radius: 4px;
           flex-wrap: wrap;
-          ${backgroundColorInput(
+          ${InputCSS(
             theme?.input?.properties?.background,
             theme?.input?.color?.primary
           )}
@@ -162,7 +162,7 @@ const MenuBar: FC<MenuBarType> = (props) => {
               css={(theme) => css`
                 height: 14px;
                 width: 14px;
-                ${colorIcon(
+                ${IconCSS(
                   item?.isActive
                     ? isBackDark(theme?.input?.color?.primary)
                     : theme?.input?.color?.primary
@@ -232,7 +232,7 @@ const MenuBar: FC<MenuBarType> = (props) => {
               padding: 0px 10px;
               :hover {
                 * {
-                  ${colorIcon(isBackDark(theme?.input?.color?.primary))}
+                  ${IconCSS(isBackDark(theme?.input?.color?.primary))}
                 }
               }
             `}
@@ -241,7 +241,7 @@ const MenuBar: FC<MenuBarType> = (props) => {
               css={(theme) => css`
                 height: 14px;
                 width: 14px;
-                ${colorIcon(
+                ${IconCSS(
                   item?.isActive
                     ? isBackDark(theme?.input?.color?.primary)
                     : theme?.input?.color?.primary
@@ -362,7 +362,7 @@ const MenuBar: FC<MenuBarType> = (props) => {
             css={() => css`
               height: 12px;
               width: 12px;
-              ${colorIcon('#373737')}
+              ${IconCSS('#373737')}
             `}
             icon="https://storage.googleapis.com/cdn-bucket-ixulabs-platform/IXU-0001/TextEditor/picture-image-svgrepo-com.svg"
           />
@@ -991,7 +991,7 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
           overflow: hidden;
           border-radius: 4px;
           padding: 20px;
-          ${backgroundColorInput(
+          ${InputCSS(
             theme?.input?.properties?.background,
             theme?.input?.color?.primary
           )}
@@ -1019,7 +1019,7 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
 
             .ProseMirror {
               border-radius: 4px;
-              ${backgroundColorInput(
+              ${InputCSS(
                 theme?.input?.properties?.background,
                 theme?.input?.color?.primary
               )}

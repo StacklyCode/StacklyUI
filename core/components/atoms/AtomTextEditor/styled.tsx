@@ -64,7 +64,7 @@ export const GlobalStyles: FC = () => (
         td {
           font-weight: 500;
         }
-        tr:nth-child(even) {
+        tr:nth-of-type(even) {
           color: #2e2e2e;
           background-color: #f3f3f3;
         }

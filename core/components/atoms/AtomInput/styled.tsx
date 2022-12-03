@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import {
-  backgroundColorInput,
-  backgroundColorInputToggle,
-  backgroundColorSelect
+  InputCSS,
+  InputToggleCSS,
+  InputSelectCSS
 } from '../../../css';
 import { motion } from 'framer-motion';
 import { AtomInputTypes } from './types';
@@ -41,7 +41,7 @@ export const InputTextStyled = styled(motion.input)<AtomInputTypes['input']>(
       height: 40px;
       width: 250px;
       border-radius: 4px;
-      ${backgroundColorInput(
+      ${InputCSS(
         theme?.input?.properties?.background ?? '#ffffff',
         theme?.input?.color?.[astheme]
       )}
@@ -98,9 +98,9 @@ export const InputToggleStyled = styled(motion.input)<AtomInputTypes['input']>(
         transform: translate(-50%, -50%);
         transition: all 0.5s;
       }
-      ${backgroundColorInputToggle(theme?.input?.color[astheme] ?? '#db4a4a')}
+      ${InputToggleCSS(theme?.input?.color[astheme] ?? '#db4a4a')}
 
-      ${backgroundColorInput(theme?.input?.color[astheme] ?? '#ffffff')}
+      ${InputCSS(theme?.input?.color[astheme] ?? '#ffffff')}
     `;
   }
 );
@@ -132,7 +132,7 @@ export const InputSelectStyled = styled(motion.select)<
     width: 250px;
     border-radius: 4px;
     color: ${props.theme.input?.properties?.label ?? '#222222'};
-    ${backgroundColorSelect(
+    ${InputSelectCSS(
       theme?.input?.properties?.background ?? '#ffffff',
       theme?.input?.color?.[astheme]
     )}
@@ -152,7 +152,7 @@ export const InputSelectOptionStyled = styled(motion.option)<
     height: 40px;
     width: 250px;
     border-radius: 4px;
-    ${backgroundColorInput(
+    ${InputCSS(
       theme?.input?.properties?.background ?? '#ffffff',
       theme?.input?.color?.[astheme]
     )}
