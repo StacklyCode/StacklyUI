@@ -6,5 +6,5 @@ export type AtomTextEditorType = {
   id?: string;
   formik?: FormikValues;
   editor?: Editor;
-  css?: CSSType;
+  css?: CSSType<AtomTextEditorType>;
 };

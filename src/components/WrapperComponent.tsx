@@ -22,7 +22,7 @@ const initDot = {
 
 const WrapperComponent = (props: IWrapperComponent) => {
   const { title, children, type = 'Sub', dot } = props;
-  const { key, theme } = useTheme();
+  const { theme } = useTheme();
   const ref = useRef<HTMLDivElement>();
 
   const backDot = useMemo(() => {

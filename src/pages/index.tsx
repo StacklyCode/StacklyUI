@@ -223,7 +223,7 @@ const Index = () => {
             />
           </WrapperComponent>
         </WrapperComponent>
-        {/* 
+
         <WrapperComponent title={`Component Images`} dot>
           <AtomImage src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png" />
           <AtomImage
@@ -240,45 +240,14 @@ const Index = () => {
             `}
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
           />
-        </WrapperComponent> */}
-        {/* 
+        </WrapperComponent>
+
         <WrapperComponent title="Component Text Editor" type="main" dot>
           <AtomTextEditor editor={editor} />
-        </WrapperComponent> */}
+        </WrapperComponent>
       </AtomWrapper>
     </AtomWrapper>
   );
 };
 
 export default Index;
-
-{
-  /* <AtomWrapper></AtomWrapper>
-<AtomWrapper>
-  <AtomLoader astype="small" loading={loading} />
-  <AtomLoader astype="button" loading={loading} />
-</AtomWrapper> */
-}
-
-{
-  /* <AtomButton onClick={() => setLoading(!loading)}>Loading</AtomButton>
-      <AtomButton onClick={() => setFullscreen(!fullscreen)}>
-        Fullscreen
-      </AtomButton>
-      <AtomButton loading>Cargando</AtomButton>
-      <AtomButton astype="outline" loading>
-        Cargando
-      </AtomButton>
-      <AtomLoader loading={loading} />
-      <AtomLoader
-        onClick={() => setFullscreen(!fullscreen)}
-        astype="fullscreen"
-        loading={fullscreen}
-      />
-      <AtomIcon
-        css={() => css`
-          width: 30px;
-          height: 30px;
-        `}
-      /> */
-}

@@ -100,10 +100,7 @@ const MenuBar: FC<MenuBarType> = (props) => {
           padding: 15px 20px;
           border-radius: 4px;
           flex-wrap: wrap;
-          ${InputCSS(
-            theme?.input?.properties?.background,
-            theme?.input?.color?.primary
-          )}
+          ${InputCSS(theme)}
         `}
       >
         <InputColorStyled
@@ -991,10 +988,7 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
           overflow: hidden;
           border-radius: 4px;
           padding: 20px;
-          ${InputCSS(
-            theme?.input?.properties?.background,
-            theme?.input?.color?.primary
-          )}
+          ${InputCSS(theme)}
           transition: all 0.4s ease;
         `}
       >
@@ -1019,10 +1013,7 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
 
             .ProseMirror {
               border-radius: 4px;
-              ${InputCSS(
-                theme?.input?.properties?.background,
-                theme?.input?.color?.primary
-              )}
+              ${InputCSS(theme)}
 
               * {
                 font-family: 'Roboto', sans-serif;
