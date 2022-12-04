@@ -1017,7 +1017,9 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
 
               * {
                 font-family: 'Roboto', sans-serif;
-                color: ${isBackDark(theme?.general?.properties?.blur ?? 'red')};
+                color: ${isBackDark(
+                  theme?.general?.properties?.blur ?? '#000000'
+                )};
                 ::selection {
                   background: #e9e9e9;
                 }

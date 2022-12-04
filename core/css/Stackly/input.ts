@@ -11,7 +11,7 @@ export const InputCSS: CSSType<AtomInputTypes['input']> = (theme, props) => {
   const color =
     theme?.input?.input?.properties?.background ??
     theme?.input?.properties?.background ??
-    'transparent';
+    '#00000000';
   const border =
     theme?.input?.input?.color?.[MAINTHEME] ??
     theme?.input?.color?.[MAINTHEME] ??
@@ -75,7 +75,7 @@ export const InputSelectCSS: CSSType<AtomInputTypes['select']> = (
   const color =
     theme?.input?.input?.properties?.background ??
     theme?.input?.properties?.background ??
-    'transparent';
+    '#00000000';
   const border =
     theme?.input?.input?.color?.[MAINTHEME] ??
     theme?.input?.color?.[MAINTHEME] ??
