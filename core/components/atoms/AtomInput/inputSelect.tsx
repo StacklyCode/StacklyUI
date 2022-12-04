@@ -1,9 +1,9 @@
 import InputTextError from './inputError';
 import {
-  InputSelectLabelStyled,
+  InputLabelStyled,
   InputSelectOptionStyled,
   InputSelectStyled,
-  InputTextSpanStyled
+  InputSpanStyled
 } from './styled';
 import { AtomInputTypes } from './types';
 import { FCWC } from '../../../types';
@@ -15,21 +15,16 @@ const Animation = {
 };
 
 const InputText: FCWC<AtomInputTypes> = (props) => {
-  const { formik, id, astheme = 'primary' } = props;
+  const { formik, id } = props;
   const { error, label, select, span, labeltext, options, option } = props;
   const [component, setComponent] = useState(<></>);
 
   useEffect(() => {
     setComponent(
-      <InputSelectLabelStyled htmlFor={id} {...label}>
-        {labeltext && (
-          <InputTextSpanStyled astheme={astheme} {...span}>
-            {labeltext}
-          </InputTextSpanStyled>
-        )}
+      <InputLabelStyled htmlFor={id} {...label}>
+        {labeltext && <InputSpanStyled {...span}>{labeltext}</InputSpanStyled>}
         <InputSelectStyled
           id={id}
-          astheme={astheme}
           value={get(formik?.values, id)}
           {...select}
           {...Animation}
@@ -55,8 +50,8 @@ const InputText: FCWC<AtomInputTypes> = (props) => {
             </InputSelectOptionStyled>
           ))}
         </InputSelectStyled>
-        <InputTextError id={id} astheme={astheme} formik={formik} {...error} />
-      </InputSelectLabelStyled>
+        <InputTextError id={id} formik={formik} {...error} />
+      </InputLabelStyled>
     );
   }, [props]);
 

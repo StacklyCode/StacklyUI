@@ -1,15 +1,15 @@
-import { CSSType, KeyThemeColor, ThemeAtomButtonType } from '../../../types';
+import { CSSType } from '../../../types';
 import { HTMLMotionProps } from 'framer-motion';
 import { ForwardedRef, ReactEventHandler } from 'react';
+import { ColorKeys } from '@emotion/react';
 
-export type AtomButtonTypes = HTMLMotionProps<'button'> & {
+export interface AtomButtonTypes extends HTMLMotionProps<'button'> {
   loading?: boolean;
-  disabledAnimation?: boolean;
-  astheme?: KeyThemeColor;
-  astype?: ThemeAtomButtonType;
-  css?: CSSType;
+  astheme?: ColorKeys;
+  astype?: 'flat' | 'outline' | 'gradient';
+  css?: CSSType<AtomButtonTypes>;
   ref?: ForwardedRef<any>;
   nonce?: string;
   onResize?: ReactEventHandler<HTMLButtonElement>;
   onResizeCapture?: ReactEventHandler<HTMLButtonElement>;
-};
+}

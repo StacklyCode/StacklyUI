@@ -1,6 +1,7 @@
-import { CSSType, KeyThemeColor } from '../../../types';
+import { CSSType } from '../../../types';
 import { HTMLMotionProps } from 'framer-motion';
 import { ForwardedRef } from 'react';
+import { ColorKeys } from '@emotion/react';
 
 export type AtomWrapperTypes = HTMLMotionProps<'div'> &
   HTMLMotionProps<'form'> &
@@ -10,17 +11,8 @@ export type AtomWrapperTypes = HTMLMotionProps<'div'> &
   HTMLMotionProps<'main'> &
   HTMLMotionProps<'footer'> &
   HTMLMotionProps<'nav'> & {
-    astheme?: KeyThemeColor;
-    as?:
-      | 'div'
-      | 'form'
-      | 'section'
-      | 'li'
-      | 'ul'
-      | 'main'
-      | 'footer'
-      | 'nav'
-      | 'motion-div';
-    css?: CSSType;
+    astheme?: ColorKeys;
+    as?: 'div' | 'form' | 'section' | 'li' | 'ul' | 'main' | 'footer' | 'nav';
+    css?: CSSType<AtomWrapperTypes>;
     ref?: ForwardedRef<any>;
   };

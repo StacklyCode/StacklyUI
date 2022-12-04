@@ -21,7 +21,8 @@ const IconWrapperStyles: SSP<AtomIconTypes> = (props) => {
     div {
       overflow: hidden;
     }
-    ${theme?.icon?.css?.(theme)}
+    ${props?.theme?.icon?.css?.(props.theme, props)}
+    ${props?.css?.(props?.theme, props)}
   `;
 };
 

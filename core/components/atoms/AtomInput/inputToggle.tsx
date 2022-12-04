@@ -1,9 +1,5 @@
 import InputTextError from './inputError';
-import {
-  InputTextSpanStyled,
-  InputToggleLabelStyled,
-  InputToggleStyled
-} from './styled';
+import { InputSpanStyled, InputLabelStyled, InputToggleStyled } from './styled';
 import { AtomInputTypes } from './types';
 import { FCWC } from '../../../types';
 import { get } from '../../../utils/tinyLodash';
@@ -13,18 +9,13 @@ const Animation = {
 };
 
 const InputToggle: FCWC<AtomInputTypes> = (props) => {
-  const { formik, id, children, astheme } = props;
+  const { formik, id, children } = props;
   const { error, label, input, span, labeltext } = props;
   return (
-    <InputToggleLabelStyled htmlFor={id} {...label}>
-      {labeltext && (
-        <InputTextSpanStyled astheme={astheme} {...span}>
-          {labeltext}
-        </InputTextSpanStyled>
-      )}
+    <InputLabelStyled htmlFor={id} {...label}>
+      {labeltext && <InputSpanStyled {...span}>{labeltext}</InputSpanStyled>}
       <InputToggleStyled
         id={id}
-        astheme={astheme}
         type="checkbox"
         {...input}
         {...Animation}
@@ -39,8 +30,8 @@ const InputToggle: FCWC<AtomInputTypes> = (props) => {
         }}
       />
       {children}
-      <InputTextError id={id} astheme={astheme} formik={formik} {...error} />
-    </InputToggleLabelStyled>
+      <InputTextError id={id} formik={formik} {...error} />
+    </InputLabelStyled>
   );
 };
 

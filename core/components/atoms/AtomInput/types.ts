@@ -1,34 +1,8 @@
+import { ColorKeys } from '@emotion/react';
 import { FormikValues } from 'formik';
 import { HTMLMotionProps } from 'framer-motion';
-import { CSSType, KeyThemeColor } from '../../../types';
+import { CSSType } from '../../../types';
 
-type InputType = HTMLMotionProps<'input'>['type'] | 'toggle' | 'select';
-
-type AtomInputInputProps = HTMLMotionProps<'input'> & {
-  astheme?: KeyThemeColor;
-  css?: CSSType;
-};
-type AtomInputLabelProps = HTMLMotionProps<'label'> & {
-  astheme?: KeyThemeColor;
-  css?: CSSType;
-};
-type AtomInputErrorProps = HTMLMotionProps<'span'> & {
-  astheme?: KeyThemeColor;
-  css?: CSSType;
-};
-type AtomInputSpanProps = HTMLMotionProps<'span'> & {
-  astheme?: KeyThemeColor;
-  css?: CSSType;
-};
-type AtomInputSelectProps = HTMLMotionProps<'select'> & {
-  astheme?: KeyThemeColor;
-  css?: CSSType;
-};
-type AtomInputOptionProps = HTMLMotionProps<'option'> & {
-  astheme?: KeyThemeColor;
-  css?: CSSType;
-  defaultText?: string;
-};
 export type IOption = {
   id: string;
   value: string;
@@ -38,15 +12,42 @@ export type IOption = {
 export type AtomInputTypes = {
   id?: string;
   formik?: FormikValues;
+  labeltext?: string;
+  options?: IOption[];
+  type?: InputType;
+
+  label?: AtomInputLabelProps;
+  span?: AtomInputSpanProps;
+  error?: AtomInputErrorProps;
   input?: AtomInputInputProps;
   select?: AtomInputSelectProps;
   option?: AtomInputOptionProps;
-  options?: IOption[];
-  label?: AtomInputLabelProps;
-  labeltext?: string;
-  error?: AtomInputErrorProps;
-  span?: AtomInputSpanProps;
-  astheme?: KeyThemeColor;
-  type?: InputType;
-  css?: CSSType;
+};
+
+export type InputType = HTMLMotionProps<'input'>['type'] | 'toggle' | 'select';
+
+export type AtomInputInputProps = HTMLMotionProps<'input'> & {
+  astheme?: ColorKeys;
+  css?: CSSType<AtomInputInputProps>;
+};
+export type AtomInputLabelProps = HTMLMotionProps<'label'> & {
+  astheme?: ColorKeys;
+  css?: CSSType<AtomInputLabelProps>;
+};
+export type AtomInputErrorProps = HTMLMotionProps<'span'> & {
+  astheme?: ColorKeys;
+  css?: CSSType<AtomInputErrorProps>;
+};
+export type AtomInputSpanProps = HTMLMotionProps<'span'> & {
+  astheme?: ColorKeys;
+  css?: CSSType<AtomInputSpanProps>;
+};
+export type AtomInputSelectProps = HTMLMotionProps<'select'> & {
+  astheme?: ColorKeys;
+  css?: CSSType<AtomInputSelectProps>;
+};
+export type AtomInputOptionProps = HTMLMotionProps<'option'> & {
+  astheme?: ColorKeys;
+  css?: CSSType<AtomInputOptionProps>;
+  defaultText?: string;
 };

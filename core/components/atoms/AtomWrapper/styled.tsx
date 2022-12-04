@@ -5,16 +5,16 @@ import { SSP } from '../../../types';
 import { AtomWrapperTypes } from './types';
 
 const AtomWrapperStyled: SSP<AtomWrapperTypes> = (props) => {
-  const { theme, astheme = 'primary', css: cssProps } = props;
+  const { theme } = props;
   return css`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
-    background-color: ${theme?.wrapper?.color?.[astheme] ?? 'transparent'};
-    ${theme?.wrapper?.css?.(theme)}
-    ${cssProps?.(theme)}
+    background-color: transparent;
+    ${theme?.wrapper?.css?.(theme, props)}
+    ${props?.css?.(theme, props)}
   `;
 };
 

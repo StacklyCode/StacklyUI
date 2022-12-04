@@ -1,9 +1,11 @@
-import ThemeDark from './dark';
-import ThemeLight from './light';
-export { default as ThemeDark } from './dark';
-export { default as ThemeLight } from './light';
+import ThemeStacklyDark from './Stackly/dark';
+import ThemeStacklyLight from './Stackly/light';
+import ThemeWithout from './Without';
+export { default as ThemeStacklyDark } from './Stackly/dark';
+export { default as ThemeStacklyLight } from './Stackly/light';
 
 export const themes = {
-  light: ThemeLight,
-  dark: ThemeDark
+  'stackly-light': ThemeStacklyLight,
+  'stackly-dark': ThemeStacklyDark,
+  without: ThemeWithout
 };

@@ -14,6 +14,7 @@ import { useState } from 'react';
 import Header from 'src/components/Header';
 import WrapperComponent from 'src/components/WrapperComponent';
 import useEditor from 'hooks/useEditor';
+import { AtomIcon } from 'build';
 
 const ContainerCSS = css`
   min-height: 100vh;
@@ -58,7 +59,7 @@ const Index = () => {
   };
 
   const [fullscreen, setFullscreen] = useState(false);
-  const { key, toggle } = useToggleTheme();
+  const { key, toggle, themes } = useToggleTheme();
 
   const editor = useEditor({
     content: value,
@@ -83,18 +84,15 @@ const Index = () => {
         </AtomText>
 
         <WrapperComponent title={`Component Theme: Active(${key})`} dot>
-          <AtomButton
-            astype={key === 'dark' ? 'flat' : 'outline'}
-            onClick={() => toggle('dark')}
-          >
-            Dark
-          </AtomButton>
-          <AtomButton
-            astype={key === 'light' ? 'flat' : 'outline'}
-            onClick={() => toggle('light')}
-          >
-            Light
-          </AtomButton>
+          {Object.entries(themes ?? {}).map(([keyTheme, data]) => (
+            <AtomButton
+              key={keyTheme}
+              astype={key === keyTheme ? 'flat' : 'outline'}
+              onClick={() => toggle(keyTheme)}
+            >
+              {data?.name ?? 'Theme Without Name'}
+            </AtomButton>
+          ))}
         </WrapperComponent>
 
         <WrapperComponent title="Component Button" type="main" dot>
@@ -150,6 +148,14 @@ const Index = () => {
             </AtomButton>
           </WrapperComponent>
         </WrapperComponent>
+
+        <WrapperComponent title="Component Icon" dot>
+          <AtomIcon />
+          <AtomIcon />
+          <AtomIcon />
+          <AtomIcon />
+        </WrapperComponent>
+
         <WrapperComponent title="Component Loader" type="main" dot>
           <WrapperComponent title="Medium: (Auto)">
             <AtomLoader loading astheme="primary" />
@@ -192,7 +198,6 @@ const Index = () => {
               }}
             />
             <AtomInput
-              astheme="secondary"
               labeltext="Label Input Example"
               input={{
                 placeholder: 'Placeholder Input Example'
@@ -210,7 +215,6 @@ const Index = () => {
             />
             <AtomInput
               type="select"
-              astheme="secondary"
               labeltext="Label Input Example"
               options={OPTIONS}
               input={{
@@ -219,7 +223,7 @@ const Index = () => {
             />
           </WrapperComponent>
         </WrapperComponent>
-
+        {/* 
         <WrapperComponent title={`Component Images`} dot>
           <AtomImage src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png" />
           <AtomImage
@@ -236,11 +240,11 @@ const Index = () => {
             `}
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
           />
-        </WrapperComponent>
-
+        </WrapperComponent> */}
+        {/* 
         <WrapperComponent title="Component Text Editor" type="main" dot>
           <AtomTextEditor editor={editor} />
-        </WrapperComponent>
+        </WrapperComponent> */}
       </AtomWrapper>
     </AtomWrapper>
   );

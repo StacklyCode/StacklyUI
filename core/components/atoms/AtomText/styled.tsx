@@ -8,18 +8,18 @@ type AtomTextTypesTheme = AtomTextTypes & {
 };
 
 const TextStyle = (props: AtomTextTypesTheme) => {
-  const { theme, css: cssProps, astheme = 'primary' } = props;
+  const { theme } = props;
   return css`
     line-height: 150%;
-    font-family: ${theme.text?.properties?.font ?? `'Inter', sans-serif`};
+    font-family: sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
     cursor: default;
-    color: ${theme?.text?.color[astheme] ?? '#202124'};
+    color: #202124;
     transition: all 0.3s ease-in-out;
-    ${theme?.text?.css?.(theme)}
-    ${cssProps?.(theme)}
+    ${theme?.text?.css?.(theme, props)}
+    ${props?.css?.(theme, props)}
   `;
 };
 
@@ -32,6 +32,11 @@ export const TextStyledA = styled(motion.a)<AtomTextTypes>`
 export const TextStyledP = styled(motion.p)<AtomTextTypes>`
   ${(props) => TextStyle(props)}
 `;
+
+export const TextStyledB = styled(motion.b)<AtomTextTypes>`
+  ${(props) => TextStyle(props)}
+`;
+
 export const TextStyledH1 = styled(motion.h1)<AtomTextTypes>`
   ${(props) => TextStyle(props)}
 `;

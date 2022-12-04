@@ -1,10 +1,8 @@
-import { KeyThemeColor } from '../../../types';
+import { ColorKeys } from '@emotion/react';
 import { AtomLottieTypes } from '../AtomLottie/types';
-import { AtomWrapperTypes } from '../AtomWrapper/types';
 
-export type AtomLoaderTypes = AtomWrapperTypes & {
+export type AtomLoaderTypes = AtomLottieTypes & {
   loading?: boolean | 'true' | 'false';
   astype?: 'small' | 'medium' | `fullscreen` | `button`;
-  astheme?: KeyThemeColor;
-  lottie?: AtomLottieTypes;
+  astheme?: ColorKeys;
 };

@@ -1,9 +1,5 @@
 import InputTextError from './inputError';
-import {
-  InputTextLabelStyled,
-  InputTextSpanStyled,
-  InputTextStyled
-} from './styled';
+import { InputLabelStyled, InputSpanStyled, InputStyled } from './styled';
 import { AtomInputTypes } from './types';
 import { FCWC } from '../../../types';
 import { get } from '../../../utils/tinyLodash';
@@ -13,18 +9,13 @@ const Animation = {
 };
 
 const InputText: FCWC<AtomInputTypes> = (props) => {
-  const { formik, id, type, children, astheme = 'primary' } = props;
+  const { formik, id, type, children } = props;
   const { error, label, input, span, labeltext } = props;
   return (
-    <InputTextLabelStyled htmlFor={id} {...label}>
-      {labeltext && (
-        <InputTextSpanStyled astheme={astheme} {...span}>
-          {labeltext}
-        </InputTextSpanStyled>
-      )}
-      <InputTextStyled
+    <InputLabelStyled htmlFor={id} {...label}>
+      {labeltext && <InputSpanStyled {...span}>{labeltext}</InputSpanStyled>}
+      <InputStyled
         id={id}
-        astheme={astheme}
         type={type}
         {...input}
         {...Animation}
@@ -39,8 +30,8 @@ const InputText: FCWC<AtomInputTypes> = (props) => {
         }}
       />
       {children}
-      <InputTextError id={id} astheme={astheme} formik={formik} {...error} />
-    </InputTextLabelStyled>
+      <InputTextError id={id} formik={formik} {...error} />
+    </InputLabelStyled>
   );
 };
 

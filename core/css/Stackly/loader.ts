@@ -1,10 +1,9 @@
 import { css } from '@emotion/react';
-import { WrapperBlurCSS } from 'css';
-import { SSP } from '../../../types';
-import { AtomLoaderTypes } from './types';
+import { AtomLoaderTypes, CSSType } from 'types';
+import { WrapperBlurCSS } from './wrapper';
 
-export const TypeLoader: SSP<AtomLoaderTypes> = (props) => {
-  const { astype, theme } = props;
+export const TypeLoader: CSSType<AtomLoaderTypes> = (theme, props) => {
+  const { astype } = props;
   switch (astype) {
     case 'small':
       return css`
@@ -15,6 +14,7 @@ export const TypeLoader: SSP<AtomLoaderTypes> = (props) => {
       return css`
         width: 38px;
         height: max-content;
+        transition: all 0.3s ease-in-out;
       `;
     case 'fullscreen':
       return css`
@@ -25,7 +25,12 @@ export const TypeLoader: SSP<AtomLoaderTypes> = (props) => {
         width: 100%;
         height: 100%;
         z-index: 9999;
-        ${WrapperBlurCSS(theme?.general?.properties?.blur ?? 'red')}
+        svg {
+          width: 300px !important;
+          height: 300px !important;
+        }
+        ${WrapperBlurCSS(theme?.general?.properties?.blur ?? '#00000065')}
+        transition: all 0.3s ease-in-out;
       `;
     default:
       return css`
@@ -45,9 +50,9 @@ export const LoaderCSS = (color: string) => {
   `;
 };
 
-export const TypeLoaderCSS: SSP<AtomLoaderTypes> = (props) => {
-  const { theme, astheme } = props;
-  const MAINTHEME = astheme ?? theme?.loader?.theme ?? 'primary';
+export const TypeLoaderCSS: CSSType<AtomLoaderTypes> = (theme, props) => {
+  const { astheme } = props;
+  const MAINTHEME = astheme ?? 'primary';
   const MAINCOLOR =
     theme?.loader?.color?.[MAINTHEME] ??
     theme?.general?.color?.[MAINTHEME] ??

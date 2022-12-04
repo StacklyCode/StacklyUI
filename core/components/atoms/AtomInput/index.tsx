@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import InputText from './inputText';
+import Input from './input';
 import InputSelect from './inputSelect';
 import InputToggle from './inputToggle';
 import { AtomInputTypes } from './types';
@@ -12,7 +12,7 @@ const AtomInput: FC<AtomInputTypes> = (props) => {
     case `select`:
       return <InputSelect {...props} />;
     default:
-      return <InputText {...props} />;
+      return <Input {...props} />;
   }
 };
 

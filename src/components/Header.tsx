@@ -42,9 +42,13 @@ const Header = () => {
           height: 40px;
           margin-top: ${isOffset ? '-40px' : '0px'};
           transition: margin-top 0.3s ease-in-out;
-          background-color: ${theme?.header?.properties?.background ?? '#fff'};
+          background-color: ${theme?.header?.properties?.background ??
+          'transparent'};
           border-bottom: 1px solid
-            ${changeBrightness(theme?.header?.properties?.background, 20)};
+            ${changeBrightness(
+              theme?.header?.properties?.background ?? '#00000000',
+              20
+            )};
           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
           z-index: 2;
         `}

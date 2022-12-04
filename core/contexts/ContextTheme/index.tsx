@@ -13,15 +13,16 @@ import { themes as themesDefault } from '../../themes';
 type ContextProps = {
   key: string;
   theme: IPalette;
+  themes: Record<string, IPalette>;
   toggle: (key?: string) => void;
 };
 export const ContextThemeReact = createContext({} as ContextProps);
 
 const ContextTheme = (props: ContextThemeProps) => {
-  const { children, themes = themesDefault, defaultTheme = 'light' } = props;
-  const [key, setKey] = useState(defaultTheme ?? 'light');
+  const { children, themes = themesDefault, defaultTheme } = props;
+  const [key, setKey] = useState(defaultTheme);
 
-  const theme = useMemo(() => themes[key], [key]);
+  const theme = useMemo(() => (themes[key] ?? {}) as IPalette, [key]);
 
   const machine = useMemo(() => CreateThemes(themes), [themes]);
 
@@ -33,13 +34,17 @@ const ContextTheme = (props: ContextThemeProps) => {
           .value.toString()) as ThemeKeyType;
       setKey(keyNext);
       localStorage.setItem('theme', keyNext);
+      document.documentElement.style.setProperty(
+        'background-color',
+        themes?.[keyNext]?.general?.properties?.background ?? '#ffffff'
+      );
     },
     [key]
   );
 
   useEffect(() => {
     const keyStorage = localStorage.getItem('theme') as ThemeKeyType;
-    setKey(keyStorage ?? defaultTheme ?? 'light');
+    setKey(keyStorage ?? defaultTheme);
   }, []);
 
   return (
@@ -47,6 +52,7 @@ const ContextTheme = (props: ContextThemeProps) => {
       value={{
         key,
         theme,
+        themes,
         toggle
       }}
     >

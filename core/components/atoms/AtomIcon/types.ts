@@ -1,7 +1,8 @@
-import { AtomWrapperTypes, CSSType, KeyThemeColor } from '../../../types';
+import { ColorKeys } from '@emotion/react';
+import { AtomWrapperTypes, CSSType } from '../../../types';
 
 export type AtomIconTypes = AtomWrapperTypes & {
   icon?: string;
-  astheme?: KeyThemeColor;
-  css?: CSSType;
+  astheme?: ColorKeys;
+  css?: CSSType<AtomIconTypes>;
 };

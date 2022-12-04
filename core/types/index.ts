@@ -1,4 +1,4 @@
-import { ColorKeys, SerializedStyles, Theme, ThemeKeys, WithTheme } from '@emotion/react';
+import { SerializedStyles, Theme, ThemeKeys, WithTheme } from '@emotion/react';
 import { FC } from 'react';
 import { themes } from '../themes/index';
 import { Palette } from '../themes/types';
@@ -12,9 +12,8 @@ export type RDC = Record<string, unknown>;
 export type FCWC<P = RDC> = FC<P & ChildrenProps>;
 export type SSP<P = RDC> = (props: WithTheme<P, Theme>) => SerializedStyles;
 export type SSPS<P = RDC> = (props: WithTheme<P, Theme>) => string;
-export type CSSType = (theme: Theme) => SerializedStyles;
+export type CSSType<T> = (theme: Theme, props?: T) => SerializedStyles;
 export type IPalette = Palette;
-export type KeyThemeColor = ColorKeys;
 
 export type ThemesFamily = {
   select: {
@@ -33,10 +32,10 @@ export type useThemeProps = {
 };
 
 export type ContextThemeProps = {
-  themes?: {
+  themes: {
     [key in ThemeKeyType]: IPalette;
   };
-  defaultTheme?: ThemeKeys;
+  defaultTheme: ThemeKeys;
   children?: React.ReactNode;
 };
 

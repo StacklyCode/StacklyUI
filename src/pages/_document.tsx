@@ -11,7 +11,7 @@ const Document = () => (
         const themes = {${Object.entries(themes)
           ?.map(
             ([key, value]) =>
-              `${key}: '${value?.general?.properties?.backgroundflash}'`
+              `"${key}": '${value?.general?.properties?.background ?? '#fff'}'`
           )
           ?.join(',')}};
         function getInitialColorMode() {

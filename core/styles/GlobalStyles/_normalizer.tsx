@@ -15,15 +15,15 @@ const _NormalizerStyled: FC = () => {
         }
         * {
           ::-webkit-scrollbar {
-            width: ${theme?.scrollbar?.width ?? 0}px;
-            height: ${theme?.scrollbar?.height ?? 0}px;
+            width: ${theme?.scrollbar?.properties?.width ?? '0'}px;
+            height: ${theme?.scrollbar?.properties?.height ?? '0'}px;
             transition: all 0.3s ease;
           }
           ::-webkit-scrollbar-thumb {
-            background: ${theme?.scrollbar?.thumb ?? '#5993ff'};
+            background: ${theme?.scrollbar?.properties?.thumb ?? '#5993ff'};
           }
           ::-webkit-scrollbar-track {
-            background: ${theme?.scrollbar?.track ?? '#e6e6e6'};
+            background: ${theme?.scrollbar?.properties?.track ?? '#e6e6e6'};
           }
         }
         *:focus {

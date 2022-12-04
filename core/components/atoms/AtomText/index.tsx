@@ -8,7 +8,8 @@ import {
   TextStyledH4,
   TextStyledH5,
   TextStyledH6,
-  TextStyledP
+  TextStyledP,
+  TextStyledB
 } from './styled';
 import { AtomTextTypes } from './types';
 
@@ -27,6 +28,12 @@ const AtomText: FC<AtomTextTypes> = forwardRef<any, AtomTextTypes>(
           <TextStyledP ref={ref} {...props}>
             {children}
           </TextStyledP>
+        );
+      case 'b':
+        return (
+          <TextStyledB ref={ref} {...props}>
+            {children}
+          </TextStyledB>
         );
       case 'h1':
         return (

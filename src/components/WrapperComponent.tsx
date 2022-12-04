@@ -17,7 +17,7 @@ const initDot = {
   top: '50%',
   left: '50%',
   backgroundColor: '#ffffff00',
-  shadow: `transparent 0px 0px 0px 0px`
+  shadow: `#00000000 0px 0px 0px 0px`
 };
 
 const WrapperComponent = (props: IWrapperComponent) => {
@@ -31,9 +31,9 @@ const WrapperComponent = (props: IWrapperComponent) => {
     const min = Math.ceil(height * 0.5);
     const max = Math.ceil(height * 0.7);
     const randomSize = randomNumberBetween(min, max);
-    const colors = Object.values(theme?.dot?.color);
+    const colors = Object.values(theme?.dot?.color ?? {});
     const randomColor = `${
-      colors[randomNumberBetween(0, colors.length - 1)] ?? 'transparent'
+      colors[randomNumberBetween(0, colors.length - 1)] ?? '#00000000'
     }a7`;
     const minWidth = Math.ceil(randomSize);
     const maxWidth = Math.ceil(width - randomSize);
@@ -54,26 +54,20 @@ const WrapperComponent = (props: IWrapperComponent) => {
     <AtomWrapper
       ref={ref}
       css={(theme) => css`
-        width: 100%;
-        height: max-content;
         flex-direction: ${type === 'main' ? 'column' : 'row'};
         position: relative;
-        justify-content: flex-start;
-        align-items: center;
-        background-color: transparent;
         gap: ${type === 'main' ? '30px' : '10px'};
-        overflow: hidden;
-        border: 1px solid ${theme?.general?.properties.tooltip ?? '#0072f5'};
+        border: 1px solid ${theme?.general?.properties.tooltip ?? '#acacac'};
         border-radius: 4px;
-        padding: 40px 30px;
+        padding: 30px 30px;
 
         ::after {
           font-family: 'Inter', sans-serif;
           content: '${title}';
           color: ${isBackDark(
-            theme?.general?.properties?.tooltip ?? '#0072f5'
+            theme?.general?.properties?.tooltip ?? '#00000000'
           )};
-          ${WrapperBlurCSS(theme?.general?.properties?.tooltip ?? 'red')}
+          ${WrapperBlurCSS(theme?.general?.properties?.tooltip ?? '#00000000')}
           padding: 6px 20px;
           border-radius: 0px 0px 4px 0px;
           font-size: 10px;
@@ -85,7 +79,7 @@ const WrapperComponent = (props: IWrapperComponent) => {
         }
         ${dot &&
         css`
-          ${WrapperBlurCSS(theme?.general?.properties?.blur ?? 'red')}
+          ${WrapperBlurCSS(theme?.general?.properties?.blur ?? '#00000000')}
           ::before {
             content: '';
             position: absolute;
@@ -101,9 +95,7 @@ const WrapperComponent = (props: IWrapperComponent) => {
           }
         `}
         :hover {
-          background-color: ${key === 'dark'
-            ? 'rgba(57, 57, 85, 0.149)'
-            : 'rgba(206, 203, 220, 0.112)'};
+          background-color: ${theme?.general?.properties?.hover ?? '#00000000'};
         }
         transition: all 0.4s ease;
       `}

@@ -1,50 +1,26 @@
 import { FCWC } from 'types';
 import AtomLottie from '../AtomLottie';
-import { TypeLoaderCSS, TypeLoader } from './styled';
 import { AtomLoaderTypes } from './types';
 import LoadingDefaultAnimation from '../../../animations/loading-default.json';
-import { AnimatePresence } from 'framer-motion';
-import { css } from '@emotion/react';
-import AtomWrapper from '../AtomWrapper';
-import { useEffect, useState } from 'react';
+import { css, useTheme } from '@emotion/react';
 
 const AtomLoader: FCWC<AtomLoaderTypes> = (props) => {
-  const { loading, children, lottie } = props;
-  const [complete, setComplete] = useState(true);
-
-  useEffect(() => {
-    setComplete(loading ? false : complete);
-  }, [loading]);
+  const { loading, children, ...rest } = props;
+  const theme = useTheme();
+  if (!loading) return <>{children}</>;
 
   return (
-    <AnimatePresence onExitComplete={() => setComplete(true)}>
-      {loading ? (
-        <AtomWrapper
-          key={`LOADER`}
-          {...props}
-          css={(theme) => css`
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            div {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-            background-color: transparent;
-            ${TypeLoader({ ...props, theme })}
-          `}
-        >
-          <AtomLottie
-            animationData={LoadingDefaultAnimation}
-            {...lottie}
-            css={(theme) => TypeLoaderCSS({ ...props, theme })}
-          />
-        </AtomWrapper>
-      ) : (
-        <>{complete && children}</>
-      )}
-    </AnimatePresence>
+    <AtomLottie
+      {...rest}
+      animationData={LoadingDefaultAnimation}
+      css={() => css`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ${theme?.loader?.css?.(theme, props)};
+        ${rest?.css?.(theme, props)};
+      `}
+    />
   );
 };
 
