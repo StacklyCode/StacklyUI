@@ -6,7 +6,8 @@ import {
   AtomText,
   AtomWrapper,
   AtomTextEditor,
-  AtomImage
+  AtomImage,
+  AtomIcon
 } from 'index';
 import { IOption } from 'components/atoms/AtomInput/types';
 import useToggleTheme from 'hooks/useTheme';
@@ -14,7 +15,6 @@ import { useState } from 'react';
 import Header from 'src/components/Header';
 import WrapperComponent from 'src/components/WrapperComponent';
 import useEditor from 'hooks/useEditor';
-import { AtomIcon } from 'build';
 
 const ContainerCSS = css`
   min-height: 100vh;
