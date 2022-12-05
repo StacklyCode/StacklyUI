@@ -8,6 +8,7 @@ const Document = () => (
         dangerouslySetInnerHTML={{
           __html: `
       (function() {
+        const defaultTheme = 'stackly-dark';
         const themes = {${Object.entries(themes)
           ?.map(
             ([key, value]) =>
@@ -29,8 +30,13 @@ const Document = () => (
         }
         const colorMode = getInitialColorMode();
         const root = document.documentElement;
-        root.style.setProperty('background-color', themes?.[colorMode] ?? themes.light);
-        window.localStorage.setItem('theme', colorMode);
+        if(themes?.[colorMode]){
+          root.style.setProperty('background-color', themes?.[colorMode] ?? themes.light);
+          window.localStorage.setItem('theme', colorMode);
+        }else{
+          root.style.setProperty('background-color', themes?.[defaultTheme]);
+          window.localStorage.setItem('theme', defaultTheme);
+        }
       })();
     `
         }}

@@ -3,6 +3,7 @@ import AtomLottie from '../AtomLottie';
 import { AtomLoaderTypes } from './types';
 import LoadingDefaultAnimation from '../../../animations/loading-default.json';
 import { css, useTheme } from '@emotion/react';
+import { LoaderCSS } from 'css';
 
 const AtomLoader: FCWC<AtomLoaderTypes> = (props) => {
   const { loading, children, ...rest } = props;
@@ -17,6 +18,7 @@ const AtomLoader: FCWC<AtomLoaderTypes> = (props) => {
         display: flex;
         justify-content: center;
         align-items: center;
+        ${LoaderCSS('#000000')}
         ${theme?.loader?.css?.(theme, props)};
         ${rest?.css?.(theme, props)};
       `}

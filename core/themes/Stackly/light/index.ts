@@ -14,8 +14,8 @@ import {
 import { TextCSS } from 'css/Stackly/text';
 import { IPalette } from '../../../types';
 
-const ThemeDark: IPalette = {
-  name: 'Stackly Dark',
+const Light: IPalette = {
+  name: 'Stackly Light',
   general: {
     color: {
       primary: '#0072f5',
@@ -156,4 +156,4 @@ const ThemeDark: IPalette = {
   }
 };
 
-export default ThemeDark;
+export default Light;
