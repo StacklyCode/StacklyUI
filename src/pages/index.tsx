@@ -5,7 +5,6 @@ import {
   AtomLoader,
   AtomText,
   AtomWrapper,
-  AtomTextEditor,
   AtomImage,
   AtomIcon
 } from 'index';
@@ -14,7 +13,6 @@ import useToggleTheme from 'hooks/useTheme';
 import { useState } from 'react';
 import Header from 'src/components/Header';
 import WrapperComponent from 'src/components/WrapperComponent';
-import useEditor from 'hooks/useEditor';
 
 const ContainerCSS = css`
   min-height: 100vh;
@@ -48,7 +46,6 @@ const OPTIONS = [
 ] as IOption[];
 
 const Index = () => {
-  const [value, setValue] = useState('');
   const [pressToLoad, setPressToLoad] = useState(false);
   const PressToLoadClick = () => {
     setPressToLoad(true);
@@ -60,11 +57,6 @@ const Index = () => {
 
   const [fullscreen, setFullscreen] = useState(false);
   const { key, toggle, themes } = useToggleTheme();
-
-  const editor = useEditor({
-    content: value,
-    onUpdate: (content) => setValue(content?.editor?.getHTML())
-  });
 
   return (
     <AtomWrapper as="main" css={() => ContainerCSS}>
@@ -240,10 +232,6 @@ const Index = () => {
             `}
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
           />
-        </WrapperComponent>
-
-        <WrapperComponent title="Component Text Editor" type="main" dot>
-          <AtomTextEditor editor={editor} />
         </WrapperComponent>
       </AtomWrapper>
     </AtomWrapper>

@@ -14,7 +14,7 @@ import {
   InputColorStyled,
   SeparateVerticalStyled
 } from './styled';
-import { InputCSS, IconCSS } from '../../../css';
+import { InputSTDarkCSS, IconCSS } from '../../../css';
 import isBackDark from '../../../utils/isBackDark';
 import useEditor from '../../../hooks/useEditor';
 
@@ -100,7 +100,7 @@ const MenuBar: FC<MenuBarType> = (props) => {
           padding: 15px 20px;
           border-radius: 4px;
           flex-wrap: wrap;
-          ${InputCSS(theme)}
+          ${InputSTDarkCSS(theme)}
         `}
       >
         <InputColorStyled
@@ -988,7 +988,7 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
           overflow: hidden;
           border-radius: 4px;
           padding: 20px;
-          ${InputCSS(theme)}
+          ${InputSTDarkCSS(theme)}
           transition: all 0.4s ease;
         `}
       >
@@ -1013,7 +1013,7 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
 
             .ProseMirror {
               border-radius: 4px;
-              ${InputCSS(theme)}
+              ${InputSTDarkCSS(theme)}
 
               * {
                 font-family: 'Roboto', sans-serif;

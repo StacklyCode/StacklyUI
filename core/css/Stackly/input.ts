@@ -5,7 +5,7 @@ import { isBackDarkBoolean } from '../../utils/isBackDark';
 import { CSSType } from 'types';
 import { AtomInputTypes } from 'components/atoms/AtomInput/types';
 
-export const InputCSS: CSSType<AtomInputTypes['input']> = (theme, props) => {
+export const InputSTDarkCSS: CSSType<AtomInputTypes['input']> = (theme, props) => {
   const { astheme } = props ?? {};
   const MAINTHEME = astheme ?? 'primary';
   const color =
@@ -32,7 +32,7 @@ export const InputCSS: CSSType<AtomInputTypes['input']> = (theme, props) => {
   `;
 };
 
-export const InputLabelCSS: CSSType<AtomInputTypes['label']> = (
+export const InputLabelSTDarkCSS: CSSType<AtomInputTypes['label']> = (
   theme,
   props
 ) => {
@@ -49,7 +49,7 @@ export const InputLabelCSS: CSSType<AtomInputTypes['label']> = (
   `;
 };
 
-export const InputErrorCSS: CSSType<AtomInputTypes['label']> = (
+export const InputErrorSTDarkCSS: CSSType<AtomInputTypes['label']> = (
   theme,
   props
 ) => {
@@ -66,7 +66,7 @@ export const InputErrorCSS: CSSType<AtomInputTypes['label']> = (
   `;
 };
 
-export const InputSelectCSS: CSSType<AtomInputTypes['select']> = (
+export const InputSelectSTDarkCSS: CSSType<AtomInputTypes['select']> = (
   theme,
   props
 ) => {
@@ -107,7 +107,7 @@ export const InputSelectCSS: CSSType<AtomInputTypes['select']> = (
   `;
 };
 
-export const InputOptionCSS: CSSType<AtomInputTypes['option']> = (
+export const InputOptionSTDarkCSS: CSSType<AtomInputTypes['option']> = (
   theme,
   props
 ) => {

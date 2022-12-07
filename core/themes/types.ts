@@ -1,3 +1,4 @@
+import { CSSProperties } from '@emotion/serialize';
 import {
   AtomInputErrorProps,
   AtomInputInputProps,
@@ -11,6 +12,9 @@ import {
   AtomIconTypes,
   AtomImageTypes,
   AtomInputTypes,
+  AtomLoaderTypes,
+  AtomTextTypes,
+  AtomWrapperTypes,
   CSSType
 } from '../types';
 
@@ -22,16 +26,11 @@ export type ThemeColor = {
   color3?: string;
 };
 
-export type ThemeProperties = {
-  label?: string;
-  error?: string;
+export type ThemeProperties = CSSProperties & {
   blur?: string;
   font?: string;
   tooltip?: string;
-  background?: string;
   hover?: string;
-  width?: string;
-  height?: string;
   thumb?: string;
   track?: string;
 };
@@ -59,11 +58,11 @@ export type ThemeAtomInput = ThemeDefault<AtomInputTypes> & {
   option?: ThemeDefault<AtomInputOptionProps>;
 };
 
-export type ThemeAtomWrapper = ThemeDefault;
+export type ThemeAtomWrapper = ThemeDefault<AtomWrapperTypes>;
 
-export type ThemeAtomLoader = ThemeDefault;
+export type ThemeAtomLoader = ThemeDefault<AtomLoaderTypes>;
 
-export type ThemeAtomText = ThemeDefault;
+export type ThemeAtomText = ThemeDefault<AtomTextTypes>;
 
 export type ThemeAtomHeader = ThemeDefault;
 

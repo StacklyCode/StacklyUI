@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { AtomWrapper } from 'components/atoms';
-import { WrapperBlurCSS } from 'css';
+import { WrapperBlurSTDarkCSS } from 'css';
 import useTheme from 'hooks/useTheme';
 import { useMemo, useRef } from 'react';
 import isBackDark from 'utils/isBackDark';
@@ -67,7 +67,7 @@ const WrapperComponent = (props: IWrapperComponent) => {
           color: ${isBackDark(
             theme?.general?.properties?.tooltip ?? '#00000000'
           )};
-          ${WrapperBlurCSS(theme?.general?.properties?.tooltip ?? '#00000000')}
+          ${WrapperBlurSTDarkCSS(theme?.general?.properties?.tooltip ?? '#00000000')}
           padding: 6px 20px;
           border-radius: 0px 0px 4px 0px;
           font-size: 10px;
@@ -79,7 +79,7 @@ const WrapperComponent = (props: IWrapperComponent) => {
         }
         ${dot &&
         css`
-          ${WrapperBlurCSS(theme?.general?.properties?.blur ?? '#00000000')}
+          ${WrapperBlurSTDarkCSS(theme?.general?.properties?.blur ?? '#00000000')}
           ::before {
             content: '';
             position: absolute;

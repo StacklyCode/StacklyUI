@@ -1,17 +1,17 @@
 import { css } from '@emotion/react';
 import {
-  ButtonIsDisabledPropsCSS,
-  ButtonTypePropsCSS,
-  InputCSS,
-  InputErrorCSS,
-  InputLabelCSS,
-  InputOptionCSS,
-  InputSelectCSS,
-  TypeLoader,
-  TypeLoaderCSS,
-  WrapperCSS
+  InputSTDarkCSS,
+  InputErrorSTDarkCSS,
+  InputLabelSTDarkCSS,
+  InputOptionSTDarkCSS,
+  InputSelectSTDarkCSS,
+  LoaderTypeSTDark,
+  LoaderTypeSTDarkCSS,
+  WrapperSTLightCSS,
+  ButtonTypeSTLightCSS,
+  ButtonIsDisabledSTLightCSS
 } from 'css';
-import { TextCSS } from 'css/Stackly/text';
+import { TextSTDarkCSS } from 'css/Stackly/text';
 import { IPalette } from '../../../types';
 
 const Light: IPalette = {
@@ -38,30 +38,26 @@ const Light: IPalette = {
       accent: '#1461EB'
     },
     css: (theme, props) => css`
-      ${WrapperCSS(theme, props)}
+      ${WrapperSTLightCSS(theme, props)}
     `
   },
   text: {
     color: {
-      primary: '#5a6a8a',
+      primary: '#1b1b1b',
       secondary: '#fafafa',
       accent: '#1461EB'
     },
     css: (theme, props) => css`
-      font-family: 'Inter', sans-serif;
-      ${TextCSS(theme, props)}
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      ${TextSTDarkCSS(theme, props)}
     `
   },
   button: {
-    color: {
-      primary: '#0072f5',
-      secondary: '#5a6a8a',
-      accent: '#1461EB'
-    },
     css: (theme, props) => css`
-      font-family: 'Inter', sans-serif;
-      ${ButtonTypePropsCSS(theme, props)}
-      ${ButtonIsDisabledPropsCSS(theme, props)}
+      font-family: 'Montserrat', sans-serif;
+      ${ButtonTypeSTLightCSS(theme, props)}
+      ${ButtonIsDisabledSTLightCSS(theme, props)}
     `
   },
   icon: {
@@ -78,8 +74,8 @@ const Light: IPalette = {
       accent: '#1461EB'
     },
     css: (theme, props) => css`
-      ${TypeLoaderCSS(theme, props)}
-      ${TypeLoader(theme, props)}
+      ${LoaderTypeSTDarkCSS(theme, props)}
+      ${LoaderTypeSTDark(theme, props)}
     `
   },
   input: {
@@ -88,7 +84,7 @@ const Light: IPalette = {
         primary: '#222222'
       },
       css: (theme, props) => css`
-        ${InputLabelCSS(theme, props)}
+        ${InputLabelSTDarkCSS(theme, props)}
       `
     },
     error: {
@@ -96,7 +92,7 @@ const Light: IPalette = {
         primary: '#e01220'
       },
       css: (theme, props) => css`
-        ${InputErrorCSS(theme, props)}
+        ${InputErrorSTDarkCSS(theme, props)}
       `
     },
     input: {
@@ -111,7 +107,7 @@ const Light: IPalette = {
         background: '#262b33'
       },
       css: (theme, props) => css`
-        ${InputCSS(theme, props)}
+        ${InputSTDarkCSS(theme, props)}
       `
     },
     option: {
@@ -119,7 +115,7 @@ const Light: IPalette = {
         primary: '#dedede'
       },
       css: (theme, props) => css`
-        ${InputOptionCSS(theme, props)}
+        ${InputOptionSTDarkCSS(theme, props)}
       `
     },
     select: {
@@ -134,7 +130,7 @@ const Light: IPalette = {
         background: '#262b33'
       },
       css: (theme, props) => css`
-        ${InputSelectCSS(theme, props)}
+        ${InputSelectSTDarkCSS(theme, props)}
       `
     }
   },

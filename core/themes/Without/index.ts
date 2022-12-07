@@ -23,8 +23,8 @@ const ThemeDark: IPalette = {
   //     accent: '#d333f6'
   //   },
   //   css: (theme, props) => css`
-  //     ${ButtonTypePropsCSS(theme, props)}
-  //     ${ButtonIsDisabledPropsCSS(theme, props)}
+  //     ${ButtonTypeSTDarkCSS(theme, props)}
+  //     ${ButtonIsDisabledSTDarkCSS(theme, props)}
   //   `
   // },
   // icon: {

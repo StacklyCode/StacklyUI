@@ -5,7 +5,7 @@ import changeTransparency from '../../utils/changeTransparency';
 import { ChangeBrightness, IsBackDark } from '../../utils/index';
 import isBackDark from '../../utils/isBackDark';
 import { LoaderCSS } from './loader';
-import { WrapperBlurCSS } from './wrapper';
+import { WrapperBlurSTDarkCSS } from './wrapper';
 
 export const ButtonLoadingCSS = (color: string) => css`
   div {
@@ -84,15 +84,15 @@ export const ButtonOutlineCSS = (color: string) => css`
   }
 `;
 
-export const ButtonDisableCSS = (color: string) => css`
-  ${WrapperBlurCSS(changeTransparency(color, 20))}
+export const ButtonDisableSTDarkCSS = (color: string) => css`
+  ${WrapperBlurSTDarkCSS(changeTransparency(color, 20))}
   :hover {
-    ${WrapperBlurCSS(changeTransparency(color, 20))}
+    ${WrapperBlurSTDarkCSS(changeTransparency(color, 20))}
   }
   :active {
-    ${WrapperBlurCSS(changeTransparency(color, 20))}
+    ${WrapperBlurSTDarkCSS(changeTransparency(color, 20))}
   }
-  border: 1px solid #757575 !important;
+  border: 1px solid ${changeTransparency(color, 40)} !important;
   color: ${changeTransparency(color, 40)} !important;
   cursor: not-allowed !important;
   font-weight: bold;
@@ -106,7 +106,28 @@ export const ButtonDisableCSS = (color: string) => css`
   mix-blend-mode: screen;
 `;
 
-export const ButtonTypePropsCSS: CSSType<AtomButtonTypes> = (theme, props) => {
+export const ButtonDisableSTLightCSS = (color: string) => css`
+  background-color: ${color};
+  :hover {
+    background-color: ${changeBrightness(color, 0)};
+  }
+  :active {
+    background-color: ${changeBrightness(color, 0)};
+  }
+  border: 1px solid ${changeBrightness(color, -80)} !important;
+  color: ${changeBrightness(color, -80)} !important;
+  cursor: not-allowed !important;
+  font-weight: bold;
+  text-align: center;
+  span {
+    color: ${changeBrightness(color, -50)} !important;
+    cursor: not-allowed !important;
+    font-weight: bold;
+    text-align: center;
+  }
+`;
+
+export const ButtonTypeSTDarkCSS: CSSType<AtomButtonTypes> = (theme, props) => {
   const { astype, astheme } = props ?? {};
   const MAINTYPE = astype ?? 'flat';
   const MAINTHEME = astheme ?? 'primary';
@@ -119,7 +140,7 @@ export const ButtonTypePropsCSS: CSSType<AtomButtonTypes> = (theme, props) => {
       return css`
         ${ButtonAnimationCSS()}
         ${ButtonOutlineCSS(MAINCOLOR)}
-        ${WrapperBlurCSS(changeTransparency(MAINCOLOR, 20))}
+        ${WrapperBlurSTDarkCSS(changeTransparency(MAINCOLOR, 20))}
       `;
     default:
       return css`
@@ -129,14 +150,52 @@ export const ButtonTypePropsCSS: CSSType<AtomButtonTypes> = (theme, props) => {
   }
 };
 
-export const ButtonIsDisabledPropsCSS: CSSType<AtomButtonTypes> = (
+export const ButtonIsDisabledSTDarkCSS: CSSType<AtomButtonTypes> = (
   _,
   props
 ) => {
   const { disabled } = props;
   if (disabled)
     return css`
-      ${ButtonDisableCSS('#e6e6e6')}
+      ${ButtonDisableSTDarkCSS('#e6e6e6')}
+      ${ButtonDisabledAnimationCSS()}
+    `;
+  return css``;
+};
+
+export const ButtonTypeSTLightCSS: CSSType<AtomButtonTypes> = (
+  theme,
+  props
+) => {
+  const { astype, astheme } = props ?? {};
+  const MAINTYPE = astype ?? 'flat';
+  const MAINTHEME = astheme ?? 'primary';
+  const MAINCOLOR =
+    theme?.button?.color?.[MAINTHEME] ??
+    theme?.general?.color?.[MAINTHEME] ??
+    '#0067ea';
+  switch (MAINTYPE) {
+    case 'outline':
+      return css`
+        ${ButtonOutlineCSS(MAINCOLOR)}
+        ${ButtonAnimationCSS()}
+      `;
+    default:
+      return css`
+        ${ButtonFlatCSS(MAINCOLOR)}
+        ${ButtonAnimationCSS()}
+      `;
+  }
+};
+
+export const ButtonIsDisabledSTLightCSS: CSSType<AtomButtonTypes> = (
+  _,
+  props
+) => {
+  const { disabled } = props;
+  if (disabled)
+    return css`
+      ${ButtonDisableSTLightCSS('#e5e5e5')}
       ${ButtonDisabledAnimationCSS()}
     `;
   return css``;

@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 import { AtomLoaderTypes, CSSType } from 'types';
-import { WrapperBlurCSS } from './wrapper';
+import { WrapperBlurSTDarkCSS } from './wrapper';
 
-export const TypeLoader: CSSType<AtomLoaderTypes> = (theme, props) => {
+export const LoaderTypeSTDark: CSSType<AtomLoaderTypes> = (theme, props) => {
   const { astype } = props;
   switch (astype) {
     case 'small':
@@ -29,7 +29,7 @@ export const TypeLoader: CSSType<AtomLoaderTypes> = (theme, props) => {
           width: 300px !important;
           height: 300px !important;
         }
-        ${WrapperBlurCSS(theme?.general?.properties?.blur ?? '#00000065')}
+        ${WrapperBlurSTDarkCSS(theme?.general?.properties?.blur ?? '#00000065')}
         transition: all 0.3s ease-in-out;
       `;
     default:
@@ -50,7 +50,7 @@ export const LoaderCSS = (color: string) => {
   `;
 };
 
-export const TypeLoaderCSS: CSSType<AtomLoaderTypes> = (theme, props) => {
+export const LoaderTypeSTDarkCSS: CSSType<AtomLoaderTypes> = (theme, props) => {
   const { astheme } = props;
   const MAINTHEME = astheme ?? 'primary';
   const MAINCOLOR =
