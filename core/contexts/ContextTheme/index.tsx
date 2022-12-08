@@ -36,7 +36,7 @@ const ContextTheme = (props: ContextThemeProps) => {
       localStorage.setItem('theme', keyNext);
       document.documentElement.style.setProperty(
         'background-color',
-        themes?.[keyNext]?.general?.properties?.background ?? '#ffffff'
+        themes?.[keyNext]?.general?.properties?.background?.toString() ?? '#ffffff'
       );
     },
     [key]

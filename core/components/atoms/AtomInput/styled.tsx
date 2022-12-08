@@ -25,7 +25,7 @@ export const InputSpanStyled = styled(motion.span)<AtomInputTypes['label']>(
       font-family: 'Inter', sans-serif;
       font-size: 12px;
       font-weight: 600;
-      color: #ffffff;
+      color: #adadad;
       ${theme?.input?.span?.css?.(theme, props)}
       ${props?.css?.(props?.theme, props)}
     `;
@@ -62,6 +62,9 @@ export const InputStyled = styled(motion.input)<AtomInputTypes['input']>(
       width: 250px;
       border-radius: 4px;
       border: 1px solid #acacac;
+      ::placeholder {
+        color: #d7d7d7;
+      }
       ${theme?.input?.input?.css?.(theme, props)}
       ${props?.css?.(props?.theme, props)}
     `;
@@ -114,7 +117,7 @@ export const InputSelectStyled = styled(motion.select)<
     height: 40px;
     width: 250px;
     border-radius: 4px;
-    color: #222222;
+    color: #acacac;
     border: 1px solid #acacac;
     ${theme?.input?.select?.css?.(theme, props)}
     ${props?.css?.(props?.theme, props)}

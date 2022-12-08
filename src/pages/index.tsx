@@ -6,11 +6,12 @@ import {
   AtomText,
   AtomWrapper,
   AtomImage,
-  AtomIcon
+  AtomIcon,
+  IPalette
 } from 'index';
 import { IOption } from 'components/atoms/AtomInput/types';
 import useToggleTheme from 'hooks/useTheme';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import Header from 'src/components/Header';
 import WrapperComponent from 'src/components/WrapperComponent';
 
@@ -56,7 +57,48 @@ const Index = () => {
   };
 
   const [fullscreen, setFullscreen] = useState(false);
-  const { key, toggle, themes } = useToggleTheme();
+  const { key, toggle, themes, theme } = useToggleTheme();
+
+  const themesFilter = useMemo(
+    () =>
+      Object.entries(themes ?? {}).reduce(
+        (acc, [key, data]) => {
+          const keyGet = key?.split('-')[0] ?? 'none';
+          const getTheme = acc[keyGet];
+          const keyfirstLetter = `${keyGet[0].toUpperCase()}${keyGet.slice(1)}`;
+          const newAcc = getTheme
+            ? {
+                ...acc,
+                [keyGet]: {
+                  ...getTheme,
+                  themes: [...getTheme.themes, { key, data }]
+                }
+              }
+            : {
+                ...acc,
+                [keyGet]: {
+                  key: keyGet,
+                  name: keyfirstLetter,
+                  themes: [{ key, data }]
+                }
+              };
+          return newAcc;
+        },
+        {} as {
+          [key: string]: {
+            key: string;
+            name: string;
+            themes: { key: string; data: IPalette }[];
+          };
+        }
+      ),
+    [themes]
+  );
+
+  const themesArray = useMemo(
+    () => Object.values(themesFilter ?? {}),
+    [themesFilter]
+  );
 
   return (
     <AtomWrapper as="main" css={() => ContainerCSS}>
@@ -72,11 +114,28 @@ const Index = () => {
             font-size: 32px;
           `}
         >
-          StacklyUI
+          {theme?.name ?? 'Theme Without Name'}
         </AtomText>
 
-        <WrapperComponent title={`Component Theme: Active(${key})`} dot>
-          {Object.entries(themes ?? {}).map(([keyTheme, data]) => (
+        <WrapperComponent
+          title={`Component Theme: Active(${key})`}
+          type="main"
+          dot
+        >
+          {themesArray.map(({ key: asKey, name, themes }) => (
+            <WrapperComponent key={asKey} title={`Theme ${name}`}>
+              {themes?.map((e) => (
+                <AtomButton
+                  key={e?.key}
+                  astype={key === e?.key ? 'flat' : 'outline'}
+                  onClick={() => toggle(e?.key)}
+                >
+                  {e?.data?.name ?? 'Theme Without Name'}
+                </AtomButton>
+              ))}
+            </WrapperComponent>
+          ))}
+          {/* {Object.entries(themes ?? {}).map(([keyTheme, data]) => (
             <AtomButton
               key={keyTheme}
               astype={key === keyTheme ? 'flat' : 'outline'}
@@ -84,7 +143,7 @@ const Index = () => {
             >
               {data?.name ?? 'Theme Without Name'}
             </AtomButton>
-          ))}
+          ))} */}
         </WrapperComponent>
 
         <WrapperComponent title="Component Button" type="main" dot>

@@ -144,6 +144,12 @@ const ThemeDark: IPalette = {
       color2: '#f6d333',
       color3: '#33f6d3'
     }
+  },
+  togletheme: {
+    properties: {
+      background: '#1b1a203d',
+      border: '#0072f550'
+    }
   }
 };
 

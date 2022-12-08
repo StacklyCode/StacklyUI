@@ -70,7 +70,9 @@ const Header = () => {
 
           ${isOffset &&
           css`
-            ${WrapperBlurSTDarkCSS(theme?.header?.properties?.blur ?? '#ffffff')}
+            ${WrapperBlurSTDarkCSS(
+              theme?.header?.properties?.blur ?? '#ffffff'
+            )}
             border-bottom: 1px solid
             ${changeBrightness(
               theme?.header?.properties?.border?.toString() ?? '#ffffff',

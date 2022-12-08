@@ -18,7 +18,7 @@ const AtomLoader: FCWC<AtomLoaderTypes> = (props) => {
         display: flex;
         justify-content: center;
         align-items: center;
-        ${LoaderCSS('#000000')}
+        ${LoaderCSS('#adadad')}
         ${theme?.loader?.css?.(theme, props)};
         ${rest?.css?.(theme, props)};
       `}

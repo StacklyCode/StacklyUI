@@ -1,8 +1,5 @@
 import { css } from '@emotion/react';
 import {
-  WrapperSTLightCSS,
-  ButtonTypeSTLightCSS,
-  ButtonIsDisabledSTLightCSS,
   TextSTLightCSS,
   LoaderTypeSTLightCSS,
   LoaderTypeSTLight,
@@ -12,23 +9,25 @@ import {
   InputErrorSTLightCSS,
   InputSelectSTLightCSS
 } from 'css';
+import {
+  ButtonIsDisabledTWLightCSS,
+  ButtonTypeTWLightCSS
+} from 'css/Tailwind/button';
 import { IPalette } from '../../../types';
 
 const Light: IPalette = {
-  name: 'Stackly Light',
+  name: 'Tailwind Light',
   general: {
     color: {
-      primary: '#0072f5',
-      secondary: '#5a6a8a',
-      accent: '#1461EB',
-      color2: '#5a6a8a',
-      color3: '#7a8baa'
+      primary: '#4f46e5',
+      secondary: '#008ce4',
+      accent: '#0f172a'
     },
     properties: {
-      blur: '#ffffffc6',
-      tooltip: '#387ac5',
+      blur: '#ffffff',
+      tooltip: '#e3e4e6',
       background: '#ffffff',
-      hover: '#cecbdc1c'
+      hover: '#f8fafc'
     }
   },
   wrapper: {
@@ -37,8 +36,10 @@ const Light: IPalette = {
       secondary: '#5a6a8a',
       accent: '#1461EB'
     },
-    css: (theme, props) => css`
-      ${WrapperSTLightCSS(theme, props)}
+    css: (theme) => css`
+      background-color: ${theme.general.properties.background};
+      border-radius: 0.5rem;
+      box-shadow: 0 0 0.5rem 0.1rem ${theme.general.properties.blur};
     `
   },
   text: {
@@ -48,16 +49,21 @@ const Light: IPalette = {
       accent: '#1461EB'
     },
     css: (theme, props) => css`
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
       ${TextSTLightCSS(theme, props)}
     `
   },
   button: {
     css: (theme, props) => css`
-      font-family: 'Montserrat', sans-serif;
-      ${ButtonTypeSTLightCSS(theme, props)}
-      ${ButtonIsDisabledSTLightCSS(theme, props)}
+      font-family: 'Inter', sans-serif;
+      padding: 8px 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: none;
+      border: none;
+      ${ButtonTypeTWLightCSS(theme, props)}
+      ${ButtonIsDisabledTWLightCSS(theme, props)}
     `
   },
   icon: {
@@ -69,7 +75,7 @@ const Light: IPalette = {
   },
   loader: {
     color: {
-      primary: '#0072f5',
+      primary: '#4f46e5',
       secondary: '#5a6a8a',
       accent: '#1461EB'
     },
@@ -97,7 +103,7 @@ const Light: IPalette = {
     },
     input: {
       color: {
-        primary: '#0072f5',
+        primary: '#4f46e5',
         secondary: '#5a6a8a',
         accent: '#1461EB',
         color2: '#5a6a8a',
@@ -120,7 +126,7 @@ const Light: IPalette = {
     },
     select: {
       color: {
-        primary: '#0072f5',
+        primary: '#4f46e5',
         secondary: '#49dc80',
         accent: '#d333f6',
         color2: '#f6d333',
@@ -143,17 +149,17 @@ const Light: IPalette = {
   scrollbar: {
     properties: {
       width: '4',
-      thumb: '#0072f5',
+      thumb: '#4f46e5',
       track: '#c5c5c598'
     }
   },
   dot: {
     color: {}
   },
-  togletheme:{
-    properties:{
-      background: '#0072f5',
-      border: '#c8dbff',
+  togletheme: {
+    properties: {
+      background: '#4f46e5',
+      border: '#c8dbff'
     }
   }
 };

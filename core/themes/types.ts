@@ -70,6 +70,8 @@ export type ThemeAtomDot = ThemeDefault;
 
 export type ThemeScrollbar = ThemeDefault;
 
+export type ThemeTogleTheme = ThemeDefault;
+
 export type Palette = {
   name: string;
   general?: ThemeGeneral;
@@ -83,4 +85,5 @@ export type Palette = {
   input?: ThemeAtomInput;
   header?: ThemeAtomHeader;
   dot?: ThemeAtomDot;
+  togletheme?: ThemeTogleTheme;
 };

@@ -23,15 +23,14 @@ const ToggleTheme = () => {
         padding: 0px 20px;
         border-radius: 30px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.048);
-        border: 1px solid ${theme?.general?.properties?.tooltip};
-        background-color: ${key === 'light'
-          ? theme?.general?.color?.primary
-          : theme?.general?.properties?.tooltip};
+        border: 1px solid ${theme?.togletheme?.properties?.border ?? '#b4b4b4'};
+        background-color: ${theme?.togletheme?.properties?.background ??
+        '#ffffff'};
         :hover {
-          background-color: ${key === 'light'
-            ? changeBrightness(theme?.general?.color?.primary, -10)
-            : changeBrightness(theme?.general?.properties?.tooltip, -10)};
-          border: 1px solid ${theme?.general?.properties?.tooltip};
+          background-color: ${changeBrightness(
+            theme?.togletheme?.properties?.background?.toString() ?? '#ffffff',
+            -10
+          )};
         }
       `}
     >
@@ -41,9 +40,11 @@ const ToggleTheme = () => {
           height: 18px;
           ${IconCSS(
             isBackDark(
-              key === 'light'
-                ? theme?.general?.color?.primary
-                : theme?.general?.properties?.tooltip
+              theme?.togletheme?.properties?.background?.toString() ?? '#ffffff',
+              {
+                black: '#b4b4b4',
+                white: '#ffffff'
+              }
             )
           )}
         `}

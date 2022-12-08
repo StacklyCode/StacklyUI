@@ -13,7 +13,7 @@ const IconWrapperStyles: SSP<AtomIconTypes> = (props) => {
     height: 34px;
     background-color: transparent;
     transition: all 0.3s ease-in-out;
-    ${IconCSS(theme?.icon?.color?.[astheme] ?? '#000000')};
+    ${IconCSS(theme?.icon?.color?.[astheme] ?? '#adadad')};
     svg {
       width: 100%;
       height: 100%;

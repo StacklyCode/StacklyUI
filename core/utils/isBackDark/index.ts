@@ -20,16 +20,19 @@ const hexToRgb = (hex = '#ffffff') => {
   };
 };
 
-const isBackDark = (hex = '#ffffff') => {
+const isBackDark = (
+  hex = '#ffffff',
+  opt?: { black?: string; white?: string }
+) => {
   const color = Object.keys(hexToRgb(hex)).reduce(
     (acc, key) => ({ ...acc, [key]: hexToRgb(hex)[key] / 255 }),
     {}
   );
   const output = trainedNet(color) as IOutput;
   if (output.black > output.white) {
-    return '#000000';
+    return opt?.black ?? '#000000';
   }
-  return '#fff';
+  return opt?.white ?? '#fff';
 };
 
 export const isBackDarkBoolean = (hex = '#ffffff') => {

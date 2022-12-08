@@ -65,9 +65,9 @@ const WrapperComponent = (props: IWrapperComponent) => {
           font-family: 'Inter', sans-serif;
           content: '${title}';
           color: ${isBackDark(
-            theme?.general?.properties?.tooltip ?? '#00000000'
+            theme?.general?.properties?.tooltip ?? '#adadad'
           )};
-          ${WrapperBlurSTDarkCSS(theme?.general?.properties?.tooltip ?? '#00000000')}
+          ${WrapperBlurSTDarkCSS(theme?.general?.properties?.tooltip ?? '#adadad')}
           padding: 6px 20px;
           border-radius: 0px 0px 4px 0px;
           font-size: 10px;
@@ -79,7 +79,7 @@ const WrapperComponent = (props: IWrapperComponent) => {
         }
         ${dot &&
         css`
-          ${WrapperBlurSTDarkCSS(theme?.general?.properties?.blur ?? '#00000000')}
+          ${WrapperBlurSTDarkCSS(theme?.general?.properties?.blur ?? '#ffffff')}
           ::before {
             content: '';
             position: absolute;
@@ -95,7 +95,7 @@ const WrapperComponent = (props: IWrapperComponent) => {
           }
         `}
         :hover {
-          background-color: ${theme?.general?.properties?.hover ?? '#00000000'};
+          background-color: ${theme?.general?.properties?.hover ?? '#f5f5f543'};
         }
         transition: all 0.4s ease;
       `}

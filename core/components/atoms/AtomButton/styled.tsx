@@ -1,6 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { ButtonTypeCSS } from 'css';
 import { motion } from 'framer-motion';
+
 import { AtomButtonTypes } from './types';
 
 export const ButtonStyled = styled(motion.button)<AtomButtonTypes>(
@@ -23,8 +25,9 @@ export const ButtonStyled = styled(motion.button)<AtomButtonTypes>(
     * {
       cursor: pointer;
     }
-
+    ${ButtonTypeCSS(props?.theme, props)}
     ${props?.theme?.button?.css?.(props.theme, props)}
     ${props?.css?.(props?.theme, props)}
   `
 );
+
