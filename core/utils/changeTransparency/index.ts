@@ -7,3 +7,5 @@ const changeTransparency = (color = '#ffffff', percentage = 50) => {
 };
 
 export default changeTransparency;
+
+export const UCT = changeTransparency;

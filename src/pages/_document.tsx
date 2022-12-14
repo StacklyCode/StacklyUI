@@ -1,20 +1,17 @@
 import { Head, Html, Main, NextScript } from 'next/document';
-import { themes } from 'themes/index';
 
-const Document = () => (
-  <Html>
-    <Head>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
+const Document = () => {
+  return (
+    <Html>
+      <Head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
       (function() {
         const defaultTheme = 'stackly-dark';
-        const themes = {${Object.entries(themes)
-          ?.map(
-            ([key, value]) =>
-              `"${key}": '${value?.general?.properties?.background ?? '#fff'}'`
-          )
-          ?.join(',')}};
+        const themes = {
+          'stackly-dark': '#000000',
+        }
         function getInitialColorMode() {
           const persistedColorPreference = window.localStorage.getItem('theme');
           const hasPersistedPreference = typeof persistedColorPreference === 'string';
@@ -39,14 +36,15 @@ const Document = () => (
         }
       })();
     `
-        }}
-      />
-    </Head>
-    <body>
-      <Main />
-      <NextScript />
-    </body>
-  </Html>
-);
+          }}
+        />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
+};
 
 export default Document;

@@ -15,7 +15,6 @@ import {
 import { IPalette } from '../../../types';
 
 const Light: IPalette = {
-  name: 'Stackly Light',
   general: {
     color: {
       primary: '#0072f5',
@@ -150,10 +149,10 @@ const Light: IPalette = {
   dot: {
     color: {}
   },
-  togletheme:{
-    properties:{
+  togletheme: {
+    properties: {
       background: '#0072f5',
-      border: '#c8dbff',
+      border: '#c8dbff'
     }
   }
 };

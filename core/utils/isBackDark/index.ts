@@ -48,3 +48,5 @@ export const isBackDarkBoolean = (hex = '#ffffff') => {
 };
 
 export default isBackDark;
+
+export const UIBD = isBackDark;

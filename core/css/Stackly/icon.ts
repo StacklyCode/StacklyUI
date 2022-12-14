@@ -14,3 +14,5 @@ export const IconCSS = (color: string) => css`
     }
   }
 `;
+
+export const ICC = IconCSS;

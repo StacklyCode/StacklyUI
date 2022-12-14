@@ -925,11 +925,6 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
 
-atom@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/atom/-/atom-1.4.1.tgz#436df9ed119e12209899d72e409da2f652a1b10a"
-  integrity sha512-FpdehYLT2I17Pk7jVjdr7gDbARljF/YzMPdaKqkXgB8hinM5rz+zdKnw4hvf/mLVVVezd4+xAsVvlL6mW6km+Q==
-
 axe-core@^4.4.3:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.5.1.tgz#04d561c11b6d76d096d34e9d14ba2c294fb20cdc"

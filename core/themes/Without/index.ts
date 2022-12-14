@@ -1,7 +1,6 @@
 import { IPalette } from 'types';
 
 const ThemeDark: IPalette = {
-  name: 'Without Theme',
   // general: {
   //   color: {
   //     primary: '#0072f5',

@@ -57,7 +57,7 @@ const Index = () => {
   };
 
   const [fullscreen, setFullscreen] = useState(false);
-  const { key, toggle, themes, theme } = useToggleTheme();
+  const { key, toggle, themes } = useToggleTheme();
 
   const themesFilter = useMemo(
     () =>
@@ -114,7 +114,7 @@ const Index = () => {
             font-size: 32px;
           `}
         >
-          {theme?.name ?? 'Theme Without Name'}
+          {/* {theme?.name ?? 'Theme Without Name'} */}
         </AtomText>
 
         <WrapperComponent
@@ -130,7 +130,7 @@ const Index = () => {
                   astype={key === e?.key ? 'flat' : 'outline'}
                   onClick={() => toggle(e?.key)}
                 >
-                  {e?.data?.name ?? 'Theme Without Name'}
+                  {/* {e?.data?.name ?? 'Theme Without Name'} */}
                 </AtomButton>
               ))}
             </WrapperComponent>
@@ -160,6 +160,13 @@ const Index = () => {
             <AtomButton astype="outline" astheme="accent" />
             <AtomButton astype="outline" astheme="color2" />
             <AtomButton astype="outline" astheme="color3" />
+          </WrapperComponent>
+          <WrapperComponent title="Gradient">
+            <AtomButton astype="gradient" astheme="primary" />
+            <AtomButton astype="gradient" astheme="secondary" />
+            <AtomButton astype="gradient" astheme="accent" />
+            <AtomButton astype="gradient" astheme="color2" />
+            <AtomButton astype="gradient" astheme="color3" />
           </WrapperComponent>
           <WrapperComponent title="Disabled">
             <AtomButton disabled astheme="primary" />

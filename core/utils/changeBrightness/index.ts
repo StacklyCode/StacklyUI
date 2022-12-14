@@ -12,3 +12,5 @@ const changeBrightness = (color = '#ffffff', amount = 50) => {
   );
 };
 export default changeBrightness;
+
+export const UCB = changeBrightness;

@@ -73,7 +73,6 @@ export type ThemeScrollbar = ThemeDefault;
 export type ThemeTogleTheme = ThemeDefault;
 
 export type Palette = {
-  name: string;
   general?: ThemeGeneral;
   icon?: ThemeAtomIcon;
   image?: ThemeAtomImage;

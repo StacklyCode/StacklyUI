@@ -16,7 +16,6 @@ import {
 import { IPalette } from '../../../types';
 
 const Light: IPalette = {
-  name: 'Tailwind Light',
   general: {
     color: {
       primary: '#4f46e5',

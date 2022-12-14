@@ -50,6 +50,8 @@ export const LoaderCSS = (color: string) => {
   `;
 };
 
+export const LCC = LoaderCSS;
+
 export const LoaderTypeSTDarkCSS: CSSType<AtomLoaderTypes> = (theme, props) => {
   const { astheme } = props;
   const MAINTHEME = astheme ?? 'primary';

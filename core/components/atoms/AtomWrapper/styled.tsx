@@ -12,7 +12,7 @@ const AtomWrapperStyled: SSP<AtomWrapperTypes> = (props) => {
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
-    background-color: transparent;
+    ${theme?.general?.css?.(theme, props)}
     ${theme?.wrapper?.css?.(theme, props)}
     ${props?.css?.(theme, props)}
   `;

@@ -17,6 +17,8 @@ export const ButtonLoadingCSS = (color: string) => css`
   }
 `;
 
+export const BCCL = ButtonLoadingCSS;
+
 export const ButtonAnimationCSS = () => css`
   :hover {
     transform: scale3d(1.08, 1.08, 1);

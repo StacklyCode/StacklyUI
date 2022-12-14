@@ -18,6 +18,7 @@ const TextStyle = (props: AtomTextTypesTheme) => {
     cursor: default;
     color: #adadad;
     transition: all 0.3s ease-in-out;
+    ${theme?.general?.css?.(theme, props)}
     ${theme?.text?.css?.(theme, props)}
     ${props?.css?.(theme, props)}
   `;
