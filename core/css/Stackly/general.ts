@@ -2,7 +2,7 @@ import { ColorKeys, css, SerializedStyles } from '@emotion/react';
 import { IPalette } from 'types';
 
 type IGetColor = {
-  theme: [IPalette, ColorKeys];
+  theme: [IPalette | undefined, ColorKeys | undefined];
   astype?: (keyof Omit<IPalette, 'name'>)[];
   defs?: {
     color?: string;
@@ -32,7 +32,7 @@ type IValidateKey<T> = {
   css?: (key: keyof T) => SerializedStyles;
 };
 
-export const cssValidateKey = <T>(askey: keyof T, props: IValidateKey<T>) => {
+export const cssValidateKey = <T>(askey?: keyof T, props?: IValidateKey<T>) => {
   const { defs = {}, variants, css: cssp } = props;
   const { key: defkey } = defs;
   return css`
@@ -53,7 +53,10 @@ type IValidateBoolean = {
   };
   css?: (bool: boolean) => SerializedStyles;
 };
-export const cssValidateBoolean = (bool: boolean, props: IValidateBoolean) => {
+export const cssValidateBoolean = (
+  bool?: boolean,
+  props?: IValidateBoolean
+) => {
   const { defs = {}, variants, css: cssp } = props;
   const { bool: defbool } = defs;
   const getBool = Boolean(bool ?? defbool);
