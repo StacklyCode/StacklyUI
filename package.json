@@ -1,7 +1,7 @@
 {
   "name": "@stacklycore/ui",
   "description": "UI",
-  "version": "1.0.0-beta.37",
+  "version": "1.0.0-beta.38",
   "main": "build/index.js",
   "publishConfig": {
     "access": "public",
