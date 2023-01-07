@@ -36,8 +36,7 @@ const ContextTheme = (props: ContextThemeProps) => {
       localStorage.setItem('theme', keyNext);
       document.documentElement.style.setProperty(
         'background-color',
-        themes?.[keyNext]?.general?.properties?.background?.toString() ??
-          '#ffffff'
+        themes?.[keyNext]?.general?.properties?.background?.toString() ?? '#ffffff'
       );
     },
     [key]
@@ -49,9 +48,16 @@ const ContextTheme = (props: ContextThemeProps) => {
   }, []);
 
   return (
-    <ThemeProvider theme={themesDefault?.['stackly-dark']}>
-      {children}
-    </ThemeProvider>
+    <ContextThemeReact.Provider
+      value={{
+        key,
+        theme,
+        themes,
+        toggle
+      }}
+    >
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </ContextThemeReact.Provider>
   );
 };
 

@@ -1,7 +1,7 @@
 import ThemeWithout from './Without';
 
 import ThemeSTDark from './Stackly/dark';
-// import ThemeSTLight from './Stackly/light';
+import ThemeSTLight from './Stackly/light';
 
 // import ThemeTWLight from './Tailwind/light';
 
@@ -10,5 +10,6 @@ export { default as ThemeStacklyLight } from './Stackly/light';
 
 export const themes = {
   'stackly-dark': ThemeSTDark,
+  'stackly-light': ThemeSTLight,
   without: ThemeWithout
 };

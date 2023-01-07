@@ -8,9 +8,10 @@ const Document = () => {
           dangerouslySetInnerHTML={{
             __html: `
       (function() {
-        const defaultTheme = 'stackly-dark';
         const themes = {
           'stackly-dark': '#000000',
+          'stackly-light': '#ffffff',
+          'without': 'transparent'
         }
         function getInitialColorMode() {
           const persistedColorPreference = window.localStorage.getItem('theme');
@@ -30,9 +31,6 @@ const Document = () => {
         if(themes?.[colorMode]){
           root.style.setProperty('background-color', themes?.[colorMode] ?? themes.light);
           window.localStorage.setItem('theme', colorMode);
-        }else{
-          root.style.setProperty('background-color', themes?.[defaultTheme]);
-          window.localStorage.setItem('theme', defaultTheme);
         }
       })();
     `

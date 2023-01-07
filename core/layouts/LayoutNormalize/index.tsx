@@ -3,14 +3,10 @@ import ThemeContext from '../../contexts/ContextTheme';
 import { ContextThemeProps } from '../../types';
 import { themes } from 'themes/index';
 
-type Props = Omit<ContextThemeProps, 'themes'> & {
-  children?: React.ReactNode;
-};
-
-const ContextNormalize = (props: Props) => {
-  const { children } = props;
+const ContextNormalize = (props: ContextThemeProps) => {
+  const { children, themes: themesGet } = props;
   return (
-    <ThemeContext themes={themes} {...props}>
+    <ThemeContext themes={themesGet ?? themes} {...props}>
       <GlobalStyles />
       {children}
     </ThemeContext>
