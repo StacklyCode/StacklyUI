@@ -1,8 +1,10 @@
 export { default as ChangeBrightness } from './changeBrightness';
+export { UCB } from './changeBrightness';
 export { default as ChangeTransparency } from './changeTransparency';
+export { UCT } from './changeTransparency';
+export { default as IsBackDark } from './isBackDark';
+export { UIBD, isBackDarkBoolean } from './isBackDark';
 export { default as CreateThemes } from './createThemes';
 export { default as Hash } from './hash';
-export { default as IsBackDark } from './isBackDark';
-export { isBackDarkBoolean } from './isBackDark';
 export { default as randomNumberBetween } from './randomNumberBetween';
 export { default as uploadImage } from './uploadImage';
