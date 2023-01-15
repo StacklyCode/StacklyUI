@@ -152,7 +152,7 @@ const Index = () => {
                   astype={key === e?.key ? 'flat' : 'outline'}
                   onClick={() => toggle(e?.key)}
                 >
-                  {/* {e?.data?.name ?? 'Theme Without Name'} */}
+                  {e?.key ?? 'Theme Without Name'}
                 </AtomButton>
               ))}
             </WrapperComponent>
