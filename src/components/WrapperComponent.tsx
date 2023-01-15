@@ -59,7 +59,7 @@ const WrapperComponent = (props: IWrapperComponent) => {
         gap: ${type === 'main' ? '30px' : '10px'};
         border: 1px solid ${theme?.general?.properties.tooltip ?? '#acacac'};
         border-radius: 4px;
-        padding: 30px 30px;
+        padding: ${type === 'main' ? '50px 30px 30px 30px' : '35px 30px 20px 30px'};
 
         ::after {
           font-family: 'Inter', sans-serif;

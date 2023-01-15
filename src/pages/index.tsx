@@ -7,7 +7,8 @@ import {
   AtomWrapper,
   AtomImage,
   AtomIcon,
-  IPalette
+  IPalette,
+  AtomLink
 } from 'index';
 import { IOption } from 'components/atoms/AtomInput/types';
 import useToggleTheme from 'hooks/useTheme';
@@ -114,9 +115,30 @@ const Index = () => {
             font-size: 32px;
           `}
         >
-          {/* {theme?.name ?? 'Theme Without Name'} */}
+          {key ?? 'Theme Without Name'}
         </AtomText>
 
+        <WrapperComponent title={`NPM Package: @stacklycore/ui`} dot>
+          <WrapperComponent title="Installation (npm)">
+            <AtomText>npm i @stacklycore/ui</AtomText>
+          </WrapperComponent>
+          <WrapperComponent title="Installation (yarn)">
+            <AtomText>yarn add @stacklycore/ui</AtomText>
+          </WrapperComponent>
+          <WrapperComponent title="Installation (yarn)">
+            <AtomLink
+              href="https://www.npmjs.com/package/@stacklycore/ui"
+              target={'_blank'}
+              css={(theme) => css`
+                color: ${theme?.general?.color?.accent ?? 'black'};
+                font-weight: bold;
+                cursor: pointer;
+              `}
+            >
+              Link to NPM Package
+            </AtomLink>
+          </WrapperComponent>
+        </WrapperComponent>
         <WrapperComponent
           title={`Component Theme: Active(${key})`}
           type="main"

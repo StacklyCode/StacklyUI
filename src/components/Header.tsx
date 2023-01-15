@@ -54,7 +54,8 @@ const Header = () => {
         `}
       >
         <AtomText>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam 😎
+          Welcome to the new Library! We are still working on it, so please bear
+          with us. 🤘
         </AtomText>
       </AtomWrapper>
       <AtomWrapper
