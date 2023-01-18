@@ -1,41 +1,13 @@
 import { Head, Html, Main, NextScript } from 'next/document';
+import BackgroundFlash from 'components/atoms/AtomBackgroundFlash';
+import { ThemesToFlash } from 'utils/themesToFlash';
+import { themes } from 'themes/index';
 
 const Document = () => {
   return (
     <Html>
       <Head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-      (function() {
-        const themes = {
-          'stackly-dark': '#000000',
-          'stackly-light': '#ffffff',
-          'without': 'transparent'
-        }
-        function getInitialColorMode() {
-          const persistedColorPreference = window.localStorage.getItem('theme');
-          const hasPersistedPreference = typeof persistedColorPreference === 'string';
-          if (hasPersistedPreference) {
-            return persistedColorPreference;
-          }
-          const mql = window.matchMedia('(prefers-color-scheme: dark)');
-          const hasMediaQueryPreference = typeof mql.matches === 'boolean';
-          if (hasMediaQueryPreference) {
-            return mql.matches ? 'dark' : 'light';
-          }
-          return 'light';
-        }
-        const colorMode = getInitialColorMode();
-        const root = document.documentElement;
-        if(themes?.[colorMode]){
-          root.style.setProperty('background-color', themes?.[colorMode] ?? themes.light);
-          window.localStorage.setItem('theme', colorMode);
-        }
-      })();
-    `
-          }}
-        />
+        <BackgroundFlash theme={ThemesToFlash(themes)} />
       </Head>
       <body>
         <Main />

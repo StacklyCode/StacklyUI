@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { AtomWrapper } from 'components/atoms';
+import AtomLazyLoad from 'components/atoms/AtomLazyload';
 import { WrapperBlurSTDarkCSS } from 'css';
 import useTheme from 'hooks/useTheme';
 import { useMemo, useRef } from 'react';
@@ -11,6 +12,7 @@ type IWrapperComponent = {
   children?: React.ReactNode;
   type?: 'main' | 'sub';
   dot?: boolean;
+  overflow?: boolean;
 };
 
 const initDot = {
@@ -51,57 +53,75 @@ const WrapperComponent = (props: IWrapperComponent) => {
   }, [ref, theme]);
 
   return (
-    <AtomWrapper
-      ref={ref}
-      css={(theme) => css`
-        flex-direction: ${type === 'main' ? 'column' : 'row'};
-        position: relative;
-        gap: ${type === 'main' ? '30px' : '10px'};
-        border: 1px solid ${theme?.general?.properties.tooltip ?? '#acacac'};
-        border-radius: 4px;
-        padding: ${type === 'main' ? '50px 30px 30px 30px' : '35px 30px 20px 30px'};
+    <AtomLazyLoad>
+      <AtomWrapper
+        ref={ref}
+        css={(theme) => css`
+          position: relative;
+          overflow-x: ${props.overflow ? 'hidden' : 'auto'};
+          border: 1px solid ${theme?.general?.properties.tooltip ?? '#acacac'};
+          border-radius: 4px;
+          padding: ${type === 'main'
+            ? '50px 30px 30px 30px'
+            : '35px 30px 20px 30px'};
 
-        ::after {
-          font-family: 'Inter', sans-serif;
-          content: '${title}';
-          color: ${isBackDark(
-            theme?.general?.properties?.tooltip ?? '#adadad'
-          )};
-          ${WrapperBlurSTDarkCSS(theme?.general?.properties?.tooltip ?? '#adadad')}
-          padding: 6px 20px;
-          border-radius: 0px 0px 4px 0px;
-          font-size: 10px;
-          font-weight: 500;
-          position: absolute;
-          top: 0px;
-          left: 0px;
-          z-index: ${type === 'main' ? 9999 : 0};
-        }
-        ${dot &&
-        css`
-          ${WrapperBlurSTDarkCSS(theme?.general?.properties?.blur ?? '#ffffff')}
-          ::before {
-            content: '';
+          ::after {
+            font-family: 'Inter', sans-serif;
+            content: '${title}';
+            color: ${isBackDark(
+              theme?.general?.properties?.tooltip ?? '#adadad'
+            )};
+            ${WrapperBlurSTDarkCSS(
+              theme?.general?.properties?.tooltip ?? '#adadad'
+            )}
+            padding: 6px 20px;
+            border-radius: 0px 0px 4px 0px;
+            font-size: 10px;
+            font-weight: 500;
             position: absolute;
-            top: ${backDot?.top};
-            left: ${backDot?.left};
-            transform: translate(-50%, -50%);
-            width: 0px;
-            height: 0px;
-            background: ${backDot?.backgroundColor};
-            box-shadow: ${backDot?.shadow};
-            z-index: -4;
-            transition: all 0.8s ease;
+            top: 0px;
+            left: 0px;
+            z-index: ${type === 'main' ? 9999 : 0};
           }
+          ${dot &&
+          css`
+            ${WrapperBlurSTDarkCSS(
+              theme?.general?.properties?.blur ?? '#ffffff'
+            )}
+            ::before {
+              content: '';
+              position: absolute;
+              top: ${backDot?.top};
+              left: ${backDot?.left};
+              transform: translate(-50%, -50%);
+              width: 0px;
+              height: 0px;
+              background: ${backDot?.backgroundColor};
+              box-shadow: ${backDot?.shadow};
+              z-index: -4;
+              transition: all 0.8s ease;
+            }
+          `}
+          :hover {
+            background-color: ${theme?.general?.properties?.hover ??
+            '#f5f5f543'};
+          }
+          transition: all 0.4s ease;
         `}
-        :hover {
-          background-color: ${theme?.general?.properties?.hover ?? '#f5f5f543'};
-        }
-        transition: all 0.4s ease;
-      `}
-    >
-      {children}
-    </AtomWrapper>
+      >
+        <AtomWrapper
+          css={() => css`
+            flex-direction: ${type === 'main' ? 'column' : 'row'};
+            gap: ${type === 'main' ? '30px' : '10px'};
+            width: ${type === 'main' ? '100%' : 'max-content'};
+            min-width: 100%;
+            background-color: transparent;
+          `}
+        >
+          {children}
+        </AtomWrapper>
+      </AtomWrapper>
+    </AtomLazyLoad>
   );
 };
 export default WrapperComponent;

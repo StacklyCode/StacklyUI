@@ -108,6 +108,9 @@ const Index = () => {
         css={() => css`
           gap: 30px;
           padding: 10px 90px;
+          @media (max-width: 768px) {
+            padding: 10px 30px;
+          }
         `}
       >
         <AtomText
@@ -119,13 +122,13 @@ const Index = () => {
         </AtomText>
 
         <WrapperComponent title={`NPM Package: @stacklycore/ui`} dot>
-          <WrapperComponent title="Installation (npm)">
+          <WrapperComponent title="Installation (npm)" overflow>
             <AtomText>npm i @stacklycore/ui</AtomText>
           </WrapperComponent>
-          <WrapperComponent title="Installation (yarn)">
+          <WrapperComponent title="Installation (yarn)" overflow>
             <AtomText>yarn add @stacklycore/ui</AtomText>
           </WrapperComponent>
-          <WrapperComponent title="Installation (yarn)">
+          <WrapperComponent title="Installation (yarn)" overflow>
             <AtomLink
               href="https://www.npmjs.com/package/@stacklycore/ui"
               target={'_blank'}

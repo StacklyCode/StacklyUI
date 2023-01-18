@@ -15,8 +15,8 @@ const _NormalizerStyled: FC = () => {
         }
         * {
           ::-webkit-scrollbar {
-            width: ${theme?.scrollbar?.properties?.width ?? '0'}px;
-            height: ${theme?.scrollbar?.properties?.height ?? '0'}px;
+            width: ${theme?.scrollbar?.properties?.width ?? '4'}px;
+            height: ${theme?.scrollbar?.properties?.height ?? '4'}px;
             transition: all 0.3s ease;
           }
           ::-webkit-scrollbar-thumb {

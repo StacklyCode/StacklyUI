@@ -3,8 +3,8 @@ import { AtomIcon, AtomInput, AtomText, AtomWrapper } from 'components/atoms';
 import { IconCSS, WrapperBlurSTDarkCSS } from 'css';
 import { useEffect, useState } from 'react';
 import changeBrightness from 'utils/changeBrightness';
-import isBackDark from 'utils/isBackDark';
 import ToggleTheme from './ToggleTheme';
+import { useRef } from 'react';
 
 const Header = () => {
   const [isOffset, setIsOffset] = useState(false);
@@ -18,6 +18,8 @@ const Header = () => {
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const ref = useRef<HTMLDivElement>();
 
   return (
     <AtomWrapper
@@ -33,13 +35,14 @@ const Header = () => {
       `}
     >
       <AtomWrapper
+        ref={ref}
         css={(theme) => css`
           display: flex;
           justify-content: center;
           align-items: center;
           padding: 10px 90px;
-          height: 40px;
-          margin-top: ${isOffset ? '-40px' : '0px'};
+          height: max-content;
+          margin-top: ${isOffset ? `-${ref?.current?.offsetHeight}px` : '0px'};
           transition: margin-top 0.3s ease-in-out;
           background-color: ${theme?.header?.properties?.background?.toString() ??
           '#ffffff'};
@@ -51,9 +54,17 @@ const Header = () => {
           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
           z-index: 2;
           transition: all 0.3s ease-in-out;
+          @media (max-width: 768px) {
+            padding: 10px 30px;
+          }
         `}
       >
-        <AtomText>
+        <AtomText
+          css={() => css`
+            text-align: center;
+            line-height: 1.5;
+          `}
+        >
           Welcome to the new Library! We are still working on it, so please bear
           with us. 🤘
         </AtomText>
@@ -82,20 +93,28 @@ const Header = () => {
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
           `}
           transition: all 0.3s ease-in-out;
+          @media (max-width: 768px) {
+            padding: 10px 30px;
+          }
         `}
       >
         <AtomIcon
           css={(theme) => css`
             width: 150px;
-            ${IconCSS(
-              isBackDark(theme?.header?.properties?.background ?? '#fff')
-            )}
+            ${IconCSS(theme?.icon?.color?.primary ?? '#fff')}
           `}
           icon="https://storage.googleapis.com/cdn-bucket-ixulabs-platform/STCO-0001/logo.svg"
         />
         <AtomInput
           input={{
             placeholder: 'Search'
+          }}
+          label={{
+            css: () => css`
+              @media (max-width: 768px) {
+                display: none;
+              }
+            `
           }}
         />
         <ToggleTheme />
