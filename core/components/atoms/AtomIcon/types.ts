@@ -1,8 +1,7 @@
 import { ColorKeys } from '@emotion/react';
-import { HTMLMotionProps } from 'framer-motion';
-import { CSSType } from '../../../types';
+import { AtomWrapperTypes, CSSType } from '../../../types';
 
-export type AtomIconTypes = HTMLMotionProps<'div'> & {
+export type AtomIconTypes = AtomWrapperTypes & {
   icon?: string;
   astheme?: ColorKeys;
   css?: CSSType<AtomIconTypes>;
