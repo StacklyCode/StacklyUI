@@ -8,4 +8,3 @@ export { default as AtomLink } from './AtomLink';
 export { default as AtomWrapper } from './AtomWrapper';
 export { default as AtomLazyload } from './AtomLazyload';
 export { default as AtomImage } from './AtomImage';
-export { default as AtomTextEditor } from './AtomTextEditor';
