@@ -693,7 +693,7 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-underline/-/extension-underline-2.0.0-beta.202.tgz#68104f46c3bde4b36f8bbf902a02befc8221c98f"
   integrity sha512-aZ2BdBDopL7KNDQZZ707VIF6S2FUHGMQxJvfGPrgvCHY5lu34B9F/FGCMPd5VAZC0vaJlHTQ30FWkeQjIDetWg==
 
-"@tiptap/pm@^2.0.0-beta.212":
+"@tiptap/pm@^2.0.0-beta.202":
   version "2.0.0-beta.212"
   resolved "https://registry.yarnpkg.com/@tiptap/pm/-/pm-2.0.0-beta.212.tgz#ea9f6c60301d6a329ee921793e94676d5fbb3abc"
   integrity sha512-TyGooU5in2r+cCbSivWBpeMODOCZFzJ0bxn3rJeoLxycId5UOd2dHE2chEQ5X6MsAukjscV+uMdUK6CrNRoA3w==
