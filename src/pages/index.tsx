@@ -305,6 +305,89 @@ const Index = () => {
               }}
             />
           </WrapperComponent>
+          <WrapperComponent title="Toggle">
+            <AtomInput
+              type="toggle"
+              labeltext="Label Input Example"
+              options={OPTIONS}
+              input={{
+                placeholder: 'Placeholder Input Example',
+                astheme: 'primary'
+              }}
+            />
+            <AtomInput
+              type="toggle"
+              labeltext="Label Input Example"
+              options={OPTIONS}
+              input={{
+                checked: true,
+                placeholder: 'Placeholder Input Example',
+                astheme: 'secondary'
+              }}
+            />
+            <AtomInput
+              type="toggle"
+              labeltext="Label Input Example"
+              options={OPTIONS}
+              input={{
+                checked: true,
+                placeholder: 'Placeholder Input Example',
+                astheme: 'accent'
+              }}
+            />
+            <AtomInput
+              type="toggle"
+              labeltext="Label Input Example"
+              options={OPTIONS}
+              input={{
+                checked: true,
+                placeholder: 'Placeholder Input Example',
+                astheme: 'color2'
+              }}
+            />
+          </WrapperComponent>
+
+          <WrapperComponent title="Checkbox">
+            <AtomInput
+              type="checkbox"
+              labeltext="Label Input Example"
+              options={OPTIONS}
+              input={{
+                placeholder: 'Placeholder Input Example',
+                astheme: 'primary'
+              }}
+            />
+            <AtomInput
+              type="checkbox"
+              labeltext="Label Input Example"
+              options={OPTIONS}
+              input={{
+                checked: true,
+                placeholder: 'Placeholder Input Example',
+                astheme: 'secondary'
+              }}
+            />
+            <AtomInput
+              type="checkbox"
+              labeltext="Label Input Example"
+              options={OPTIONS}
+              input={{
+                checked: true,
+                placeholder: 'Placeholder Input Example',
+                astheme: 'accent'
+              }}
+            />
+            <AtomInput
+              type="checkbox"
+              labeltext="Label Input Example"
+              options={OPTIONS}
+              input={{
+                checked: true,
+                placeholder: 'Placeholder Input Example',
+                astheme: 'color2'
+              }}
+            />
+          </WrapperComponent>
         </WrapperComponent>
 
         <WrapperComponent title={`Component Images`} dot>

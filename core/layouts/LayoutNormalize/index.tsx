@@ -4,9 +4,13 @@ import { ContextThemeProps } from '../../types';
 import { themes } from 'themes/index';
 
 const ContextNormalize = (props: ContextThemeProps) => {
-  const { children, themes: themesGet } = props;
+  const { children, themes: themesGet, defaultTheme } = props;
   return (
-    <ThemeContext themes={themesGet ?? themes} {...props}>
+    <ThemeContext
+      defaultTheme={defaultTheme}
+      themes={themesGet ?? themes}
+      {...props}
+    >
       <GlobalStyles />
       {children}
     </ThemeContext>

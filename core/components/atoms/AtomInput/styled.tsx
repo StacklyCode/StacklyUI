@@ -77,8 +77,8 @@ export const InputToggleStyled = styled(motion.input)<AtomInputTypes['input']>(
     return css`
       margin: 0px;
       position: relative;
-      width: 35px;
-      height: 14px;
+      width: 28px;
+      height: 12px;
       appearance: none;
       background: #fff;
       outline: none;
@@ -90,19 +90,74 @@ export const InputToggleStyled = styled(motion.input)<AtomInputTypes['input']>(
       :before {
         content: '';
         position: absolute;
-        height: 20px;
-        width: 20px;
+        background-color: #ffffff7b;
+        filter: backdrop-filter(10px);
+        border: 1px solid #3a3a3a;
+        height: 16px;
+        width: 16px;
         border-radius: 50%;
         top: 50%;
         left: 0;
         transform: translate(-50%, -50%);
         transition: all 0.5s;
       }
+      :checked[type='checkbox'] {
+        :before {
+          left: 100%;
+          background-color: #ffffffa2;
+          transform: translate(-50%, -50%);
+        }
+      }
+
       ${theme?.input?.input?.css?.(theme, props)}
       ${props?.css?.(props?.theme, props)}
     `;
   }
 );
+export const InputCheckboxStyled = styled(motion.input)<
+  AtomInputTypes['input']
+>((props) => {
+  const { theme } = props;
+  return css`
+    margin: 0px;
+    position: relative;
+    width: 12px;
+    height: 12px;
+    appearance: none;
+    background: #fff;
+    outline: none;
+    border-radius: 4px;
+    border: none;
+    transition: all 0.5s;
+    cursor: pointer;
+
+    :before {
+      content: '';
+      position: absolute;
+      background-color: #ffffff7b;
+      filter: backdrop-filter(10px);
+      border: 1px solid #3a3a3a;
+      height: 12px;
+      width: 12px;
+      border-radius: 4px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.5s;
+    }
+    :checked[type='checkbox'] {
+      :before {
+        background-color: #ffffffa2;
+        border-radius: 2px;
+        height: 8px;
+        width: 8px;
+      }
+    }
+
+    ${theme?.input?.input?.css?.(theme, props)}
+    ${props?.css?.(props?.theme, props)}
+  `;
+});
 
 export const InputSelectStyled = styled(motion.select)<
   AtomInputTypes['select']

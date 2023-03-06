@@ -32,6 +32,17 @@ export const InputSTDarkCSS: CSSType<AtomInputTypes['input']> = (
     :focus {
       border: 1px solid ${border ?? ChangeBrightness(color.toString(), -25)};
     }
+    ::before {
+      background-color: ${changeTransparency(
+        border ?? ChangeBrightness(color.toString(), -25),
+        10
+      )};
+      backdrop-filter: blur(10px);
+    }
+    :checked[type='checkbox']::before {
+      background-color: ${border ?? ChangeBrightness(color.toString(), -25)};
+      border: 1px solid ${border ?? ChangeBrightness(color.toString(), -25)};
+    }
     transition: border 0.3s ease-in-out;
   `;
 };

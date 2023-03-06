@@ -36,7 +36,8 @@ const ContextTheme = (props: ContextThemeProps) => {
       localStorage.setItem('theme', keyNext);
       document.documentElement.style.setProperty(
         'background-color',
-        themes?.[keyNext]?.general?.properties?.background?.toString() ?? '#ffffff'
+        themes?.[keyNext]?.general?.properties?.background?.toString() ??
+          '#ffffff'
       );
     },
     [key]
@@ -44,7 +45,12 @@ const ContextTheme = (props: ContextThemeProps) => {
 
   useEffect(() => {
     const keyStorage = localStorage.getItem('theme') as ThemeKeyType;
-    setKey(keyStorage ?? defaultTheme);
+    if (!keyStorage) {
+      const key = keyStorage ?? defaultTheme;
+      localStorage.setItem('theme', key);
+      location.reload();
+    }
+    setKey(key);
   }, []);
 
   return (
