@@ -13,19 +13,6 @@ const _NormalizerStyled: FC = () => {
           padding: 0;
           box-sizing: border-box;
         }
-        * {
-          ::-webkit-scrollbar {
-            width: ${theme?.scrollbar?.properties?.width ?? '4'}px;
-            height: ${theme?.scrollbar?.properties?.height ?? '4'}px;
-            transition: all 0.3s ease;
-          }
-          ::-webkit-scrollbar-thumb {
-            background: ${theme?.scrollbar?.properties?.thumb ?? '#5993ff'};
-          }
-          ::-webkit-scrollbar-track {
-            background: ${theme?.scrollbar?.properties?.track ?? '#e6e6e6'};
-          }
-        }
         *:focus {
           outline: none;
         }
@@ -34,7 +21,6 @@ const _NormalizerStyled: FC = () => {
         }
         html {
           width: 100%;
-          overflow-x: hidden;
         }
         body {
           width: 100%;
