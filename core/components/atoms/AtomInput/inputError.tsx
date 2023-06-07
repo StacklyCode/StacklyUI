@@ -13,6 +13,7 @@ const validateErrors = (formik: FormikValues, id: string) =>
 const InputTextError: FC<AtomInputTypes> = (props) => {
   const { formik, id } = props;
   if (!formik) return null;
+  if (!validateErrors(formik, id)) return null;
 
   return (
     <InputErrorStyled {...props}>{validateErrors(formik, id)}</InputErrorStyled>
