@@ -23,7 +23,7 @@ const LayoutAnimation: FC<LayoutAnimationProps> = (props) => {
   const { children, pathname } = props;
   return (
     <AnimatePresence exitBeforeEnter>
-      <AtomWrapper as="main" {...props} {...animation} key={pathname}>
+      <AtomWrapper as="main" {...animation} {...props} key={pathname}>
         {children}
       </AtomWrapper>
     </AnimatePresence>
