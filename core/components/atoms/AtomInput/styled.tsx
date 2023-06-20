@@ -11,6 +11,10 @@ export const InputLabelStyled = styled(motion.label)<AtomInputTypes['label']>(
       display: flex;
       flex-direction: column;
       gap: 0px;
+      user-select: none;
+      * {
+        user-select: none;
+      }
       ${theme?.input?.label?.css?.(theme, props)}
       ${props?.css?.(theme, props)}
     `;
@@ -70,6 +74,42 @@ export const InputStyled = styled(motion.input)<AtomInputTypes['input']>(
     `;
   }
 );
+
+export const InputDragAndDropInputStyled = styled(motion.input)<
+  AtomInputTypes['input']
+>(() => {
+  return css`
+    display: none;
+  `;
+});
+
+export const InputDragAndDropStyled = styled(motion.div)<
+  AtomInputTypes['input']
+>((props) => {
+  const { theme, drag } = props;
+  return css`
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    height: 40px;
+    width: 250px;
+    border-radius: 4px;
+    border: 1px solid #acacac;
+    min-width: 300px;
+    height: 300px;
+    overflow: hidden;
+    ${drag &&
+    css`
+      border: 1px dashed #acacac;
+      background-color: #f5f5f524;
+    `}
+    transition: all 0.5s;
+    ${theme?.input?.input?.css?.(theme, props)}
+    ${props?.css?.(props?.theme, props)}
+  `;
+});
 
 export const InputToggleStyled = styled(motion.input)<AtomInputTypes['input']>(
   (props) => {

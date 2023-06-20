@@ -9,7 +9,7 @@ export const InputSTDarkCSS: CSSType<AtomInputTypes['input']> = (
   theme,
   props
 ) => {
-  const { astheme } = props ?? {};
+  const { astheme, drag } = props ?? {};
   const MAINTHEME = astheme ?? 'primary';
   const color =
     theme?.input?.input?.properties?.background ??
@@ -43,6 +43,11 @@ export const InputSTDarkCSS: CSSType<AtomInputTypes['input']> = (
       background-color: ${border ?? ChangeBrightness(color.toString(), -25)};
       border: 1px solid ${border ?? ChangeBrightness(color.toString(), -25)};
     }
+    ${drag &&
+    css`
+      border: 1px dashed ${border ?? ChangeBrightness(color.toString(), -25)};
+      background-color: ${changeTransparency(color.toString(), 70)};
+    `}
     transition: border 0.3s ease-in-out;
   `;
 };

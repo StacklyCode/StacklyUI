@@ -15,6 +15,7 @@ import useToggleTheme from 'hooks/useTheme';
 import { useMemo, useState } from 'react';
 import Header from 'src/components/Header';
 import WrapperComponent from 'src/components/WrapperComponent';
+import { useFormik } from 'formik';
 
 const ContainerCSS = css`
   min-height: 100vh;
@@ -100,6 +101,15 @@ const Index = () => {
     () => Object.values(themesFilter ?? {}),
     [themesFilter]
   );
+
+  const formik = useFormik({
+    initialValues: {
+      images: []
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    }
+  });
 
   return (
     <AtomWrapper as="main" css={() => ContainerCSS}>
@@ -282,6 +292,17 @@ const Index = () => {
             />
             <AtomInput
               labeltext="Label Input Example"
+              input={{
+                placeholder: 'Placeholder Input Example'
+              }}
+            />
+          </WrapperComponent>
+          <WrapperComponent title="Drag and Drop">
+            <AtomInput
+              id="images"
+              formik={formik}
+              type="dragdrop"
+              labeltext=" Drag and Drop Input Example"
               input={{
                 placeholder: 'Placeholder Input Example'
               }}

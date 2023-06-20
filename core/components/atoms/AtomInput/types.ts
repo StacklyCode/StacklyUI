@@ -24,7 +24,11 @@ export type AtomInputTypes = {
   option?: AtomInputOptionProps;
 };
 
-export type InputType = HTMLMotionProps<'input'>['type'] | 'toggle' | 'select';
+export type InputType =
+  | HTMLMotionProps<'input'>['type']
+  | 'toggle'
+  | 'select'
+  | 'dragdrop';
 
 export type AtomInputInputProps = HTMLMotionProps<'input'> & {
   astheme?: ColorKeys;
@@ -50,4 +54,9 @@ export type AtomInputOptionProps = HTMLMotionProps<'option'> & {
   astheme?: ColorKeys;
   css?: CSSType<AtomInputOptionProps>;
   defaultText?: string;
+};
+
+export type IFileDragDrop = {
+  id: string;
+  file: File;
 };
