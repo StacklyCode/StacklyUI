@@ -313,7 +313,7 @@ const Index = () => {
               type="dragdrop"
               labeltext=" Drag and Drop Input Example"
               input={{
-                maxFiles: 1,
+                maxfiles: 1,
                 placeholder: 'Placeholder Input Example'
               }}
             />

@@ -22,15 +22,17 @@ const InputDragAndDrop: FCWC<AtomInputTypes> = (props) => {
     if (!files) return;
     const images = [...files];
     const getFiles = (get(formik?.values, id) ?? []) as IFileDragDrop[];
-    if (getFiles.length === input?.maxFiles) return;
-    const newFiles = images
-      ?.map((file) => ({
-        id: uuid(),
-        file
-      }))
-      .slice(0, (input?.maxFiles ?? images.length) - getFiles.length);
+    if (getFiles.length === input?.maxfiles) return;
+    const newFiles = images?.map((file) => ({
+      id: uuid(),
+      file
+    })) as IFileDragDrop[];
 
-    formik?.setFieldValue(id, [...getFiles, ...newFiles]);
+    const sliceFiles = input?.maxfiles
+      ? newFiles.slice(0, input?.maxfiles - getFiles.length)
+      : newFiles;
+
+    formik?.setFieldValue(id, [...getFiles, ...sliceFiles]);
   };
   return (
     <InputLabelStyled htmlFor={id} {...label}>
