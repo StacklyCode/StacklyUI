@@ -47,14 +47,17 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
             e.stopPropagation();
             e.preventDefault();
           }}
-          css={() => css`
+          css={(theme) => css`
             bottom: 0;
             left: 0;
             position: absolute;
             width: 100%;
             height: 80px;
             padding: 10px 10px;
-            background-color: #00000094;
+            background-color: ${UCT(
+              theme?.general?.properties?.background.toString() ?? '#000000',
+              40
+            )};
             overflow-x: auto;
             overflow-y: hidden;
           `}
@@ -126,6 +129,12 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
                     padding: 5px;
                     border-radius: 50%;
                     background-color: #ca2525;
+                    svg {
+                      path {
+                        fill: #ffffff;
+                        stroke: transparent;
+                      }
+                    }
                     :hover {
                       background-color: #e23232;
                     }
