@@ -9,10 +9,7 @@ import { FCWC } from 'types';
 import { get } from 'utils/tinyLodash';
 import { UCT } from 'utils/changeTransparency';
 
-type Type = {
-  id: AtomInputTypes['id'];
-  formik: AtomInputTypes['formik'];
-  input: AtomInputTypes['input'];
+type Type = AtomInputTypes & {
   refInput?: MutableRefObject<HTMLInputElement>;
 };
 

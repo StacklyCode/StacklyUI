@@ -31,6 +31,7 @@ export type InputType =
   | 'dragdrop';
 
 export type AtomInputInputProps = HTMLMotionProps<'input'> & {
+  maxFiles?: number;
   astheme?: ColorKeys;
   css?: CSSType<AtomInputInputProps>;
 };

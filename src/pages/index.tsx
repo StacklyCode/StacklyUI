@@ -107,7 +107,7 @@ const Index = () => {
       images: []
     },
     onSubmit: (values) => {
-      console.log(values);
+      console.warn(values);
     }
   });
 
@@ -304,6 +304,16 @@ const Index = () => {
               type="dragdrop"
               labeltext=" Drag and Drop Input Example"
               input={{
+                placeholder: 'Placeholder Input Example'
+              }}
+            />
+            <AtomInput
+              id="images"
+              formik={formik}
+              type="dragdrop"
+              labeltext=" Drag and Drop Input Example"
+              input={{
+                maxFiles: 1,
                 placeholder: 'Placeholder Input Example'
               }}
             />

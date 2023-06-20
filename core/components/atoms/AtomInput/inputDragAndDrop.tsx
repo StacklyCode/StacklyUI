@@ -13,7 +13,7 @@ import { get } from 'utils/tinyLodash';
 import uuid from 'utils/uuid';
 
 const InputDragAndDrop: FCWC<AtomInputTypes> = (props) => {
-  const { id, formik, label, labeltext, span, error, children } = props;
+  const { id, formik, label, labeltext, span, error, children, input } = props;
   const [drag, setDrag] = useState(false);
 
   const ref = useRef<HTMLInputElement>(null);
@@ -22,10 +22,13 @@ const InputDragAndDrop: FCWC<AtomInputTypes> = (props) => {
     if (!files) return;
     const images = [...files];
     const getFiles = (get(formik?.values, id) ?? []) as IFileDragDrop[];
-    const newFiles = images?.map((file) => ({
-      id: uuid(),
-      file
-    })) as IFileDragDrop[];
+    if (getFiles.length === input?.maxFiles) return;
+    const newFiles = images
+      ?.map((file) => ({
+        id: uuid(),
+        file
+      }))
+      .slice(0, (input?.maxFiles ?? images.length) - getFiles.length);
 
     formik?.setFieldValue(id, [...getFiles, ...newFiles]);
   };
@@ -33,6 +36,7 @@ const InputDragAndDrop: FCWC<AtomInputTypes> = (props) => {
     <InputLabelStyled htmlFor={id} {...label}>
       {labeltext && <InputSpanStyled {...span}>{labeltext}</InputSpanStyled>}
       <InputDragAndDropStyled
+        {...input}
         drag={drag}
         onDragOver={(e) => {
           e.preventDefault();
@@ -68,6 +72,7 @@ const InputDragAndDrop: FCWC<AtomInputTypes> = (props) => {
             ...props.input,
             drag
           }}
+          {...props}
         />
       </InputDragAndDropStyled>
       {children}
