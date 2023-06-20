@@ -154,10 +154,10 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
     >
       <AtomIcon
         icon="https://storage.googleapis.com/stackly-assets/rioshy/icons/imageInput.svg"
-        css={() => css`
+        css={(theme) => css`
           svg {
             path {
-              fill: #ffffff !important;
+              fill: ${theme?.text?.color?.primary ?? '#ffffff'} !important;
               stroke: transparent !important;
             }
           }
@@ -165,27 +165,23 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
       />
       {input?.drag ? (
         <AtomText
-          css={() => css`
+          css={(theme) => css`
+            color: ${theme?.text?.color?.primary ?? '#ffffff'};
             font-size: 12px;
             font-weight: 500;
-            color: #ffffff;
-            b {
-              cursor: pointer;
-              color: #4285f4;
-            }
           `}
         >
           Suelta tu imagen
         </AtomText>
       ) : (
         <AtomText
-          css={() => css`
+          css={(theme) => css`
+            color: ${theme?.text?.color?.primary ?? '#ffffff'};
             font-size: 12px;
             font-weight: 500;
-            color: #ffffff;
             b {
               cursor: pointer;
-              color: #4285f4;
+              color: ${theme?.text?.color?.accent ?? '#4285f4'};
             }
           `}
         >
