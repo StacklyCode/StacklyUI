@@ -1,4 +1,4 @@
-export { css } from '@emotion/react';
+export { css, Global } from '@emotion/react';
 
 export * from './core/components';
 export * from './core/css';
