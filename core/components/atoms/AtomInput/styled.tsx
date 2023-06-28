@@ -36,6 +36,20 @@ export const InputSpanStyled = styled(motion.span)<AtomInputTypes['label']>(
   }
 );
 
+export const InputSpanToggleStyled = styled(motion.span)<
+  AtomInputTypes['label']
+>((props) => {
+  const { theme } = props;
+  return css`
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #adadad;
+    ${theme?.input?.span?.css?.(theme, props)}
+    ${props?.css?.(props?.theme, props)}
+  `;
+});
+
 export const InputErrorStyled = styled(motion.span)<AtomInputTypes['error']>(
   (props) => {
     const { theme } = props;
@@ -107,6 +121,20 @@ export const InputDragAndDropStyled = styled(motion.div)<
     `}
     transition: all 0.5s;
     ${theme?.input?.input?.css?.(theme, props)}
+    ${props?.css?.(props?.theme, props)}
+  `;
+});
+
+export const InputToggleWrapperStyled = styled(motion.div)<
+  AtomInputTypes['input']
+>((props) => {
+  return css`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: max-content;
+    gap: 20px;
     ${props?.css?.(props?.theme, props)}
   `;
 });

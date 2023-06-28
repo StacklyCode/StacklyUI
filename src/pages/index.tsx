@@ -339,6 +339,7 @@ const Index = () => {
           <WrapperComponent title="Toggle">
             <AtomInput
               type="toggle"
+              labelToggle="Toggle Input Example"
               labeltext="Label Input Example"
               options={OPTIONS}
               input={{

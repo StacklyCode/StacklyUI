@@ -12,14 +12,17 @@ export type IOption = {
 export type AtomInputTypes = {
   id?: string;
   formik?: FormikValues;
+  labelToggle?: string;
   labeltext?: string;
   options?: IOption[];
   type?: InputType;
 
   label?: AtomInputLabelProps;
   span?: AtomInputSpanProps;
+  spanToggle?: AtomInputSpanProps;
   error?: AtomInputErrorProps;
   input?: AtomInputInputProps;
+  toggle?: AtomInputToggleProps;
   select?: AtomInputSelectProps;
   option?: AtomInputOptionProps;
 };
@@ -35,6 +38,12 @@ export type AtomInputInputProps = HTMLMotionProps<'input'> & {
   astheme?: ColorKeys;
   css?: CSSType<AtomInputInputProps>;
 };
+
+export type AtomInputToggleProps = HTMLMotionProps<'input'> & {
+  astheme?: ColorKeys;
+  css?: CSSType<AtomInputInputProps>;
+};
+
 export type AtomInputLabelProps = HTMLMotionProps<'label'> & {
   astheme?: ColorKeys;
   css?: CSSType<AtomInputLabelProps>;
