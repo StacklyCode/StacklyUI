@@ -1,4 +1,7 @@
+import styled from '@emotion/styled';
+
 export { css, Global } from '@emotion/react';
+export { styled };
 
 export * from './core/components';
 export * from './core/css';
