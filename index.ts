@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export { css, Global } from '@emotion/react';
+export { AnimatePresence, motion } from 'framer-motion';
 export { styled };
 
 export * from './core/components';
