@@ -10,7 +10,7 @@ const Animation = {
 
 const InputText: FCWC<AtomInputTypes> = (props) => {
   const { formik, id, type, children } = props;
-  const { error, label, input, span, labeltext } = props;
+  const { error, label, input, span, labeltext, icon } = props;
   return (
     <InputLabelStyled htmlFor={id} {...label}>
       {labeltext && <InputSpanStyled {...span}>{labeltext}</InputSpanStyled>}
@@ -29,6 +29,7 @@ const InputText: FCWC<AtomInputTypes> = (props) => {
           input?.onBlur?.(e);
         }}
       />
+      {icon}
       {children}
       <InputTextError id={id} formik={formik} {...error} />
     </InputLabelStyled>

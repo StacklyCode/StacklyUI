@@ -21,6 +21,7 @@ export type AtomInputTypes = {
   span?: AtomInputSpanProps;
   spanToggle?: AtomInputSpanProps;
   error?: AtomInputErrorProps;
+  icon?: React.ReactNode;
   input?: AtomInputInputProps;
   toggle?: AtomInputToggleProps;
   select?: AtomInputSelectProps;
