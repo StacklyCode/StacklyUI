@@ -1,7 +1,7 @@
 import { ColorKeys } from '@emotion/react';
 import { FormikValues } from 'formik';
 import { HTMLMotionProps } from 'framer-motion';
-import { CSSType } from '../../../types';
+import { AtomWrapperTypes, CSSType } from '../../../types';
 
 export type IOption = {
   id: string;
@@ -35,9 +35,14 @@ export type InputType =
   | 'dragdrop';
 
 export type AtomInputInputProps = HTMLMotionProps<'input'> & {
+  textDragDrop?: string;
+  preview?: boolean;
+  onClickPreview?: (img: IFileDragDrop, idx: number) => void;
   maxfiles?: number;
   astheme?: ColorKeys;
   css?: CSSType<AtomInputInputProps>;
+  cssDragDrop?: CSSType<AtomWrapperTypes>;
+  cssDragDropIcon?: CSSType<AtomWrapperTypes>;
 };
 
 export type AtomInputToggleProps = HTMLMotionProps<'input'> & {

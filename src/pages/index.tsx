@@ -302,6 +302,33 @@ const Index = () => {
               id="images"
               formik={formik}
               type="dragdrop"
+              input={{
+                css: () => css`
+                  width: 120px;
+                  height: 120px;
+                  border-radius: 50%;
+                `,
+                cssDragDrop: () => css`
+                  img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                  }
+                `,
+                cssDragDropIcon: () => css`
+                  right: 0;
+                  top: -5px;
+                `,
+                preview: false,
+                maxfiles: 1,
+                placeholder: 'Placeholder Input Example',
+                textDragDrop: ''
+              }}
+            />
+            <AtomInput
+              id="images"
+              formik={formik}
+              type="dragdrop"
               labeltext=" Drag and Drop Input Example"
               input={{
                 placeholder: 'Placeholder Input Example'

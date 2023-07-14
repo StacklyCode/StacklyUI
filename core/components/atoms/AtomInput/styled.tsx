@@ -108,12 +108,10 @@ export const InputDragAndDropStyled = styled(motion.div)<
     margin: 0px 0px 0px 0px;
     padding: 0px;
     height: 40px;
-    width: 250px;
     border-radius: 4px;
     border: 1px solid #acacac;
-    min-width: 300px;
-    height: 300px;
-    overflow: hidden;
+    width: 300px;
+    height: 220px;
     ${drag &&
     css`
       border: 1px dashed #acacac;

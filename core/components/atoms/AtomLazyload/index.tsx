@@ -37,13 +37,10 @@ const AtomLazyLoad: FC<AtomLazyLoadTypes> = (props) => {
         ref={ref}
         {...wrapper}
         css={(e) => css`
-          width: 100%;
-          height: max-content;
           ${size &&
-          isIntersecting &&
           css`
-            width: ${size?.width}px;
-            height: ${size?.height}px;
+            width: ${isIntersecting ? '100%' : `${size?.width}px`};
+            height: ${isIntersecting ? 'max-content' : `${size?.height}px`};
           `}
           ${wrapper?.css?.(e)}
         `}

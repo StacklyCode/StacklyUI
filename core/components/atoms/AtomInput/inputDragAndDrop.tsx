@@ -9,7 +9,6 @@ import {
 import { FCWC } from 'types';
 import InputTextError from './inputError';
 import InputDragAndDropImage from './inputDragAndDropImage';
-import { get } from 'utils/tinyLodash';
 import uuid from 'utils/uuid';
 
 const InputDragAndDrop: FCWC<AtomInputTypes> = (props) => {
@@ -21,18 +20,16 @@ const InputDragAndDrop: FCWC<AtomInputTypes> = (props) => {
   const setImage = (files: FileList) => {
     if (!files) return;
     const images = [...files];
-    const getFiles = (get(formik?.values, id) ?? []) as IFileDragDrop[];
-    if (getFiles.length === input?.maxfiles) return;
+    if (images.length - 1 >= input?.maxfiles) return;
+    const isImage = images.every((file) => file.type.includes('image'));
+    if (!isImage) return;
+
     const newFiles = images?.map((file) => ({
       id: uuid(),
       file
     })) as IFileDragDrop[];
 
-    const sliceFiles = input?.maxfiles
-      ? newFiles.slice(0, input?.maxfiles - getFiles.length)
-      : newFiles;
-
-    formik?.setFieldValue(id, [...getFiles, ...sliceFiles]);
+    formik?.setFieldValue(id, newFiles);
   };
   return (
     <InputLabelStyled htmlFor={id} {...label}>
@@ -60,7 +57,9 @@ const InputDragAndDrop: FCWC<AtomInputTypes> = (props) => {
         <InputDragAndDropInputStyled
           id={id}
           type="file"
+          multiple
           name={id}
+          ref={ref}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setImage(e.target.files)
           }
