@@ -321,6 +321,7 @@ const Index = () => {
                 `,
                 preview: false,
                 maxfiles: 1,
+                isDragDropIcon: true,
                 placeholder: 'Placeholder Input Example',
                 textDragDrop: ''
               }}

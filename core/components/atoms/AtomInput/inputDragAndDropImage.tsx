@@ -43,30 +43,38 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
           )}
         />
 
-        <AtomButton
-          css={(e) => css`
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 0px;
-            min-height: 0;
-            width: 34px;
-            height: 34px;
-            z-index: 90;
-            ${input?.cssDragDropIcon?.(e)}
-          `}
-        >
-          <AtomIcon
-            icon="https://storage.googleapis.com/stackly-assets/the-film-vault/icons/edit.svg"
-            css={() => css`
-              width: 14px;
-              height: 14px;
+        {input?.isDragDropIcon && (
+          <AtomButton
+            css={(e) => css`
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              padding: 0px;
+              min-height: 0;
+              width: 34px;
+              height: 34px;
+              z-index: 90;
+              ${input?.cssDragDropIcon?.(e)}
             `}
-            onClick={() => {
-              refInput?.current?.click();
-            }}
-          />
-        </AtomButton>
+          >
+            <AtomIcon
+              icon="https://storage.googleapis.com/stackly-assets/the-film-vault/icons/edit.svg"
+              css={() => css`
+                width: 14px;
+                height: 14px;
+                svg {
+                  path {
+                    fill: #fff !important;
+                    stroke: #fff !important;
+                  }
+                }
+              `}
+              onClick={() => {
+                refInput?.current?.click();
+              }}
+            />
+          </AtomButton>
+        )}
 
         {(input?.preview ?? true) && (
           <AtomWrapper
@@ -194,30 +202,38 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
         ${input?.cssDragDrop?.(e)}
       `}
     >
-      <AtomButton
-        css={(e) => css`
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          padding: 0px;
-          min-height: 0;
-          width: 34px;
-          height: 34px;
-          z-index: 90;
-          ${input?.cssDragDropIcon?.(e)}
-        `}
-      >
-        <AtomIcon
-          icon="https://storage.googleapis.com/stackly-assets/the-film-vault/icons/edit.svg"
-          css={() => css`
-            width: 14px;
-            height: 14px;
+      {input?.isDragDropIcon && (
+        <AtomButton
+          css={(e) => css`
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 0px;
+            min-height: 0;
+            width: 34px;
+            height: 34px;
+            z-index: 90;
+            ${input?.cssDragDropIcon?.(e)}
           `}
-          onClick={() => {
-            refInput?.current?.click();
-          }}
-        />
-      </AtomButton>
+        >
+          <AtomIcon
+            icon="https://storage.googleapis.com/stackly-assets/the-film-vault/icons/edit.svg"
+            css={() => css`
+              width: 14px;
+              height: 14px;
+              svg {
+                path {
+                  fill: #fff !important;
+                  stroke: #fff !important;
+                }
+              }
+            `}
+            onClick={() => {
+              refInput?.current?.click();
+            }}
+          />
+        </AtomButton>
+      )}
 
       <AtomIcon
         icon="https://storage.googleapis.com/stackly-assets/rioshy/icons/imageInput.svg"
