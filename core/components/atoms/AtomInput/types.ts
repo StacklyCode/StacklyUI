@@ -76,4 +76,5 @@ export type AtomInputOptionProps = HTMLMotionProps<'option'> & {
 export type IFileDragDrop = {
   id: string;
   file: File;
+  url: string;
 };
