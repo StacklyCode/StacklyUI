@@ -944,7 +944,6 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
       css={() => css`
         margin: 0px 0px;
         width: 100%;
-        ${props?.customCSSM}
         .editor-content {
           min-height: ${props?.minHeight ?? '500px'};
           padding: 12px 16px;
@@ -954,6 +953,7 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
           border-radius: 8px;
           background-color: #f0f2f5;
         }
+        ${props?.customCSSM}
       `}
     >
       <GlobalStyles />
