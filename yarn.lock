@@ -508,7 +508,7 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-code/-/extension-code-2.0.4.tgz#6952d402e7372dd2d129e962bf9bd54d68ee6183"
   integrity sha512-HuwJSJkipZf4hkns9witv1CABNIPiB9C8lgAQXK4xJKcoUQChcnljEL+PQ2NqeEeMTEeV3nG3A/0QafH0pgTgg==
 
-"@tiptap/extension-color@^2.0.0-beta.9":
+"@tiptap/extension-color@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-color/-/extension-color-2.0.4.tgz#564265c2bcadd268e6b5745d2a06571744cb4090"
   integrity sha512-7Eb5Gk9v3sj2i1Q8dfqmpnc5aDPC/t0ZEsSLRi4C6SNo1nBeUxteXzpzxWwYjTvK+Um40STR89Z6PY14FIYXSA==
@@ -530,7 +530,7 @@
   dependencies:
     tippy.js "^6.3.7"
 
-"@tiptap/extension-font-family@^2.0.0-beta.21":
+"@tiptap/extension-font-family@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-font-family/-/extension-font-family-2.0.4.tgz#d0e98f4773f948aee9d08e7ff5bd3f403bfe7ea5"
   integrity sha512-0PncEkzLcTxjjSy9gaahX71IxhBxcXLCOxFTnRF56apysiAIARdWIrep2zMH+3qcV8/9uFfXu5Q5R/pSZfwLIA==
@@ -540,7 +540,7 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-gapcursor/-/extension-gapcursor-2.0.4.tgz#c100a792fd41535ad6382aa8133d0d9c0b2cb2b8"
   integrity sha512-VxmKfBQjSSu1mNvHlydA4dJW/zawGKyqmnryiFNcUV9s+/HWLR5i9SiUl4wJM/B8sG8cQxClne5/LrCAeGNYuA==
 
-"@tiptap/extension-hard-break@^2.0.0-beta.30", "@tiptap/extension-hard-break@^2.0.4":
+"@tiptap/extension-hard-break@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-hard-break/-/extension-hard-break-2.0.4.tgz#a4f70fa9a473270f7ec89f20a14b9122af5657bc"
   integrity sha512-4j8BZa6diuoRytWoIc7j25EYWWut5TZDLbb+OVURdkHnsF8B8zeNTo55W40CdwSaSyTtXtxbTIldV80ShQarGQ==
@@ -617,12 +617,12 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-table/-/extension-table-2.0.4.tgz#12269a8d653e46d408bac44da45aeec3a77a3bd3"
   integrity sha512-HZKe0cXxXs2o2l8xyaoqemoT/qVxyM0iNjKUL4ve2RwvSRqta4sEl+Dr8q2VIlr6VkcyPE8fppTZN9/bgLlwFA==
 
-"@tiptap/extension-text-align@^2.0.0-beta.29":
+"@tiptap/extension-text-align@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-text-align/-/extension-text-align-2.0.4.tgz#4afefd2fbf555b9e72114b088147c8e9d1b82273"
   integrity sha512-ArIWhkTqbZFRQcj34Zb17rW1+JeYMAaZpf9LKNAB4CSsqYeF5JqVmrZvOSI7NtyFsEx4rHXMHb1iMKjdwm8fUw==
 
-"@tiptap/extension-text-style@^2.0.0-beta.23":
+"@tiptap/extension-text-style@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-text-style/-/extension-text-style-2.0.4.tgz#4ba3fd6b204badc43ac6a00285315fe868f07e52"
   integrity sha512-HQk8c7HasDdeAJxlHrztkgprxocZecZVUMlvPvFAhkq8E/5+nfmr/Gm9qudiStEARZrIYBATNA2PbnQuIGMx3A==
@@ -632,7 +632,7 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-text/-/extension-text-2.0.4.tgz#318b0105491a5976d220871dccabe6c4d2cbeedd"
   integrity sha512-i8/VFlVZh7TkAI49KKX5JmC0tM8RGwyg5zUpozxYbLdCOv07AkJt+E1fLJty9mqH4Y5HJMNnyNxsuZ9Ol/ySRA==
 
-"@tiptap/extension-underline@^2.0.0-beta.23":
+"@tiptap/extension-underline@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-underline/-/extension-underline-2.0.4.tgz#c1e5df75a4c9f2d9e691d48438ee0894f8bb01f1"
   integrity sha512-Hvhy3iV5dWs0SFTww6sIzyQSSgVzcQuiozhDs11iP+gvFjK7ejg86KZ8wAVvyCi9K3bOMhohsw1Q2b8JSnIxcg==
@@ -661,7 +661,7 @@
     prosemirror-transform "^1.7.0"
     prosemirror-view "^1.28.2"
 
-"@tiptap/react@^2.0.0-beta.108":
+"@tiptap/react@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@tiptap/react/-/react-2.0.4.tgz#b879faeabd67859254d594eafe0f8232f5d78116"
   integrity sha512-NcrZL4Tu3+1Xfj/us5AOD7+kJhwYo2XViOB2iRRnfwS80PUtiLWDis6o3ngMGot/jBWzaMn4gofXnMWHtFdIAw==
@@ -669,7 +669,7 @@
     "@tiptap/extension-bubble-menu" "^2.0.4"
     "@tiptap/extension-floating-menu" "^2.0.4"
 
-"@tiptap/starter-kit@^2.0.0-beta.183":
+"@tiptap/starter-kit@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@tiptap/starter-kit/-/starter-kit-2.0.4.tgz#20456eb4a4ae0ac8d5bf2ac5e9771b3c617c51a6"
   integrity sha512-9WtVXhujyp5cOlE7qlcQMFr0FEx3Cvo1isvfQGzhKKPzXa3rR7FT8bnOFsten31/Ia/uwvGXAvRDQy24YfHdNA==

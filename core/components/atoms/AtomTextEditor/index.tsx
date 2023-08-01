@@ -7,12 +7,6 @@ import { FC, useEffect } from 'react';
 import { Color } from '@tiptap/extension-color';
 import FontFamily from '@tiptap/extension-font-family';
 import HardBreak from '@tiptap/extension-hard-break';
-import Image from '@tiptap/extension-image';
-import Link from '@tiptap/extension-link';
-import Table from '@tiptap/extension-table';
-import TableCell from '@tiptap/extension-table-cell';
-import TableHeader from '@tiptap/extension-table-header';
-import TableRow from '@tiptap/extension-table-row';
 import TextAlign from '@tiptap/extension-text-align';
 import TextStyle from '@tiptap/extension-text-style';
 import UnderLine from '@tiptap/extension-underline';
@@ -20,8 +14,6 @@ import StarterKit from '@tiptap/starter-kit';
 import AtomIcon from '../AtomIcon';
 import AtomInput from '../AtomInput';
 import AtomWrapper from '../AtomWrapper';
-import InputTextError from './error';
-import Iframe from './iframe';
 import {
   ButtonStyled,
   GlobalStyles,
@@ -29,7 +21,6 @@ import {
   SeparateVerticalStyled
 } from './styled';
 import { AtomTextEditorType } from './types';
-import VideoCustom from './video';
 
 HardBreak.configure({
   keepMarks: false
@@ -936,19 +927,7 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
         TextStyle,
         FontFamily,
         Color,
-        UnderLine,
-        Image,
-        Iframe,
-        VideoCustom,
-        Table.configure({
-          resizable: true
-        }),
-        TableRow,
-        TableHeader,
-        TableCell,
-        Link.configure({
-          openOnClick: false
-        })
+        UnderLine
       ],
       content: content ?? ''
     },
@@ -957,17 +936,8 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
   const HTML = editor?.getHTML();
 
   useEffect(() => {
-    if (props.onChangeEditor && editor) {
-      props.onChangeEditor(editor);
-    }
+    props?.onChangeEditor?.(editor);
   }, [HTML]);
-
-  // useEffect(() => {
-  //   if (loadContent !== content && content) {
-  //     editor?.commands?.setContent(content);
-  //     setLoadContent(content);
-  //   }
-  // }, [content]);
 
   return (
     <AtomWrapper
@@ -975,6 +945,15 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
         margin: 0px 0px;
         width: 100%;
         ${props?.customCSSM}
+        .editor-content {
+          min-height: ${props?.minHeight ?? '500px'};
+          padding: 12px 16px;
+          width: 100%;
+          height: 100%;
+          overflow-y: auto;
+          border-radius: 8px;
+          background-color: #f0f2f5;
+        }
       `}
     >
       <GlobalStyles />
@@ -983,60 +962,14 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
         options={props?.options}
         customCSSH={props?.customCSSH ?? css``}
       />
-      <AtomWrapper
-        css={() => css`
-          background-color: #f0f2f5;
-          border-radius: 8px;
-          z-index: -1;
-          min-height: ${props?.minHeight ?? '500px'};
-          align-items: center;
-          justify-content: flex-start;
-          > div {
-            min-height: ${props?.minHeight ?? '500px'};
-            padding: 0px;
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-          }
 
-          .ProseMirror {
-            min-height: ${props?.minHeight ?? '500px'};
-            padding: 20px 20px;
-            outline: none;
-            .video-wrapper {
-              margin: 0px 0px 20px 0px;
-              video {
-                width: 100%;
-              }
-            }
-            .iframe-wrapper {
-              margin: 0px 0px 20px 0px;
-              position: relative;
-              padding-bottom: math.div(100, 16) * 9%;
-              height: 0;
-              overflow: hidden;
-              width: 100%;
-              height: 300px;
-
-              &.ProseMirror-selectednode {
-                outline: 3px solid #68cef8;
-              }
-
-              iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-              }
-            }
-          }
-          ${props?.customCSS ?? css``}
-        `}
-      >
-        <EditorContent id={id} onBlur={onBlur} editor={editor} />
-      </AtomWrapper>
-      <InputTextError {...props} />
+      <EditorContent
+        className="editor-content"
+        onClick={() => editor?.chain().focus().run()}
+        id={id}
+        onBlur={onBlur}
+        editor={editor}
+      />
     </AtomWrapper>
   );
 };
