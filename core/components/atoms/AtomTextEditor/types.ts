@@ -27,4 +27,5 @@ export type AtomTextEditorType = {
   customCSS?: SerializedStyles;
   errorHeight?: string;
   customCSSM?: SerializedStyles;
+  customCSSC?: SerializedStyles;
 };
