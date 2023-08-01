@@ -35,7 +35,7 @@ const InputToggle: FCWC<AtomInputTypes> = (props) => {
         <InputToggleStyled
           id={id}
           type="checkbox"
-          checked={checked}
+          checked={formik?.values[id] ?? checked}
           {...input}
           {...Animation}
           value={input?.value ?? get(formik?.values, id) ? 'on' : 'off'}
