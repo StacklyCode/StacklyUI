@@ -985,7 +985,7 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
       />
       <AtomWrapper
         css={() => css`
-          background-color: #fff;
+          background-color: #f0f2f5;
           border-radius: 8px;
           z-index: -1;
           min-height: ${props?.minHeight ?? '500px'};
