@@ -8,6 +8,11 @@ const Document = () => {
     <Html>
       <Head>
         <BackgroundFlash theme={ThemesToFlash(themes)} />
+        <script
+          src="https://kit.fontawesome.com/f2d307713b.js"
+          crossOrigin="anonymous"
+          async
+        />
       </Head>
       <body>
         <Main />

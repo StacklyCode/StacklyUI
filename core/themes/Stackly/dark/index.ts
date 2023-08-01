@@ -220,7 +220,7 @@ const ThemeDark: IPalette = {
     input: {
       color: {
         primary: '#0072f5',
-        secondary: '#49dc80', 
+        secondary: '#49dc80',
         accent: '#d333f6',
         color2: '#f6d333',
         color3: '#33f6d3'

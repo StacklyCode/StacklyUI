@@ -8,7 +8,8 @@ import {
   AtomImage,
   AtomIcon,
   IPalette,
-  AtomLink
+  AtomLink,
+  AtomTextEditor
 } from 'index';
 import { IOption } from 'components/atoms/AtomInput/types';
 import useToggleTheme from 'hooks/useTheme';
@@ -243,10 +244,10 @@ const Index = () => {
         </WrapperComponent>
 
         <WrapperComponent title="Component Icon" dot>
-          <AtomIcon />
-          <AtomIcon />
-          <AtomIcon />
-          <AtomIcon />
+          <AtomIcon size={20} icon="fas fa-home" />
+          <AtomIcon size={20} icon="fas fa-user" />
+          <AtomIcon size={20} icon="fas fa-cog" />
+          <AtomIcon size={20} icon="fas fa-bell" />
         </WrapperComponent>
 
         <WrapperComponent title="Component Loader" type="main" dot>
@@ -296,6 +297,9 @@ const Index = () => {
                 placeholder: 'Placeholder Input Example'
               }}
             />
+          </WrapperComponent>
+          <WrapperComponent title="Text Editor">
+            <AtomTextEditor />
           </WrapperComponent>
           <WrapperComponent title="Drag and Drop">
             <AtomInput

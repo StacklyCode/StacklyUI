@@ -60,17 +60,9 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
             `}
           >
             <AtomIcon
-              icon="https://storage.googleapis.com/stackly-assets/the-film-vault/icons/edit.svg"
-              css={() => css`
-                width: 14px;
-                height: 14px;
-                svg {
-                  path {
-                    fill: #fff !important;
-                    stroke: #fff !important;
-                  }
-                }
-              `}
+              icon="fas fa-pencil"
+              size={14}
+              color="#ffffff"
               onClick={() => {
                 refInput?.current?.click();
               }}
@@ -145,8 +137,7 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
                     `}
                     src={URL.createObjectURL(img?.file)}
                   />
-
-                  <AtomIcon
+                  <AtomButton
                     onClick={(e) => {
                       e.stopPropagation();
                       e.preventDefault();
@@ -158,29 +149,25 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
                         images?.filter((image) => image?.id !== img?.id)
                       );
                     }}
-                    icon="https://storage.googleapis.com/stackly-assets/the-film-vault/icons/cross-mark.svg"
                     css={() => css`
                       cursor: pointer;
                       position: absolute;
-                      width: 15px;
-                      height: 15px;
-                      top: -5px;
-                      right: -5px;
-                      padding: 5px;
+                      width: 18px;
+                      height: 18px;
+                      top: -8px;
+                      right: -8px;
                       border-radius: 50%;
+                      padding: 0px;
+                      min-height: 0;
                       background-color: #ca2525;
-                      svg {
-                        path {
-                          fill: #ffffff;
-                          stroke: transparent;
-                        }
-                      }
+                      border: 1px solid #ca2525;
                       :hover {
                         background-color: #e23232;
                       }
-                      transition: background-color 0.2s ease-in-out;
                     `}
-                  />
+                  >
+                    <AtomIcon icon="fas fa-trash" size={8} />
+                  </AtomButton>
                 </AtomWrapper>
               ))}
             </AtomWrapper>
@@ -206,6 +193,9 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
     >
       {input?.isDragDropIcon && (
         <AtomButton
+          onClick={() => {
+            refInput?.current?.click();
+          }}
           css={(e) => css`
             position: absolute;
             top: 10px;
@@ -218,36 +208,11 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
             ${input?.cssDragDropIcon?.(e)}
           `}
         >
-          <AtomIcon
-            icon="https://storage.googleapis.com/stackly-assets/the-film-vault/icons/edit.svg"
-            css={() => css`
-              width: 14px;
-              height: 14px;
-              svg {
-                path {
-                  fill: #fff !important;
-                  stroke: #fff !important;
-                }
-              }
-            `}
-            onClick={() => {
-              refInput?.current?.click();
-            }}
-          />
+          <AtomIcon icon="fas fa-pencil" size={14} color="#ffffff" />
         </AtomButton>
       )}
 
-      <AtomIcon
-        icon="https://storage.googleapis.com/stackly-assets/rioshy/icons/imageInput.svg"
-        css={(theme) => css`
-          svg {
-            path {
-              fill: ${theme?.text?.color?.primary ?? '#ffffff'} !important;
-              stroke: transparent !important;
-            }
-          }
-        `}
-      />
+      <AtomIcon icon="fas fa-image" size={45} />
       {input?.drag ? (
         <AtomText
           css={(theme) => css`

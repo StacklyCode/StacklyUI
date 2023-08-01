@@ -1,8 +1,10 @@
 import { ColorKeys } from '@emotion/react';
-import { AtomWrapperTypes, CSSType } from '../../../types';
+import { CSSType } from '../../../types';
 
-export type AtomIconTypes = AtomWrapperTypes & {
+export type AtomIconTypes = {
   icon?: string;
+  size?: number;
+  color?: string;
   astheme?: ColorKeys;
   css?: CSSType<AtomIconTypes>;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
