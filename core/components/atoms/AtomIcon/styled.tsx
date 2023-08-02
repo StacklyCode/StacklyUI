@@ -6,7 +6,7 @@ import { AtomIconTypes } from './types';
 const IconStyles: SSP<AtomIconTypes> = (props) => {
   const { size, color } = props;
   return css`
-    font-size: 10px;
+    font-size: 14px;
     color: #ffffff;
     transition: all 0.3s ease-in-out;
     ${props?.theme?.general?.css?.(props.theme, props)}
