@@ -29,6 +29,15 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
   const [selectMultiple, setSelectMultiple] = useState(
     select?.multipleValue ?? []
   );
+
+  useEffect(() => {
+    setSelectID(select?.value?.toString() ?? '');
+  }, [`${select?.value}`]);
+
+  useEffect(() => {
+    setSelectMultiple(select?.multipleValue ?? []);
+  }, [`${select?.multipleValue}`]);
+
   const [open, setOpen] = useState(false);
   const [searching, setSearching] = useState(false);
   const [search, setSearch] = useState('');
