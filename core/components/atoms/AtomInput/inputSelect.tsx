@@ -24,7 +24,7 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
   const { formik, id } = props;
   const { error, label, select, span, labeltext } = props;
 
-  const [selectID, setSelectID] = useState('');
+  const [selectID, setSelectID] = useState(select?.value?.toString() ?? '');
   const [open, setOpen] = useState(false);
   const [searching, setSearching] = useState(false);
   const [search, setSearch] = useState('');
@@ -52,6 +52,18 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
       });
     }
   }, [ref, open, searching]);
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', checkIfClickedOutside);
+    return () => {
+      document.removeEventListener('mousedown', checkIfClickedOutside);
+    };
+  }, [ref]);
 
   return (
     <InputLabelStyled htmlFor={id} {...label}>
@@ -141,7 +153,7 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
         </AtomButton>
       </InputSelectWrapperStyled>
       {(open || searching) && (
-        <InputSelectOptionWrapperStyled ref={ref}>
+        <InputSelectOptionWrapperStyled ref={ref} floating={select?.floating}>
           {filtered?.map((item) => (
             <InputSelectOptionStyled
               key={item?.id}
@@ -155,7 +167,7 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
                 setSearch('');
               }}
             >
-              {item?.value}
+              {item?.label}
             </InputSelectOptionStyled>
           ))}
         </InputSelectOptionWrapperStyled>

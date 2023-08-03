@@ -337,10 +337,14 @@ export const InputSelectOptionStyled = styled(
   `;
 });
 
+type InputSelectOptionWrapperTypes = AtomWrapperTypes & {
+  floating: boolean;
+};
+
 export const InputSelectOptionWrapperStyled = styled(
   motion.div
-)<AtomWrapperTypes>((props) => {
-  const { theme } = props;
+)<InputSelectOptionWrapperTypes>((props) => {
+  const { theme, floating = true } = props;
   return css`
     display: flex;
     flex-direction: column;
@@ -352,6 +356,11 @@ export const InputSelectOptionWrapperStyled = styled(
     border-radius: 4px;
     padding: 8px;
     gap: 8px;
+    ${floating &&
+    css`
+      position: absolute;
+      top: 100%;
+    `}
     ${theme?.input?.input?.css?.(theme, props)}
     ${props?.css?.(props?.theme, props)}
   `;
