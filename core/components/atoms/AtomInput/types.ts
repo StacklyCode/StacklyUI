@@ -69,7 +69,7 @@ export type AtomInputSelectProps = HTMLMotionProps<'input'> & {
   css?: CSSType<AtomInputSelectProps>;
   search?: boolean;
   floating?: boolean;
-  onSelect?: (option: IOption) => void;
+  onSelecting?: (option: IOption) => void;
   multiple?: boolean;
   multipleValue?: string[];
   multipleLabel?: string;

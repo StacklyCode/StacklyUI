@@ -182,7 +182,7 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
               }
               onClick={() => {
                 formik?.setFieldValue?.(id, item?.id);
-                select?.onSelect?.(item);
+                select?.onSelecting?.(item);
                 setSelectID(item?.id);
                 if (select?.multiple) {
                   setSelectMultiple((prev) =>
