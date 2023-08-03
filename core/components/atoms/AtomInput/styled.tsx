@@ -263,6 +263,11 @@ export const InputSelectStyled = styled(motion.input)<SelectType>((props) => {
     ::placeholder {
       color: #d7d7d7;
     }
+    i {
+      color: ${UIBD(
+        theme?.general?.properties?.background?.toString() ?? '#ffffff'
+      )};
+    }
     ${theme?.input?.input?.css?.(theme, props)}
     ${props?.css?.(props?.theme, props)}
     ${searching &&

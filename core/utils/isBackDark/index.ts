@@ -30,7 +30,7 @@ const isBackDark = (
   );
   const output = trainedNet(color) as IOutput;
   if (output.black > output.white) {
-    return opt?.black ?? '#000000';
+    return opt?.black ?? '#344767';
   }
   return opt?.white ?? '#ffffff';
 };
