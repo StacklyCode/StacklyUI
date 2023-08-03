@@ -44,6 +44,7 @@ export type AtomInputInputProps = HTMLMotionProps<'input'> & {
   css?: CSSType<AtomInputInputProps>;
   cssDragDrop?: CSSType<AtomWrapperTypes>;
   cssDragDropIcon?: CSSType<AtomWrapperTypes>;
+  onSelectMain?: (img: IFileDragDrop, idx) => void;
 };
 
 export type AtomInputToggleProps = HTMLMotionProps<'input'> & {

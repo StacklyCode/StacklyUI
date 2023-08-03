@@ -17,6 +17,7 @@ type Type = AtomInputTypes & {
 const InputDragAndDropImage: FCWC<Type> = (props) => {
   const { id, formik, input, refInput } = props;
   const [selected, setSelected] = useState(0);
+  const [select, setSelect] = useState(0);
 
   const images = get(formik?.values, id) as IFileDragDrop[];
   const isLoad = images.length > 0;
@@ -62,7 +63,7 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
             <AtomIcon
               icon="fas fa-pencil"
               size={14}
-              color="#344767"
+              color="#ffffff"
               onClick={() => {
                 refInput?.current?.click();
               }}
@@ -106,7 +107,7 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
                     setSelected(idx);
                     input?.onClickPreview?.(img, idx);
                   }}
-                  css={(theme) => css`
+                  css={() => css`
                     position: relative;
                     width: 100%;
                     height: max-content;
@@ -116,13 +117,8 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
                     box-shadow: 0px 0px 5px 1px transparent;
                     ${(selectedImage ? selected : 0) === idx &&
                     css`
-                      border: 1px solid
-                        ${theme?.input?.input?.color?.primary ?? '#ffffff'};
-                      box-shadow: 0px 0px 5px 1px
-                        ${UCT(
-                          theme?.input?.input?.color?.primary ?? '#ffffff',
-                          50
-                        )};
+                      border: 1px solid #0072f5;
+                      box-shadow: 0px 0px 5px 1px ${UCT('#0072f5', 50)};
                     `}
                     transition: all 0.2s ease-in-out;
                   `}
@@ -154,7 +150,7 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
                       position: absolute;
                       width: 18px;
                       height: 18px;
-                      top: -8px;
+                      bottom: -8px;
                       right: -8px;
                       border-radius: 50%;
                       padding: 0px;
@@ -167,6 +163,37 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
                     `}
                   >
                     <AtomIcon icon="fas fa-trash" size={8} />
+                  </AtomButton>
+                  <AtomButton
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      setSelect(idx);
+                      input?.onSelectMain?.(img, idx);
+                    }}
+                    css={() => css`
+                      cursor: pointer;
+                      position: absolute;
+                      width: 18px;
+                      height: 18px;
+                      top: -8px;
+                      right: -8px;
+                      border-radius: 50%;
+                      padding: 0px;
+                      min-height: 0;
+                      border: 1px solid #e7c116;
+                      background-color: transparent;
+                      ${select === idx &&
+                      css`
+                        background-color: #e7c116;
+                      `}
+                    `}
+                  >
+                    <AtomIcon
+                      icon="fas fa-star"
+                      size={8}
+                      color={select === idx ? '#ffffff' : '#e7c116'}
+                    />
                   </AtomButton>
                 </AtomWrapper>
               ))}
