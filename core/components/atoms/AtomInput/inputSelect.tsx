@@ -15,6 +15,7 @@ import { useState, useMemo, useRef, useEffect } from 'react';
 import AtomIcon from '../AtomIcon';
 import AtomButton from '../AtomButton';
 import { css } from '@emotion/react';
+import { UIBD } from 'utils/isBackDark';
 
 const Animation = {
   whileTap: { scale: 0.98, opacity: 0.8 }
@@ -93,7 +94,7 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
               setSearching(!searching);
               setOpen(true);
             }}
-            css={() => css`
+            css={(theme) => css`
               border: 1px solid transparent;
               width: max-content;
               min-height: 0px;
@@ -110,6 +111,12 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
                 border: 1px solid #0000001a;
                 box-shadow: none;
               }
+              i {
+                color: ${UIBD(
+                  theme?.general?.properties?.background?.toString() ??
+                    '#ffffff'
+                )};
+              }
             `}
           >
             <AtomIcon
@@ -123,7 +130,7 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
           onClick={() => {
             setOpen(!open);
           }}
-          css={() => css`
+          css={(theme) => css`
             border: 1px solid transparent;
             width: max-content;
             min-height: 0px;
@@ -142,6 +149,11 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
               border-radius: 4px;
               border: 1px solid #0000001a;
               box-shadow: none;
+            }
+            i {
+              color: ${UIBD(
+                theme?.general?.properties?.background?.toString() ?? '#ffffff'
+              )};
             }
           `}
         >
