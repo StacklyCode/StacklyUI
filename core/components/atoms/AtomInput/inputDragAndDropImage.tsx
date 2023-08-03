@@ -62,7 +62,7 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
             <AtomIcon
               icon="fas fa-pencil"
               size={14}
-              color="#ffffff"
+              color="#344767"
               onClick={() => {
                 refInput?.current?.click();
               }}
@@ -212,7 +212,7 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
         </AtomButton>
       )}
 
-      <AtomIcon icon="fas fa-image" size={45} />
+      <AtomIcon icon="fas fa-image" size={42} color="#344767" />
       {input?.drag ? (
         <AtomText
           css={(theme) => css`
