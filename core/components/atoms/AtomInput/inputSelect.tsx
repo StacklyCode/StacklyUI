@@ -173,6 +173,7 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
               selected={item?.id === get(formik?.values, id, selectID)}
               onClick={() => {
                 formik?.setFieldValue?.(id, item?.id);
+                select?.onSelect?.(item);
                 setSelectID(item?.id);
                 setOpen(false);
                 setSearching(false);
