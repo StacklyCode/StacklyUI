@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { AtomInputTypes } from './types';
 import { AtomWrapperTypes } from '../AtomWrapper/types';
+import { UIBD } from 'utils/isBackDark';
+import { UCT } from 'utils/changeTransparency';
 
 export const InputLabelStyled = styled(motion.label)<AtomInputTypes['label']>(
   (props) => {
@@ -317,12 +319,20 @@ export const InputSelectOptionStyled = styled(
     padding: 10px 15px;
     border-radius: 4px;
     border: none;
-    background-color: rgba(255, 255, 255, 0.034);
     border: 1px solid #0000001a;
-    color: #ffffff;
+    color: ${UIBD(
+      theme?.general?.properties?.background?.toString() ?? '#ffffff'
+    )};
+    background-color: ${UCT(
+      UIBD(theme?.general?.properties?.background?.toString() ?? '#ffffff'),
+      7
+    )};
     cursor: pointer;
     :hover {
-      background-color: #ffffff1a;
+      background-color: ${UCT(
+        UIBD(theme?.general?.properties?.background?.toString() ?? '#ffffff'),
+        14
+      )};
       border-radius: 4px;
       border: 1px solid #0000001a;
       box-shadow: none;
@@ -330,8 +340,8 @@ export const InputSelectOptionStyled = styled(
     transition: all 0.5s;
     ${selected &&
     css`
-      background-color: ${theme?.input?.option?.color?.primary ??
-      '#4285f4'} !important;
+      background-color: ${theme?.input?.option?.color?.primary ?? '#4285f4'};
+      color: ${UIBD(theme?.input?.option?.color?.primary ?? '#4285f4')};
     `}
     ${props?.css?.(props?.theme, props)}
   `;

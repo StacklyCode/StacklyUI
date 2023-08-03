@@ -32,7 +32,7 @@ const isBackDark = (
   if (output.black > output.white) {
     return opt?.black ?? '#000000';
   }
-  return opt?.white ?? '#fff';
+  return opt?.white ?? '#ffffff';
 };
 
 export const isBackDarkBoolean = (hex = '#ffffff') => {
