@@ -70,6 +70,9 @@ export type AtomInputSelectProps = HTMLMotionProps<'input'> & {
   search?: boolean;
   floating?: boolean;
   onSelect?: (option: IOption) => void;
+  multiple?: boolean;
+  multipleValue?: string[];
+  multipleLabel?: string;
 };
 export type AtomInputOptionProps = HTMLMotionProps<'option'> & {
   astheme?: ColorKeys;

@@ -88,6 +88,23 @@ const Index = () => {
               placeholder: 'Placeholder Input Example'
             }}
           />
+          <AtomInput
+            type="select"
+            labeltext="Label Input Example"
+            options={data?.map((item: any) => ({
+              id: item?.id,
+              label: item?.name + ' ' + item?.username,
+              value: item?.id
+            }))}
+            select={{
+              search: true,
+              multiple: true,
+              floating: false
+            }}
+            input={{
+              placeholder: 'Placeholder Input Example'
+            }}
+          />
         </WrapperComponent>
       </AtomWrapper>
     </AtomWrapper>

@@ -5,6 +5,7 @@ import { AtomInputTypes } from './types';
 import { AtomWrapperTypes } from '../AtomWrapper/types';
 import { UIBD } from 'utils/isBackDark';
 import { UCT } from 'utils/changeTransparency';
+import { UCB } from 'utils/changeBrightness';
 
 export const InputLabelStyled = styled(motion.label)<AtomInputTypes['label']>(
   (props) => {
@@ -334,6 +335,7 @@ export const InputSelectOptionStyled = styled(
         UIBD(theme?.general?.properties?.background?.toString() ?? '#ffffff'),
         14
       )};
+
       border-radius: 4px;
       border: 1px solid #0000001a;
       box-shadow: none;
@@ -343,6 +345,12 @@ export const InputSelectOptionStyled = styled(
     css`
       background-color: ${theme?.input?.option?.color?.primary ?? '#4285f4'};
       color: ${UIBD(theme?.input?.option?.color?.primary ?? '#4285f4')};
+      :hover {
+        background-color: ${UCB(
+          theme?.input?.option?.color?.primary ?? '#4285f4',
+          -10
+        )};
+      }
     `}
     ${props?.css?.(props?.theme, props)}
   `;

@@ -26,6 +26,9 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
   const { error, label, select, span, labeltext } = props;
 
   const [selectID, setSelectID] = useState(select?.value?.toString() ?? '');
+  const [selectMultiple, setSelectMultiple] = useState(
+    select?.multipleValue ?? []
+  );
   const [open, setOpen] = useState(false);
   const [searching, setSearching] = useState(false);
   const [search, setSearch] = useState('');
@@ -75,7 +78,9 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
           {...select}
           disabled={true}
           searching={searching}
-          value={selected?.label ?? ''}
+          value={
+            select?.multiple ? select?.multipleLabel : selected?.label ?? ''
+          }
           placeholder="Select an option"
           onTap={() => {
             setOpen(!open);
@@ -170,14 +175,26 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
             <InputSelectOptionStyled
               key={item?.id}
               id={item?.id}
-              selected={item?.id === get(formik?.values, id, selectID)}
+              selected={
+                select?.multiple
+                  ? selectMultiple?.includes(item?.id)
+                  : item?.id === get(formik?.values, id, selectID)
+              }
               onClick={() => {
                 formik?.setFieldValue?.(id, item?.id);
                 select?.onSelect?.(item);
                 setSelectID(item?.id);
-                setOpen(false);
-                setSearching(false);
-                setSearch('');
+                if (select?.multiple) {
+                  setSelectMultiple((prev) =>
+                    prev?.includes(item?.id)
+                      ? prev?.filter((i) => i !== item?.id)
+                      : [...prev, item?.id]
+                  );
+                } else {
+                  setOpen(false);
+                  setSearching(false);
+                  setSearch('');
+                }
               }}
             >
               {item?.label}
