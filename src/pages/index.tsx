@@ -26,28 +26,11 @@ const ContainerCSS = css`
   flex-wrap: wrap;
 `;
 
-const OPTIONS = [
-  {
-    id: '1',
-    label: 'Option 1',
-    value: '1'
-  },
-  {
-    id: '2',
-    label: 'Option 2',
-    value: '2'
-  },
-  {
-    id: '3',
-    label: 'Option 3',
-    value: '3'
-  },
-  {
-    id: '4',
-    label: 'Option 4',
-    value: '4'
-  }
-] as IOption[];
+const OPTIONS = Array.from({ length: 100 }, (_, i) => ({
+  id: `${i}`,
+  label: `Option ${i}`,
+  value: `${i}`
+})) as IOption[];
 
 const Index = () => {
   const [pressToLoad, setPressToLoad] = useState(false);
@@ -363,6 +346,17 @@ const Index = () => {
               type="select"
               labeltext="Label Input Example"
               options={OPTIONS}
+              input={{
+                placeholder: 'Placeholder Input Example'
+              }}
+            />
+            <AtomInput
+              type="select"
+              labeltext="Label Input Example"
+              options={OPTIONS}
+              select={{
+                search: true
+              }}
               input={{
                 placeholder: 'Placeholder Input Example'
               }}

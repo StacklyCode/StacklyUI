@@ -4,7 +4,12 @@ import { AtomIconTypes } from './types';
 
 const AtomIcon: FC<AtomIconTypes> = (props) => {
   const { icon } = props;
-  return <IconStyled {...props} className={icon ?? 'fas fa-home'} />;
+  return (
+    <IconStyled
+      {...props}
+      className={`${icon ?? 'fas fa-home'} ${props?.className ?? ''}`}
+    />
+  );
 };
 
 export default AtomIcon;

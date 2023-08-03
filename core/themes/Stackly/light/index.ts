@@ -239,7 +239,7 @@ const ThemeDark: IPalette = {
     },
     option: {
       color: {
-        primary: '#445c7d'
+        primary: '#052957'
       },
       css: (theme, props) => css`
         ${InputOptionSTDarkCSS(theme, props)}
