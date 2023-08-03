@@ -84,13 +84,13 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
       <InputSelectWrapperStyled open={open}>
         <InputSelectStyled
           {...Animation}
+          placeholder="Select an option"
           {...select}
           disabled={true}
           searching={searching}
           value={
             select?.multiple ? select?.multipleLabel : selected?.label ?? ''
           }
-          placeholder="Select an option"
           onTap={() => {
             setOpen(!open);
             formik?.setFieldTouched(id, true);
