@@ -59,6 +59,7 @@ type MenuBarType = {
 
 const MenuBar: FC<MenuBarType> = (props) => {
   const { editor } = props;
+  if (!editor) return <></>;
   // const [isOpen, setIsOpen] = useState(false);
   // const [loadingFile, setLoadingFile] = useState(false);
   // const [image, setImage] = useState({} as File | string);
@@ -958,6 +959,7 @@ const AtomTextEditor: FC<AtomTextEditorType> = (props) => {
       `}
     >
       <GlobalStyles />
+
       <MenuBar
         editor={editor}
         options={props?.options}
