@@ -21,7 +21,12 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
 
   const images = get(formik?.values, id) as IFileDragDrop[];
   const isLoad = images.length > 0;
-  const selectedImage = images?.[selected] ?? images?.[0];
+  const selectedImage = images?.[selected] ??
+    images?.[0] ?? {
+      id: '-1',
+      url: '',
+      file: null
+    };
 
   if (isLoad)
     return (
