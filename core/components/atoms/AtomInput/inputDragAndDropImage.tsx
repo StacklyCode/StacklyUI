@@ -131,7 +131,7 @@ const InputDragAndDropImage: FCWC<Type> = (props) => {
                       border-radius: 2px;
                       overflow: hidden;
                     `}
-                    src={URL.createObjectURL(img?.file)}
+                    src={img?.file ? URL.createObjectURL(img?.file) : img?.url}
                   />
                   <AtomButton
                     onClick={(e) => {

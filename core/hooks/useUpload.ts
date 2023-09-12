@@ -5,21 +5,29 @@ type Props = {
   token: string;
 };
 
-type IUpload = {
+export type IUpload = {
   url: string;
   status: 'pending' | 'uploaded' | 'error';
   id: string;
   name: string;
+  contentType: string;
   fileName: string;
+  size: number;
+  path: string;
+  pathComplete: string;
   extension: string;
   companyId: string;
   userId: string;
   signedUrl: string;
 };
 
-type IUploadCallback = (file: File) => Promise<IUpload>;
+type CallbackProps = {
+  path?: string;
+};
 
-const URL = 'https://oort.stellaria.app/api';
+type IUploadCallback = (file?: File, opts?: CallbackProps) => Promise<IUpload>;
+
+const URL = 'https://oort.api.stellaria.app/api';
 const GetUploadUrl = (url: string) => `${URL}${url}`;
 
 const UpdateStatus = async (upload: Partial<IUpload>, token: string) => {
@@ -67,12 +75,17 @@ const useUpload = (props: Props) => {
   const [loading, setLoading] = useState(false);
 
   const upload = useCallback<IUploadCallback>(
-    async (file) => {
+    async (file, opts) => {
+      if (!file) return {} as IUpload;
       setLoading(true);
 
+      const contentType = file.type ?? 'application/octet-stream';
       const payload = {
         fileName: file.name,
-        companyId
+        companyId,
+        contentType,
+        size: file.size,
+        path: opts?.path
       };
 
       const { id, signedUrl } = await CreateUpload(payload, token);
@@ -81,7 +94,7 @@ const useUpload = (props: Props) => {
         method: 'PUT',
         body: file,
         headers: {
-          'Content-Type': 'application/octet-stream'
+          'Content-Type': contentType
         }
       })
         .catch(
