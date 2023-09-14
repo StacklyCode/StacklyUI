@@ -25,13 +25,15 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
   const { formik, id } = props;
   const { error, label, select, span, labeltext } = props;
 
-  const [selectID, setSelectID] = useState(select?.value?.toString() ?? '');
+  const [selectValue, setSelectValue] = useState(
+    select?.value?.toString() ?? ''
+  );
   const [selectMultiple, setSelectMultiple] = useState(
     select?.multipleValue ?? []
   );
 
   useEffect(() => {
-    setSelectID(select?.value?.toString() ?? '');
+    setSelectValue(select?.value?.toString() ?? '');
   }, [`${select?.value}`]);
 
   useEffect(() => {
@@ -50,7 +52,7 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
   }, [search, props?.options]);
 
   const selected = props?.options?.find(
-    (item) => item?.id === get(formik?.values, id, selectID)
+    (item) => item?.value === get(formik?.values, id, selectValue)
   );
 
   const ref = useRef<HTMLDivElement>(null);
@@ -58,7 +60,7 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
   useEffect(() => {
     if (ref.current) {
       const getButtons = ref.current.getElementsByTagName('button');
-      const getSelected = getButtons?.namedItem(selectID);
+      const getSelected = getButtons?.namedItem(selectValue);
       ref.current.scrollTo({
         top: getSelected?.offsetTop - ref.current?.clientHeight / 2 + 15,
         behavior: 'smooth'
@@ -187,12 +189,12 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
               selected={
                 select?.multiple
                   ? selectMultiple?.includes(item?.value)
-                  : item?.value === get(formik?.values, id, selectID)
+                  : item?.value === get(formik?.values, id, selectValue)
               }
               onClick={() => {
                 formik?.setFieldValue?.(id, item?.value);
                 select?.onSelecting?.(item);
-                setSelectID(item?.value);
+                setSelectValue(item?.value);
                 if (select?.multiple) {
                   setSelectMultiple((prev) =>
                     prev?.includes(item?.value)
