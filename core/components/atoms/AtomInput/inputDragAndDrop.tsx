@@ -19,6 +19,7 @@ const InputDragAndDrop: FCWC<AtomInputTypes> = (props) => {
 
   const setImage = (files: FileList) => {
     if (!files) return;
+    const replace = input?.replace ?? true;
     const images = [...files];
     if (images.length - 1 >= input?.maxfiles) return;
     const isImage = images.every((file) => file.type.includes('image'));
@@ -29,7 +30,8 @@ const InputDragAndDrop: FCWC<AtomInputTypes> = (props) => {
       file
     })) as IFileDragDrop[];
 
-    formik?.setFieldValue(id, newFiles);
+    const oldFiles = formik?.values[id] as IFileDragDrop[];
+    formik?.setFieldValue(id, replace ? newFiles : [...oldFiles, ...newFiles]);
   };
   return (
     <InputLabelStyled htmlFor={id} {...label}>
