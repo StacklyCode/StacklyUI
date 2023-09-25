@@ -8,7 +8,7 @@ const AtomButton = forwardRef<any, AtomButtonTypes>((props, ref) => {
   return (
     <ButtonStyled {...props} ref={ref}>
       <AtomLoader astype="button" loading={loading}>
-        {children ?? 'Text Default'}
+        {children}
       </AtomLoader>
     </ButtonStyled>
   );

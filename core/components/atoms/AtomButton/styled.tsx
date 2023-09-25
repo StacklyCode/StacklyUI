@@ -26,9 +26,9 @@ export const ButtonStyled = styled(motion.button)<AtomButtonTypes>((props) =>
           font-size: 12px;
           font-family: 'Inter', sans-serif;
           font-weight: 600;
-          min-height: 32px;
           border-radius: 4px;
           line-height: 150%;
+          transition: all 0.3s ease;
           ${props?.theme?.general?.css?.(props.theme, props)}
           ${props?.theme?.button?.css?.(props.theme, props)}
           ${props?.css?.(props?.theme, props)}
