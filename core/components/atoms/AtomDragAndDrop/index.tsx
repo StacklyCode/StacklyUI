@@ -28,6 +28,7 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
   } = props;
   const {
     wrapper,
+    content,
     placeholder,
     icon,
     image,
@@ -130,6 +131,7 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
       />
       {isFile ? (
         <AtomWrapper
+          {...content}
           css={(theme) => css`
             width: 100%;
             height: 100%;
@@ -138,8 +140,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            ${wrapper?.css?.(theme, wrapper)}
-            ${theme?.components?.draganddrop?.wrapper?.css?.(theme, wrapper)}
+            ${content?.css?.(theme, content)}
+            ${theme?.components?.draganddrop?.content?.css?.(theme, content)}
           `}
         >
           <AtomImage
@@ -397,6 +399,7 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
         </AtomWrapper>
       ) : (
         <AtomWrapper
+          {...content}
           css={(theme) => css`
             width: 100%;
             height: 100%;
@@ -405,8 +408,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
             align-items: center;
             padding: 20px;
             pointer-events: none;
-            ${wrapper?.css?.(theme, wrapper)}
-            ${theme?.components?.draganddrop?.wrapper?.css?.(theme, wrapper)}
+            ${content?.css?.(theme, content)}
+            ${theme?.components?.draganddrop?.content?.css?.(theme, content)}
           `}
         >
           <AtomIcon

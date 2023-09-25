@@ -36,7 +36,6 @@ export type AtomDragAndDropTypes = {
   onAction?: (files: IFile) => void;
   onRemove?: (files: IFile) => void;
 
-  wrapper?: AtomWrapperTypes;
   preview?: AtomWrapperTypes;
   previewItem?: AtomWrapperTypes;
   previewItemWrapper?: AtomWrapperTypes;
@@ -49,6 +48,7 @@ export type AtomDragAndDropTypes = {
   previewItemRemove?: AtomButtonTypes;
   previewItemRemoveIcon?: AtomIconTypes;
 
+  wrapper?: AtomWrapperTypes;
   content?: AtomWrapperTypes;
   placeholder?: AtomTextTypes;
   image?: AtomImageTypes;
