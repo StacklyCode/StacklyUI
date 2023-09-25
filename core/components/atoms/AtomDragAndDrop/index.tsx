@@ -44,9 +44,9 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
   const action = props?.action ?? actionable;
   const select = props?.select ?? selectable;
 
-  const getfile = get<IFile[]>(formik?.values, id, files);
-  const file = getfile?.[select] ?? files?.[0];
-  const selected = getfile?.[select]?.id ?? files?.[0]?.id;
+  const getfile = get<IFile[]>(formik?.values, id, props?.files ?? files);
+  const file = getfile?.[select] ?? getfile?.[0];
+  const selected = getfile?.[select]?.id ?? getfile?.[0]?.id;
   const isFile = Boolean(file);
 
   const [drag, setDrag] = useState(false);
@@ -55,7 +55,7 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
     ref,
     props,
     setDrag,
-    files,
+    files: getfile,
     setFiles
   };
 
@@ -177,7 +177,7 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                   )}
                 `}
               >
-                {files?.map((file, idx) => (
+                {getfile?.map((file, idx) => (
                   <AtomWrapper
                     key={file?.id}
                     {...previewItem}
@@ -212,8 +212,11 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                         justify-content: center;
                         align-items: center;
                         transform: translate(-20%, -20%);
-                        border: 2px solid #0072f5;
-                        background-color: #010101;
+                        border: 1px solid #0072f5;
+                        background-color: #fafafa;
+                        :hover {
+                          box-shadow: 0px 0px 2px 0px #0072f5;
+                        }
                         ${action === file?.id &&
                         css`
                           background-color: #0072f5;
@@ -230,7 +233,11 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                         icon="fas fa-star"
                         css={(theme) => css`
                           font-size: 0.53rem;
-                          color: #ffffff;
+                          color: #0072f5;
+                          ${action === file?.id &&
+                          css`
+                            color: #ffffff;
+                          `}
                           ${previewItemActionIcon?.css(
                             theme,
                             previewItemActionIcon
@@ -253,9 +260,10 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                         height: 100%;
                         object-fit: cover;
                         cursor: pointer;
+                        border: 1px solid #adadad;
                         ${selected === file?.id &&
                         css`
-                          border: 2px solid #0072f5;
+                          border: 1px solid #0072f5;
                         `}
 
                         ${previewItemImage?.css(theme, previewItemImage)}

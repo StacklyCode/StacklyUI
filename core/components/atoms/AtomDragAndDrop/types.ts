@@ -15,6 +15,7 @@ export type IFile = {
 
 export type AtomDragAndDropTypes = {
   id?: string;
+  files?: IFile[];
   formik?: FormikValues;
 
   textError?: string;
