@@ -40,6 +40,7 @@ export type AtomInputInputProps = HTMLMotionProps<'input'> & {
   onClickPreview?: (img: IFileDragDrop, idx: number) => void;
   maxfiles?: number;
   astheme?: ColorKeys;
+  replace?: boolean;
   isDragDropIcon?: boolean;
   css?: CSSType<AtomInputInputProps>;
   cssDragDrop?: CSSType<AtomWrapperTypes>;
