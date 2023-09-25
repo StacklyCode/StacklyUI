@@ -22,7 +22,7 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
   const {
     hasPlaceholder = true,
     hasPreview = true,
-    hasButtonOpen = false,
+    hasButtonOpen = true,
     hasButtonAction = true,
     hasButtonRemove = true
   } = props;
@@ -344,58 +344,6 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
               </AtomWrapper>
             </AtomWrapper>
           )}
-          {hasButtonOpen && (
-            <AtomButton
-              onClick={(e) => {
-                e.stopPropagation();
-                ref?.current?.click();
-                onOpen?.(ref);
-              }}
-              {...previewItemOpen}
-              css={(theme) => css`
-                position: absolute;
-                top: 0px;
-                right: 0px;
-                padding: 0px;
-                width: 36px;
-                height: 36px;
-                border-radius: 4px;
-                justify-content: center;
-                align-items: center;
-                transform: translate(50%, -50%);
-                :hover {
-                  box-shadow: 0px 0px 2px 0px #0072f5;
-                }
-                ${action === file?.id &&
-                css`
-                  background-color: #0072f5;
-                `}
-
-                ${previewItemOpen?.css?.(theme, previewItemOpen)}
-                        ${theme?.components?.draganddrop?.previewItemOpen?.css?.(
-                  theme,
-                  previewItemOpen
-                )}
-              `}
-            >
-              <AtomIcon
-                icon="fas fa-pencil-alt"
-                css={(theme) => css`
-                  font-size: 16px;
-                  color: #ffffff;
-                  ${action === file?.id &&
-                  css`
-                    color: #ffffff;
-                  `}
-                  ${previewItemOpenIcon?.css?.(theme, previewItemOpenIcon)}
-                          ${theme?.components?.draganddrop?.previewItemOpenIcon?.css?.(
-                    theme,
-                    previewItemOpenIcon
-                  )}
-                `}
-              />
-            </AtomButton>
-          )}
         </AtomWrapper>
       ) : (
         <AtomWrapper
@@ -450,6 +398,58 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
             )}
           </AtomText>
         </AtomWrapper>
+      )}
+      {hasButtonOpen && (
+        <AtomButton
+          onClick={(e) => {
+            e.stopPropagation();
+            ref?.current?.click();
+            onOpen?.(ref);
+          }}
+          {...previewItemOpen}
+          css={(theme) => css`
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding: 0px;
+            width: 36px;
+            height: 36px;
+            border-radius: 4px;
+            justify-content: center;
+            align-items: center;
+            transform: translate(-50%, 50%);
+            :hover {
+              box-shadow: 0px 0px 2px 0px #0072f5;
+            }
+            ${action === file?.id &&
+            css`
+              background-color: #0072f5;
+            `}
+
+            ${previewItemOpen?.css?.(theme, previewItemOpen)}
+                        ${theme?.components?.draganddrop?.previewItemOpen?.css?.(
+              theme,
+              previewItemOpen
+            )}
+          `}
+        >
+          <AtomIcon
+            icon="fas fa-pencil-alt"
+            css={(theme) => css`
+              font-size: 16px;
+              color: #ffffff;
+              ${action === file?.id &&
+              css`
+                color: #ffffff;
+              `}
+              ${previewItemOpenIcon?.css?.(theme, previewItemOpenIcon)}
+                          ${theme?.components?.draganddrop?.previewItemOpenIcon?.css?.(
+                theme,
+                previewItemOpenIcon
+              )}
+            `}
+          />
+        </AtomButton>
       )}
     </AtomWrapper>
   );
