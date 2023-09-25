@@ -117,8 +117,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
           }
         `}
         transition: all 0.3s ease-in-out;
-        ${wrapper?.css(theme, wrapper)}
-        ${theme?.components?.draganddrop?.wrapper?.css(theme, wrapper)}
+        ${wrapper?.css?.(theme, wrapper)}
+        ${theme?.components?.draganddrop?.wrapper?.css?.(theme, wrapper)}
       `}
     >
       <input
@@ -138,8 +138,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            ${wrapper?.css(theme, wrapper)}
-            ${theme?.components?.draganddrop?.wrapper?.css(theme, wrapper)}
+            ${wrapper?.css?.(theme, wrapper)}
+            ${theme?.components?.draganddrop?.wrapper?.css?.(theme, wrapper)}
           `}
         >
           <AtomImage
@@ -149,8 +149,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
               height: 100%;
               object-fit: cover;
               border-radius: 8px;
-              ${image?.css(theme, image)}
-              ${theme?.components?.draganddrop?.image?.css(theme, image)}
+              ${image?.css?.(theme, image)}
+              ${theme?.components?.draganddrop?.image?.css?.(theme, image)}
             `}
             src={file?.url}
           />
@@ -170,8 +170,11 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                 background-color: #ffffff58;
                 padding: 5px;
                 border-radius: 4px;
-                ${preview?.css(theme, preview)}
-                ${theme?.components?.draganddrop?.preview?.css(theme, preview)}
+                ${preview?.css?.(theme, preview)}
+                ${theme?.components?.draganddrop?.preview?.css?.(
+                  theme,
+                  preview
+                )}
               `}
             >
               <AtomWrapper
@@ -180,8 +183,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                   height: max-content;
                   flex-direction: row;
                   gap: 5px;
-                  ${previewItemWrapper?.css(theme, previewItemWrapper)}
-                  ${theme?.components?.draganddrop?.previewItemWrapper?.css(
+                  ${previewItemWrapper?.css?.(theme, previewItemWrapper)}
+                  ${theme?.components?.draganddrop?.previewItemWrapper?.css?.(
                     theme,
                     previewItemWrapper
                   )}
@@ -196,8 +199,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                       width: 60px;
                       height: 45px;
                       border-radius: 4px;
-                      ${previewItem?.css(theme, previewItem)}
-                      ${theme?.components?.draganddrop?.previewItem?.css(
+                      ${previewItem?.css?.(theme, previewItem)}
+                      ${theme?.components?.draganddrop?.previewItem?.css?.(
                         theme,
                         previewItem
                       )}
@@ -233,8 +236,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                             background-color: #0072f5;
                           `}
 
-                          ${previewItemAction?.css(theme, previewItemAction)}
-                       ${theme?.components?.draganddrop?.previewItemAction?.css(
+                          ${previewItemAction?.css?.(theme, previewItemAction)}
+                       ${theme?.components?.draganddrop?.previewItemAction?.css?.(
                             theme,
                             previewItemAction
                           )}
@@ -249,11 +252,11 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                             css`
                               color: #ffffff;
                             `}
-                            ${previewItemActionIcon?.css(
+                            ${previewItemActionIcon?.css?.(
                               theme,
                               previewItemActionIcon
                             )}
-                         ${theme?.components?.draganddrop?.previewItemActionIcon?.css(
+                         ${theme?.components?.draganddrop?.previewItemActionIcon?.css?.(
                               theme,
                               previewItemActionIcon
                             )}
@@ -278,8 +281,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                           border: 1px solid #0072f5;
                         `}
 
-                        ${previewItemImage?.css(theme, previewItemImage)}
-                        ${theme?.components?.draganddrop?.previewItemImage?.css(
+                        ${previewItemImage?.css?.(theme, previewItemImage)}
+                        ${theme?.components?.draganddrop?.previewItemImage?.css?.(
                           theme,
                           previewItemImage
                         )}
@@ -310,8 +313,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                           border: 1px solid #ed1e45;
                           background-color: #ed1e45;
                           border-radius: 50%;
-                          ${previewItemRemove?.css(theme, previewItemRemove)}
-                          ${theme?.components?.draganddrop?.previewItemRemove?.css(
+                          ${previewItemRemove?.css?.(theme, previewItemRemove)}
+                          ${theme?.components?.draganddrop?.previewItemRemove?.css?.(
                             theme,
                             previewItemRemove
                           )}
@@ -322,11 +325,11 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                           css={(theme) => css`
                             font-size: 0.53rem;
                             color: #ffffff;
-                            ${previewItemRemoveIcon?.css(
+                            ${previewItemRemoveIcon?.css?.(
                               theme,
                               previewItemRemoveIcon
                             )}
-                            ${theme?.components?.draganddrop?.previewItemRemoveIcon?.css(
+                            ${theme?.components?.draganddrop?.previewItemRemoveIcon?.css?.(
                               theme,
                               previewItemRemoveIcon
                             )}
@@ -366,8 +369,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                   background-color: #0072f5;
                 `}
 
-                ${previewItemOpen?.css(theme, previewItemOpen)}
-                        ${theme?.components?.draganddrop?.previewItemOpen?.css(
+                ${previewItemOpen?.css?.(theme, previewItemOpen)}
+                        ${theme?.components?.draganddrop?.previewItemOpen?.css?.(
                   theme,
                   previewItemOpen
                 )}
@@ -382,8 +385,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                   css`
                     color: #ffffff;
                   `}
-                  ${previewItemOpenIcon?.css(theme, previewItemOpenIcon)}
-                          ${theme?.components?.draganddrop?.previewItemOpenIcon?.css(
+                  ${previewItemOpenIcon?.css?.(theme, previewItemOpenIcon)}
+                          ${theme?.components?.draganddrop?.previewItemOpenIcon?.css?.(
                     theme,
                     previewItemOpenIcon
                   )}
@@ -402,8 +405,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
             align-items: center;
             padding: 20px;
             pointer-events: none;
-            ${wrapper?.css(theme, wrapper)}
-            ${theme?.components?.draganddrop?.wrapper?.css(theme, wrapper)}
+            ${wrapper?.css?.(theme, wrapper)}
+            ${theme?.components?.draganddrop?.wrapper?.css?.(theme, wrapper)}
           `}
         >
           <AtomIcon
@@ -413,8 +416,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
               font-size: 40px;
               color: #adadad;
               pointer-events: none;
-              ${icon?.css(theme)}
-              ${theme?.components?.draganddrop?.icon?.css(theme, icon)}
+              ${icon?.css?.(theme)}
+              ${theme?.components?.draganddrop?.icon?.css?.(theme, icon)}
             `}
           />
           <AtomText
@@ -428,8 +431,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
               margin: 10px 0px 0px 0px;
               pointer-events: none;
               user-select: none;
-              ${placeholder?.css(theme)}
-              ${theme?.components?.draganddrop?.placeholder?.css(
+              ${placeholder?.css?.(theme)}
+              ${theme?.components?.draganddrop?.placeholder?.css?.(
                 theme,
                 placeholder
               )}
