@@ -15,9 +15,16 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
     formik,
     textPlaceholder,
     textPlaceholderDrag,
-    hasPreview = true,
+    onOpen,
     onAction,
     onRemove
+  } = props;
+  const {
+    hasPlaceholder = true,
+    hasPreview = true,
+    hasButtonOpen = false,
+    hasButtonAction = true,
+    hasButtonRemove = true
   } = props;
   const {
     wrapper,
@@ -28,6 +35,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
     previewItem,
     previewItemWrapper,
     previewItemImage,
+    previewItemOpen,
+    previewItemOpenIcon,
     previewItemAction,
     previewItemActionIcon,
     previewItemRemove,
@@ -125,7 +134,7 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
             width: 100%;
             height: 100%;
             position: relative;
-            border-radius: 12px;
+            border-radius: 8px;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -139,12 +148,13 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
               width: 100%;
               height: 100%;
               object-fit: cover;
-              border-radius: 12px;
+              border-radius: 8px;
               ${image?.css(theme, image)}
               ${theme?.components?.draganddrop?.image?.css(theme, image)}
             `}
             src={file?.url}
           />
+
           {hasPreview && (
             <AtomWrapper
               {...preview}
@@ -193,62 +203,64 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                       )}
                     `}
                   >
-                    <AtomButton
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setActionable(file?.id);
-                        onAction?.(file);
-                      }}
-                      {...previewItemAction}
-                      css={(theme) => css`
-                        position: absolute;
-                        z-index: 1;
-                        top: 0px;
-                        left: 0px;
-                        padding: 0px;
-                        width: 19px;
-                        height: 19px;
-                        border-radius: 50%;
-                        justify-content: center;
-                        align-items: center;
-                        transform: translate(-20%, -20%);
-                        border: 1px solid #0072f5;
-                        background-color: #fafafa;
-                        :hover {
-                          box-shadow: 0px 0px 2px 0px #0072f5;
-                        }
-                        ${action === file?.id &&
-                        css`
-                          background-color: #0072f5;
-                        `}
-
-                        ${previewItemAction?.css(theme, previewItemAction)}
-                        ${theme?.components?.draganddrop?.previewItemAction?.css(
-                          theme,
-                          previewItemAction
-                        )}
-                      `}
-                    >
-                      <AtomIcon
-                        icon="fas fa-star"
+                    {hasButtonAction && (
+                      <AtomButton
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActionable(file?.id);
+                          onAction?.(file);
+                        }}
+                        {...previewItemAction}
                         css={(theme) => css`
-                          font-size: 0.53rem;
-                          color: #0072f5;
+                          position: absolute;
+                          z-index: 1;
+                          top: 0px;
+                          left: 0px;
+                          padding: 0px;
+                          width: 19px;
+                          height: 19px;
+                          border-radius: 50%;
+                          justify-content: center;
+                          align-items: center;
+                          transform: translate(-20%, -20%);
+                          border: 1px solid #0072f5;
+                          background-color: #fafafa;
+                          :hover {
+                            box-shadow: 0px 0px 2px 0px #0072f5;
+                          }
                           ${action === file?.id &&
                           css`
-                            color: #ffffff;
+                            background-color: #0072f5;
                           `}
-                          ${previewItemActionIcon?.css(
+
+                          ${previewItemAction?.css(theme, previewItemAction)}
+                       ${theme?.components?.draganddrop?.previewItemAction?.css(
                             theme,
-                            previewItemActionIcon
-                          )}
-                          ${theme?.components?.draganddrop?.previewItemActionIcon?.css(
-                            theme,
-                            previewItemActionIcon
+                            previewItemAction
                           )}
                         `}
-                      />
-                    </AtomButton>
+                      >
+                        <AtomIcon
+                          icon="fas fa-star"
+                          css={(theme) => css`
+                            font-size: 0.53rem;
+                            color: #0072f5;
+                            ${action === file?.id &&
+                            css`
+                              color: #ffffff;
+                            `}
+                            ${previewItemActionIcon?.css(
+                              theme,
+                              previewItemActionIcon
+                            )}
+                         ${theme?.components?.draganddrop?.previewItemActionIcon?.css(
+                              theme,
+                              previewItemActionIcon
+                            )}
+                          `}
+                        />
+                      </AtomButton>
+                    )}
                     <AtomImage
                       onClick={(e) => {
                         e.stopPropagation();
@@ -274,56 +286,110 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                       `}
                       src={file?.url}
                     />
-                    <AtomButton
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setFiles((prev) =>
-                          prev.filter((f) => f?.id !== file?.id)
-                        );
-                        onRemove?.(file);
-                      }}
-                      {...previewItemRemove}
-                      css={(theme) => css`
-                        position: absolute;
-                        z-index: 1;
-                        bottom: 0px;
-                        right: 0px;
-                        padding: 0px;
-                        width: 18px;
-                        height: 18px;
-                        justify-content: center;
-                        align-items: center;
-                        transform: translate(20%, 0%);
-                        border: 1px solid #ed1e45;
-                        background-color: #ed1e45;
-                        border-radius: 50%;
-                        ${previewItemRemove?.css(theme, previewItemRemove)}
-                        ${theme?.components?.draganddrop?.previewItemRemove?.css(
-                          theme,
-                          previewItemRemove
-                        )}
-                      `}
-                    >
-                      <AtomIcon
-                        icon="fas fa-trash"
+                    {hasButtonRemove && (
+                      <AtomButton
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setFiles((prev) =>
+                            prev.filter((f) => f?.id !== file?.id)
+                          );
+                          onRemove?.(file);
+                        }}
+                        {...previewItemRemove}
                         css={(theme) => css`
-                          font-size: 0.53rem;
-                          color: #ffffff;
-                          ${previewItemRemoveIcon?.css(
+                          position: absolute;
+                          z-index: 1;
+                          bottom: 0px;
+                          right: 0px;
+                          padding: 0px;
+                          width: 18px;
+                          height: 18px;
+                          justify-content: center;
+                          align-items: center;
+                          transform: translate(20%, 0%);
+                          border: 1px solid #ed1e45;
+                          background-color: #ed1e45;
+                          border-radius: 50%;
+                          ${previewItemRemove?.css(theme, previewItemRemove)}
+                          ${theme?.components?.draganddrop?.previewItemRemove?.css(
                             theme,
-                            previewItemRemoveIcon
-                          )}
-                          ${theme?.components?.draganddrop?.previewItemRemoveIcon?.css(
-                            theme,
-                            previewItemRemoveIcon
+                            previewItemRemove
                           )}
                         `}
-                      />
-                    </AtomButton>
+                      >
+                        <AtomIcon
+                          icon="fas fa-trash"
+                          css={(theme) => css`
+                            font-size: 0.53rem;
+                            color: #ffffff;
+                            ${previewItemRemoveIcon?.css(
+                              theme,
+                              previewItemRemoveIcon
+                            )}
+                            ${theme?.components?.draganddrop?.previewItemRemoveIcon?.css(
+                              theme,
+                              previewItemRemoveIcon
+                            )}
+                          `}
+                        />
+                      </AtomButton>
+                    )}
                   </AtomWrapper>
                 ))}
               </AtomWrapper>
             </AtomWrapper>
+          )}
+          {hasButtonOpen && (
+            <AtomButton
+              onClick={(e) => {
+                e.stopPropagation();
+                ref?.current?.click();
+                onOpen?.(ref);
+              }}
+              {...previewItemOpen}
+              css={(theme) => css`
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                padding: 0px;
+                width: 36px;
+                height: 36px;
+                border-radius: 4px;
+                justify-content: center;
+                align-items: center;
+                transform: translate(50%, -50%);
+                :hover {
+                  box-shadow: 0px 0px 2px 0px #0072f5;
+                }
+                ${action === file?.id &&
+                css`
+                  background-color: #0072f5;
+                `}
+
+                ${previewItemOpen?.css(theme, previewItemOpen)}
+                        ${theme?.components?.draganddrop?.previewItemOpen?.css(
+                  theme,
+                  previewItemOpen
+                )}
+              `}
+            >
+              <AtomIcon
+                icon="fas fa-pencil-alt"
+                css={(theme) => css`
+                  font-size: 16px;
+                  color: #ffffff;
+                  ${action === file?.id &&
+                  css`
+                    color: #ffffff;
+                  `}
+                  ${previewItemOpenIcon?.css(theme, previewItemOpenIcon)}
+                          ${theme?.components?.draganddrop?.previewItemOpenIcon?.css(
+                    theme,
+                    previewItemOpenIcon
+                  )}
+                `}
+              />
+            </AtomButton>
           )}
         </AtomWrapper>
       ) : (
@@ -369,9 +435,13 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
               )}
             `}
           >
-            {drag
-              ? textPlaceholderDrag ?? 'Suelta el archivo aquí'
-              : textPlaceholder ?? 'Arrastra y suelta aquí tu archivo'}
+            {hasPlaceholder && (
+              <>
+                {drag
+                  ? textPlaceholderDrag ?? 'Suelta el archivo aquí'
+                  : textPlaceholder ?? 'Arrastra y suelta aquí tu archivo'}
+              </>
+            )}
           </AtomText>
         </AtomWrapper>
       )}

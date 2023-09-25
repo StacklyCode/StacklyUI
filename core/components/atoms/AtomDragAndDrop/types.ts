@@ -22,11 +22,17 @@ export type AtomDragAndDropTypes = {
   textPlaceholder?: string;
   textPlaceholderDrag?: string;
 
+  hasButtonOpen?: boolean;
+  hasButtonAction?: boolean;
+  hasButtonRemove?: boolean;
+
+  hasPlaceholder?: boolean;
   hasPreview?: boolean;
   hasReplace?: boolean;
 
   action?: string;
   select?: string;
+  onOpen?: (ref: MutableRefObject<HTMLInputElement>) => void;
   onAction?: (files: IFile) => void;
   onRemove?: (files: IFile) => void;
 
@@ -35,10 +41,13 @@ export type AtomDragAndDropTypes = {
   previewItem?: AtomWrapperTypes;
   previewItemWrapper?: AtomWrapperTypes;
   previewItemImage?: AtomImageTypes;
-  previewItemRemove?: AtomButtonTypes;
-  previewItemRemoveIcon?: AtomIconTypes;
+
+  previewItemOpen?: AtomWrapperTypes;
+  previewItemOpenIcon?: AtomIconTypes;
   previewItemAction?: AtomWrapperTypes;
   previewItemActionIcon?: AtomIconTypes;
+  previewItemRemove?: AtomButtonTypes;
+  previewItemRemoveIcon?: AtomIconTypes;
 
   content?: AtomWrapperTypes;
   placeholder?: AtomTextTypes;
