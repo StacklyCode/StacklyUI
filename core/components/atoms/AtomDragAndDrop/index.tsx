@@ -22,7 +22,7 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
   const {
     hasPlaceholder = true,
     hasPreview = true,
-    hasButtonOpen = true,
+    hasButtonOpen = false,
     hasButtonAction = true,
     hasButtonRemove = true
   } = props;
@@ -55,7 +55,7 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
   const select = props?.select ?? selectable;
 
   const getfile = get<IFile[]>(formik?.values, id, props?.files ?? files);
-  const file = getfile?.[select] ?? getfile?.[0];
+  const file = (getfile?.[select] ?? getfile?.[0]) as IFile;
   const selected = getfile?.[select]?.id ?? getfile?.[0]?.id;
   const isFile = Boolean(file);
 
@@ -154,7 +154,7 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
               ${image?.css?.(theme, image)}
               ${theme?.components?.draganddrop?.image?.css?.(theme, image)}
             `}
-            src={file?.url}
+            src={file?.file ? URL.createObjectURL(file?.file) : file?.url}
           />
 
           {hasPreview && (
@@ -289,7 +289,9 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                           previewItemImage
                         )}
                       `}
-                      src={file?.url}
+                      src={
+                        file?.file ? URL.createObjectURL(file?.file) : file?.url
+                      }
                     />
                     {hasButtonRemove && (
                       <AtomButton
