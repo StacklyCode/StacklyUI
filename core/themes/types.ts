@@ -17,6 +17,7 @@ import {
   AtomWrapperTypes,
   CSSType
 } from '../types';
+import { AtomDragAndDropTypes } from 'components/atoms/AtomDragAndDrop/types';
 
 export type ThemeColor = {
   primary?: string;
@@ -85,4 +86,7 @@ export type Palette = {
   header?: ThemeAtomHeader;
   dot?: ThemeAtomDot;
   togletheme?: ThemeTogleTheme;
+  components?: {
+    draganddrop?: AtomDragAndDropTypes;
+  };
 };

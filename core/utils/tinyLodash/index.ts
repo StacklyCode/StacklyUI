@@ -134,7 +134,7 @@ export const baseGet = (object, path) => {
   return index && index == length ? object : undefined;
 };
 
-export const get = (object = {}, path = '', defaultValue = '') => {
+export const get = <T>(object: unknown, path = '', defaultValue: T): T => {
   const result = object == null ? undefined : baseGet(object, path);
   return result === undefined ? defaultValue : result;
 };
