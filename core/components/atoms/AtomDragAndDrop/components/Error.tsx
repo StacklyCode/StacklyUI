@@ -5,7 +5,11 @@ import { get } from '../../../../utils/tinyLodash';
 import AtomText from '../../AtomText';
 import { css } from '@emotion/react';
 
-const validateErrors = (formik: FormikValues, id: string, def: string) =>
+const validateErrors = (
+  formik: FormikValues,
+  id: string,
+  def: string
+): string =>
   (get(formik?.values, id) !== `` || get(formik?.touched, id)) &&
   get(formik?.errors, id)
     ? get(formik?.errors, id)
