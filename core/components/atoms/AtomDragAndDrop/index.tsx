@@ -232,6 +232,9 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                           background-color: #fafafa;
                           :hover {
                             box-shadow: 0px 0px 2px 0px #0072f5;
+                            i {
+                              color: #ffffff;
+                            }
                           }
                           ${action === file?.id &&
                           css`
@@ -317,6 +320,10 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                           border: 1px solid #ed1e45;
                           background-color: #ed1e45;
                           border-radius: 50%;
+                          :hover {
+                            background-color: #ce1134;
+                            box-shadow: 0px 0px 2px 0px #ed1e45;
+                          }
                           ${previewItemRemove?.css?.(theme, previewItemRemove)}
                           ${theme?.components?.draganddrop?.previewItemRemove?.css?.(
                             theme,
