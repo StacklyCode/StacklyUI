@@ -4,7 +4,7 @@ import { AtomInputTypes } from './types';
 import { FormikValues } from 'formik';
 import { get } from '../../../utils/tinyLodash';
 
-const validateErrors = (formik: FormikValues, id: string) =>
+const validateErrors = (formik: FormikValues, id: string): string =>
   (get(formik?.values, id) !== `` || get(formik?.touched, id)) &&
   get(formik?.errors, id)
     ? get(formik?.errors, id)
