@@ -61,7 +61,7 @@ export const InputErrorStyled = styled(motion.span)<AtomInputTypes['error']>(
     return css`
       font-family: Montserrat, sans-serif;
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 800;
       color: #ff0000;
       height: 30px;
       margin: 0px 0px 0px 0px;
