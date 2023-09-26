@@ -48,6 +48,7 @@ export type AtomDragAndDropTypes = {
   previewItemRemove?: AtomButtonTypes;
   previewItemRemoveIcon?: AtomIconTypes;
 
+  container?: AtomWrapperTypes;
   wrapper?: AtomWrapperTypes;
   content?: AtomWrapperTypes;
   placeholder?: AtomTextTypes;

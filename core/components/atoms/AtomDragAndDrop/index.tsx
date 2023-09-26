@@ -28,6 +28,7 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
     hasButtonRemove = true
   } = props;
   const {
+    container,
     wrapper,
     content,
     placeholder,
@@ -86,10 +87,12 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
 
   return (
     <AtomWrapper
-      css={() => css`
-        width: max-content;
-        height: max-content;
+      {...container}
+      css={(theme) => css`
+        width: 400px;
+        height: 400px;
         flex-direction: column;
+        ${container?.css?.(theme, container)}
       `}
     >
       <AtomWrapper
@@ -98,8 +101,8 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
         onClick={() => input?.current?.click()}
         css={(theme) => css`
           position: relative;
-          width: 400px;
-          height: 400px;
+          width: 100%;
+          height: 100%;
           gap: 5px;
           border-radius: 8px;
           justify-content: center;
