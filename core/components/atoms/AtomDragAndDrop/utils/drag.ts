@@ -14,7 +14,7 @@ export const onDragLeave: DragFunc = (setter) => (e) => {
 
 export const onDrop: DropFunc = (opts) => (e) => {
   const { setDrag, files, setFiles, props, ref } = opts;
-  const { id, formik } = props;
+  const { id, formik, onError } = props;
   e.preventDefault();
   e.stopPropagation();
   setDrag(false);
@@ -29,14 +29,48 @@ export const onDrop: DropFunc = (opts) => (e) => {
     return formik.setFieldValue(id, files);
   };
 
-  const getFiles = getter();
+  const exts = props?.extensions ?? [];
+
+  const hasPermittedFile = (file: File) => {
+    const hasExt = exts.length > 0;
+    if (!hasExt) return true;
+
+    const ext = file.name.split('.').pop();
+    if (!ext) return false;
+
+    return exts.includes(ext);
+  };
+
+  const handleErrors = (error: string) => {
+    if (!onError) return;
+    onError(error);
+  };
 
   const inputElement = e.target as HTMLInputElement;
   const inputDrop = e as DragEvent;
 
+  const getFiles = getter();
+
   const newFiles = inputElement.files ?? inputDrop.dataTransfer?.files;
   const newFilesArray = Array.from(newFiles);
-  const newFilesMapped = newFilesArray
+
+  const hasError = newFilesArray.map(hasPermittedFile);
+  const hasErrorSome = hasError.some((error) => !error);
+
+  if (hasErrorSome) {
+    hasError.forEach((error, index) => {
+      if (error) return;
+      handleErrors(
+        `El archivo ${
+          newFilesArray[index].name
+        } no es un tipo de archivo válido (${exts.join(', ')})`
+      );
+    });
+  }
+
+  const filteredFiles = newFilesArray.filter(hasPermittedFile);
+
+  const newFilesMapped = filteredFiles
     .map((file) => ({
       id: file.size + file.name,
       file: file,

@@ -14,6 +14,7 @@ const Test = () => {
       `}
     >
       <AtomDragAndDrop />
+
       <AtomDragAndDrop
         hasButtonOpen={true}
         hasPlaceholder={false}

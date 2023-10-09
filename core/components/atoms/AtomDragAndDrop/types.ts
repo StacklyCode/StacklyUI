@@ -17,6 +17,7 @@ export type AtomDragAndDropTypes = {
   id?: string;
   files?: IFile[];
   formik?: FormikValues;
+  extensions?: string[];
 
   textError?: string;
   textPlaceholder?: string;
@@ -35,6 +36,7 @@ export type AtomDragAndDropTypes = {
   onOpen?: (ref: MutableRefObject<HTMLInputElement>) => void;
   onAction?: (files: IFile) => void;
   onRemove?: (files: IFile) => void;
+  onError?: (error: string) => void;
 
   preview?: AtomWrapperTypes;
   previewItem?: AtomWrapperTypes;
