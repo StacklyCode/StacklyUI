@@ -115,6 +115,7 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
         />
         {select?.search && (
           <AtomButton
+            type="button"
             css={(theme) => css`
               border: 1px solid transparent;
               width: max-content;
@@ -148,6 +149,7 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
           </AtomButton>
         )}
         <AtomButton
+          type="button"
           onClick={(e) => {
             e.stopPropagation();
             setOpen((prev) => {
