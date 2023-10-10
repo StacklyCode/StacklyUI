@@ -70,6 +70,7 @@ export type DropFuncOpts = {
   setDrag: Dispatch<SetStateAction<boolean>>;
   files: IFile[];
   setFiles: Dispatch<SetStateAction<IFile[]>>;
+  setLoading: Dispatch<SetStateAction<boolean>>;
 };
 
 export type DropFunc = (

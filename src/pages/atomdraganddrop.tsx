@@ -14,6 +14,7 @@ const Test = () => {
       `}
     >
       <AtomDragAndDrop />
+      <AtomDragAndDrop extensions={['jpg', 'png', 'heic', 'heif', 'jpeg']} />
 
       <AtomDragAndDrop
         hasButtonOpen={true}

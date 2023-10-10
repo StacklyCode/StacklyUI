@@ -13,7 +13,7 @@ export const onDragLeave: DragFunc = (setter) => (e) => {
 };
 
 export const onDrop: DropFunc = (opts) => (e) => {
-  const { setDrag, files, setFiles, props, ref } = opts;
+  const { setDrag, files, setFiles, props, ref, setLoading } = opts;
   const { id, formik, onError } = props;
   e.preventDefault();
   e.stopPropagation();
@@ -38,7 +38,7 @@ export const onDrop: DropFunc = (opts) => (e) => {
     const ext = file.name.split('.').pop();
     if (!ext) return false;
 
-    return exts.includes(ext);
+    return exts.includes(ext?.toLowerCase());
   };
 
   const handleErrors = (error: string) => {
@@ -68,22 +68,50 @@ export const onDrop: DropFunc = (opts) => (e) => {
     });
   }
 
-  const filteredFiles = newFilesArray.filter(hasPermittedFile);
+  const filteredFiles = newFilesArray.filter(hasPermittedFile) ?? [];
 
-  const newFilesMapped = filteredFiles
-    .map((file) => ({
-      id: file.size + file.name,
-      file: file,
-      url: URL.createObjectURL(file)
-    }))
-    .filter((file) => !getFiles.some((f) => f.id === file.id));
+  const isPhone = async (file: File) => {
+    if (typeof window !== 'undefined') {
+      const ext = file.name.split('.').pop()?.toLowerCase();
+      const isHEIC = ['heic', 'heif'].includes(ext ?? '');
+      if (!isHEIC) return file;
+      setLoading(true);
 
-  const hasReplace = props.hasReplace ?? false;
+      const heic2any = require('heic2any');
+      const blob = await heic2any({
+        blob: file,
+        toType: 'image/jpeg',
+        quality: 0.8
+      });
+      const blobArray = Array.isArray(blob) ? blob : [blob];
+      const iphoneFile = new File(blobArray, `${file.name}.jpg`, {
+        type: 'image/jpeg'
+      });
+      return iphoneFile;
+    }
+  };
 
-  const filesMapped = hasReplace
-    ? newFilesMapped
-    : [...getFiles, ...newFilesMapped];
+  const newFilesMappedPromises = Promise.all(
+    filteredFiles.map(async (file) => await isPhone(file))
+  );
 
-  setter(filesMapped);
-  ref.current.value = '';
+  newFilesMappedPromises.then((filteredFiles) => {
+    const newFilesMapped = filteredFiles
+      .map((file) => ({
+        id: file.size + file.name,
+        file: file,
+        url: URL.createObjectURL(file)
+      }))
+      .filter((file) => !getFiles.some((f) => f.id === file.id));
+
+    const hasReplace = props.hasReplace ?? false;
+
+    const filesMapped = hasReplace
+      ? newFilesMapped
+      : [...getFiles, ...newFilesMapped];
+
+    setter(filesMapped);
+    ref.current.value = '';
+    setLoading(false);
+  });
 };
