@@ -2,7 +2,6 @@ import { css } from '@emotion/react';
 import { AtomInput, AtomWrapper } from 'index';
 import { IOption } from 'components/atoms/AtomInput/types';
 import Header from 'src/components/Header';
-import WrapperComponent from 'src/components/WrapperComponent';
 import { useEffect, useState } from 'react';
 
 const ContainerCSS = css`
@@ -45,67 +44,65 @@ const Index = () => {
           }
         `}
       >
-        <WrapperComponent title="Select">
-          <AtomInput
-            type="select"
-            labeltext="Label Input Example"
-            options={OPTIONS}
-            input={{
-              placeholder: 'Placeholder Input Example'
-            }}
-          />
-          <AtomInput
-            type="select"
-            labeltext="Label Input Example"
-            options={OPTIONS}
-            input={{
-              placeholder: 'Placeholder Input Example'
-            }}
-          />
-          <AtomInput
-            type="select"
-            labeltext="Label Input Example"
-            options={OPTIONS}
-            select={{
-              search: true
-            }}
-            input={{
-              placeholder: 'Placeholder Input Example'
-            }}
-          />
-          <AtomInput
-            type="select"
-            labeltext="Label Input Example"
-            options={data?.map((item: any) => ({
-              id: item?.id,
-              label: item?.name + ' ' + item?.username,
-              value: item?.id
-            }))}
-            select={{
-              search: true
-            }}
-            input={{
-              placeholder: 'Placeholder Input Example'
-            }}
-          />
-          <AtomInput
-            type="select"
-            labeltext="Label Input Example"
-            options={data?.map((item: any) => ({
-              id: item?.id,
-              label: item?.name + ' ' + item?.username,
-              value: item?.id
-            }))}
-            select={{
-              search: true,
-              multiple: true,
-              floating: false
-            }}
-            input={{
-              placeholder: 'Placeholder Input Example'
-            }}
-          />
-        </WrapperComponent>
+        <AtomInput
+          type="select"
+          labeltext="Label Input Example"
+          options={OPTIONS}
+          input={{
+            placeholder: 'Placeholder Input Example'
+          }}
+        />
+        <AtomInput
+          type="select"
+          labeltext="Label Input Example"
+          options={OPTIONS}
+          input={{
+            placeholder: 'Placeholder Input Example'
+          }}
+        />
+        <AtomInput
+          type="select"
+          labeltext="Label Input Example"
+          options={OPTIONS}
+          select={{
+            search: true
+          }}
+          input={{
+            placeholder: 'Placeholder Input Example'
+          }}
+        />
+        <AtomInput
+          type="select"
+          labeltext="Label Input Example"
+          options={data?.map((item: any) => ({
+            id: item?.id,
+            label: item?.name + ' ' + item?.username,
+            value: item?.id
+          }))}
+          select={{
+            search: true
+          }}
+          input={{
+            placeholder: 'Placeholder Input Example'
+          }}
+        />
+        <AtomInput
+          type="select"
+          labeltext="Label Input Example"
+          options={data?.map((item: any) => ({
+            id: item?.id,
+            label: item?.name + ' ' + item?.username,
+            value: item?.id
+          }))}
+          select={{
+            search: true,
+            multiple: true,
+            floating: false
+          }}
+          input={{
+            placeholder: 'Placeholder Input Example'
+          }}
+        />
       </AtomWrapper>
     </AtomWrapper>
   );

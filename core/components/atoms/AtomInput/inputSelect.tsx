@@ -41,7 +41,6 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
   }, [`${select?.multipleValue}`]);
 
   const [open, setOpen] = useState(false);
-  const [searching, setSearching] = useState(false);
   const [search, setSearch] = useState('');
 
   const filtered = useMemo(() => {
@@ -55,7 +54,8 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
     (item) => item?.value === get(formik?.values, id, selectValue)
   );
 
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLLabelElement>(null);
+  const refSearch = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (ref.current) {
@@ -66,7 +66,7 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
         behavior: 'smooth'
       });
     }
-  }, [ref, open, searching]);
+  }, [ref, open]);
 
   useEffect(() => {
     const checkIfClickedOutside = (e: MouseEvent) => {
@@ -81,7 +81,7 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
   }, [ref]);
 
   return (
-    <InputLabelStyled htmlFor={id} {...label}>
+    <InputLabelStyled ref={ref} htmlFor={id} {...label}>
       {labeltext && <InputSpanStyled {...span}>{labeltext}</InputSpanStyled>}
       <InputSelectWrapperStyled open={open}>
         <InputSelectStyled
@@ -89,27 +89,32 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
           placeholder="Select an option"
           {...select}
           disabled={true}
-          searching={searching}
+          searching={select?.search ? open : false}
           value={
             select?.multiple ? select?.multipleLabel : selected?.label ?? ''
           }
           onTap={() => {
-            setOpen(!open);
+            setOpen((prev) => {
+              const next = !prev;
+              if (next) {
+                setTimeout(() => {
+                  refSearch.current?.focus();
+                }, 100);
+              }
+              return next;
+            });
             formik?.setFieldTouched(id, true);
           }}
         />
         <InputSelectSearchStyled
+          ref={refSearch}
           {...Animation}
           value={search}
-          searching={searching}
+          searching={select?.search ? open : false}
           onChange={(e) => setSearch(e.target.value)}
         />
         {select?.search && (
           <AtomButton
-            onClick={() => {
-              setSearching(!searching);
-              setOpen(true);
-            }}
             css={(theme) => css`
               border: 1px solid transparent;
               width: max-content;
@@ -143,8 +148,17 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
           </AtomButton>
         )}
         <AtomButton
-          onClick={() => {
-            setOpen(!open);
+          onClick={(e) => {
+            e.stopPropagation();
+            setOpen((prev) => {
+              const next = !prev;
+              if (next) {
+                setTimeout(() => {
+                  refSearch.current?.focus();
+                }, 100);
+              }
+              return next;
+            });
           }}
           css={(theme) => css`
             border: 1px solid transparent;
@@ -180,8 +194,8 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
           />
         </AtomButton>
       </InputSelectWrapperStyled>
-      {(open || searching) && (
-        <InputSelectOptionWrapperStyled ref={ref} floating={select?.floating}>
+      {open && (
+        <InputSelectOptionWrapperStyled floating={select?.floating}>
           {filtered?.map((item) => (
             <InputSelectOptionStyled
               key={item?.id}
@@ -203,7 +217,6 @@ const InputSelect: FCWC<AtomInputTypes> = (props) => {
                   );
                 } else {
                   setOpen(false);
-                  setSearching(false);
                   setSearch('');
                 }
               }}
