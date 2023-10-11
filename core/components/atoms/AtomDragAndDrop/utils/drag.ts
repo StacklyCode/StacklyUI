@@ -1,4 +1,5 @@
 import { DragFunc, DropFunc, GetterFunc, SetterFunc } from '../types';
+import { get } from 'utils/tinyLodash';
 
 export const onDragOver: DragFunc = (setter) => (e) => {
   e.preventDefault();
@@ -21,7 +22,7 @@ export const onDrop: DropFunc = (opts) => (e) => {
 
   const getter: GetterFunc = () => {
     if (!formik) return files;
-    return formik.values[id];
+    return get(formik.values, id, []);
   };
 
   const setter: SetterFunc = (files) => {
@@ -32,13 +33,13 @@ export const onDrop: DropFunc = (opts) => (e) => {
   const exts = props?.extensions ?? [];
 
   const hasPermittedFile = (file: File) => {
-    const hasExt = exts.length > 0;
+    const hasExt = exts?.length > 0;
     if (!hasExt) return true;
 
-    const ext = file.name.split('.').pop();
+    const ext = file?.name?.split('.')?.pop();
     if (!ext) return false;
 
-    return exts.includes(ext?.toLowerCase());
+    return exts?.includes?.(ext?.toLowerCase());
   };
 
   const handleErrors = (error: string) => {

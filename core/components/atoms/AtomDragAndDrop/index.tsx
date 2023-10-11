@@ -214,7 +214,7 @@ const AtomDragAndDrop = (props: AtomDragAndDropTypes) => {
                   >
                     {getfile?.map((file, idx) => (
                       <AtomWrapper
-                        key={file?.id}
+                        key={file?.url}
                         {...previewItem}
                         css={(theme) => css`
                           position: relative;
