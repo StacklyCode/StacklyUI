@@ -4,11 +4,18 @@ import { AtomInputTypes } from './types';
 import { FormikValues } from 'formik';
 import { get } from '../../../utils/tinyLodash';
 
-const validateErrors = (formik: FormikValues, id: string): string =>
-  (get(formik?.values, id) !== `` || get(formik?.touched, id)) &&
-  get(formik?.errors, id)
-    ? get(formik?.errors, id)
-    : ``;
+const validateErrors = (formik: FormikValues, id: string): string => {
+  if (!formik || !id) return '';
+  const errorGet = get<string>(formik?.errors, id);
+  const touched = get<boolean>(formik?.touched, id);
+  const hasError = Boolean(errorGet && touched);
+  const isMultiple = Array.isArray(errorGet);
+  const normalizeError = isMultiple
+    ? errorGet?.map((e) => Object.values(e)?.join('\n'))?.join('\n')
+    : errorGet;
+  const error = hasError ? normalizeError : '';
+  return error;
+};
 
 const InputTextError: FC<AtomInputTypes> = (props) => {
   const { formik, id } = props;
