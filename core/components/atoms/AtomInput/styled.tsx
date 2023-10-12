@@ -65,7 +65,7 @@ export const InputErrorStyled = styled(motion.span)<AtomInputTypes['error']>(
       color: #ff0000;
       margin: 0px 0px 0px 0px;
       min-height: 23px;
-      padding: 6px 0px 0px 0px;
+      padding: 6px 0px 6px 0px;
       ${theme?.input?.error?.css?.(theme, props)}
       ${props?.css?.(props?.theme, props)}
     `;
