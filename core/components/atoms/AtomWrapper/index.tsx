@@ -10,7 +10,6 @@ import {
   AtomWrapperFooterStyled,
   AtomWrapperNavStyled
 } from './styled';
-import { MotionFadeInOut } from '../../../animations/motion';
 
 const AtomWrapper: FC<AtomWrapperTypes> = forwardRef<any, AtomWrapperTypes>(
   (props, ref) => {
@@ -18,55 +17,55 @@ const AtomWrapper: FC<AtomWrapperTypes> = forwardRef<any, AtomWrapperTypes>(
     switch (as) {
       case 'form':
         return (
-          <AtomWrapperFormStyled ref={ref} {...MotionFadeInOut} {...props}>
+          <AtomWrapperFormStyled ref={ref} {...props}>
             {children}
           </AtomWrapperFormStyled>
         );
       case 'section':
         return (
-          <AtomWrapperSectionStyled ref={ref} {...MotionFadeInOut} {...props}>
+          <AtomWrapperSectionStyled ref={ref} {...props}>
             {children}
           </AtomWrapperSectionStyled>
         );
       case 'li':
         return (
-          <AtomWrapperLiStyled ref={ref} {...MotionFadeInOut} {...props}>
+          <AtomWrapperLiStyled ref={ref} {...props}>
             {children}
           </AtomWrapperLiStyled>
         );
       case 'ul':
         return (
-          <AtomWrapperUlStyled ref={ref} {...MotionFadeInOut} {...props}>
+          <AtomWrapperUlStyled ref={ref} {...props}>
             {children}
           </AtomWrapperUlStyled>
         );
       case 'main':
         return (
-          <AtomWrapperMainStyled ref={ref} {...MotionFadeInOut} {...props}>
+          <AtomWrapperMainStyled ref={ref} {...props}>
             {children}
           </AtomWrapperMainStyled>
         );
       case 'footer':
         return (
-          <AtomWrapperFooterStyled ref={ref} {...MotionFadeInOut} {...props}>
+          <AtomWrapperFooterStyled ref={ref} {...props}>
             {children}
           </AtomWrapperFooterStyled>
         );
       case 'nav':
         return (
-          <AtomWrapperNavStyled ref={ref} {...MotionFadeInOut} {...props}>
+          <AtomWrapperNavStyled ref={ref} {...props}>
             {children}
           </AtomWrapperNavStyled>
         );
       case 'div':
         return (
-          <AtomWrapperDefaultStyled ref={ref} {...MotionFadeInOut} {...props}>
+          <AtomWrapperDefaultStyled ref={ref} {...props}>
             {children}
           </AtomWrapperDefaultStyled>
         );
       default:
         return (
-          <AtomWrapperDefaultStyled ref={ref} {...Animation} {...props}>
+          <AtomWrapperDefaultStyled ref={ref} {...props}>
             {children}
           </AtomWrapperDefaultStyled>
         );
