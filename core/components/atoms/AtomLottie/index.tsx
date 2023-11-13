@@ -1,11 +1,10 @@
 import { FC } from 'react';
-import Lottie from 'lottie-react';
 import { AtomLottieTypes } from './types';
 import helloAnimation from '../../../animations/hello.json';
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 const AtomLottie: FC<AtomLottieTypes> = (props) => {
-  if (typeof document === 'undefined') return null;
-
   return <Lottie loop={true} animationData={helloAnimation} {...props} />;
 };
 
